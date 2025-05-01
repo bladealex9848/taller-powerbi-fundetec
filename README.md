@@ -72,7 +72,7 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 
 ## Cómo Usar la Aplicación
 
-1. Abre el archivo `app.html` en tu navegador web
+1. Abre el archivo `index.html` en tu navegador web
 2. Explora la ruta de aprendizaje y los recursos disponibles
 3. Haz clic en "Comenzar Taller" para iniciar el recorrido por los módulos
 4. Selecciona el modo que mejor se adapte a tu rol
@@ -82,7 +82,7 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 
 ```
 /
-├── app.html              # Aplicación web principal
+├── index.html            # Aplicación web principal
 ├── css/                  # Estilos CSS
 ├── js/                   # Scripts JavaScript
 │   ├── modules.js        # Definición de módulos
