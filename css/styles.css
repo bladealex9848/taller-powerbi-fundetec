@@ -1,0 +1,253 @@
+:root {
+    --fundetec-blue: #1a3e82;
+    --fundetec-yellow: #f9ca24;
+    --fundetec-red: #c0392b;
+    --fundetec-white: #ffffff;
+    --fundetec-light-blue: #4a69bd;
+    --fundetec-blue-dark: #14315f;
+    --fundetec-blue-light: #2c5ab4;
+    --fundetec-yellow-light: #fad44a;
+    --fundetec-yellow-dark: #d4a91a;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f8ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+.header-gradient {
+    background: linear-gradient(135deg, var(--fundetec-blue) 0%, var(--fundetec-blue-dark) 100%);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(26, 62, 130, 0.8), rgba(26, 62, 130, 0.9)), url('../assets/img/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cards and Containers */
+.info-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card {
+    perspective: 1000px;
+    height: 400px;
+}
+
+.profile-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.profile-card:hover .profile-card-inner {
+    transform: rotateY(180deg);
+}
+
+.profile-card-front, .profile-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.profile-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Learning Path */
+.path-node {
+    transition: all 0.3s ease;
+}
+
+.path-node:hover {
+    transform: scale(1.05);
+}
+
+/* Resource Buttons */
+.resource-btn {
+    transition: all 0.3s ease;
+}
+
+.resource-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode Options */
+.mode-option {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.mode-option:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Check Items */
+.check-item {
+    transition: all 0.2s ease;
+}
+
+.check-item:hover {
+    background-color: rgba(74, 105, 189, 0.1);
+}
+
+/* Modals and Tooltips */
+.modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltip {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Accordion */
+.accordion-content {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Progress Bars */
+.progress-fill {
+    transition: width 0.5s ease;
+}
+
+/* Interactive Elements */
+.draggable-item {
+    cursor: grab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.draggable-item:active {
+    cursor: grabbing;
+}
+
+.draggable-item.dragging {
+    opacity: 0.5;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.drop-zone {
+    transition: background-color 0.3s ease;
+}
+
+.drop-zone.highlight {
+    background-color: rgba(74, 105, 189, 0.3);
+    border: 2px dashed var(--fundetec-blue);
+}
+
+/* Quiz Elements */
+.quiz-option {
+    transition: background-color 0.2s ease;
+}
+
+.quiz-option:hover {
+    background-color: rgba(74, 105, 189, 0.1);
+}
+
+.quiz-option.correct {
+    background-color: rgba(39, 174, 96, 0.2);
+    border-left: 4px solid #27ae60;
+}
+
+.quiz-option.incorrect {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 4px solid #e74c3c;
+}
+
+/* Feedback Messages */
+.feedback-message {
+    transition: all 0.3s ease;
+}
+
+/* Tab Content */
+.tab-content {
+    transition: opacity 0.3s ease;
+}
+
+/* Hotspot Tooltips */
+.hotspot-tooltip {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Diagram Stages */
+.diagram-stage {
+    transition: all 0.3s ease;
+}
+
+.diagram-stage:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Objective Items */
+.objective-item {
+    transition: box-shadow 0.3s ease;
+}
+
+.objective-item:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Walkthrough Steps */
+.walkthrough-step {
+    transition: opacity 0.3s ease;
+}
+
+/* Practice Checkpoints */
+.practice-checkpoint {
+    transition: background-color 0.2s ease;
+}
+
+.practice-checkpoint:hover {
+    background-color: rgba(74, 105, 189, 0.1);
+}
+
+/* Resource Cards */
+.resource-card {
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-card {
+        height: 350px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .profile-card {
+        height: 300px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+}
