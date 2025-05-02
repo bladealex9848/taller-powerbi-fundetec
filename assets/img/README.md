@@ -6,9 +6,8 @@ Este directorio contiene las imágenes y recursos visuales utilizados en la apli
 
 - `/img` - Directorio principal de imágenes
   - `/icons` - Iconos utilizados en la interfaz
-  - `/screenshots` - Capturas de pantalla de Power BI
-  - `/diagrams` - Diagramas explicativos
   - `/logos` - Logotipos de FUNDETEC, Power BI y otros
+  - `/profiles` - Imágenes de perfiles, como la del facilitador
 
 ## Recursos Principales
 

@@ -1,17 +1,26 @@
+---
+title: "Propuesta Académica: Seminario/Taller de Modelado y Análisis de Datos con Microsoft Power BI"
+author: "Ing. Alexander Oviedo Fadul"
+date: "Marzo 2025"
+version: "1.1"
+tipo_documento: "Propuesta académica"
+estado: "Aprobada"
+---
+
 # PROPUESTA ACADÉMICA
 ## Seminario/Taller: Modelado y Análisis de Datos con Microsoft Power BI
 
 ### INFORMACIÓN GENERAL
 
-**Facilitador:** Ing. Alexander Oviedo Fadul  
-**Dirigido a:** Estudiantes Auxiliar en Sistemas Informáticos (110 participantes)  
-**Fecha:** 25 de mayo de 2025  
-**Horario:** 8:00am - 12:00m (4 horas)  
-**Lugar:** FUNDETEC  
+**Facilitador:** Ing. Alexander Oviedo Fadul
+**Dirigido a:** Estudiantes Auxiliar en Sistemas Informáticos (110 participantes)
+**Fecha:** 25 de mayo de 2025
+**Horario:** 8:00am - 12:00m (4 horas)
+**Lugar:** FUNDETEC
 
 ### PERFIL DEL FACILITADOR
 
-Ingeniero de Sistemas y Abogado con Máster en Big Data y Business Intelligence, especialista en Gestión y Seguridad de Bases de Datos. Más de 10 años de experiencia en desarrollo de software, análisis de datos y transformación digital. Experiencia docente en programas de formación técnica y profesional. 
+Ingeniero de Sistemas y Abogado con Máster en Big Data y Business Intelligence, especialista en Gestión y Seguridad de Bases de Datos. Más de 10 años de experiencia en desarrollo de software, análisis de datos y transformación digital. Experiencia docente en programas de formación técnica y profesional.
 
 **Reconocimientos recientes:**
 - Condecoración "José Ignacio de Márquez al Mérito Judicial 2024" otorgada por el Consejo Superior de la Judicatura
@@ -108,7 +117,7 @@ Como complemento al seminario-taller, se ofrecerá:
 
 ### INFORMACIÓN DE CONTACTO
 
-**Alexander Oviedo Fadul**  
-Teléfono: (+57) 301 5930519  
-Correo: aoviedofadul@gmail.com  
+**Alexander Oviedo Fadul**
+Teléfono: (+57) 301 5930519
+Correo: aoviedofadul@gmail.com
 LinkedIn: /alexander-oviedo-fadul
