@@ -39,14 +39,15 @@
                 </div>
 
                 <div class="relative group">
-                    <button class="flex items-center space-x-2 focus:outline-none">
+                    <button class="flex items-center space-x-2 focus:outline-none" id="user-menu-btn">
                         <div class="h-10 w-10 rounded-full bg-yellow-400 flex items-center justify-center">
                             <i class="fas fa-user text-white"></i>
                         </div>
                         <span class="hidden md:inline">Participante</span>
                     </button>
-                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                    <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" id="user-menu">
                         <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Mi Perfil</a>
+                        <button id="requirements-btn" class="w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-50">Verificar Requisitos</button>
                         <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Configuración</a>
                         <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Cerrar Sesión</a>
                     </div>
@@ -231,60 +232,7 @@
             </div>
         </section>
 
-        <!-- Requirements Widget Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-blue-900 mb-6">Verificación de Requisitos Técnicos</h2>
 
-            <div class="requirements-widget bg-white rounded-xl shadow-md p-6">
-                <h4 class="font-bold text-lg mb-4">Verifica que cumples con los requisitos para el taller</h4>
-
-                <ul class="check-list space-y-3">
-                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
-                        <div class="flex items-center">
-                            <span class="check-icon bg-green-100 text-green-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-check text-xs"></i>
-                            </span>
-                            <span class="check-label text-sm font-medium">Power BI Desktop instalado</span>
-                        </div>
-                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="powerbi">Verificar</button>
-                    </li>
-
-                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
-                        <div class="flex items-center">
-                            <span class="check-icon bg-green-100 text-green-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-check text-xs"></i>
-                            </span>
-                            <span class="check-label text-sm font-medium">Windows 10/11</span>
-                        </div>
-                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="windows">Verificar</button>
-                    </li>
-
-                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
-                        <div class="flex items-center">
-                            <span class="check-icon bg-red-100 text-red-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-times text-xs"></i>
-                            </span>
-                            <span class="check-label text-sm font-medium">Mínimo 4GB RAM</span>
-                        </div>
-                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="ram">Verificar</button>
-                    </li>
-
-                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
-                        <div class="flex items-center">
-                            <span class="check-icon bg-yellow-100 text-yellow-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
-                                <i class="fas fa-question text-xs"></i>
-                            </span>
-                            <span class="check-label text-sm font-medium">Conexión a Internet</span>
-                        </div>
-                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="internet">Verificar</button>
-                    </li>
-                </ul>
-
-                <button class="verify-all-btn mt-4 w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition duration-200">
-                    Verificar Todos los Requisitos
-                </button>
-            </div>
-        </section>
 
         <!-- Module Content Section -->
         <section id="module-content-section" class="hidden">
@@ -407,6 +355,70 @@
                         <i class="fas fa-chevron-right ml-1"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Requirements Modal -->
+    <div id="requirements-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-lg w-full">
+            <div class="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+                <h3 class="text-xl font-bold text-blue-800 flex items-center">
+                    <i class="fas fa-laptop-code mr-2"></i>
+                    Verificación de Requisitos Técnicos
+                </h3>
+                <button class="text-gray-400 hover:text-gray-600 modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <h4 class="font-bold text-lg mb-4">Verifica que cumples con los requisitos para el taller</h4>
+
+                <ul class="check-list space-y-3">
+                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
+                        <div class="flex items-center">
+                            <span class="check-icon bg-green-100 text-green-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </span>
+                            <span class="check-label text-sm font-medium">Power BI Desktop instalado</span>
+                        </div>
+                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="powerbi">Verificar</button>
+                    </li>
+
+                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
+                        <div class="flex items-center">
+                            <span class="check-icon bg-green-100 text-green-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </span>
+                            <span class="check-label text-sm font-medium">Windows 10/11</span>
+                        </div>
+                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="windows">Verificar</button>
+                    </li>
+
+                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
+                        <div class="flex items-center">
+                            <span class="check-icon bg-red-100 text-red-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-times text-xs"></i>
+                            </span>
+                            <span class="check-label text-sm font-medium">Mínimo 4GB RAM</span>
+                        </div>
+                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="ram">Verificar</button>
+                    </li>
+
+                    <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
+                        <div class="flex items-center">
+                            <span class="check-icon bg-yellow-100 text-yellow-800 h-6 w-6 rounded-full flex items-center justify-center mr-3">
+                                <i class="fas fa-question text-xs"></i>
+                            </span>
+                            <span class="check-label text-sm font-medium">Conexión a Internet</span>
+                        </div>
+                        <button class="check-btn text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="internet">Verificar</button>
+                    </li>
+                </ul>
+
+                <button class="verify-all-btn mt-4 w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition duration-200">
+                    Verificar Todos los Requisitos
+                </button>
             </div>
         </div>
     </div>

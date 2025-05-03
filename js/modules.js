@@ -161,109 +161,117 @@ const workshopModules = {
 const workshopResources = {
     datasets: [
         {
-            icon: "📊",
-            title: "Dataset de Ventas",
+            icon: '<i class="fas fa-chart-bar"></i>',
+            title: "Dataset de Ventas Trimestrales",
             description: "Conjunto de datos de ejemplo con información de ventas por región, producto y fecha.",
             type: "Excel",
-            size: "1.2 MB"
+            size: "1.2 MB",
+            url: "assets/datasets/ventas_trimestrales.xlsx"
         },
         {
-            icon: "📊",
-            title: "Dataset de Tickets IT",
+            icon: '<i class="fas fa-headset"></i>',
+            title: "Dataset de Tickets de Soporte",
             description: "Datos de ejemplo de un sistema de tickets de soporte técnico.",
             type: "CSV",
-            size: "850 KB"
+            size: "850 KB",
+            url: "assets/datasets/tickets_soporte.csv"
         },
         {
-            icon: "📊",
+            icon: '<i class="fas fa-balance-scale"></i>',
             title: "Dataset de Marduk (Simplificado)",
             description: "Versión simplificada de los datos del sistema judicial Marduk.",
             type: "Excel",
-            size: "2.1 MB"
+            size: "2.1 MB",
+            url: "assets/datasets/marduk_simplificado.xlsx"
         }
     ],
     guides: [
         {
-            icon: "📚",
-            title: "Guía de Inicio Rápido",
-            description: "Pasos básicos para comenzar a usar Power BI Desktop.",
+            icon: '<i class="fas fa-book"></i>',
+            title: "Guía Rápida de Power BI",
+            description: "Pasos básicos para comenzar a usar Power BI Desktop con ejemplos prácticos.",
             type: "PDF",
-            size: "1.5 MB"
+            size: "1.5 MB",
+            url: "assets/guides/guia_rapida_power_bi.pdf"
         },
         {
-            icon: "📚",
+            icon: '<i class="fas fa-exchange-alt"></i>',
             title: "Manual de Transformaciones",
-            description: "Referencia de las transformaciones más comunes en Power Query.",
-            type: "PDF",
-            size: "2.8 MB"
+            description: "Referencia completa de las transformaciones más comunes en Power Query.",
+            type: "Web",
+            url: "https://learn.microsoft.com/es-es/power-query/power-query-ui"
         },
         {
-            icon: "📚",
+            icon: '<i class="fas fa-chart-pie"></i>',
             title: "Guía de Visualizaciones",
-            description: "Catálogo de visualizaciones y cuándo usar cada una.",
-            type: "PDF",
-            size: "3.2 MB"
+            description: "Catálogo oficial de Microsoft con todas las visualizaciones disponibles.",
+            type: "Web",
+            url: "https://learn.microsoft.com/es-es/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a"
         }
     ],
     "ai-prompts": [
         {
-            icon: "🤖",
-            title: "Prompts para DAX",
-            description: "Ejemplos de prompts para generar fórmulas DAX con asistentes de IA.",
+            icon: '<i class="fas fa-robot"></i>',
+            title: "Prompts para Power BI con IA",
+            description: "Colección de prompts optimizados para generar fórmulas DAX, ideas de visualización y más.",
             type: "TXT",
-            size: "45 KB"
+            size: "5 KB",
+            url: "assets/guides/prompts/prompts_power_bi_ia.txt"
         },
         {
-            icon: "🤖",
-            title: "Prompts para Modelado",
-            description: "Ejemplos de prompts para obtener ayuda con el modelado de datos.",
-            type: "TXT",
-            size: "38 KB"
+            icon: '<i class="fas fa-brain"></i>',
+            title: "Guía de Copilot en Power BI",
+            description: "Documentación oficial sobre cómo aprovechar Copilot en Power BI.",
+            type: "Web",
+            url: "https://learn.microsoft.com/es-es/power-bi/create-reports/copilot-introduction"
         },
         {
-            icon: "🤖",
-            title: "Prompts para Visualización",
-            description: "Ejemplos de prompts para generar ideas de visualización.",
-            type: "TXT",
-            size: "52 KB"
+            icon: '<i class="fas fa-magic"></i>',
+            title: "Mejores Prácticas con IA",
+            description: "Recomendaciones para integrar asistentes de IA en tu flujo de trabajo con Power BI.",
+            type: "Web",
+            url: "https://powerbi.microsoft.com/es-es/blog/category/ai-features/"
         }
     ],
     templates: [
         {
-            icon: "📋",
+            icon: '<i class="fas fa-store"></i>',
             title: "Dashboard de Ventas",
-            description: "Plantilla de dashboard para análisis de ventas.",
+            description: "Plantilla completa de dashboard para análisis de ventas con KPIs, tendencias y segmentación.",
             type: "PBIT",
-            size: "450 KB"
+            size: "450 KB",
+            url: "assets/templates/plantilla_dashboard_ventas.pbit"
         },
         {
-            icon: "📋",
-            title: "Dashboard de Soporte IT",
-            description: "Plantilla para análisis de tickets de soporte técnico.",
+            icon: '<i class="fas fa-users"></i>',
+            title: "Dashboard de RRHH",
+            description: "Plantilla para análisis de recursos humanos con indicadores de rendimiento y satisfacción.",
             type: "PBIT",
-            size: "520 KB"
+            size: "520 KB",
+            url: "assets/templates/plantilla_dashboard_rrhh.pbit"
         },
         {
-            icon: "📋",
-            title: "Dashboard Ejecutivo",
-            description: "Plantilla para informes ejecutivos con KPIs principales.",
-            type: "PBIT",
-            size: "480 KB"
+            icon: '<i class="fas fa-file-powerpoint"></i>',
+            title: "Plantillas Oficiales Microsoft",
+            description: "Colección de plantillas oficiales de Microsoft para diversos escenarios de negocio.",
+            type: "Web",
+            url: "https://templates.office.com/es-es/plantillas-para-power-bi"
         }
     ],
     certification: [
         {
-            icon: "🏆",
-            title: "Certificado de Participación",
-            description: "Certificado digital que acredita tu participación en el taller.",
-            type: "PDF"
+            icon: '<i class="fas fa-certificate"></i>',
+            title: "Certificado de Participación FUNDETEC",
+            description: "Certificado digital que acredita tu participación en el taller de Power BI.",
+            type: "Digital",
+            url: "https://fundetec.edu.co/certificados/"
         },
         {
-            icon: "🏆",
-            title: "Guía de Certificación Microsoft",
-            description: "Información sobre la certificación oficial de Microsoft en Power BI.",
-            type: "PDF",
-            size: "1.1 MB"
+            icon: '<i class="fas fa-award"></i>',
+            title: "Certificación Oficial Microsoft",
+            description: "Información sobre la certificación PL-300: Microsoft Power BI Data Analyst.",
+            type: "Web",
+            url: "https://learn.microsoft.com/es-es/credentials/certifications/power-bi-data-analyst-associate/"
         }
     ]
 };

@@ -8,42 +8,20 @@
  */
 const contentPaths = {
     intro: {
-        main: 'docs/guias/guia-power-bi-para-principiantes.md',
-        sections: [
-            'docs/guias/guia-power-bi-para-principiantes.md#introduccion',
-            'docs/guias/guia-power-bi-para-principiantes.md#componentes',
-            'docs/guias/guia-power-bi-para-principiantes.md#interfaz',
-            'docs/guias/guia-power-bi-para-principiantes.md#tipos-datos',
-            'docs/guias/guia-power-bi-para-principiantes.md#asistentes-ia'
-        ]
+        main: 'docs/modulos/intro.md',
+        sections: []
     },
     transform: {
-        main: 'docs/guias/guia-power-bi-para-principiantes.md',
-        sections: [
-            'docs/guias/guia-power-bi-para-principiantes.md#conexion-datos',
-            'docs/guias/guia-power-bi-para-principiantes.md#power-query',
-            'docs/guias/guia-power-bi-para-principiantes.md#transformaciones',
-            'docs/guias/guia-power-bi-para-principiantes.md#modelado'
-        ]
+        main: 'docs/modulos/transform.md',
+        sections: []
     },
     demo: {
-        main: 'docs/planificacion/desarrollo-de-taller-power-bi.md',
-        sections: [
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#contexto',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#conexion-preparacion',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#dax',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#visualizaciones',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#interactividad'
-        ]
+        main: 'docs/modulos/demo.md',
+        sections: []
     },
     practice: {
-        main: 'docs/planificacion/desarrollo-de-taller-power-bi.md',
-        sections: [
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#practica',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#desarrollo',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#resultado',
-            'docs/planificacion/desarrollo-de-taller-power-bi.md#recursos'
-        ]
+        main: 'docs/modulos/practice.md',
+        sections: []
     }
 };
 

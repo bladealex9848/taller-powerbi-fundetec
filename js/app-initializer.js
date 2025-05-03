@@ -586,6 +586,29 @@ function showResourceModal(resourceType) {
 }
 
 /**
+ * Renderiza los recursos para un modal
+ * @param {Array} resources - Array de recursos a renderizar
+ * @returns {string} HTML de los recursos
+ */
+function renderResources(resources) {
+    if (!resources || resources.length === 0) {
+        return '<p class="text-center text-gray-500 py-4">No hay recursos disponibles.</p>';
+    }
+
+    return resources.map(resource => {
+        return createResourceCard(
+            resource.icon,
+            resource.title,
+            resource.description,
+            resource.type,
+            resource.size,
+            resource.duration,
+            resource.url
+        );
+    }).join('');
+}
+
+/**
  * Inicializa las opciones de modo (estudiante, facilitador, autoguiado)
  */
 function initModeOptions() {
@@ -703,6 +726,7 @@ function initTooltips() {
 function initModals() {
     const modalTriggers = document.querySelectorAll('.modal-trigger');
     const modalCloseButtons = document.querySelectorAll('.modal-close');
+    const requirementsBtn = document.getElementById('requirements-btn');
 
     modalTriggers.forEach(trigger => {
         trigger.addEventListener('click', function() {
@@ -723,6 +747,16 @@ function initModals() {
             }
         });
     });
+
+    // Inicializar el botón de requisitos en el menú de usuario
+    if (requirementsBtn) {
+        requirementsBtn.addEventListener('click', function() {
+            const requirementsModal = document.getElementById('requirements-modal');
+            if (requirementsModal) {
+                requirementsModal.classList.remove('hidden');
+            }
+        });
+    }
 }
 
 /**

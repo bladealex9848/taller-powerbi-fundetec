@@ -1,0 +1,16 @@
+## Prompts para Power BI con IA
+
+### Prompt para crear medidas DAX
+Actúa como un experto en DAX para Power BI. Necesito crear una medida que [descripción]. La tabla tiene los siguientes campos: [lista de campos]. Por favor, proporciona el código DAX optimizado con comentarios explicativos.
+
+### Prompt para mejorar visualizaciones
+Soy un analista de datos usando Power BI. Tengo una visualización de [tipo] que muestra [descripción]. ¿Cómo puedo mejorarla para que sea más efectiva y comunique mejor la información? Considera aspectos como colores, etiquetas, formato y posibles alternativas.
+
+### Prompt para diseño de dashboard
+Necesito diseñar un dashboard de Power BI para [propósito/audiencia]. Los KPIs principales son [lista]. Los datos disponibles incluyen [fuentes/tablas]. ¿Qué visualizaciones recomiendas incluir y cómo organizarlas para maximizar el impacto y la claridad?
+
+### Prompt para optimización de rendimiento
+Mi informe de Power BI está funcionando lento. Tiene [número] tablas con aproximadamente [cantidad] filas cada una. Uso [número] visualizaciones y [número] medidas DAX. ¿Qué estrategias de optimización recomiendas para mejorar el rendimiento?
+
+### Prompt para transformación de datos
+Estoy trabajando con Power Query en Power BI. Necesito transformar [descripción del dato] para [objetivo]. Los datos actuales están en formato [formato] y necesito [resultado deseado]. ¿Qué pasos de transformación debo seguir?
