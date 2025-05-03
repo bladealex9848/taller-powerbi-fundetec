@@ -63,6 +63,9 @@
     border-radius: 0.5rem;
     margin-bottom: 0.5rem;
     transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .quiz-option:hover {
@@ -70,26 +73,10 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Posición de las casillas de selección */
-.quiz-option {
-    display: flex;
-    flex-direction: column;
-}
-
-.quiz-option .option-text {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-.quiz-option .option-select {
-    display: flex;
-    align-items: center;
-    font-size: 0.875rem;
-    color: #666;
-}
-
-.quiz-option .option-select input[type="radio"] {
-    margin-right: 0.5rem;
+.quiz-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
 }
 
 /* Indicador de modo actual */

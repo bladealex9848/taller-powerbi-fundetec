@@ -103,43 +103,71 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 ├── index.html            # Aplicación web principal
 ├── css/                  # Estilos CSS
 │   ├── styles.css        # Estilos personalizados
+│   ├── enhanced-mode.css # Estilos mejorados para modos de usuario
+│   ├── modal.css         # Estilos para modales
 │   └── vendor/           # Bibliotecas CSS de terceros
-│       └── tailwind.min.css # Tailwind CSS (local)
+│       └── basic.css     # CSS básico de respaldo
 ├── js/                   # Scripts JavaScript
 │   ├── modules.js        # Definición de módulos
 │   ├── module-intro.js   # Contenido del módulo de introducción
 │   ├── module-transform.js # Contenido del módulo de transformación
+│   ├── module-demo.js    # Contenido del módulo de demostración
+│   ├── module-practice.js # Contenido del módulo de práctica
 │   ├── module-renderer.js # Renderizador de módulos
-│   ├── markdown-loader.js # Cargador de archivos Markdown
+│   ├── content-config.js # Configuración de contenido
+│   ├── debug-helper.js   # Utilidades para depuración
+│   ├── image-handler.js  # Manejador de imágenes
+│   ├── modal-init.js     # Inicializador de modales
 │   └── app-initializer.js # Inicializador de la aplicación
 ├── components/           # Componentes reutilizables
+│   ├── module-card.js    # Componente de tarjeta de módulo
+│   ├── step-navigator.js # Navegador de pasos
+│   └── interactive-elements.js # Elementos interactivos (quizzes, etc.)
 ├── assets/               # Recursos estáticos
 │   ├── img/              # Imágenes
 │   ├── datasets/         # Conjuntos de datos para práctica
 │   ├── guides/           # Guías y manuales
 │   └── templates/        # Plantillas de Power BI
-├── docs/                 # Documentación y contenido Markdown
-│   └── modulos/          # Contenido de los módulos en formato Markdown
+├── docs/                 # Carpetas vacías para mantener estructura
+│   ├── modulos/          # (Vacía - contenido movido a legacy_code)
+│   └── guias/            # (Vacía - contenido movido a legacy_code)
+├── legacy_code/          # Código no utilizado (para referencia)
+│   ├── html/             # Páginas HTML no utilizadas
+│   ├── js/               # Scripts JS no utilizados
+│   ├── css/              # Estilos CSS no utilizados
+│   └── docs/             # Documentación Markdown no utilizada
+│       ├── modulos/      # Contenido Markdown de módulos
+│       └── guias/        # Guías en formato Markdown
 ├── server.js             # Servidor local para desarrollo
 └── .htaccess             # Configuración para servidores Apache
 ```
 
 ## Solución de Problemas
 
-### Problemas de CORS al cargar archivos Markdown
+### Problemas con el servidor local
 
-Si experimentas problemas de CORS al cargar archivos Markdown, puedes:
+Si experimentas problemas al ejecutar el servidor local:
 
-1. Usar el servidor local incluido (`node server.js`)
-2. Configurar tu servidor web para permitir CORS (ver archivo `.htaccess`)
-3. La aplicación tiene un mecanismo de respaldo que cargará contenido predefinido si no puede acceder a los archivos Markdown
+1. Asegúrate de tener Node.js instalado
+2. Ejecuta `node server.js` desde la raíz del proyecto
+3. Si el puerto 8081 está ocupado, puedes modificar el puerto en el archivo `server.js`
+4. Accede a la aplicación a través de `http://localhost:8081`
 
-### Problemas con Tailwind CSS
+### Problemas con la carga de contenido
 
-La aplicación usa una versión local de Tailwind CSS para evitar problemas con el CDN en producción. Si experimentas problemas con los estilos:
+La aplicación carga todo el contenido desde archivos JavaScript predefinidos:
 
-1. Verifica que el archivo `css/vendor/tailwind.min.css` exista
-2. Si es necesario, puedes regenerarlo o descargarlo desde la página oficial de Tailwind CSS
+1. Cada módulo tiene su propio archivo JS (module-intro.js, module-transform.js, etc.)
+2. No se utilizan archivos Markdown para cargar contenido
+3. Si necesitas modificar el contenido, edita directamente los archivos JS correspondientes
+
+### Problemas con los estilos
+
+La aplicación utiliza Tailwind CSS desde CDN para los estilos principales:
+
+1. Asegúrate de tener conexión a Internet para cargar Tailwind CSS desde CDN
+2. Si hay problemas con el CDN, la aplicación utiliza `css/vendor/basic.css` como respaldo
+3. Los estilos personalizados se encuentran en `css/styles.css` y `css/enhanced-mode.css`
 
 ## Licencia
 

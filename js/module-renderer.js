@@ -231,14 +231,11 @@ function renderQuiz(quiz) {
 
     quiz.options.forEach((option, index) => {
         optionsHtml += `
-            <label class="flex flex-col p-3 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option mb-2"
+            <label class="flex justify-between items-center p-3 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option mb-2"
                    data-question="${quiz.questionId}"
                    data-correct="${index === quiz.correctIndex}">
-                <div class="mb-3 font-medium">${option}</div>
-                <div class="flex items-center mt-2 border-t pt-2 border-gray-100">
-                    <input type="radio" name="quiz-${quiz.questionId}" value="${index}" class="mr-2">
-                    <span class="text-sm text-gray-600">Seleccionar esta respuesta</span>
-                </div>
+                <div class="font-medium">${option}</div>
+                <input type="radio" name="quiz-${quiz.questionId}" value="${index}">
             </label>
         `;
     });
