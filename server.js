@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-const PORT = process.env.PORT || 8080; // Usar un puerto diferente (8080) o el definido en variables de entorno
+const PORT = process.env.PORT || 8081; // Usar un puerto diferente (8081) o el definido en variables de entorno
 
 const MIME_TYPES = {
     '.html': 'text/html',
@@ -26,10 +26,14 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
 
-    // Manejar la ruta raíz
-    let filePath = req.url === '/'
+    // Extraer la ruta base sin parámetros de consulta
+    const urlObj = new URL(req.url, `http://localhost:${PORT}`);
+    const pathname = urlObj.pathname;
+
+    // Manejar la ruta raíz y URLs con parámetros
+    let filePath = pathname === '/'
         ? path.join(__dirname, 'index.html')
-        : path.join(__dirname, req.url);
+        : path.join(__dirname, pathname);
 
     // Obtener la extensión del archivo
     const extname = path.extname(filePath);

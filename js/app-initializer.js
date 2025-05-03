@@ -196,15 +196,29 @@ function showModuleContent(moduleId, stepIndex = 0) {
         }
 
         if (modeSection) {
-            modeSection.scrollIntoView({ behavior: 'smooth' });
+            // Guardar el módulo y paso seleccionados para usarlos después de seleccionar el modo
+            localStorage.setItem('pendingModuleId', moduleId);
+            localStorage.setItem('pendingStepIndex', stepIndex);
 
-            // Mostrar un mensaje para que el usuario seleccione un modo
-            const modeOptions = document.querySelectorAll('.mode-option');
-            modeOptions.forEach(option => {
-                option.classList.add('animate-pulse');
-                setTimeout(() => {
-                    option.classList.remove('animate-pulse');
-                }, 2000);
+            // Mostrar mensaje informativo con SweetAlert2
+            Swal.fire({
+                title: 'Selecciona un modo',
+                text: 'Por favor, selecciona una modalidad de uso antes de continuar',
+                icon: 'info',
+                confirmButtonColor: '#1a3e82',
+                confirmButtonText: 'Entendido'
+            }).then(() => {
+                // Desplazarse a la sección de modalidades
+                modeSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Resaltar las opciones de modo
+                const modeOptions = document.querySelectorAll('.mode-option');
+                modeOptions.forEach(option => {
+                    option.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        option.classList.remove('animate-pulse');
+                    }, 2000);
+                });
             });
 
             return; // No continuar hasta que se seleccione un modo
@@ -817,6 +831,21 @@ function renderResources(resources) {
  */
 function initModeOptions() {
     const modeOptions = document.querySelectorAll('.mode-option');
+
+    // Marcar la opción seleccionada si ya hay un modo guardado
+    const savedMode = localStorage.getItem('userMode');
+    if (savedMode) {
+        modeOptions.forEach(opt => {
+            if (opt.getAttribute('data-mode') === savedMode) {
+                opt.classList.remove('border-transparent');
+                opt.classList.add('border-yellow-400');
+            } else {
+                opt.classList.remove('border-yellow-400');
+                opt.classList.add('border-transparent');
+            }
+        });
+    }
+
     modeOptions.forEach(option => {
         option.addEventListener('click', function() {
             const mode = this.getAttribute('data-mode');
@@ -869,6 +898,8 @@ function updateUserMode(mode) {
             document.documentElement.style.setProperty('--secondary-color', '#c0392b');
             // Actualizar el texto del perfil
             updateProfileText('Facilitador', 'Modo facilitador activado');
+            // Mostrar indicador de modo en la parte superior
+            showModeIndicator('Modo Facilitador', 'Estás viendo contenido adicional para facilitadores', 'red');
             break;
         case 'estudiante':
             studentElements.forEach(el => el.classList.remove('hidden'));
@@ -877,6 +908,8 @@ function updateUserMode(mode) {
             document.documentElement.style.setProperty('--secondary-color', '#2980b9');
             // Actualizar el texto del perfil
             updateProfileText('Estudiante', 'Modo estudiante activado');
+            // Mostrar indicador de modo en la parte superior
+            showModeIndicator('Modo Estudiante', 'Contenido optimizado para el aprendizaje en clase', 'blue');
             break;
         case 'autoguiado':
             selfGuidedElements.forEach(el => el.classList.remove('hidden'));
@@ -885,11 +918,40 @@ function updateUserMode(mode) {
             document.documentElement.style.setProperty('--secondary-color', '#27ae60');
             // Actualizar el texto del perfil
             updateProfileText('Autoguiado', 'Modo autoguiado activado');
+            // Mostrar indicador de modo en la parte superior
+            showModeIndicator('Modo Autoguiado', 'Contenido con guías adicionales para aprendizaje independiente', 'green');
             break;
     }
 
     // Actualizar el icono del modo
     updateModeIcon(mode);
+
+    // Verificar si hay un módulo pendiente para mostrar
+    const pendingModuleId = localStorage.getItem('pendingModuleId');
+    const pendingStepIndex = localStorage.getItem('pendingStepIndex');
+
+    if (pendingModuleId) {
+        // Mostrar mensaje de confirmación
+        Swal.fire({
+            title: 'Modo seleccionado',
+            text: `Has seleccionado el modo ${mode}. ¿Deseas continuar con el módulo seleccionado?`,
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#1a3e82',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, continuar',
+            cancelButtonText: 'No, más tarde'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Limpiar los datos pendientes
+                localStorage.removeItem('pendingModuleId');
+                localStorage.removeItem('pendingStepIndex');
+
+                // Mostrar el contenido del módulo
+                showModuleContent(pendingModuleId, parseInt(pendingStepIndex || '0'));
+            }
+        });
+    }
 
     // Si estamos en un módulo, actualizar el contenido para reflejar el nuevo modo
     const moduleContentSection = document.getElementById('module-content-section');
@@ -949,6 +1011,106 @@ function updateProfileText(title, tooltip) {
 }
 
 /**
+ * Muestra un indicador del modo actual en la parte superior de la página
+ * @param {string} title - Título del modo
+ * @param {string} description - Descripción del modo
+ * @param {string} color - Color del indicador (red, blue, green)
+ */
+function showModeIndicator(title, description, color) {
+    // Eliminar indicador anterior si existe
+    const existingIndicator = document.getElementById('mode-indicator');
+    if (existingIndicator) {
+        existingIndicator.remove();
+    }
+
+    // Crear el nuevo indicador
+    const indicator = document.createElement('div');
+    indicator.id = 'mode-indicator';
+
+    // Establecer clases según el color
+    let colorClasses = '';
+    let modeClass = '';
+    let icon = '';
+
+    switch (color) {
+        case 'red':
+            colorClasses = 'bg-red-100 border-red-500 text-red-800';
+            modeClass = 'facilitador';
+            icon = 'fas fa-chalkboard-teacher';
+            break;
+        case 'green':
+            colorClasses = 'bg-green-100 border-green-500 text-green-800';
+            modeClass = 'autoguiado';
+            icon = 'fas fa-book-reader';
+            break;
+        case 'blue':
+        default:
+            colorClasses = 'bg-blue-100 border-blue-500 text-blue-800';
+            modeClass = 'estudiante';
+            icon = 'fas fa-user-graduate';
+    }
+
+    indicator.className = `fixed top-16 right-4 z-50 p-3 rounded-lg shadow-md border-l-4 ${colorClasses} max-w-xs`;
+    indicator.innerHTML = `
+        <div class="flex items-start">
+            <div class="flex-shrink-0">
+                <i class="${icon} mr-2"></i>
+            </div>
+            <div>
+                <h4 class="font-bold">${title}</h4>
+                <p class="text-sm">${description}</p>
+            </div>
+            <button class="ml-3 text-gray-500 hover:text-gray-700" onclick="this.parentElement.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    `;
+
+    // Agregar al body
+    document.body.appendChild(indicator);
+
+    // Ocultar automáticamente después de 5 segundos
+    setTimeout(() => {
+        if (document.getElementById('mode-indicator')) {
+            document.getElementById('mode-indicator').classList.add('opacity-0');
+            setTimeout(() => {
+                if (document.getElementById('mode-indicator')) {
+                    document.getElementById('mode-indicator').remove();
+                }
+            }, 500);
+        }
+    }, 5000);
+
+    // Crear o actualizar el indicador permanente de modo
+    updatePermanentModeIndicator(title, modeClass, icon);
+}
+
+/**
+ * Actualiza o crea un indicador permanente del modo actual
+ * @param {string} title - Título del modo
+ * @param {string} modeClass - Clase CSS para el modo (facilitador, estudiante, autoguiado)
+ * @param {string} icon - Clase del ícono de Font Awesome
+ */
+function updatePermanentModeIndicator(title, modeClass, icon) {
+    // Eliminar indicador anterior si existe
+    let permanentIndicator = document.getElementById('permanent-mode-indicator');
+
+    if (!permanentIndicator) {
+        // Crear el indicador si no existe
+        permanentIndicator = document.createElement('div');
+        permanentIndicator.id = 'permanent-mode-indicator';
+        document.body.appendChild(permanentIndicator);
+    }
+
+    // Actualizar el contenido y clases
+    permanentIndicator.className = `current-mode-indicator ${modeClass}`;
+    permanentIndicator.innerHTML = `
+        <i class="${icon} mr-2"></i>
+        <span>${title}</span>
+    `;
+}
+
+/**
  * Actualiza el icono del modo de usuario
  * @param {string} mode - Modo seleccionado
  */
@@ -987,23 +1149,14 @@ function initStartWorkshopButton() {
     if (!startButton) return;
 
     startButton.addEventListener('click', function() {
-        // Desplazarse a la sección de modalidades de uso
-        const modeSections = document.querySelectorAll('section h2');
-        let modeSection = null;
+        // Desplazarse directamente a la sección de ruta de aprendizaje
+        const learningPathSection = document.getElementById('learning-path-section');
 
-        // Buscar la sección que contiene "Modalidades de Uso"
-        for (const section of modeSections) {
-            if (section.textContent.includes('Modalidades de Uso')) {
-                modeSection = section.closest('section');
-                break;
-            }
-        }
-
-        if (modeSection) {
-            modeSection.scrollIntoView({ behavior: 'smooth' });
+        if (learningPathSection) {
+            learningPathSection.scrollIntoView({ behavior: 'smooth' });
+            console.log('Desplazamiento a la ruta de aprendizaje');
         } else {
-            // Si no se encuentra la sección, mostrar la ruta de aprendizaje como respaldo
-            document.getElementById('learning-path-section').scrollIntoView({ behavior: 'smooth' });
+            console.error('No se encontró la sección de ruta de aprendizaje');
         }
     });
 }
@@ -1296,8 +1449,8 @@ function initResetProgressButton() {
                     timer: 2000,
                     timerProgressBar: true
                 }).then(() => {
-                    // Recargar la página con parámetro de reinicio
-                    window.location.href = window.location.pathname + '?reset=true';
+                    // Recargar la página sin parámetros
+                    window.location.href = window.location.pathname;
                 });
             }
         });

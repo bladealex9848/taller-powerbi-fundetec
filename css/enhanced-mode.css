@@ -1,0 +1,191 @@
+/**
+ * Estilos mejorados para los diferentes modos de usuario
+ * Este archivo contiene estilos adicionales para mejorar la visualización
+ * de los diferentes modos de usuario (estudiante, facilitador, autoguiado)
+ */
+
+/* Estilos generales para todos los modos */
+.mode-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para cada modo */
+.mode-badge.facilitador {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #c0392b;
+    border: 1px solid rgba(231, 76, 60, 0.4);
+}
+
+.mode-badge.estudiante {
+    background-color: rgba(52, 152, 219, 0.2);
+    color: #2980b9;
+    border: 1px solid rgba(52, 152, 219, 0.4);
+}
+
+.mode-badge.autoguiado {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #27ae60;
+    border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+/* Mejoras para los contenedores de contenido específico */
+.facilitator-content {
+    box-shadow: 0 4px 6px rgba(231, 76, 60, 0.1);
+    border-radius: 0.5rem;
+    border-left: 4px solid #e74c3c;
+    background-color: #fef5f4;
+}
+
+.student-content {
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.1);
+    border-radius: 0.5rem;
+    border-left: 4px solid #3498db;
+    background-color: #f4f9fe;
+}
+
+.self-guided-content {
+    box-shadow: 0 4px 6px rgba(46, 204, 113, 0.1);
+    border-radius: 0.5rem;
+    border-left: 4px solid #2ecc71;
+    background-color: #f4fef7;
+}
+
+/* Mejoras para los quiz */
+.quiz-option {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.quiz-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Posición de las casillas de selección */
+.quiz-option {
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-option .option-text {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.quiz-option .option-select {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.quiz-option .option-select input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+/* Indicador de modo actual */
+.current-mode-indicator {
+    position: fixed;
+    top: 4.5rem;
+    right: 1rem;
+    z-index: 50;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.current-mode-indicator.facilitador {
+    background-color: #fef5f4;
+    color: #c0392b;
+    border-left: 3px solid #e74c3c;
+}
+
+.current-mode-indicator.estudiante {
+    background-color: #f4f9fe;
+    color: #2980b9;
+    border-left: 3px solid #3498db;
+}
+
+.current-mode-indicator.autoguiado {
+    background-color: #f4fef7;
+    color: #27ae60;
+    border-left: 3px solid #2ecc71;
+}
+
+/* Mejoras para los tooltips de modo */
+.mode-tooltip {
+    position: absolute;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    max-width: 250px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mode-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mejoras para los checkboxes en modo autoguiado */
+.self-guided-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #2ecc71;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.self-guided-checkbox:checked {
+    background-color: #2ecc71;
+}
+
+.self-guided-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 0.875rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.self-guided-checkbox:hover {
+    border-color: #27ae60;
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+}

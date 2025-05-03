@@ -357,9 +357,12 @@ function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
                         <p class="font-medium mb-2">${studentContent.quiz.question}</p>
                         <div class="space-y-2">
                             ${studentContent.quiz.options.map((option, index) => `
-                                <label class="flex items-center p-2 rounded border border-blue-200 hover:bg-blue-100 cursor-pointer quiz-option" data-question="quiz-${moduleId}-${stepIndex}" data-correct="${option.isCorrect}">
-                                    <input type="radio" name="quiz-${moduleId}-${stepIndex}" value="${index}" class="mr-2">
-                                    <span>${option.text}</span>
+                                <label class="flex flex-col p-3 rounded border border-blue-200 hover:bg-blue-100 cursor-pointer quiz-option" data-question="quiz-${moduleId}-${stepIndex}" data-correct="${option.isCorrect}">
+                                    <div class="mb-3 font-medium">${option.text}</div>
+                                    <div class="flex items-center mt-2 border-t pt-2 border-gray-100">
+                                        <input type="radio" name="quiz-${moduleId}-${stepIndex}" value="${index}" class="mr-2">
+                                        <span class="text-sm text-gray-600">Seleccionar esta respuesta</span>
+                                    </div>
                                 </label>
                             `).join('')}
                         </div>
