@@ -2,6 +2,44 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.3.2] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 1 del módulo de introducción (Importancia del Análisis de Datos)
+- Recursos adicionales (videos y enlaces) para el paso 1 del módulo de introducción
+- Videos específicos sobre análisis de datos para el paso 1 del módulo de introducción
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 1 del módulo de introducción
+- Falta de recursos adicionales en el paso 1 del módulo de introducción
+
+## [1.3.1] - 2024-07-16
+
+### Corregido
+- Error "Archivo no encontrado: /Volumes/NVMe1TB/GitHub/taller-powerbi-fundetec/js/markdown-helper.js" al restaurar el archivo faltante
+- Restaurado el archivo markdown-helper.js desde la carpeta legacy_code a la carpeta js
+
+## [1.3.0] - 2024-07-15
+
+### Añadido
+- Herramientas de depuración para facilitar la identificación de problemas con la carga de contenido
+- Modo de depuración activable mediante el parámetro `?debug` en la URL
+- Panel de depuración con herramientas para verificar variables de módulos y contenido de pasos
+- Mensajes de advertencia cuando un paso no tiene contenido principal definido
+- Información detallada de depuración en el modo debug
+- Contenido completo para el módulo de práctica (pasos 2, 3 y 4)
+
+### Mejorado
+- Función `generateStepContentHTML` para mostrar correctamente el contenido principal de los pasos
+- Consistencia en la estructura de los módulos y sus pasos
+- Manejo de errores cuando no se encuentra contenido para un paso
+- Visualización de contenido principal y recursos adicionales en todos los pasos
+
+### Corregido
+- Problema con la carga de contenido principal en algunos pasos
+- Inconsistencias en la visualización de contenido entre diferentes módulos
+- Errores en la estructura de datos de los módulos
+
 ## [1.2.0] - 2024-07-10
 
 ### Añadido

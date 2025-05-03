@@ -48,6 +48,58 @@ const introModuleFacilitatorNotes = {
 // Paso 1: Importancia del Análisis de Datos
 const introStep1Content = {
     title: "Importancia del Análisis de Datos",
+    description: "En la era digital actual, el análisis de datos se ha convertido en una habilidad fundamental para profesionales de todas las áreas, especialmente en tecnología.",
+
+    // Contenido principal
+    content: `
+        <div class="mb-6">
+            <p class="mb-4">El análisis de datos es el proceso de examinar, limpiar, transformar y modelar datos con el objetivo de descubrir información útil, informar conclusiones y apoyar la toma de decisiones.</p>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-2">¿Por qué es importante el análisis de datos?</h3>
+
+            <p class="mb-4">En un mundo donde se generan cantidades masivas de datos cada segundo, la capacidad de extraer valor de ellos se ha vuelto crucial. Para un Auxiliar en Sistemas, comprender el análisis de datos proporciona:</p>
+
+            <ul class="list-disc pl-6 mb-4 space-y-2">
+                <li><strong>Ventaja competitiva:</strong> Te diferencia en el mercado laboral al poder ofrecer insights basados en datos.</li>
+                <li><strong>Resolución de problemas:</strong> Te permite identificar la causa raíz de problemas técnicos mediante patrones en los datos.</li>
+                <li><strong>Mejora continua:</strong> Facilita la medición del rendimiento de sistemas y procesos para optimizarlos.</li>
+                <li><strong>Comunicación efectiva:</strong> Te ayuda a presentar información técnica compleja de manera comprensible para diferentes audiencias.</li>
+            </ul>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                <h4 class="font-bold text-blue-800 mb-2">El ciclo del análisis de datos</h4>
+                <p class="mb-2">El análisis de datos efectivo sigue un ciclo que transforma datos brutos en decisiones informadas:</p>
+                <ol class="list-decimal pl-6 space-y-1">
+                    <li><strong>Recolección:</strong> Obtener datos de diversas fuentes</li>
+                    <li><strong>Limpieza:</strong> Corregir errores y estandarizar formatos</li>
+                    <li><strong>Exploración:</strong> Examinar los datos para entender sus características</li>
+                    <li><strong>Análisis:</strong> Aplicar técnicas estadísticas y analíticas</li>
+                    <li><strong>Visualización:</strong> Representar los hallazgos de forma gráfica</li>
+                    <li><strong>Interpretación:</strong> Extraer conclusiones significativas</li>
+                    <li><strong>Acción:</strong> Implementar decisiones basadas en los insights</li>
+                </ol>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-2">El papel de Power BI en el análisis de datos</h3>
+
+            <p class="mb-4">Microsoft Power BI es una herramienta que simplifica enormemente este proceso, permitiéndote:</p>
+
+            <ul class="list-disc pl-6 mb-4">
+                <li>Conectar con múltiples fuentes de datos</li>
+                <li>Transformar y limpiar datos sin necesidad de programación avanzada</li>
+                <li>Crear visualizaciones interactivas con facilidad</li>
+                <li>Compartir insights con otros miembros de tu organización</li>
+                <li>Actualizar automáticamente los análisis cuando cambian los datos</li>
+            </ul>
+
+            <p class="mb-4">A lo largo de este taller, aprenderás a utilizar Power BI para convertir datos en información valiosa que potencie tu rol como Auxiliar en Sistemas.</p>
+
+            <div class="bg-yellow-50 p-4 rounded-lg">
+                <h4 class="font-bold text-yellow-800 mb-2">Dato interesante</h4>
+                <p>Según el Foro Económico Mundial, la capacidad de analizar datos es una de las habilidades más demandadas en el mercado laboral actual, y se espera que esta demanda siga creciendo en los próximos años.</p>
+            </div>
+        </div>
+    `,
 
     // Diagrama de flujo de datos a información
     diagram: {

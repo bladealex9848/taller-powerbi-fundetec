@@ -119,6 +119,27 @@ function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
         <p class="mb-6">${stepContent.description || ''}</p>
     `;
 
+    // Agregar el contenido principal del paso si existe
+    if (stepContent.content) {
+        html += `<div class="main-content mb-6">${stepContent.content}</div>`;
+    } else {
+        // Si no hay contenido principal, mostrar un mensaje de advertencia
+        html += `
+            <div class="p-4 bg-yellow-50 rounded-lg mb-6">
+                <p class="text-yellow-800">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Este paso no tiene contenido principal definido.
+                </p>
+                ${window.debugMode ? `
+                <p class="text-yellow-800 text-sm mt-2">
+                    Verifica que la propiedad 'content' esté definida en el objeto ${stepKey}
+                    del archivo module-${moduleId}.js
+                </p>
+                ` : ''}
+            </div>
+        `;
+    }
+
     // Renderizar componentes específicos según el contenido del paso
     // Esto variará según el tipo de paso y módulo
 
@@ -156,6 +177,28 @@ function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
         html += `
             <div class="p-4 bg-blue-50 rounded-lg mb-6">
                 <p class="text-blue-800">Este paso está en desarrollo. Pronto tendrás acceso a más contenido.</p>
+            </div>
+        `;
+    }
+
+    // Agregar información de depuración si está habilitado el modo de depuración
+    if (window.debugMode) {
+        html += `
+            <div class="mt-8 p-3 bg-gray-100 rounded-lg text-xs">
+                <p class="font-bold text-gray-700">Información de depuración:</p>
+                <div class="mt-1 space-y-1">
+                    <p>Módulo: ${moduleId}</p>
+                    <p>Paso: ${stepKey} (${stepContent.title || 'No definido'})</p>
+                    <p>Modo de usuario: ${userMode || 'No definido'}</p>
+                    <p>Contenido principal: ${stepContent.content ? '✅ Definido (' + stepContent.content.length + ' caracteres)' : '❌ No definido'}</p>
+                    <p>Componentes adicionales:
+                        ${stepContent.diagram ? '✅ Diagrama ' : ''}
+                        ${stepContent.benefits ? '✅ Beneficios ' : ''}
+                        ${stepContent.caseStudy ? '✅ Caso práctico ' : ''}
+                        ${stepContent.quiz ? '✅ Quiz ' : ''}
+                        ${!stepContent.diagram && !stepContent.benefits && !stepContent.caseStudy && !stepContent.quiz ? '❌ Ninguno' : ''}
+                    </p>
+                </div>
             </div>
         `;
     }

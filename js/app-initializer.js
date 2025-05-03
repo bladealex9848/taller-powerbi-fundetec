@@ -15,6 +15,140 @@ document.addEventListener('DOMContentLoaded', function() {
     const modeFromUrl = urlParams.get('mode');
     const resetProgress = urlParams.get('reset') === 'true';
 
+    // Habilitar modo de depuración si se especifica en la URL
+    window.debugMode = urlParams.has('debug');
+
+    if (window.debugMode) {
+        console.log('🔍 MODO DEPURACIÓN ACTIVADO');
+        // Agregar indicador visual de modo depuración
+        const debugIndicator = document.createElement('div');
+        debugIndicator.innerHTML = `
+            <div class="fixed top-0 left-0 bg-red-600 text-white px-2 py-1 text-xs z-50">
+                MODO DEPURACIÓN
+                <button id="toggle-debug-panel" class="ml-2 bg-white text-red-600 px-1 rounded">+</button>
+            </div>
+        `;
+        document.body.appendChild(debugIndicator);
+
+        // Crear panel de depuración
+        const debugPanel = document.createElement('div');
+        debugPanel.id = 'debug-panel';
+        debugPanel.className = 'fixed left-0 top-6 bg-white border border-red-600 p-2 shadow-lg z-50 w-64 max-h-96 overflow-auto hidden';
+        debugPanel.innerHTML = `
+            <h3 class="font-bold text-red-600 mb-2">Panel de Depuración</h3>
+            <div class="space-y-2">
+                <button id="debug-show-module-vars" class="w-full bg-gray-200 hover:bg-gray-300 px-2 py-1 text-xs text-left">
+                    Ver variables de módulos
+                </button>
+                <button id="debug-check-content" class="w-full bg-gray-200 hover:bg-gray-300 px-2 py-1 text-xs text-left">
+                    Verificar contenido de pasos
+                </button>
+                <button id="debug-reload-content" class="w-full bg-gray-200 hover:bg-gray-300 px-2 py-1 text-xs text-left">
+                    Recargar contenido actual
+                </button>
+                <div id="debug-output" class="text-xs bg-gray-100 p-2 max-h-64 overflow-auto"></div>
+            </div>
+        `;
+        document.body.appendChild(debugPanel);
+
+        // Configurar eventos del panel de depuración después de que el DOM esté completamente cargado
+        setTimeout(() => {
+            document.getElementById('toggle-debug-panel').addEventListener('click', function() {
+                const panel = document.getElementById('debug-panel');
+                panel.classList.toggle('hidden');
+                this.textContent = panel.classList.contains('hidden') ? '+' : '-';
+            });
+
+            document.getElementById('debug-show-module-vars').addEventListener('click', function() {
+                const output = document.getElementById('debug-output');
+                output.innerHTML = '<h4 class="font-bold">Variables de módulos:</h4>';
+
+                // Verificar variables globales de módulos
+                const moduleVars = [
+                    { name: 'introModuleContent', variable: window.introModuleContent },
+                    { name: 'transformModuleContent', variable: window.transformModuleContent },
+                    { name: 'demoModuleContent', variable: window.demoModuleContent },
+                    { name: 'practiceModuleContent', variable: window.practiceModuleContent }
+                ];
+
+                moduleVars.forEach(mod => {
+                    const status = mod.variable ? '✅ Definida' : '❌ No definida';
+                    const steps = mod.variable ? Object.keys(mod.variable).filter(key => key.startsWith('step')).length : 0;
+                    output.innerHTML += `<div>${mod.name}: ${status} (${steps} pasos)</div>`;
+                });
+            });
+
+            document.getElementById('debug-check-content').addEventListener('click', function() {
+                const output = document.getElementById('debug-output');
+                output.innerHTML = '<h4 class="font-bold">Verificación de contenido:</h4>';
+
+                // Obtener módulo y paso actuales
+                const moduleContentSection = document.getElementById('module-content-section');
+                if (moduleContentSection) {
+                    const currentModule = moduleContentSection.getAttribute('data-current-module');
+                    const currentStep = parseInt(moduleContentSection.getAttribute('data-current-step') || '0');
+
+                    if (currentModule) {
+                        output.innerHTML += `<div>Módulo actual: ${currentModule}, Paso: ${currentStep}</div>`;
+
+                        // Verificar contenido del paso actual
+                        let moduleContent;
+                        switch (currentModule) {
+                            case 'intro':
+                                moduleContent = window.introModuleContent;
+                                break;
+                            case 'transform':
+                                moduleContent = window.transformModuleContent;
+                                break;
+                            case 'demo':
+                                moduleContent = window.demoModuleContent;
+                                break;
+                            case 'practice':
+                                moduleContent = window.practiceModuleContent;
+                                break;
+                        }
+
+                        if (moduleContent) {
+                            const stepKey = `step${currentStep + 1}`;
+                            const stepContent = moduleContent[stepKey];
+
+                            if (stepContent) {
+                                output.innerHTML += `<div>Paso ${stepKey}: ✅ Encontrado</div>`;
+                                output.innerHTML += `<div>- Título: ${stepContent.title || 'No definido'}</div>`;
+                                output.innerHTML += `<div>- Descripción: ${stepContent.description ? '✅ Definida' : '❌ No definida'}</div>`;
+                                output.innerHTML += `<div>- Contenido: ${stepContent.content ? '✅ Definido (' + stepContent.content.length + ' caracteres)' : '❌ No definido'}</div>`;
+                            } else {
+                                output.innerHTML += `<div>Paso ${stepKey}: ❌ No encontrado</div>`;
+                            }
+                        } else {
+                            output.innerHTML += `<div>Contenido del módulo ${currentModule}: ❌ No encontrado</div>`;
+                        }
+                    } else {
+                        output.innerHTML += `<div>No hay módulo activo actualmente</div>`;
+                    }
+                } else {
+                    output.innerHTML += `<div>Sección de contenido de módulo no encontrada</div>`;
+                }
+            });
+
+            document.getElementById('debug-reload-content').addEventListener('click', function() {
+                const moduleContentSection = document.getElementById('module-content-section');
+                if (moduleContentSection) {
+                    const currentModule = moduleContentSection.getAttribute('data-current-module');
+                    const currentStep = parseInt(moduleContentSection.getAttribute('data-current-step') || '0');
+
+                    if (currentModule) {
+                        // Recargar el contenido actual
+                        showModuleContent(currentModule, currentStep);
+
+                        const output = document.getElementById('debug-output');
+                        output.innerHTML = `<div>Contenido recargado para módulo ${currentModule}, paso ${currentStep + 1}</div>`;
+                    }
+                }
+            });
+        }, 500);
+    }
+
     // Si se solicita reiniciar el progreso, limpiar localStorage
     if (resetProgress) {
         console.log('Reiniciando progreso del taller...');
@@ -485,174 +619,148 @@ async function renderStepContent(moduleId, stepIndex) {
         let usingFallback = false;
 
         // Verificar si existe contenido predefinido para este módulo
-        let predefinedContent = null;
-
-        // Definir contenido predefinido para cada módulo
-        const defaultContent = {
-            intro: {
-                title: "Introducción al Análisis de Datos y Power BI",
-                description: "Aprende los conceptos fundamentales",
-                step1: {
-                    title: "Importancia del Análisis de Datos",
-                    content: "<p>Este paso explica la importancia del análisis de datos.</p>"
-                },
-                step2: {
-                    title: "Microsoft Power BI: Componentes Esenciales",
-                    content: "<p>Este paso explica los componentes esenciales de Power BI.</p>"
-                },
-                step3: {
-                    title: "Recorrido por la Interfaz",
-                    content: "<p>Este paso muestra un recorrido por la interfaz de Power BI.</p>"
-                },
-                step4: {
-                    title: "Tipos de Datos y Modelos (Conceptos Básicos)",
-                    content: "<p>Este paso explica los tipos de datos y modelos básicos.</p>"
-                },
-                step5: {
-                    title: "Asistentes IA en el Flujo de Trabajo",
-                    content: "<p>Este paso explica cómo usar asistentes IA en el flujo de trabajo.</p>"
-                }
-            },
-            transform: {
-                title: "Conexión y Transformación de Datos",
-                description: "Aprende a conectar y transformar datos",
-                step1: {
-                    title: "Conexión a Fuentes de Datos",
-                    content: "<p>Este paso explica cómo conectarse a fuentes de datos.</p>"
-                },
-                step2: {
-                    title: "Introducción a Power Query (Editor)",
-                    content: "<p>Este paso introduce el editor de Power Query.</p>"
-                },
-                step3: {
-                    title: "Transformaciones Fundamentales",
-                    content: "<p>Este paso explica las transformaciones fundamentales.</p>"
-                },
-                step4: {
-                    title: "Modelado Básico: Creación de Relaciones",
-                    content: "<p>Este paso explica cómo crear relaciones entre tablas.</p>"
-                }
-            },
-            demo: {
-                title: "Demostración de Power BI",
-                description: "Aprende a través de ejemplos prácticos",
-                step1: {
-                    title: "Contexto: Sistema Marduk y Dashboards Judiciales",
-                    content: "<p>Este paso proporciona contexto sobre el sistema Marduk y los dashboards judiciales.</p>"
-                },
-                step2: {
-                    title: "Conexión y Preparación de Datos",
-                    content: "<p>Este paso muestra cómo conectar y preparar datos para el análisis.</p>"
-                },
-                step3: {
-                    title: "Introducción a DAX",
-                    content: "<p>Este paso introduce el lenguaje DAX para cálculos avanzados.</p>"
-                },
-                step4: {
-                    title: "Construcción de Visualizaciones",
-                    content: "<p>Este paso muestra cómo construir visualizaciones efectivas.</p>"
-                },
-                step5: {
-                    title: "Interactividad y Filtros",
-                    content: "<p>Este paso explica cómo agregar interactividad y filtros a los dashboards.</p>"
-                }
-            },
-            practice: {
-                title: "Práctica con Power BI",
-                description: "Aplica lo aprendido con ejercicios prácticos",
-                step1: {
-                    title: "Práctica Guiada: Introducción y Dataset",
-                    content: "<p>Este paso introduce la práctica guiada y el dataset a utilizar.</p>"
-                },
-                step2: {
-                    title: "Desarrollo Paso a Paso",
-                    content: "<p>Este paso proporciona instrucciones paso a paso para el desarrollo.</p>"
-                },
-                step3: {
-                    title: "Resultado Esperado y Solución de Problemas",
-                    content: "<p>Este paso muestra el resultado esperado y cómo solucionar problemas comunes.</p>"
-                },
-                step4: {
-                    title: "Recursos para Continuar Aprendiendo",
-                    content: "<p>Este paso proporciona recursos adicionales para seguir aprendiendo.</p>"
-                }
-            }
-        };
-
-        // Seleccionar el contenido predefinido según el módulo
+        // Intentar cargar desde las variables globales definidas en los archivos module-*.js
         switch (moduleId) {
             case 'intro':
-                console.log('Usando contenido predefinido para intro');
-                predefinedContent = defaultContent.intro;
+                console.log('Cargando contenido para intro desde introModuleContent');
+                // Variable definida en module-intro.js
+                if (typeof introModuleContent !== 'undefined') {
+                    moduleContent = introModuleContent;
+                }
                 break;
             case 'transform':
-                console.log('Usando contenido predefinido para transform');
-                predefinedContent = defaultContent.transform;
+                console.log('Cargando contenido para transform desde transformModuleContent');
+                // Variable definida en module-transform.js
+                if (typeof transformModuleContent !== 'undefined') {
+                    moduleContent = transformModuleContent;
+                }
                 break;
             case 'demo':
-                console.log('Usando contenido predefinido para demo');
-                predefinedContent = defaultContent.demo;
+                console.log('Cargando contenido para demo desde demoModuleContent');
+                // Variable definida en module-demo.js
+                if (typeof demoModuleContent !== 'undefined') {
+                    moduleContent = demoModuleContent;
+                }
                 break;
             case 'practice':
-                console.log('Usando contenido predefinido para practice');
-                predefinedContent = defaultContent.practice;
+                console.log('Cargando contenido para practice desde practiceModuleContent');
+                // Variable definida en module-practice.js
+                if (typeof practiceModuleContent !== 'undefined') {
+                    moduleContent = practiceModuleContent;
+                }
                 break;
         }
 
-        // Si existe contenido predefinido, usarlo
-        if (predefinedContent) {
-            moduleContent = predefinedContent;
-            console.log(`Usando contenido predefinido para el módulo ${moduleId}`);
-        }
-        // Si no hay contenido predefinido o está en caché, intentar cargar desde Markdown
-        else {
-            // Si ya tenemos el contenido en caché, usarlo
-            if (window.moduleContentCache && window.moduleContentCache[moduleId]) {
-                console.log(`Usando contenido en caché para el módulo ${moduleId}`);
-                moduleContent = window.moduleContentCache[moduleId];
-            } else {
-                // Si no, intentar cargarlo desde el archivo Markdown
-                console.log(`Intentando cargar contenido para el módulo ${moduleId} desde ${modulePath}`);
-
-                try {
-                    // Intentar cargar el archivo Markdown
-                    const response = await fetch(modulePath);
-
-                    if (response.ok) {
-                        const markdown = await response.text();
-                        // Usar el contenido predefinido como respaldo
-                        moduleContent = defaultContent[moduleId];
-                    } else {
-                        console.warn(`No se pudo cargar el archivo Markdown: ${response.status} ${response.statusText}`);
-                        moduleContent = defaultContent[moduleId];
-                    }
-                } catch (error) {
-                    console.error(`Error al cargar el archivo Markdown: ${error.message}`);
-                    moduleContent = defaultContent[moduleId];
-                }
-
-                // Si se cargó correctamente, guardar en caché
-                if (moduleContent) {
-                    console.log(`Contenido Markdown cargado correctamente para el módulo ${moduleId}`);
-                    if (!window.moduleContentCache) {
-                        window.moduleContentCache = {};
-                    }
-                    window.moduleContentCache[moduleId] = moduleContent;
-                } else {
-                    console.warn(`No se pudo cargar el contenido Markdown para ${moduleId}, usando contenido de respaldo`);
-                    usingFallback = true;
-                }
-            }
-        }
-
-        // Si no se pudo cargar ningún contenido, usar un respaldo genérico
+        // Si no se pudo cargar desde las variables globales, usar contenido de respaldo
         if (!moduleContent) {
-            // Usar el contenido predefinido
+            console.warn(`No se encontró contenido predefinido para el módulo ${moduleId}, usando contenido de respaldo`);
+            usingFallback = true;
+
+            // Definir contenido predefinido de respaldo para cada módulo
+            const defaultContent = {
+                intro: {
+                    title: "Introducción al Análisis de Datos y Power BI",
+                    description: "Aprende los conceptos fundamentales",
+                    step1: {
+                        title: "Importancia del Análisis de Datos",
+                        content: "<p>Este paso explica la importancia del análisis de datos.</p>"
+                    },
+                    step2: {
+                        title: "Microsoft Power BI: Componentes Esenciales",
+                        content: "<p>Este paso explica los componentes esenciales de Power BI.</p>"
+                    },
+                    step3: {
+                        title: "Recorrido por la Interfaz",
+                        content: "<p>Este paso muestra un recorrido por la interfaz de Power BI.</p>"
+                    },
+                    step4: {
+                        title: "Tipos de Datos y Modelos (Conceptos Básicos)",
+                        content: "<p>Este paso explica los tipos de datos y modelos básicos.</p>"
+                    },
+                    step5: {
+                        title: "Asistentes IA en el Flujo de Trabajo",
+                        content: "<p>Este paso explica cómo usar asistentes IA en el flujo de trabajo.</p>"
+                    }
+                },
+                transform: {
+                    title: "Conexión y Transformación de Datos",
+                    description: "Aprende a conectar y transformar datos",
+                    step1: {
+                        title: "Conexión a Fuentes de Datos",
+                        content: "<p>Este paso explica cómo conectarse a fuentes de datos.</p>"
+                    },
+                    step2: {
+                        title: "Introducción a Power Query (Editor)",
+                        content: "<p>Este paso introduce el editor de Power Query.</p>"
+                    },
+                    step3: {
+                        title: "Transformaciones Fundamentales",
+                        content: "<p>Este paso explica las transformaciones fundamentales.</p>"
+                    },
+                    step4: {
+                        title: "Modelado Básico: Creación de Relaciones",
+                        content: "<p>Este paso explica cómo crear relaciones entre tablas.</p>"
+                    }
+                },
+                demo: {
+                    title: "Demostración de Power BI",
+                    description: "Aprende a través de ejemplos prácticos",
+                    step1: {
+                        title: "Contexto: Sistema Marduk y Dashboards Judiciales",
+                        content: "<p>Este paso proporciona contexto sobre el sistema Marduk y los dashboards judiciales.</p>"
+                    },
+                    step2: {
+                        title: "Conexión y Preparación de Datos",
+                        content: "<p>Este paso muestra cómo conectar y preparar datos para el análisis.</p>"
+                    },
+                    step3: {
+                        title: "Introducción a DAX",
+                        content: "<p>Este paso introduce el lenguaje DAX para cálculos avanzados.</p>"
+                    },
+                    step4: {
+                        title: "Construcción de Visualizaciones",
+                        content: "<p>Este paso muestra cómo construir visualizaciones efectivas.</p>"
+                    },
+                    step5: {
+                        title: "Interactividad y Filtros",
+                        content: "<p>Este paso explica cómo agregar interactividad y filtros a los dashboards.</p>"
+                    }
+                },
+                practice: {
+                    title: "Práctica con Power BI",
+                    description: "Aplica lo aprendido con ejercicios prácticos",
+                    step1: {
+                        title: "Práctica Guiada: Introducción y Dataset",
+                        content: "<p>Este paso introduce la práctica guiada y el dataset a utilizar.</p>"
+                    },
+                    step2: {
+                        title: "Desarrollo Paso a Paso",
+                        content: "<p>Este paso proporciona instrucciones paso a paso para el desarrollo.</p>"
+                    },
+                    step3: {
+                        title: "Resultado Esperado y Solución de Problemas",
+                        content: "<p>Este paso muestra el resultado esperado y cómo solucionar problemas comunes.</p>"
+                    },
+                    step4: {
+                        title: "Recursos para Continuar Aprendiendo",
+                        content: "<p>Este paso proporciona recursos adicionales para seguir aprendiendo.</p>"
+                    }
+                }
+            };
+
+            // Usar el contenido de respaldo
             moduleContent = defaultContent[moduleId];
         }
 
         // Modo de usuario (obtener del localStorage o usar el predeterminado)
         const userMode = localStorage.getItem('userMode') || 'estudiante';
+
+        // Agregar el número de paso y el ID del módulo al objeto stepContent para referencia
+        const stepKey = `step${stepIndex + 1}`;
+        if (moduleContent[stepKey]) {
+            moduleContent[stepKey].stepNumber = stepIndex + 1;
+        }
+        moduleContent.moduleId = moduleId;
 
         // Renderizar el contenido del paso
         stepContentContainer.innerHTML = generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode);
@@ -824,8 +932,11 @@ function initStepInteractiveElements() {
             // Insertar videos según el módulo
             switch (currentModule) {
                 case 'intro':
-                    // Solo agregar videos en el último paso del módulo
-                    if (currentStep === 4) { // Asistentes IA en el Flujo de Trabajo
+                    // Agregar videos en el primer y último paso del módulo
+                    if (currentStep === 0) { // Importancia del Análisis de Datos
+                        insertIntroVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 4) { // Asistentes IA en el Flujo de Trabajo
                         insertIntroVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     }

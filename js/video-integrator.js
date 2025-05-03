@@ -19,19 +19,19 @@ function insertYouTubeVideo(containerId, videoId, title, description = '') {
 
     const videoContainer = document.createElement('div');
     videoContainer.className = 'video-container mb-6 bg-white rounded-lg shadow-sm p-4';
-    
+
     const videoTitle = document.createElement('h4');
     videoTitle.className = 'text-lg font-medium text-blue-800 mb-2';
     videoTitle.textContent = title;
-    
+
     const videoDescription = document.createElement('p');
     videoDescription.className = 'text-gray-600 text-sm mb-3';
     videoDescription.textContent = description;
-    
+
     const videoWrapper = document.createElement('div');
     videoWrapper.className = 'relative pb-56.25 h-0 overflow-hidden rounded-lg';
     videoWrapper.style.paddingBottom = '56.25%'; // 16:9 aspect ratio
-    
+
     const iframe = document.createElement('iframe');
     iframe.className = 'absolute top-0 left-0 w-full h-full';
     iframe.src = `https://www.youtube.com/embed/${videoId}`;
@@ -39,14 +39,14 @@ function insertYouTubeVideo(containerId, videoId, title, description = '') {
     iframe.frameBorder = '0';
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
-    
+
     videoWrapper.appendChild(iframe);
     videoContainer.appendChild(videoTitle);
-    
+
     if (description) {
         videoContainer.appendChild(videoDescription);
     }
-    
+
     videoContainer.appendChild(videoWrapper);
     container.appendChild(videoContainer);
 }
@@ -61,32 +61,61 @@ function insertIntroVideos(containerId) {
         console.error(`Contenedor con ID ${containerId} no encontrado`);
         return;
     }
-    
+
     // Crear título de sección
     const sectionTitle = document.createElement('h3');
     sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
     sectionTitle.textContent = 'Videos Recomendados';
     container.appendChild(sectionTitle);
-    
+
     // Crear contenedor para videos
     const videosContainer = document.createElement('div');
     videosContainer.id = 'intro-videos-container';
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
-    
-    // Insertar videos de introducción
+
+    // Obtener el paso actual para mostrar videos específicos
+    const moduleContentSection = document.getElementById('module-content-section');
+    const currentStep = moduleContentSection ? parseInt(moduleContentSection.getAttribute('data-current-step') || '0') : 0;
+
+    if (currentStep === 0) {
+        // Videos específicos para el paso 1: Importancia del Análisis de Datos
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'Yzx7iRJFCxQ',
+            'Análisis de Datos: ¿Qué es y por qué es importante?',
+            'Explicación clara sobre la importancia del análisis de datos en el mundo actual.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'ua-X86o6vr0',
+            'Power BI: La herramienta de análisis de datos más potente',
+            'Introducción a Power BI como herramienta de análisis de datos.'
+        );
+    } else {
+        // Videos generales para otros pasos del módulo de introducción
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'oQ4q2CSXP4M',
+            'Curso de Microsoft Power BI desde cero | INTRODUCCIÓN',
+            'Explicación de versiones, descarga e instalación de Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'C8HatpMK9Hw',
+            '¿Cómo usar Power BI? Tutorial desde 0',
+            'Tutorial completo para principiantes que cubre los conceptos básicos.'
+        );
+    }
+
+    // Agregar un tercer video relevante para todos los pasos
     insertYouTubeVideo(
         'intro-videos-container',
-        'oQ4q2CSXP4M',
-        'Curso de Microsoft Power BI desde cero | INTRODUCCIÓN',
-        'Explicación de versiones, descarga e instalación de Power BI.'
-    );
-    
-    insertYouTubeVideo(
-        'intro-videos-container',
-        'C8HatpMK9Hw',
-        '¿Cómo usar Power BI? Tutorial desde 0',
-        'Tutorial completo para principiantes que cubre los conceptos básicos.'
+        'hKe7bHPiSPU',
+        'Tutorial Power BI - Creación de Dashboard en 3 horas',
+        'Tutorial detallado para crear un dashboard completo desde cero.'
     );
 }
 
@@ -100,19 +129,19 @@ function insertTransformVideos(containerId) {
         console.error(`Contenedor con ID ${containerId} no encontrado`);
         return;
     }
-    
+
     // Crear título de sección
     const sectionTitle = document.createElement('h3');
     sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
     sectionTitle.textContent = 'Videos Recomendados';
     container.appendChild(sectionTitle);
-    
+
     // Crear contenedor para videos
     const videosContainer = document.createElement('div');
     videosContainer.id = 'transform-videos-container';
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
-    
+
     // Insertar videos de transformación
     insertYouTubeVideo(
         'transform-videos-container',
@@ -120,7 +149,7 @@ function insertTransformVideos(containerId) {
         'Conecta, Transforma y Automatiza tus Datos con Power BI',
         'Proceso completo de conexión y transformación de datos.'
     );
-    
+
     insertYouTubeVideo(
         'transform-videos-container',
         'f3nEZo4b-Yg',
@@ -139,19 +168,19 @@ function insertDemoVideos(containerId) {
         console.error(`Contenedor con ID ${containerId} no encontrado`);
         return;
     }
-    
+
     // Crear título de sección
     const sectionTitle = document.createElement('h3');
     sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
     sectionTitle.textContent = 'Videos Recomendados';
     container.appendChild(sectionTitle);
-    
+
     // Crear contenedor para videos
     const videosContainer = document.createElement('div');
     videosContainer.id = 'demo-videos-container';
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
-    
+
     // Insertar videos de demostración
     insertYouTubeVideo(
         'demo-videos-container',
@@ -159,7 +188,7 @@ function insertDemoVideos(containerId) {
         'Creación de Visualizaciones Simples en Power BI',
         'Gráficos básicos y personalización de visualizaciones.'
     );
-    
+
     insertYouTubeVideo(
         'demo-videos-container',
         'ZY5uhdKllYk',
@@ -178,19 +207,19 @@ function insertPracticeVideos(containerId) {
         console.error(`Contenedor con ID ${containerId} no encontrado`);
         return;
     }
-    
+
     // Crear título de sección
     const sectionTitle = document.createElement('h3');
     sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
     sectionTitle.textContent = 'Videos Recomendados';
     container.appendChild(sectionTitle);
-    
+
     // Crear contenedor para videos
     const videosContainer = document.createElement('div');
     videosContainer.id = 'practice-videos-container';
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
-    
+
     // Insertar videos de práctica
     insertYouTubeVideo(
         'practice-videos-container',
@@ -198,7 +227,7 @@ function insertPracticeVideos(containerId) {
         'Tutorial Power BI - Creación de Dashboard en 3 horas',
         'Tutorial detallado para crear un dashboard completo desde cero.'
     );
-    
+
     insertYouTubeVideo(
         'practice-videos-container',
         'sjrlIAQnD8M',
@@ -217,18 +246,18 @@ function insertWebsiteLinks(containerId) {
         console.error(`Contenedor con ID ${containerId} no encontrado`);
         return;
     }
-    
+
     // Crear título de sección
     const sectionTitle = document.createElement('h3');
     sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
     sectionTitle.textContent = 'Sitios Web de Referencia';
     container.appendChild(sectionTitle);
-    
+
     // Crear contenedor para enlaces
     const linksContainer = document.createElement('div');
     linksContainer.className = 'links-container grid grid-cols-1 md:grid-cols-2 gap-4 mb-6';
     container.appendChild(linksContainer);
-    
+
     // Definir enlaces
     const links = [
         {
@@ -256,7 +285,7 @@ function insertWebsiteLinks(containerId) {
             icon: 'fas fa-user-tie'
         }
     ];
-    
+
     // Insertar enlaces
     links.forEach(link => {
         const linkElement = document.createElement('a');
@@ -264,7 +293,7 @@ function insertWebsiteLinks(containerId) {
         linkElement.target = '_blank';
         linkElement.rel = 'noopener noreferrer';
         linkElement.className = 'block bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow duration-300';
-        
+
         linkElement.innerHTML = `
             <div class="flex items-start">
                 <div class="flex-shrink-0 text-blue-600 text-xl mr-3">
@@ -276,10 +305,10 @@ function insertWebsiteLinks(containerId) {
                 </div>
             </div>
         `;
-        
+
         linksContainer.appendChild(linkElement);
     });
-    
+
     // Agregar enlace para ver todos los recursos
     const viewAllLink = document.createElement('div');
     viewAllLink.className = 'text-center mt-4';
