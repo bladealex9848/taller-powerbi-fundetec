@@ -199,6 +199,22 @@ const workshopResources = {
             type: "Excel",
             size: "13.6 MB",
             url: "assets/datasets/adventureworks_sales.xlsx"
+        },
+        {
+            icon: '<i class="fas fa-store"></i>',
+            title: "Dataset de Ventas de Supermercados",
+            description: "Datos de ventas en supermercados de Argentina con valores corrientes y constantes.",
+            type: "CSV",
+            size: "41 KB",
+            url: "assets/datasets/adicionales/ventas_supermercados.csv"
+        },
+        {
+            icon: '<i class="fas fa-money-bill-wave"></i>',
+            title: "Dataset Financiero (Adicional)",
+            description: "Muestra financiera oficial de Microsoft con datos de ventas por segmentos y países.",
+            type: "Excel",
+            size: "83 KB",
+            url: "assets/datasets/adicionales/financial_sample.xlsx"
         }
     ],
     guides: [
@@ -243,11 +259,36 @@ const workshopResources = {
             url: "assets/guides/guia_power_bi_pontia.pdf"
         },
         {
-            icon: '<i class="fas fa-list-alt"></i>',
-            title: "Recursos Online",
-            description: "Colección de enlaces a videos y sitios web en español para ampliar conocimientos.",
+            icon: '<i class="fas fa-file-pdf"></i>',
+            title: "Introducción a Power BI (UPR)",
+            description: "Guía introductoria de la Universidad de Puerto Rico con conceptos básicos.",
+            type: "PDF",
+            size: "5.1 MB",
+            url: "assets/guides/adicionales/introduccion_power_bi_cea.pdf"
+        },
+        {
+            icon: '<i class="fas fa-file-pdf"></i>',
+            title: "Excel y Power Query",
+            description: "Manual completo sobre el uso de Power Query en Excel, aplicable a Power BI.",
+            type: "PDF",
+            size: "2.4 MB",
+            url: "assets/guides/adicionales/excel_power_query.pdf"
+        },
+        {
+            icon: '<i class="fas fa-video"></i>',
+            title: "Videos Instructivos",
+            description: "Colección de enlaces a videos tutoriales en español organizados por temas.",
             type: "Markdown",
-            url: "assets/recursos_online.md"
+            size: "4.5 KB",
+            url: "assets/videos_instructivos.md"
+        },
+        {
+            icon: '<i class="fas fa-globe"></i>',
+            title: "Sitios de Referencia",
+            description: "Enlaces a documentación oficial, blogs de expertos y comunidades en español.",
+            type: "Markdown",
+            size: "3.5 KB",
+            url: "assets/sitios_referencia.md"
         },
         {
             icon: '<i class="fas fa-chart-pie"></i>',
@@ -313,6 +354,14 @@ const workshopResources = {
             type: "PBIX",
             size: "8.7 MB",
             url: "assets/templates/human_resources.pbix"
+        },
+        {
+            icon: '<i class="fas fa-tasks"></i>',
+            title: "Microsoft Project for the Web",
+            description: "Plantilla oficial de Microsoft para análisis de proyectos y tareas en Project for the Web.",
+            type: "PBIT",
+            size: "704 KB",
+            url: "assets/templates/adicionales/project_web_template.pbit"
         },
         {
             icon: '<i class="fas fa-file-powerpoint"></i>',
