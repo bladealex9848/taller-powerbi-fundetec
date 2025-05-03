@@ -12,17 +12,17 @@
  */
 function renderLearningPath(modules, currentModule, progress) {
     let html = '';
-    
+
     // Obtener los IDs de los módulos en orden
     const moduleIds = Object.keys(modules);
-    
+
     // Renderizar cada módulo
     moduleIds.forEach((moduleId, index) => {
         const module = modules[moduleId];
         const isActive = moduleId === currentModule;
         const isCompleted = progress[moduleId]?.completed || false;
         const moduleProgress = calculateModuleProgress(moduleId, progress);
-        
+
         // Crear el HTML del módulo usando la función del componente
         html += createModuleCard(
             moduleId,
@@ -34,13 +34,13 @@ function renderLearningPath(modules, currentModule, progress) {
             isCompleted,
             moduleProgress
         );
-        
+
         // Agregar conector entre módulos (excepto después del último)
         if (index < moduleIds.length - 1) {
             html += createModuleConnector();
         }
     });
-    
+
     return html;
 }
 
@@ -52,11 +52,11 @@ function renderLearningPath(modules, currentModule, progress) {
  * @param {string} userMode - Modo de usuario (estudiante, facilitador, autoguiado)
  * @returns {string} HTML del contenido del paso
  */
-function renderStepContent(moduleContent, moduleId, stepIndex, userMode) {
+function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
     // Obtener el contenido del paso
     const stepKey = `step${stepIndex + 1}`;
     const stepContent = moduleContent[stepKey];
-    
+
     if (!stepContent) {
         return `<div class="text-center py-8">
             <div class="text-6xl mb-4">🚧</div>
@@ -64,41 +64,41 @@ function renderStepContent(moduleContent, moduleId, stepIndex, userMode) {
             <p class="text-gray-600">Este contenido estará disponible próximamente.</p>
         </div>`;
     }
-    
+
     // Construir el HTML según el tipo de paso
     let html = `
         <h3 class="text-xl font-bold text-blue-900 mb-6">${stepContent.title}</h3>
         <p class="mb-6">${stepContent.description || ''}</p>
     `;
-    
+
     // Renderizar componentes específicos según el contenido del paso
     // Esto variará según el tipo de paso y módulo
-    
+
     // Ejemplo: Renderizar un diagrama si existe
     if (stepContent.diagram) {
         html += renderDiagram(stepContent.diagram);
     }
-    
+
     // Ejemplo: Renderizar beneficios si existen
     if (stepContent.benefits) {
         html += renderBenefitsList(stepContent.benefits);
     }
-    
+
     // Ejemplo: Renderizar un caso práctico si existe
     if (stepContent.caseStudy) {
         html += renderCaseStudy(stepContent.caseStudy.title, stepContent.caseStudy.content);
     }
-    
+
     // Ejemplo: Renderizar un quiz si existe
     if (stepContent.quiz) {
         html += renderQuiz(stepContent.quiz);
     }
-    
+
     // Renderizar panel de facilitador si el modo es facilitador
     if (userMode === 'facilitador' && moduleContent.facilitatorNotes) {
         html += renderFacilitatorPanel(moduleContent.facilitatorNotes);
     }
-    
+
     return html;
 }
 
@@ -111,14 +111,14 @@ function renderDiagram(diagram) {
     if (diagram.stages) {
         return createInteractiveDiagram(diagram.stages);
     }
-    
+
     // Diagrama genérico si no hay un tipo específico
     return `
         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-6">
             <h4 class="font-bold text-lg text-blue-900 mb-3">${diagram.title || 'Diagrama'}</h4>
             <div class="text-center">
-                <img src="${diagram.image || 'assets/img/placeholder-diagram.png'}" 
-                     alt="${diagram.title || 'Diagrama'}" 
+                <img src="${diagram.image || 'assets/img/placeholder-diagram.png'}"
+                     alt="${diagram.title || 'Diagrama'}"
                      class="max-w-full h-auto mx-auto">
             </div>
         </div>
@@ -133,7 +133,7 @@ function renderDiagram(diagram) {
  */
 function renderBenefitsList(benefits, title = 'Puntos Clave') {
     let itemsHtml = '';
-    
+
     benefits.forEach(benefit => {
         itemsHtml += `
             <li class="flex items-start mb-2">
@@ -142,7 +142,7 @@ function renderBenefitsList(benefits, title = 'Puntos Clave') {
             </li>
         `;
     });
-    
+
     return `
         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-6">
             <h4 class="font-bold text-lg text-blue-900 mb-3">${title}</h4>
@@ -160,18 +160,18 @@ function renderBenefitsList(benefits, title = 'Puntos Clave') {
  */
 function renderQuiz(quiz) {
     let optionsHtml = '';
-    
+
     quiz.options.forEach((option, index) => {
         optionsHtml += `
-            <label class="flex items-center p-2 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option mb-2" 
-                   data-question="${quiz.questionId}" 
+            <label class="flex items-center p-2 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option mb-2"
+                   data-question="${quiz.questionId}"
                    data-correct="${index === quiz.correctIndex}">
                 <input type="radio" name="quiz-${quiz.questionId}" value="${index}" class="mr-2">
                 <span>${option}</span>
             </label>
         `;
     });
-    
+
     return `
         <div class="border border-gray-200 rounded-lg p-4 quiz-container mt-6">
             <h4 class="text-lg font-semibold mb-3 flex items-center">
@@ -185,7 +185,7 @@ function renderQuiz(quiz) {
                 </div>
             </div>
             <div class="feedback-message hidden mt-3 p-3 rounded"></div>
-            <button class="check-answer-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" 
+            <button class="check-answer-btn mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                     data-question="${quiz.questionId}">
                 Comprobar
             </button>
@@ -203,14 +203,14 @@ function calculateModuleProgress(moduleId, progress) {
     if (!progress[moduleId] || !progress[moduleId].steps) {
         return 0;
     }
-    
+
     const completedSteps = progress[moduleId].steps.filter(step => step).length;
     const totalSteps = progress[moduleId].steps.length;
-    
+
     if (totalSteps === 0) {
         return 0;
     }
-    
+
     return Math.round((completedSteps / totalSteps) * 100);
 }
 
@@ -221,7 +221,7 @@ function calculateModuleProgress(moduleId, progress) {
  */
 function renderResources(resources) {
     let html = '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
-    
+
     resources.forEach(resource => {
         html += createResourceCard(
             resource.icon,
@@ -232,7 +232,7 @@ function renderResources(resources) {
             resource.duration
         );
     });
-    
+
     html += '</div>';
     return html;
 }
@@ -241,7 +241,7 @@ function renderResources(resources) {
 if (typeof module !== 'undefined') {
     module.exports = {
         renderLearningPath,
-        renderStepContent,
+        generateStepContentHTML,
         renderResources,
         calculateModuleProgress
     };
