@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Directo - Taller Power BI</title>
+    <!-- Tailwind CSS desde CDN (versión más actualizada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 flex flex-col min-h-screen font-sans">
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white p-4 text-center">
+        <h1 class="text-2xl font-bold">Taller Power BI - FUNDETEC</h1>
+        <p class="text-lg">Acceso Directo</p>
+    </header>
+
+    <main class="flex-1 p-6 max-w-4xl mx-auto w-full">
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h1 class="text-3xl font-bold text-blue-900 mb-4">Bienvenido al Taller de Power BI</h1>
+            <p class="text-gray-700 mb-6">Esta página te permite acceder directamente al contenido del taller sin problemas de modales o ventanas emergentes.</p>
+
+            <h2 class="text-2xl font-bold text-blue-800 mb-4">Selecciona tu modo de acceso:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer border-2 border-transparent hover:border-red-400" onclick="setModeAndRedirect('facilitador')">
+                    <div class="text-4xl text-red-600 mb-4"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Facilitador</h3>
+                    <p class="text-gray-600">Acceso para instructores y facilitadores del taller</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer border-2 border-transparent hover:border-blue-400" onclick="setModeAndRedirect('estudiante')">
+                    <div class="text-4xl text-blue-600 mb-4"><i class="fas fa-user-graduate"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Estudiante</h3>
+                    <p class="text-gray-600">Acceso para participantes del taller</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-all transform hover:-translate-y-1 cursor-pointer border-2 border-transparent hover:border-green-400" onclick="setModeAndRedirect('autoguiado')">
+                    <div class="text-4xl text-green-600 mb-4"><i class="fas fa-book-reader"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Autoguiado</h3>
+                    <p class="text-gray-600">Acceso para aprendizaje independiente</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-4">
+                <a href="index.html" class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver a la página principal
+                </a>
+                <a href="diagnostico.html" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
+                    <i class="fas fa-stethoscope mr-2"></i> Ejecutar diagnóstico
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white p-4 text-center">
+        <p>Desarrollado por Ing. Alexander Oviedo Fadul para FUNDETEC</p>
+    </footer>
+
+    <script>
+        // Función para establecer el modo y redirigir
+        function setModeAndRedirect(mode) {
+            // Guardar el modo en localStorage
+            localStorage.setItem('userMode', mode);
+            console.log(`Modo establecido: ${mode}`);
+
+            // Redirigir a la página principal con un parámetro para evitar problemas de modales
+            window.location.href = 'index.html?direct=true&mode=' + mode;
+        }
+
+        // Verificar si hay un modo guardado
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedMode = localStorage.getItem('userMode');
+            if (savedMode) {
+                console.log(`Modo guardado encontrado: ${savedMode}`);
+
+                // Resaltar la opción correspondiente
+                const options = document.querySelectorAll('.option-card');
+                options.forEach(option => {
+                    if (option.querySelector('h3').textContent.toLowerCase() === savedMode) {
+                        option.style.borderLeft = '4px solid';
+                        option.style.borderColor = getColorForMode(savedMode);
+                    }
+                });
+            }
+        });
+
+        // Función para obtener el color según el modo
+        function getColorForMode(mode) {
+            switch (mode) {
+                case 'facilitador': return '#e53e3e';
+                case 'estudiante': return '#3182ce';
+                case 'autoguiado': return '#38a169';
+                default: return '#718096';
+            }
+        }
+    </script>
+</body>
+</html>

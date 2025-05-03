@@ -10,11 +10,47 @@
  */
 async function loadMarkdownFile(filePath) {
     try {
-        const response = await fetch(filePath);
-        if (!response.ok) {
-            throw new Error(`Error al cargar el archivo: ${response.status} ${response.statusText}`);
+        // Intentar primero con fetch (funciona mejor en servidores)
+        try {
+            const response = await fetch(filePath, {
+                method: 'GET',
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache'
+                }
+            });
+
+            if (response.ok) {
+                return await response.text();
+            }
+        } catch (fetchError) {
+            console.warn(`Fetch falló, intentando con XMLHttpRequest: ${fetchError}`);
         }
-        return await response.text();
+
+        // Si fetch falla, intentar con XMLHttpRequest
+        return new Promise((resolve) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', filePath, true);
+            xhr.setRequestHeader('Cache-Control', 'no-cache');
+            xhr.setRequestHeader('Pragma', 'no-cache');
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    resolve(xhr.responseText);
+                } else {
+                    console.warn(`XMLHttpRequest falló con estado: ${xhr.status}`);
+                    // Intentar cargar desde el contenido predefinido
+                    resolve(null);
+                }
+            };
+
+            xhr.onerror = function() {
+                console.warn(`No se pudo cargar ${filePath}, usando contenido predefinido.`);
+                resolve(null);
+            };
+
+            xhr.send();
+        });
     } catch (error) {
         console.error(`Error al cargar el archivo ${filePath}:`, error);
         return null;

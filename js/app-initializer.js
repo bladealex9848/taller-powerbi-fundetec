@@ -7,6 +7,32 @@
  * Inicializa la aplicación cuando el DOM está completamente cargado
  */
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Inicializando aplicación...');
+
+    // Verificar si es acceso directo desde la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const isDirect = urlParams.get('direct') === 'true';
+    const modeFromUrl = urlParams.get('mode');
+
+    // Si viene de acceso directo y hay un modo especificado, establecerlo
+    if (isDirect && modeFromUrl) {
+        console.log(`Acceso directo detectado con modo: ${modeFromUrl}`);
+        localStorage.setItem('userMode', modeFromUrl);
+    }
+
+    // Forzar cierre de modales inmediatamente
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+            console.log(`Modal ${modal.id} oculto al inicio`);
+        }
+    });
+
+    // Inicializar modales primero para configurar los eventos
+    initModals();
+
     // Inicializar la ruta de aprendizaje
     initLearningPath();
 
@@ -22,11 +48,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar tooltips
     initTooltips();
 
-    // Inicializar modales
-    initModals();
-
     // Inicializar verificación de requisitos
     initRequirementsChecker();
+
+    // Asegurarse de que los modales estén cerrados después de toda la inicialización
+    setTimeout(function() {
+        closeAllModals();
+        console.log('Cierre de modales forzado después de inicialización');
+
+        // Si es acceso directo, mostrar la ruta de aprendizaje automáticamente
+        if (isDirect) {
+            const learningPathSection = document.getElementById('learning-path-section');
+            if (learningPathSection) {
+                learningPathSection.scrollIntoView({ behavior: 'smooth' });
+                console.log('Desplazamiento automático a la ruta de aprendizaje');
+            }
+        }
+    }, 100);
+
+    // Agregar un botón de acceso directo en la esquina inferior derecha
+    addDirectAccessButton();
+
+    console.log('Aplicación inicializada correctamente');
 });
 
 /**
@@ -128,6 +171,36 @@ function updateGlobalProgress(progress) {
  * @param {number} stepIndex - Índice del paso a mostrar (opcional, por defecto 0)
  */
 function showModuleContent(moduleId, stepIndex = 0) {
+    // Verificar si el usuario ha seleccionado un modo
+    const userMode = localStorage.getItem('userMode');
+    if (!userMode) {
+        // Si no hay modo seleccionado, mostrar la sección de modalidades de uso
+        const modeSections = document.querySelectorAll('section h2');
+        let modeSection = null;
+
+        for (const section of modeSections) {
+            if (section.textContent.includes('Modalidades de Uso')) {
+                modeSection = section.closest('section');
+                break;
+            }
+        }
+
+        if (modeSection) {
+            modeSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Mostrar un mensaje para que el usuario seleccione un modo
+            const modeOptions = document.querySelectorAll('.mode-option');
+            modeOptions.forEach(option => {
+                option.classList.add('animate-pulse');
+                setTimeout(() => {
+                    option.classList.remove('animate-pulse');
+                }, 2000);
+            });
+
+            return; // No continuar hasta que se seleccione un modo
+        }
+    }
+
     // Ocultar la sección de ruta de aprendizaje
     const learningPathSection = document.getElementById('learning-path-section');
     if (learningPathSection) {
@@ -149,11 +222,14 @@ function showModuleContent(moduleId, stepIndex = 0) {
 
         // Renderizar el contenido del módulo
         moduleContentSection.innerHTML = `
-            <div class="mb-6">
+            <div class="mb-6 flex justify-between items-center">
                 <button id="back-to-path-btn" class="flex items-center text-blue-900 hover:underline">
                     <i class="fas fa-arrow-left mr-2"></i>
                     Volver a la Ruta de Aprendizaje
                 </button>
+                <div class="text-sm text-gray-600">
+                    Modo: <span class="font-medium">${userMode || 'No seleccionado'}</span>
+                </div>
             </div>
 
             <div class="bg-white rounded-xl shadow-md p-6 mb-8">
@@ -382,38 +458,72 @@ async function renderStepContent(moduleId, stepIndex) {
 
         // Intentar cargar el contenido desde el archivo Markdown
         let moduleContent;
+        let usingFallback = false;
 
         // Si ya tenemos el contenido en caché, usarlo
         if (window.moduleContentCache && window.moduleContentCache[moduleId]) {
+            console.log(`Usando contenido en caché para el módulo ${moduleId}`);
             moduleContent = window.moduleContentCache[moduleId];
         } else {
-            // Si no, cargarlo desde el archivo
+            // Si no, intentar cargarlo desde el archivo
+            console.log(`Intentando cargar contenido para el módulo ${moduleId} desde ${modulePath}`);
             moduleContent = await loadModuleContent(moduleId, modulePath);
 
-            // Guardar en caché para futuras referencias
-            if (!window.moduleContentCache) {
-                window.moduleContentCache = {};
+            // Si se cargó correctamente, guardar en caché
+            if (moduleContent) {
+                console.log(`Contenido cargado correctamente para el módulo ${moduleId}`);
+                if (!window.moduleContentCache) {
+                    window.moduleContentCache = {};
+                }
+                window.moduleContentCache[moduleId] = moduleContent;
+            } else {
+                console.warn(`No se pudo cargar el contenido para ${moduleId}, usando contenido predefinido`);
+                usingFallback = true;
             }
-            window.moduleContentCache[moduleId] = moduleContent;
         }
 
         // Si no se pudo cargar, usar el contenido predefinido
         if (!moduleContent) {
             switch (moduleId) {
                 case 'intro':
+                    console.log('Usando contenido predefinido para intro');
                     moduleContent = introModuleContent;
                     break;
                 case 'transform':
+                    console.log('Usando contenido predefinido para transform');
                     moduleContent = transformModuleContent;
                     break;
                 case 'demo':
-                    moduleContent = { step1: { title: "Contenido en desarrollo" } };
+                    console.log('Usando contenido predefinido para demo');
+                    moduleContent = {
+                        title: "Demostración de Power BI",
+                        description: "Contenido en desarrollo",
+                        step1: {
+                            title: "Demostración Práctica",
+                            content: "<p>Este módulo está en desarrollo. Pronto tendrás acceso a demostraciones prácticas de Power BI.</p>"
+                        }
+                    };
                     break;
                 case 'practice':
-                    moduleContent = { step1: { title: "Contenido en desarrollo" } };
+                    console.log('Usando contenido predefinido para practice');
+                    moduleContent = {
+                        title: "Práctica con Power BI",
+                        description: "Contenido en desarrollo",
+                        step1: {
+                            title: "Ejercicios Prácticos",
+                            content: "<p>Este módulo está en desarrollo. Pronto tendrás acceso a ejercicios prácticos de Power BI.</p>"
+                        }
+                    };
                     break;
                 default:
-                    moduleContent = { step1: { title: "Módulo no encontrado" } };
+                    moduleContent = {
+                        title: `Módulo ${moduleId}`,
+                        description: "Módulo no encontrado",
+                        step1: {
+                            title: "Contenido no disponible",
+                            content: "<p>No se encontró contenido para este módulo.</p>"
+                        }
+                    };
             }
         }
 
@@ -422,6 +532,24 @@ async function renderStepContent(moduleId, stepIndex) {
 
         // Renderizar el contenido del paso
         stepContentContainer.innerHTML = generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode);
+
+        // Si estamos usando contenido de respaldo, mostrar una notificación
+        if (usingFallback) {
+            const notification = document.createElement('div');
+            notification.className = 'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <div class="py-1"><svg class="h-6 w-6 mr-4 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg></div>
+                    <div>
+                        <p class="font-bold">Nota</p>
+                        <p class="text-sm">Usando contenido predefinido. El contenido del archivo no pudo ser cargado.</p>
+                    </div>
+                </div>
+            `;
+            stepContentContainer.insertBefore(notification, stepContentContainer.firstChild);
+        }
 
         // Inicializar componentes interactivos en el contenido
         initStepInteractiveElements();
@@ -434,8 +562,15 @@ async function renderStepContent(moduleId, stepIndex) {
                 <div class="text-6xl mb-4">⚠️</div>
                 <h4 class="text-xl font-bold mb-2">Error al cargar el contenido</h4>
                 <p class="text-gray-600 mb-4">No se pudo cargar el contenido del módulo. Por favor, intenta de nuevo más tarde.</p>
+                <div class="text-sm text-gray-500 mb-4 bg-gray-100 p-3 rounded-lg max-w-lg mx-auto text-left">
+                    <strong>Detalles del error:</strong><br>
+                    ${error.message || 'Error desconocido'}
+                </div>
                 <button id="retry-load-btn" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                     Reintentar
+                </button>
+                <button id="use-fallback-btn" class="ml-2 px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
+                    Usar Contenido Predefinido
                 </button>
             </div>
         `;
@@ -444,6 +579,19 @@ async function renderStepContent(moduleId, stepIndex) {
         const retryButton = document.getElementById('retry-load-btn');
         if (retryButton) {
             retryButton.addEventListener('click', function() {
+                renderStepContent(moduleId, stepIndex);
+            });
+        }
+
+        // Agregar evento al botón de usar contenido predefinido
+        const fallbackButton = document.getElementById('use-fallback-btn');
+        if (fallbackButton) {
+            fallbackButton.addEventListener('click', function() {
+                // Forzar el uso del contenido predefinido
+                if (!window.moduleContentCache) {
+                    window.moduleContentCache = {};
+                }
+                window.moduleContentCache[moduleId] = null;
                 renderStepContent(moduleId, stepIndex);
             });
         }
@@ -695,19 +843,38 @@ function updateUserMode(mode) {
         const currentStep = parseInt(moduleContentSection.getAttribute('data-current-step') || '0');
 
         if (currentModule) {
+            // Guardar el botón de volver y otros elementos importantes
+            const backButton = document.getElementById('back-to-path-btn');
+            const backButtonHTML = backButton ? backButton.outerHTML : '';
+
             // Mostrar indicador de carga
             moduleContentSection.innerHTML = `
-                <div class="flex justify-center items-center py-12">
-                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
-                    <span class="ml-3 text-blue-900">Actualizando contenido para modo ${mode}...</span>
+                <div class="mb-6">
+                    ${backButtonHTML}
+                </div>
+                <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+                    <div class="flex justify-center items-center py-12">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
+                        <span class="ml-3 text-blue-900">Actualizando contenido para modo ${mode}...</span>
+                    </div>
                 </div>
             `;
+
+            // Restaurar el evento del botón de volver
+            const newBackButton = document.getElementById('back-to-path-btn');
+            if (newBackButton && backButton) {
+                newBackButton.addEventListener('click', function() {
+                    moduleContentSection.classList.add('hidden');
+                    document.getElementById('learning-path-section').classList.remove('hidden');
+                    initLearningPath();
+                });
+            }
 
             // Pequeño retraso para mostrar la transición
             setTimeout(() => {
                 // Volver a renderizar el contenido con el nuevo modo
-                renderStepContent(currentModule, currentStep);
-            }, 500);
+                showModuleContent(currentModule, currentStep);
+            }, 800);
         }
     }
 }
@@ -764,11 +931,24 @@ function initStartWorkshopButton() {
     if (!startButton) return;
 
     startButton.addEventListener('click', function() {
-        // Mostrar el primer módulo
-        showModuleContent('intro');
+        // Desplazarse a la sección de modalidades de uso
+        const modeSections = document.querySelectorAll('section h2');
+        let modeSection = null;
 
-        // Hacer scroll al contenido
-        document.getElementById('module-content-section').scrollIntoView({ behavior: 'smooth' });
+        // Buscar la sección que contiene "Modalidades de Uso"
+        for (const section of modeSections) {
+            if (section.textContent.includes('Modalidades de Uso')) {
+                modeSection = section.closest('section');
+                break;
+            }
+        }
+
+        if (modeSection) {
+            modeSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // Si no se encuentra la sección, mostrar la ruta de aprendizaje como respaldo
+            document.getElementById('learning-path-section').scrollIntoView({ behavior: 'smooth' });
+        }
     });
 }
 
@@ -797,39 +977,117 @@ function initTooltips() {
  * Inicializa los modales
  */
 function initModals() {
+    // Primero, asegurarse de que todos los modales estén cerrados
+    closeAllModals();
+
     const modalTriggers = document.querySelectorAll('.modal-trigger');
     const modalCloseButtons = document.querySelectorAll('.modal-close');
     const requirementsBtn = document.getElementById('requirements-btn');
+    const modals = document.querySelectorAll('.modal');
 
+    // Asegurarse de que todos los modales tengan la clase 'hidden' y display:none
+    modals.forEach(modal => {
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.style.display = 'none';
+        }
+    });
+
+    // Configurar los activadores de modales
     modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
+        trigger.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Cerrar todos los modales primero
+            closeAllModals();
+
+            // Abrir el modal específico
             const modalId = this.getAttribute('data-modal');
             const modal = document.getElementById(modalId);
 
             if (modal) {
                 modal.classList.remove('hidden');
+                modal.style.display = 'flex';
+
+                // Marcar el body para indicar que hay un modal abierto
+                document.body.classList.add('modal-open');
+
+                console.log(`Modal abierto: ${modalId}`);
             }
         });
     });
 
+    // Configurar los botones de cierre
     modalCloseButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
             const modal = this.closest('.modal');
             if (modal) {
                 modal.classList.add('hidden');
+                modal.style.display = 'none';
+
+                // Quitar la marca del body si no hay más modales abiertos
+                const openModals = document.querySelectorAll('.modal:not(.hidden)');
+                if (openModals.length === 0) {
+                    document.body.classList.remove('modal-open');
+                }
+
+                console.log('Modal cerrado por botón de cierre');
+            }
+        });
+    });
+
+    // Configurar cierre al hacer clic fuera del contenido del modal
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(event) {
+            // Solo cerrar si se hizo clic directamente en el fondo del modal, no en su contenido
+            if (event.target === this) {
+                this.classList.add('hidden');
+                this.style.display = 'none';
+
+                // Quitar la marca del body si no hay más modales abiertos
+                const openModals = document.querySelectorAll('.modal:not(.hidden)');
+                if (openModals.length === 0) {
+                    document.body.classList.remove('modal-open');
+                }
+
+                console.log('Modal cerrado por clic fuera');
             }
         });
     });
 
     // Inicializar el botón de requisitos en el menú de usuario
     if (requirementsBtn) {
-        requirementsBtn.addEventListener('click', function() {
+        requirementsBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Cerrar todos los modales primero
+            closeAllModals();
+
             const requirementsModal = document.getElementById('requirements-modal');
             if (requirementsModal) {
                 requirementsModal.classList.remove('hidden');
+                requirementsModal.style.display = 'flex';
+
+                // Marcar el body para indicar que hay un modal abierto
+                document.body.classList.add('modal-open');
+
+                console.log('Modal de requisitos abierto');
             }
         });
     }
+
+    // Agregar manejador de tecla Escape para cerrar modales
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeAllModals();
+            console.log('Modales cerrados por tecla Escape');
+        }
+    });
 }
 
 /**
@@ -913,4 +1171,65 @@ function updateRequirementStatus(requirementId, status) {
             iconElement.classList.add('fa-question');
             break;
     }
+}
+
+/**
+ * Cierra todos los modales abiertos
+ */
+function closeAllModals() {
+    try {
+        // Obtener todos los modales
+        const modals = document.querySelectorAll('.modal');
+
+        if (modals.length === 0) {
+            console.log('No se encontraron modales para cerrar');
+            return;
+        }
+
+        // Ocultar cada modal y asegurarse de que tenga la clase 'hidden'
+        modals.forEach(modal => {
+            if (modal) {
+                modal.style.display = 'none'; // Forzar display none
+                modal.classList.add('hidden');
+
+                // Asegurarse de que el modal no tenga display:flex que podría anular el hidden
+                const computedStyle = window.getComputedStyle(modal);
+                if (computedStyle.display !== 'none') {
+                    modal.style.display = 'none !important';
+                }
+            }
+        });
+
+        // También eliminar cualquier clase de bloqueo del body
+        document.body.classList.remove('modal-open', 'overflow-hidden');
+
+        console.log(`${modals.length} modales han sido cerrados`);
+    } catch (error) {
+        console.error('Error al cerrar modales:', error);
+    }
+}
+
+/**
+ * Agrega un botón de acceso directo en la esquina inferior derecha
+ */
+function addDirectAccessButton() {
+    // Crear el botón
+    const button = document.createElement('a');
+    button.href = 'acceso-directo.html';
+    button.className = 'fixed bottom-4 right-4 bg-blue-600 text-white rounded-full p-3 shadow-lg hover:bg-blue-700 transition-colors z-40';
+    button.title = 'Acceso directo sin modales';
+    button.innerHTML = '<i class="fas fa-door-open"></i>';
+
+    // Agregar estilos adicionales
+    button.style.width = '48px';
+    button.style.height = '48px';
+    button.style.display = 'flex';
+    button.style.alignItems = 'center';
+    button.style.justifyContent = 'center';
+    button.style.fontSize = '1.25rem';
+
+    // Agregar al body
+    document.body.appendChild(button);
+
+    console.log('Botón de acceso directo agregado');
 }

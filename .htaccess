@@ -1,0 +1,63 @@
+# Habilitar CORS para permitir la carga de archivos Markdown y otros recursos
+<IfModule mod_headers.c>
+    <FilesMatch "\.(md|json|css|js|jpg|png|gif|svg|ico)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+    </FilesMatch>
+</IfModule>
+
+# Configurar tipos MIME para archivos
+<IfModule mod_mime.c>
+    AddType text/markdown .md
+    AddType text/css .css
+    AddType application/javascript .js
+    AddType image/jpeg .jpg .jpeg
+    AddType image/png .png
+    AddType image/gif .gif
+    AddType image/svg+xml .svg
+    AddType image/x-icon .ico
+</IfModule>
+
+# Asegurar que los archivos CSS se sirvan correctamente
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Si el archivo CSS existe, servirlo directamente
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^(.+\.css)$ $1 [L]
+
+    # Si el archivo CSS no existe, intentar con la ruta relativa
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^css/(.+\.css)$ css/$1 [L]
+</IfModule>
+
+# Configurar caché para mejorar el rendimiento
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    # Imágenes
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+
+    # Archivos Markdown (no cachear para desarrollo)
+    ExpiresByType text/markdown "access plus 0 seconds"
+
+    # Archivos HTML
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Comprimir archivos para mejorar el rendimiento
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json text/markdown
+</IfModule>
+
+# Redirigir errores 404 a la página principal
+ErrorDocument 404 /index.html

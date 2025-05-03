@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller Power BI - FUNDETEC</title>
-    <!-- Estilos -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Tailwind CSS -->
+    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Script de inicialización inmediata de modales (debe ir antes que cualquier otro script) -->
+    <script src="js/modal-init.js"></script>
+    <!-- Tailwind CSS desde CDN (versión más actualizada) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- CSS básico de respaldo (por si falla Tailwind) -->
+    <link rel="stylesheet" href="css/vendor/basic.css">
+    <!-- Estilos de modales (específicos para modales) -->
+    <link rel="stylesheet" href="css/modal.css">
+    <!-- Estilos personalizados (se aplican después) -->
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -424,15 +433,21 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Utilidades y ayudantes (cargar primero) -->
+    <script src="js/debug-helper.js"></script>
+    <script src="js/image-handler.js"></script>
+    <!-- Componentes -->
     <script src="components/module-card.js"></script>
     <script src="components/step-navigator.js"></script>
     <script src="components/interactive-elements.js"></script>
+    <!-- Módulos y configuración -->
     <script src="js/modules.js"></script>
     <script src="js/content-config.js"></script>
     <script src="js/markdown-loader.js"></script>
     <script src="js/module-intro.js"></script>
     <script src="js/module-transform.js"></script>
     <script src="js/module-renderer.js"></script>
+    <!-- Inicializador de la aplicación (cargar último) -->
     <script src="js/app-initializer.js"></script>
 </body>
 </html>

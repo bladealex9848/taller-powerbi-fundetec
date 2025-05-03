@@ -1,0 +1,170 @@
+/**
+ * Estilos específicos para modales
+ */
+
+/* Estilo base para modales */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: none;
+}
+
+/* Cuando el modal está visible */
+.modal:not(.hidden) {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Asegurar que los modales ocultos no se muestren */
+.modal.hidden {
+    display: none !important;
+}
+
+/* Contenido del modal */
+.modal-content {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Encabezado del modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Título del modal */
+.modal-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #1a365d;
+}
+
+/* Botón de cierre */
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #a0aec0;
+    font-size: 1.25rem;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: #718096;
+}
+
+/* Cuerpo del modal */
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Pie del modal */
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+/* Cuando hay un modal abierto, evitar scroll en el body */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Animación de entrada para modales */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal:not(.hidden) .modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Tamaños de modal */
+.modal-sm .modal-content {
+    max-width: 300px;
+}
+
+.modal-md .modal-content {
+    max-width: 500px;
+}
+
+.modal-lg .modal-content {
+    max-width: 800px;
+}
+
+.modal-xl .modal-content {
+    max-width: 1140px;
+}
+
+/* Estilos específicos para el modal de requisitos */
+#requirements-modal .check-item {
+    transition: background-color 0.2s;
+}
+
+#requirements-modal .check-item:hover {
+    background-color: #ebf8ff;
+}
+
+/* Estilos específicos para el modal de perfil del facilitador */
+#facilitator-profile-modal img {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para el modal de recursos */
+#resource-modal .resource-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#resource-modal .resource-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para el modal de módulo completado */
+#module-complete-modal {
+    z-index: 60; /* Mayor z-index para estar por encima de otros modales */
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 640px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-footer {
+        padding: 0.75rem 1rem;
+    }
+}

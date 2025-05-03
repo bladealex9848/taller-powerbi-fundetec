@@ -70,25 +70,47 @@ Para aprovechar al máximo el taller, los participantes deben contar con:
 
 El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas y Abogado con Máster en Big Data y Business Intelligence, especialista en Gestión y Seguridad de Bases de Datos. Creador del sistema "Marduk", un ecosistema integral de innovación judicial que revoluciona la administración de justicia en Colombia.
 
-## Cómo Usar la Aplicación
+## Instalación y Uso
 
-1. Abre el archivo `index.html` en tu navegador web
-2. Explora la ruta de aprendizaje y los recursos disponibles
-3. Haz clic en "Comenzar Taller" para iniciar el recorrido por los módulos
-4. Selecciona el modo que mejor se adapte a tu rol
-5. Sigue los pasos de cada módulo y completa los ejercicios
+### Opción 1: Uso local directo
 
-## Estructura de Archivos
+1. Clona o descarga este repositorio
+2. Abre el archivo `index.html` en tu navegador
+3. Explora la ruta de aprendizaje y los recursos disponibles
+4. Haz clic en "Comenzar Taller" para ir a la sección de modalidades
+5. Selecciona el modo que mejor se adapte a tu rol
+6. Sigue los pasos de cada módulo y completa los ejercicios
+
+### Opción 2: Servidor local (recomendado para desarrollo)
+
+1. Clona o descarga este repositorio
+2. Ejecuta el servidor local incluido:
+   ```
+   node server.js
+   ```
+3. Abre tu navegador y visita `http://localhost:8080`
+
+### Opción 3: Despliegue en servidor web (producción)
+
+1. Sube todos los archivos a tu servidor web (Apache, Nginx, etc.)
+2. Asegúrate de que el archivo `.htaccess` esté correctamente configurado (para servidores Apache)
+3. Accede a la aplicación a través de la URL de tu servidor
+
+## Estructura del Proyecto
 
 ```
 /
 ├── index.html            # Aplicación web principal
 ├── css/                  # Estilos CSS
+│   ├── styles.css        # Estilos personalizados
+│   └── vendor/           # Bibliotecas CSS de terceros
+│       └── tailwind.min.css # Tailwind CSS (local)
 ├── js/                   # Scripts JavaScript
 │   ├── modules.js        # Definición de módulos
 │   ├── module-intro.js   # Contenido del módulo de introducción
 │   ├── module-transform.js # Contenido del módulo de transformación
 │   ├── module-renderer.js # Renderizador de módulos
+│   ├── markdown-loader.js # Cargador de archivos Markdown
 │   └── app-initializer.js # Inicializador de la aplicación
 ├── components/           # Componentes reutilizables
 ├── assets/               # Recursos estáticos
@@ -96,8 +118,28 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 │   ├── datasets/         # Conjuntos de datos para práctica
 │   ├── guides/           # Guías y manuales
 │   └── templates/        # Plantillas de Power BI
-└── docs/                 # Documentación adicional
+├── docs/                 # Documentación y contenido Markdown
+│   └── modulos/          # Contenido de los módulos en formato Markdown
+├── server.js             # Servidor local para desarrollo
+└── .htaccess             # Configuración para servidores Apache
 ```
+
+## Solución de Problemas
+
+### Problemas de CORS al cargar archivos Markdown
+
+Si experimentas problemas de CORS al cargar archivos Markdown, puedes:
+
+1. Usar el servidor local incluido (`node server.js`)
+2. Configurar tu servidor web para permitir CORS (ver archivo `.htaccess`)
+3. La aplicación tiene un mecanismo de respaldo que cargará contenido predefinido si no puede acceder a los archivos Markdown
+
+### Problemas con Tailwind CSS
+
+La aplicación usa una versión local de Tailwind CSS para evitar problemas con el CDN en producción. Si experimentas problemas con los estilos:
+
+1. Verifica que el archivo `css/vendor/tailwind.min.css` exista
+2. Si es necesario, puedes regenerarlo o descargarlo desde la página oficial de Tailwind CSS
 
 ## Licencia
 

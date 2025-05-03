@@ -126,6 +126,26 @@ function renderDiagram(diagram) {
 }
 
 /**
+ * Renderiza un caso de estudio
+ * @param {string} title - Título del caso de estudio
+ * @param {string} content - Contenido del caso de estudio
+ * @returns {string} HTML del caso de estudio
+ */
+function renderCaseStudy(title, content) {
+    return `
+        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100 mb-6">
+            <h4 class="font-bold text-lg text-yellow-800 mb-3 flex items-center">
+                <i class="fas fa-briefcase mr-2"></i>
+                ${title || 'Caso de Estudio'}
+            </h4>
+            <div class="case-study-content">
+                ${content || 'Contenido del caso de estudio no disponible.'}
+            </div>
+        </div>
+    `;
+}
+
+/**
  * Renderiza una lista de beneficios o puntos clave
  * @param {Array} benefits - Lista de beneficios o puntos
  * @param {string} title - Título opcional de la sección

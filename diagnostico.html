@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico - Taller Power BI</title>
+    <!-- Tailwind CSS desde CDN (versión más actualizada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 p-6 font-sans">
+    <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6">
+        <h1 class="text-3xl font-bold text-blue-900 border-b-2 border-yellow-400 pb-3 mb-6">Diagnóstico - Taller Power BI</h1>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Verificación de Archivos CSS</div>
+            <button onclick="testCSS()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fas fa-file-code mr-2"></i>Verificar CSS
+            </button>
+            <div id="css-result" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Verificación de Archivos JavaScript</div>
+            <button onclick="testJS()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fas fa-code mr-2"></i>Verificar JavaScript
+            </button>
+            <div id="js-result" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Verificación de Archivos Markdown</div>
+            <button onclick="testMarkdown()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fab fa-markdown mr-2"></i>Verificar Markdown
+            </button>
+            <div id="markdown-result" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Verificación de Imágenes</div>
+            <button onclick="testImages()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fas fa-images mr-2"></i>Verificar Imágenes
+            </button>
+            <div id="images-result" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Información del Navegador</div>
+            <button onclick="showBrowserInfo()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fas fa-info-circle mr-2"></i>Mostrar Información
+            </button>
+            <div id="browser-info" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="mb-6 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+            <div class="font-bold text-lg mb-3 text-blue-800">Verificación de CORS</div>
+            <button onclick="testCORS()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                <i class="fas fa-globe mr-2"></i>Verificar CORS
+            </button>
+            <div id="cors-result" class="mt-4 p-3 rounded"></div>
+        </div>
+
+        <div class="flex justify-between mt-8">
+            <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i> Volver a la aplicación
+            </a>
+            <a href="acceso-directo.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors">
+                Ir a acceso directo <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Función para verificar archivos CSS
+        async function testCSS() {
+            const cssFiles = [
+                'css/styles.css',
+                'css/vendor/tailwind.min.css',
+                'css/vendor/basic.css',
+                'css/modal.css'
+            ];
+
+            const resultDiv = document.getElementById('css-result');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Verificando archivos CSS...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            let results = '';
+            let allSuccess = true;
+
+            for (const file of cssFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        results += `<div class="flex items-center text-green-700 mb-1"><i class="fas fa-check-circle mr-2"></i>${file}: Cargado correctamente (${response.status})</div>`;
+                    } else {
+                        results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${response.status})</div>`;
+                        allSuccess = false;
+                    }
+                } catch (error) {
+                    results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${error.message})</div>`;
+                    allSuccess = false;
+                }
+            }
+
+            resultDiv.innerHTML = results;
+            resultDiv.className = `mt-4 p-3 rounded ${allSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+        }
+
+        // Función para verificar archivos JavaScript
+        async function testJS() {
+            const jsFiles = [
+                'js/app-initializer.js',
+                'js/modules.js',
+                'js/module-renderer.js',
+                'js/markdown-loader.js',
+                'js/module-intro.js',
+                'js/module-transform.js',
+                'js/modal-init.js',
+                'js/debug-helper.js',
+                'js/image-handler.js',
+                'components/module-card.js',
+                'components/step-navigator.js',
+                'components/interactive-elements.js'
+            ];
+
+            const resultDiv = document.getElementById('js-result');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Verificando archivos JavaScript...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            let results = '';
+            let allSuccess = true;
+
+            for (const file of jsFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        results += `<div class="flex items-center text-green-700 mb-1"><i class="fas fa-check-circle mr-2"></i>${file}: Cargado correctamente (${response.status})</div>`;
+                    } else {
+                        results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${response.status})</div>`;
+                        allSuccess = false;
+                    }
+                } catch (error) {
+                    results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${error.message})</div>`;
+                    allSuccess = false;
+                }
+            }
+
+            resultDiv.innerHTML = results;
+            resultDiv.className = `mt-4 p-3 rounded ${allSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+        }
+
+        // Función para verificar archivos Markdown
+        async function testMarkdown() {
+            const mdFiles = [
+                'docs/modulos/intro.md',
+                'docs/modulos/transform.md',
+                'docs/modulos/demo.md',
+                'docs/modulos/practice.md'
+            ];
+
+            const resultDiv = document.getElementById('markdown-result');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Verificando archivos Markdown...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            let results = '';
+            let allSuccess = true;
+
+            for (const file of mdFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        results += `<div class="flex items-center text-green-700 mb-1"><i class="fas fa-check-circle mr-2"></i>${file}: Cargado correctamente (${response.status})</div>`;
+                    } else {
+                        results += `<div class="flex items-center text-yellow-700 mb-1"><i class="fas fa-exclamation-triangle mr-2"></i>${file}: Error al cargar (${response.status})</div>`;
+                        allSuccess = false;
+                    }
+                } catch (error) {
+                    results += `<div class="flex items-center text-yellow-700 mb-1"><i class="fas fa-exclamation-triangle mr-2"></i>${file}: Error al cargar (${error.message})</div>`;
+                    allSuccess = false;
+                }
+            }
+
+            resultDiv.innerHTML = results;
+            resultDiv.className = `mt-4 p-3 rounded ${allSuccess ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`;
+
+            if (!allSuccess) {
+                resultDiv.innerHTML += '<div class="mt-3 p-2 bg-blue-50 text-blue-800 rounded"><i class="fas fa-info-circle mr-2"></i><strong>Nota:</strong> Si hay errores en los archivos Markdown, la aplicación usará contenido predefinido como respaldo.</div>';
+            }
+        }
+
+        // Función para verificar imágenes
+        async function testImages() {
+            const imageFiles = [
+                'assets/img/hero-background.jpg',
+                'assets/img/logos/logo-fundetec.png',
+                'assets/img/logos/logo-powerbi.png',
+                'assets/img/profiles/facilitator.jpg',
+                'assets/img/icons/favicon.ico'
+            ];
+
+            const resultDiv = document.getElementById('images-result');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Verificando imágenes...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            let results = '';
+            let allSuccess = true;
+
+            for (const file of imageFiles) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        results += `<div class="flex items-center text-green-700 mb-1"><i class="fas fa-check-circle mr-2"></i>${file}: Cargado correctamente (${response.status})</div>`;
+                    } else {
+                        results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${response.status})</div>`;
+                        allSuccess = false;
+                    }
+                } catch (error) {
+                    results += `<div class="flex items-center text-red-700 mb-1"><i class="fas fa-times-circle mr-2"></i>${file}: Error al cargar (${error.message})</div>`;
+                    allSuccess = false;
+                }
+            }
+
+            resultDiv.innerHTML = results;
+            resultDiv.className = `mt-4 p-3 rounded ${allSuccess ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+        }
+
+        // Función para mostrar información del navegador
+        function showBrowserInfo() {
+            const resultDiv = document.getElementById('browser-info');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Obteniendo información...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            const info = {
+                'Navegador': navigator.userAgent,
+                'Protocolo': window.location.protocol,
+                'Host': window.location.host,
+                'Ruta': window.location.pathname,
+                'URL Completa': window.location.href,
+                'Cookies Habilitadas': navigator.cookieEnabled,
+                'Lenguaje': navigator.language,
+                'Plataforma': navigator.platform,
+                'Ancho de Ventana': window.innerWidth,
+                'Alto de Ventana': window.innerHeight
+            };
+
+            let results = '<div class="bg-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">';
+            for (const [key, value] of Object.entries(info)) {
+                results += `<div class="mb-1"><span class="font-bold text-blue-800">${key}:</span> ${value}</div>`;
+            }
+            results += '</div>';
+
+            resultDiv.innerHTML = results;
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50 text-gray-800';
+        }
+
+        // Función para verificar CORS
+        async function testCORS() {
+            const resultDiv = document.getElementById('cors-result');
+            resultDiv.innerHTML = '<div class="flex items-center text-blue-600"><i class="fas fa-spinner fa-spin mr-2"></i> Verificando CORS...</div>';
+            resultDiv.className = 'mt-4 p-3 rounded bg-blue-50';
+
+            try {
+                // Intentar cargar un archivo Markdown para probar CORS
+                const response = await fetch('docs/modulos/intro.md');
+
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="flex items-center"><i class="fas fa-check-circle text-green-700 mr-2 text-xl"></i> CORS configurado correctamente. Se pudo cargar el archivo Markdown.</div>';
+                    resultDiv.className = 'mt-4 p-3 rounded bg-green-100 text-green-800';
+                } else {
+                    resultDiv.innerHTML = `<div class="flex items-center"><i class="fas fa-exclamation-triangle text-yellow-700 mr-2 text-xl"></i> El archivo se pudo solicitar, pero hubo un error: ${response.status} ${response.statusText}</div>`;
+                    resultDiv.className = 'mt-4 p-3 rounded bg-yellow-100 text-yellow-800';
+                }
+            } catch (error) {
+                if (error.message.includes('CORS')) {
+                    resultDiv.innerHTML = `
+                        <div class="flex items-center mb-3"><i class="fas fa-times-circle text-red-700 mr-2 text-xl"></i> Error de CORS: ${error.message}</div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <div class="font-bold text-blue-800 mb-2">Soluciones posibles:</div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Usar un servidor web como Apache o Node.js</li>
+                                <li>Configurar el archivo .htaccess correctamente</li>
+                                <li>Usar el servidor local incluido (node server.js)</li>
+                                <li>La aplicación tiene un mecanismo de respaldo que cargará contenido predefinido</li>
+                            </ul>
+                        </div>`;
+                } else {
+                    resultDiv.innerHTML = `<div class="flex items-center"><i class="fas fa-times-circle text-red-700 mr-2 text-xl"></i> Error al verificar CORS: ${error.message}</div>`;
+                }
+                resultDiv.className = 'mt-4 p-3 rounded bg-red-100 text-red-800';
+            }
+        }
+    </script>
+</body>
+</html>
