@@ -660,14 +660,32 @@ function updateUserMode(mode) {
     switch (mode) {
         case 'facilitador':
             facilitatorElements.forEach(el => el.classList.remove('hidden'));
+            // Cambiar el tema de color para facilitadores
+            document.documentElement.style.setProperty('--primary-color', '#e74c3c');
+            document.documentElement.style.setProperty('--secondary-color', '#c0392b');
+            // Actualizar el texto del perfil
+            updateProfileText('Facilitador', 'Modo facilitador activado');
             break;
         case 'estudiante':
             studentElements.forEach(el => el.classList.remove('hidden'));
+            // Cambiar el tema de color para estudiantes (azul por defecto)
+            document.documentElement.style.setProperty('--primary-color', '#3498db');
+            document.documentElement.style.setProperty('--secondary-color', '#2980b9');
+            // Actualizar el texto del perfil
+            updateProfileText('Estudiante', 'Modo estudiante activado');
             break;
         case 'autoguiado':
             selfGuidedElements.forEach(el => el.classList.remove('hidden'));
+            // Cambiar el tema de color para autoguiado
+            document.documentElement.style.setProperty('--primary-color', '#2ecc71');
+            document.documentElement.style.setProperty('--secondary-color', '#27ae60');
+            // Actualizar el texto del perfil
+            updateProfileText('Autoguiado', 'Modo autoguiado activado');
             break;
     }
+
+    // Actualizar el icono del modo
+    updateModeIcon(mode);
 
     // Si estamos en un módulo, actualizar el contenido para reflejar el nuevo modo
     const moduleContentSection = document.getElementById('module-content-section');
@@ -677,9 +695,64 @@ function updateUserMode(mode) {
         const currentStep = parseInt(moduleContentSection.getAttribute('data-current-step') || '0');
 
         if (currentModule) {
-            // Volver a renderizar el contenido con el nuevo modo
-            renderStepContent(currentModule, currentStep);
+            // Mostrar indicador de carga
+            moduleContentSection.innerHTML = `
+                <div class="flex justify-center items-center py-12">
+                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900"></div>
+                    <span class="ml-3 text-blue-900">Actualizando contenido para modo ${mode}...</span>
+                </div>
+            `;
+
+            // Pequeño retraso para mostrar la transición
+            setTimeout(() => {
+                // Volver a renderizar el contenido con el nuevo modo
+                renderStepContent(currentModule, currentStep);
+            }, 500);
         }
+    }
+}
+
+/**
+ * Actualiza el texto del perfil según el modo seleccionado
+ * @param {string} title - Título del perfil
+ * @param {string} tooltip - Texto del tooltip
+ */
+function updateProfileText(title, tooltip) {
+    const profileTitle = document.querySelector('#user-menu-btn span');
+    if (profileTitle) {
+        profileTitle.textContent = title;
+        profileTitle.setAttribute('title', tooltip);
+    }
+}
+
+/**
+ * Actualiza el icono del modo de usuario
+ * @param {string} mode - Modo seleccionado
+ */
+function updateModeIcon(mode) {
+    const iconContainer = document.querySelector('#user-menu-btn .h-10');
+    if (!iconContainer) return;
+
+    // Limpiar clases anteriores
+    iconContainer.className = 'h-10 w-10 rounded-full flex items-center justify-center';
+
+    // Aplicar estilo según el modo
+    switch (mode) {
+        case 'facilitador':
+            iconContainer.classList.add('bg-red-500');
+            iconContainer.innerHTML = '<i class="fas fa-chalkboard-teacher text-white"></i>';
+            break;
+        case 'estudiante':
+            iconContainer.classList.add('bg-blue-500');
+            iconContainer.innerHTML = '<i class="fas fa-user-graduate text-white"></i>';
+            break;
+        case 'autoguiado':
+            iconContainer.classList.add('bg-green-500');
+            iconContainer.innerHTML = '<i class="fas fa-book-reader text-white"></i>';
+            break;
+        default:
+            iconContainer.classList.add('bg-yellow-400');
+            iconContainer.innerHTML = '<i class="fas fa-user text-white"></i>';
     }
 }
 
