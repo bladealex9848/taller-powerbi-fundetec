@@ -5,24 +5,24 @@
  */
 function createInteractiveDiagram(stages) {
     let stagesHtml = '';
-    
+
     stages.forEach((stage, index) => {
         stagesHtml += `
         <div class="diagram-stage flex flex-col items-center p-2 cursor-pointer hover:bg-blue-100 rounded transition-all m-2 tooltip-trigger" data-tooltip="stage-tooltip-${index}">
             <div class="text-3xl mb-2">${stage.icon}</div>
             <div class="font-medium">${stage.label}</div>
             <div class="text-xs text-gray-600">${stage.desc}</div>
-            
+
             <div id="stage-tooltip-${index}" class="tooltip hidden absolute mt-24 bg-white p-3 rounded shadow-lg border border-gray-200 z-10 w-64">
                 <h5 class="font-bold text-blue-800 mb-1">${stage.label}</h5>
                 <p class="text-sm">${stage.tooltip}</p>
             </div>
         </div>
-        
+
         ${index < stages.length - 1 ? '<div class="text-blue-300 mx-1">→</div>' : ''}
         `;
     });
-    
+
     return `
     <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
         <div class="flex flex-wrap justify-between items-center text-center">
@@ -61,25 +61,25 @@ function createCaseStudy(title, content) {
  */
 function createQuiz(questionId, question, options, correctIndex) {
     let optionsHtml = '';
-    
+
     options.forEach((option, index) => {
         optionsHtml += `
-        <label class="flex items-center p-2 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option" data-question="${questionId}" data-correct="${index === correctIndex}">
-            <input type="radio" name="quiz-${questionId}" value="${index}" class="mr-2">
+        <label class="flex items-start p-3 rounded border border-gray-200 hover:bg-gray-50 cursor-pointer quiz-option mb-2" data-question="${questionId}" data-correct="${index === correctIndex}">
+            <input type="radio" name="quiz-${questionId}" value="${index}" class="mt-1 mr-2">
             <span>${option}</span>
         </label>
         `;
     });
-    
+
     return `
-    <div class="border border-gray-200 rounded-lg p-4 quiz-container">
+    <div class="border border-gray-200 rounded-lg p-4 quiz-container mb-6">
         <h4 class="text-lg font-semibold mb-3 flex items-center">
             <i class="fas fa-check-circle mr-2 text-blue-600"></i>
             Comprueba tu Comprensión
         </h4>
-        <div class="mb-2">
-            <p class="font-medium mb-2">${question}</p>
-            <div class="space-y-2">
+        <div class="mb-4">
+            <p class="font-medium mb-4">${question}</p>
+            <div class="mt-4">
                 ${optionsHtml}
             </div>
         </div>
@@ -98,10 +98,10 @@ function createQuiz(questionId, question, options, correctIndex) {
  */
 function createLearningObjectives(objectives) {
     let objectivesHtml = '';
-    
+
     objectives.forEach((objective, index) => {
         let checkpointsHtml = '';
-        
+
         objective.checkpoints.forEach((checkpoint, cpIndex) => {
             checkpointsHtml += `
             <div class="checkpoint flex items-center">
@@ -110,7 +110,7 @@ function createLearningObjectives(objectives) {
             </div>
             `;
         });
-        
+
         objectivesHtml += `
         <div class="objective-item border border-gray-200 rounded-lg p-4 hover:shadow-md">
             <div class="objective-header flex items-center justify-between cursor-pointer">
@@ -129,7 +129,7 @@ function createLearningObjectives(objectives) {
         </div>
         `;
     });
-    
+
     return `
     <div class="learning-objectives bg-white rounded-xl shadow-md p-6 mb-8">
         <div class="objectives-header flex flex-col md:flex-row md:items-center md:justify-between mb-6">
@@ -138,7 +138,7 @@ function createLearningObjectives(objectives) {
                 <i class="fas fa-expand mr-1"></i> Expandir Todos
             </button>
         </div>
-        
+
         <div class="objective-items space-y-4">
             ${objectivesHtml}
         </div>
@@ -153,15 +153,15 @@ function createLearningObjectives(objectives) {
  */
 function createRequirementsChecker(requirements) {
     let requirementsHtml = '';
-    
+
     requirements.forEach((req, index) => {
-        const statusClass = req.status === 'success' ? 'bg-green-100 text-green-800' : 
-                           (req.status === 'error' ? 'bg-red-100 text-red-800' : 
+        const statusClass = req.status === 'success' ? 'bg-green-100 text-green-800' :
+                           (req.status === 'error' ? 'bg-red-100 text-red-800' :
                            'bg-yellow-100 text-yellow-800');
-        const statusIcon = req.status === 'success' ? 'fa-check' : 
-                          (req.status === 'error' ? 'fa-times' : 
+        const statusIcon = req.status === 'success' ? 'fa-check' :
+                          (req.status === 'error' ? 'fa-times' :
                           'fa-question');
-        
+
         requirementsHtml += `
         <li class="check-item flex items-center justify-between p-3 rounded-lg hover:bg-blue-50">
             <div class="flex items-center">
@@ -176,15 +176,15 @@ function createRequirementsChecker(requirements) {
         </li>
         `;
     });
-    
+
     return `
     <div class="requirements-widget bg-white rounded-xl shadow-md p-6">
         <h4 class="font-bold text-lg mb-4">Verifica que cumples con los requisitos para el taller</h4>
-        
+
         <ul class="check-list space-y-3">
             ${requirementsHtml}
         </ul>
-        
+
         <button class="verify-all-btn mt-4 w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition duration-200">
             Verificar Todos los Requisitos
         </button>

@@ -466,33 +466,79 @@ async function renderStepContent(moduleId, stepIndex) {
             throw new Error(`No se encontró la ruta para el módulo ${moduleId}`);
         }
 
-        // Intentar cargar el contenido desde el archivo Markdown
+        // Primero intentar usar el contenido predefinido en JavaScript
         let moduleContent;
+        let usingMarkdown = false;
         let usingFallback = false;
 
-        // Si ya tenemos el contenido en caché, usarlo
-        if (window.moduleContentCache && window.moduleContentCache[moduleId]) {
-            console.log(`Usando contenido en caché para el módulo ${moduleId}`);
-            moduleContent = window.moduleContentCache[moduleId];
-        } else {
-            // Si no, intentar cargarlo desde el archivo
-            console.log(`Intentando cargar contenido para el módulo ${moduleId} desde ${modulePath}`);
-            moduleContent = await loadModuleContent(moduleId, modulePath);
+        // Verificar si existe contenido predefinido para este módulo
+        let predefinedContent = null;
 
-            // Si se cargó correctamente, guardar en caché
-            if (moduleContent) {
-                console.log(`Contenido cargado correctamente para el módulo ${moduleId}`);
-                if (!window.moduleContentCache) {
-                    window.moduleContentCache = {};
-                }
-                window.moduleContentCache[moduleId] = moduleContent;
+        switch (moduleId) {
+            case 'intro':
+                console.log('Usando contenido predefinido para intro');
+                predefinedContent = introModuleContent;
+                break;
+            case 'transform':
+                console.log('Usando contenido predefinido para transform');
+                predefinedContent = transformModuleContent;
+                break;
+            case 'demo':
+                console.log('Usando contenido predefinido para demo');
+                predefinedContent = demoModuleContent || {
+                    title: "Demostración de Power BI",
+                    description: "Aprende a través de ejemplos prácticos",
+                    step1: {
+                        title: "Demostración Práctica",
+                        content: "<p>Este módulo contiene demostraciones prácticas de Power BI.</p>"
+                    }
+                };
+                break;
+            case 'practice':
+                console.log('Usando contenido predefinido para practice');
+                predefinedContent = practiceModuleContent || {
+                    title: "Práctica con Power BI",
+                    description: "Aplica lo aprendido con ejercicios prácticos",
+                    step1: {
+                        title: "Ejercicios Prácticos",
+                        content: "<p>Este módulo contiene ejercicios prácticos de Power BI.</p>"
+                    }
+                };
+                break;
+        }
+
+        // Si existe contenido predefinido, usarlo
+        if (predefinedContent) {
+            moduleContent = predefinedContent;
+            console.log(`Usando contenido predefinido para el módulo ${moduleId}`);
+        }
+        // Si no hay contenido predefinido o está en caché, intentar cargar desde Markdown
+        else {
+            // Si ya tenemos el contenido en caché, usarlo
+            if (window.moduleContentCache && window.moduleContentCache[moduleId]) {
+                console.log(`Usando contenido en caché para el módulo ${moduleId}`);
+                moduleContent = window.moduleContentCache[moduleId];
             } else {
-                console.warn(`No se pudo cargar el contenido para ${moduleId}, usando contenido predefinido`);
-                usingFallback = true;
+                // Si no, intentar cargarlo desde el archivo Markdown
+                console.log(`Intentando cargar contenido para el módulo ${moduleId} desde ${modulePath}`);
+                moduleContent = await loadModuleContent(moduleId, modulePath);
+                usingMarkdown = true;
+
+                // Si se cargó correctamente, guardar en caché
+                if (moduleContent) {
+                    console.log(`Contenido Markdown cargado correctamente para el módulo ${moduleId}`);
+                    if (!window.moduleContentCache) {
+                        window.moduleContentCache = {};
+                    }
+                    window.moduleContentCache[moduleId] = moduleContent;
+                } else {
+                    console.warn(`No se pudo cargar el contenido Markdown para ${moduleId}, usando contenido de respaldo`);
+                    usingFallback = true;
+                }
             }
         }
 
-        // Si no se pudo cargar, usar el contenido predefinido
+        // Si no se pudo cargar ningún contenido, usar un respaldo genérico
         if (!moduleContent) {
             switch (moduleId) {
                 case 'intro':
@@ -543,18 +589,18 @@ async function renderStepContent(moduleId, stepIndex) {
         // Renderizar el contenido del paso
         stepContentContainer.innerHTML = generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode);
 
-        // Si estamos usando contenido de respaldo, mostrar una notificación
+        // Si estamos usando contenido de respaldo o Markdown, mostrar una notificación discreta
         if (usingFallback) {
+            // Solo mostrar notificación si realmente hubo un error al cargar
             const notification = document.createElement('div');
-            notification.className = 'bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4';
+            notification.className = 'bg-yellow-50 border-l-2 border-yellow-400 text-yellow-700 p-2 mb-2 text-xs';
             notification.innerHTML = `
                 <div class="flex items-center">
-                    <div class="py-1"><svg class="h-6 w-6 mr-4 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    <div class="py-1"><svg class="h-4 w-4 mr-2 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg></div>
                     <div>
-                        <p class="font-bold">Nota</p>
-                        <p class="text-sm">Usando contenido predefinido. El contenido del archivo no pudo ser cargado.</p>
+                        <p class="text-xs">Contenido cargado desde la versión integrada.</p>
                     </div>
                 </div>
             `;
@@ -1227,13 +1273,34 @@ function initResetProgressButton() {
     if (!resetButton) return;
 
     resetButton.addEventListener('click', function() {
-        // Mostrar confirmación antes de reiniciar
-        if (confirm('¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.')) {
-            resetWorkshopProgress();
+        // Mostrar confirmación con SweetAlert2
+        Swal.fire({
+            title: '¿Reiniciar progreso?',
+            text: '¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1a3e82',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, reiniciar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                resetWorkshopProgress();
 
-            // Recargar la página con parámetro de reinicio
-            window.location.href = window.location.pathname + '?reset=true';
-        }
+                // Mostrar mensaje de éxito
+                Swal.fire({
+                    title: 'Progreso reiniciado',
+                    text: 'El progreso del taller ha sido reiniciado correctamente.',
+                    icon: 'success',
+                    confirmButtonColor: '#1a3e82',
+                    timer: 2000,
+                    timerProgressBar: true
+                }).then(() => {
+                    // Recargar la página con parámetro de reinicio
+                    window.location.href = window.location.pathname + '?reset=true';
+                });
+            }
+        });
     });
 }
 

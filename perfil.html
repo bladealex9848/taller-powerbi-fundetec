@@ -9,6 +9,8 @@
     <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <!-- Header -->
@@ -47,7 +49,7 @@
                         </div>
                         <h2 class="text-2xl font-bold mb-2" id="profile-name">Participante</h2>
                         <p class="text-yellow-300 mb-4" id="profile-mode">Modo: No seleccionado</p>
-                        
+
                         <div class="mt-6 w-full">
                             <div class="bg-blue-800 rounded-lg p-4 mb-4">
                                 <h3 class="font-bold mb-2 text-yellow-300">Progreso del Taller</h3>
@@ -59,7 +61,7 @@
                                     <div class="bg-yellow-400 h-2.5 rounded-full" id="progress-bar" style="width: 0%"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="bg-blue-800 rounded-lg p-4">
                                 <h3 class="font-bold mb-2 text-yellow-300">Módulos Completados</h3>
                                 <ul class="space-y-2 text-sm" id="modules-list">
@@ -84,31 +86,31 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="md:w-2/3 p-6">
                     <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center">
                         <i class="fas fa-user-cog mr-3"></i>
                         Configuración de Perfil
                     </h2>
-                    
+
                     <div class="space-y-6">
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h3 class="font-bold text-lg text-blue-800 mb-3">Modo de Aprendizaje</h3>
                             <p class="text-gray-600 mb-4">Selecciona el modo que mejor se adapte a tu rol en el taller.</p>
-                            
+
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="facilitador">
                                     <div class="text-red-600 text-2xl mb-2"><i class="fas fa-chalkboard-teacher"></i></div>
                                     <h4 class="font-bold mb-1">Facilitador</h4>
                                     <p class="text-sm text-gray-600">Para instructores del taller.</p>
                                 </div>
-                                
+
                                 <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="estudiante">
                                     <div class="text-blue-600 text-2xl mb-2"><i class="fas fa-user-graduate"></i></div>
                                     <h4 class="font-bold mb-1">Estudiante</h4>
                                     <p class="text-sm text-gray-600">Para participantes del taller.</p>
                                 </div>
-                                
+
                                 <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="autoguiado">
                                     <div class="text-green-600 text-2xl mb-2"><i class="fas fa-book-reader"></i></div>
                                     <h4 class="font-bold mb-1">Autoguiado</h4>
@@ -116,11 +118,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h3 class="font-bold text-lg text-blue-800 mb-3">Requisitos Técnicos</h3>
                             <p class="text-gray-600 mb-4">Verifica que cumples con los requisitos para el taller.</p>
-                            
+
                             <ul class="space-y-2" id="requirements-list">
                                 <li class="flex items-center justify-between p-3 bg-white rounded-lg">
                                     <div class="flex items-center">
@@ -159,12 +161,12 @@
                                     <button class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="internet">Verificar</button>
                                 </li>
                             </ul>
-                            
+
                             <button class="mt-4 w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition duration-200" id="verify-all-btn">
                                 Verificar Todos los Requisitos
                             </button>
                         </div>
-                        
+
                         <div class="bg-gray-50 p-4 rounded-lg">
                             <h3 class="font-bold text-lg text-blue-800 mb-3">Acciones</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -172,7 +174,7 @@
                                     <i class="fas fa-redo-alt mr-2"></i>
                                     Reiniciar Progreso
                                 </button>
-                                
+
                                 <a href="index.html" class="flex items-center justify-center bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
                                     <i class="fas fa-play mr-2"></i>
                                     Continuar Taller
@@ -211,17 +213,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Cargar datos del usuario
             loadUserData();
-            
+
             // Inicializar eventos de modo
             initModeOptions();
-            
+
             // Inicializar botón de reinicio
             initResetButton();
-            
+
             // Inicializar verificación de requisitos
             initRequirementsChecker();
         });
-        
+
         /**
          * Carga los datos del usuario desde localStorage
          */
@@ -229,7 +231,7 @@
             // Cargar modo de usuario
             const userMode = localStorage.getItem('userMode') || 'No seleccionado';
             document.getElementById('profile-mode').textContent = 'Modo: ' + userMode.charAt(0).toUpperCase() + userMode.slice(1);
-            
+
             // Resaltar el modo seleccionado
             const modeOptions = document.querySelectorAll('.mode-option');
             modeOptions.forEach(option => {
@@ -239,7 +241,7 @@
                     option.classList.add('bg-yellow-50');
                 }
             });
-            
+
             // Cargar progreso
             let progress = {
                 intro: { completed: false, steps: [false, false, false, false, false] },
@@ -247,7 +249,7 @@
                 demo: { completed: false, steps: [false, false, false, false, false] },
                 practice: { completed: false, steps: [false, false, false, false] }
             };
-            
+
             try {
                 const savedProgress = localStorage.getItem('moduleProgress');
                 if (savedProgress) {
@@ -256,36 +258,36 @@
             } catch (error) {
                 console.error('Error al cargar el progreso:', error);
             }
-            
+
             // Calcular progreso general
             let completedSteps = 0;
             let totalSteps = 0;
-            
+
             Object.keys(progress).forEach(moduleId => {
                 if (progress[moduleId].steps) {
                     completedSteps += progress[moduleId].steps.filter(step => step).length;
                     totalSteps += progress[moduleId].steps.length;
                 }
             });
-            
+
             const percentage = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
-            
+
             // Actualizar UI
             document.getElementById('overall-progress').textContent = `${percentage}%`;
             document.getElementById('progress-bar').style.width = `${percentage}%`;
-            
+
             // Actualizar lista de módulos
             const modulesList = document.getElementById('modules-list');
             if (modulesList) {
                 modulesList.innerHTML = '';
-                
+
                 const modules = [
                     { id: 'intro', name: 'Introducción' },
                     { id: 'transform', name: 'Transformación de Datos' },
                     { id: 'demo', name: 'Demostración' },
                     { id: 'practice', name: 'Práctica' }
                 ];
-                
+
                 modules.forEach(module => {
                     const isCompleted = progress[module.id]?.completed || false;
                     const li = document.createElement('li');
@@ -300,82 +302,111 @@
                 });
             }
         }
-        
+
         /**
          * Inicializa las opciones de modo
          */
         function initModeOptions() {
             const modeOptions = document.querySelectorAll('.mode-option');
-            
+
             modeOptions.forEach(option => {
                 option.addEventListener('click', function() {
                     const mode = this.getAttribute('data-mode');
-                    
+
                     // Guardar el modo seleccionado
                     localStorage.setItem('userMode', mode);
-                    
+
                     // Actualizar UI
                     document.getElementById('profile-mode').textContent = 'Modo: ' + mode.charAt(0).toUpperCase() + mode.slice(1);
-                    
+
                     // Resaltar opción seleccionada
                     modeOptions.forEach(opt => {
                         opt.classList.remove('border-yellow-400');
                         opt.classList.remove('bg-yellow-50');
                     });
-                    
+
                     this.classList.add('border-yellow-400');
                     this.classList.add('bg-yellow-50');
-                    
-                    // Mostrar mensaje de confirmación
-                    alert(`Modo cambiado a: ${mode.charAt(0).toUpperCase() + mode.slice(1)}`);
+
+                    // Mostrar mensaje de confirmación con SweetAlert2
+                    Swal.fire({
+                        title: 'Modo cambiado',
+                        text: `Modo cambiado a: ${mode.charAt(0).toUpperCase() + mode.slice(1)}`,
+                        icon: 'success',
+                        confirmButtonColor: '#1a3e82',
+                        timer: 1500,
+                        timerProgressBar: true
+                    });
                 });
             });
         }
-        
+
         /**
          * Inicializa el botón de reinicio
          */
         function initResetButton() {
             const resetButton = document.getElementById('reset-progress-btn');
             if (!resetButton) return;
-            
+
             resetButton.addEventListener('click', function() {
-                if (confirm('¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.')) {
-                    // Eliminar datos de progreso
-                    localStorage.removeItem('moduleProgress');
-                    localStorage.removeItem('currentState');
-                    
-                    // Mantener el modo de usuario
-                    const userMode = localStorage.getItem('userMode');
-                    
-                    // Limpiar localStorage completamente
-                    localStorage.clear();
-                    
-                    // Restaurar el modo de usuario si existía
-                    if (userMode) {
-                        localStorage.setItem('userMode', userMode);
+                // Usar SweetAlert2 para la confirmación
+                Swal.fire({
+                    title: '¿Reiniciar progreso?',
+                    text: '¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#1a3e82',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, reiniciar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Eliminar datos de progreso
+                        localStorage.removeItem('moduleProgress');
+                        localStorage.removeItem('currentState');
+
+                        // Mantener el modo de usuario
+                        const userMode = localStorage.getItem('userMode');
+
+                        // Limpiar localStorage completamente
+                        localStorage.clear();
+
+                        // Restaurar el modo de usuario si existía
+                        if (userMode) {
+                            localStorage.setItem('userMode', userMode);
+                        }
+
+                        // Mostrar mensaje de éxito
+                        Swal.fire({
+                            title: 'Progreso reiniciado',
+                            text: 'El progreso del taller ha sido reiniciado correctamente.',
+                            icon: 'success',
+                            confirmButtonColor: '#1a3e82',
+                            timer: 2000,
+                            timerProgressBar: true
+                        }).then(() => {
+                            // Recargar la página
+                            window.location.reload();
+                        });
                     }
-                    
-                    // Recargar la página
-                    window.location.reload();
-                }
+                });
             });
         }
-        
+
         /**
          * Inicializa la verificación de requisitos
          */
         function initRequirementsChecker() {
             const requirementButtons = document.querySelectorAll('[data-requirement]');
             const verifyAllButton = document.getElementById('verify-all-btn');
-            
+
             requirementButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const requirement = this.getAttribute('data-requirement');
                     checkRequirement(requirement);
                 });
             });
-            
+
             if (verifyAllButton) {
                 verifyAllButton.addEventListener('click', function() {
                     requirementButtons.forEach(button => {
@@ -385,7 +416,7 @@
                 });
             }
         }
-        
+
         /**
          * Verifica un requisito específico
          * @param {string} requirement - ID del requisito a verificar
@@ -393,13 +424,13 @@
         function checkRequirement(requirement) {
             const button = document.querySelector(`[data-requirement="${requirement}"]`);
             if (!button) return;
-            
+
             const listItem = button.closest('li');
             const statusIcon = listItem.querySelector('.h-6.w-6');
-            
+
             // Simular verificación (en un caso real, esto haría comprobaciones reales)
             let status = 'success';
-            
+
             switch (requirement) {
                 case 'powerbi':
                     // Simular detección de Power BI
@@ -418,12 +449,12 @@
                     status = navigator.onLine ? 'success' : 'error';
                     break;
             }
-            
+
             // Actualizar UI según el resultado
             statusIcon.className = 'h-6 w-6 rounded-full flex items-center justify-center mr-3';
             const iconElement = statusIcon.querySelector('i');
             iconElement.className = 'fas text-xs';
-            
+
             switch (status) {
                 case 'success':
                     statusIcon.classList.add('bg-green-100', 'text-green-800');
@@ -438,7 +469,7 @@
                     iconElement.classList.add('fa-question');
                     break;
             }
-            
+
             // Animar el botón para dar feedback
             button.classList.add('animate-pulse');
             setTimeout(() => {
