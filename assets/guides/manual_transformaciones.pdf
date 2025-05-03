@@ -1,0 +1,1353 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="es-es"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Descripción de un esquema de estrella e importancia para Power BI - Power BI | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Comprenda el diseño del esquema de estrella y su relevancia para desarrollar modelos semánticos de Power BI optimizados para el rendimiento y la facilidad de uso." />
+			<link rel="canonical" href="https://learn.microsoft.com/es-es/power-bi/guidance/star-schema" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Descripción de un esquema de estrella e importancia para Power BI - Power BI" />
+			<meta property="og:url" content="https://learn.microsoft.com/es-es/power-bi/guidance/star-schema" />
+			<meta property="og:description" content="Comprenda el diseño del esquema de estrella y su relevancia para desarrollar modelos semánticos de Power BI optimizados para el rendimiento y la facilidad de uso." />
+			<meta name="platform_id" content="ca71ac39-64bf-813e-8e88-98f980368860" /> <meta name="scope" content="Power BI" />
+			<meta name="locale" content="es-es" />
+			 <meta name="adobe-target" content="true" />
+			<meta name="uhfHeaderId" content="MSDocsHeader-MSPowerBI" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="author" content="peter-myers" />
+	
+		<meta name="breadcrumb_path" content="/power-bi/breadcrumb/toc.json" />
+	
+		<meta name="depot_name" content="MSDN.powerbi-docs" />
+	
+		<meta name="document_id" content="470ca67d-ed62-fbe0-85b2-6b1604f9f946" />
+	
+		<meta name="document_version_independent_id" content="e8c82d66-ad63-3efa-11b2-060b9b16d4ad" />
+	
+		<meta name="feedback_help_link_type" content="ask-the-community" />
+	
+		<meta name="feedback_help_link_url" content="https://community.fabric.microsoft.com/powerbi" />
+	
+		<meta name="feedback_product_url" content="https://ideas.fabric.microsoft.com/?forum=2d80fd4a-16cb-4189-896b-e0dac5e08b41" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="git_commit_id" content="8fefb4e6a7979499bd88ac55e0180df1660940ef" />
+	
+		<meta name="gitcommit" content="https://github.com/microsoftdocs/powerbi-docs-pr/blob/8fefb4e6a7979499bd88ac55e0180df1660940ef/powerbi-docs/guidance/star-schema.md" />
+	
+		<meta name="ms.author" content="daengli" />
+	
+		<meta name="ms.custom" content="fabric-cat" />
+	
+		<meta name="ms.date" content="2024-12-27T00:00:00Z" />
+	
+		<meta name="ms.reviewer" content="daengli" />
+	
+		<meta name="ms.service" content="powerbi" />
+	
+		<meta name="ms.subservice" content="powerbi-resource" />
+	
+		<meta name="ms.topic" content="conceptual" />
+	
+		<meta name="original_content_git_url" content="https://github.com/microsoftdocs/powerbi-docs-pr/blob/live/powerbi-docs/guidance/star-schema.md" />
+	
+		<meta name="search.app" content="fabric-powerbi-docs" />
+	
+		<meta name="search.app" content="capaedac-PowerBI" />
+	
+		<meta name="search.app" content="powerbi" />
+	
+		<meta name="search.app" content="powerbipremium-docs" />
+	
+		<meta name="search.app" content="powerbipro-docs" />
+	
+		<meta name="search.appverid" content="met150" />
+	
+		<meta name="show_latex" content="true" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="updated_at" content="2025-01-23T09:05:00Z" />
+	
+		<meta name="ms.translationtype" content="HT" />
+	
+		<meta name="ms.contentlocale" content="es-es" />
+	
+		<meta name="loc_version" content="2024-12-27T23:36:01.4617437Z" />
+	
+		<meta name="loc_source_id" content="Github-109798470#live" />
+	
+		<meta name="loc_file_id" content="Github-109798470.live.MSDN.powerbi-docs.guidance/star-schema.md" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="word_count" content="4547" />
+	
+		<meta name="asset_id" content="guidance/star-schema" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="previous_tlsh_hash" content="A5BA63D27315DA503FE126E98E57A30109BCF8946738FEC40D1EAB17417BFCD76B68B563B3285CD41BF214B75188F38EC36BE686E4847809C2F2F499891922CC99DD56EEC8" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/powerbi-docs/blob/main/powerbi-docs/guidance/star-schema.md" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/aea905fb-0a9d-4d46-b30f-e9cbaf772d1b" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d3197845-b4ce-44c6-a237-cd4be160e76c" data-source="generated" />
+	
+
+			<!-- assets and js globals -->
+			<link rel="stylesheet" href="/static/assets/0.4.030426722/styles/site-ltr.css" />
+			<link rel="preconnect" href="//mscom.demdex.net" crossorigin />
+						<link rel="dns-prefetch" href="//target.microsoft.com" />
+						<link rel="dns-prefetch" href="//microsoftmscompoc.tt.omtrdc.net" />
+						<link
+							rel="preload"
+							as="script"
+							href="/static/third-party/adobe-target/at-js/2.9.0/at.js"
+							integrity="sha384-1/viVM50hgc33O2gOgkWz3EjiD/Fy/ld1dKYXJRUyjNYVEjSUGcSN+iPiQF7e4cu"
+							crossorigin="anonymous"
+							id="adobe-target-script"
+							type="application/javascript"
+						/>
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<script src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			<script src="/_themes/docs.theme/master/es-es/_themes/global/deprecation.js"></script>
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "es-es",
+    "contentDir": "ltr",
+    "userLocale": "es-es",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "brand": "",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "ask-the-community",
+    "feedbackHelpLinkUrl": "https://community.fabric.microsoft.com/powerbi",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/powerbi-docs",
+    "feedbackProductUrl": "https://ideas.fabric.microsoft.com/?forum=2d80fd4a-16cb-4189-896b-e0dac5e08b41",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": false,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true,
+    "contributors": [
+      {
+        "name": "peter-myers",
+        "url": "https://github.com/peter-myers"
+      },
+      {
+        "name": "eva-lucas",
+        "url": "https://github.com/eva-lucas"
+      },
+      {
+        "name": "mohitp930",
+        "url": "https://github.com/mohitp930"
+      },
+      {
+        "name": "maggiesMSFT",
+        "url": "https://github.com/maggiesMSFT"
+      },
+      {
+        "name": "kfollis",
+        "url": "https://github.com/kfollis"
+      },
+      {
+        "name": "alexbuckgit",
+        "url": "https://github.com/alexbuckgit"
+      },
+      {
+        "name": "DCtheGeek",
+        "url": "https://github.com/DCtheGeek"
+      },
+      {
+        "name": "v-kents",
+        "url": "https://github.com/v-kents"
+      },
+      {
+        "name": "mgblythe",
+        "url": "https://github.com/mgblythe"
+      },
+      {
+        "name": "guyinacube",
+        "url": "https://github.com/guyinacube"
+      }
+    ],
+    "mathjax": {}
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script src="/static/assets/0.4.030426722/scripts/es-es/index-docs.js"></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="es-es"
+				dir="ltr"
+			>
+				<header class="layout-body-header">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Ir al contenido principal
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Omisión de la experiencia de chat de Ask Learn
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">Este explorador ya no se admite.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Actualice a Microsoft Edge para aprovechar las características y actualizaciones de seguridad más recientes, y disponer de soporte técnico.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Descargar Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							Más información sobre Internet Explorer y Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<header
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				role="banner"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+				></div>
+			</header>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu display-flex"
+					data-bi-name="menu"
+			  >
+					<div
+		id="left-container"
+		class="left-container display-none display-block-tablet padding-inline-sm padding-bottom-sm width-full"
+	>
+		<nav
+			id="affixed-left-container"
+			class="margin-top-sm-tablet position-sticky display-flex flex-direction-column"
+			aria-label="Principal"
+		></nav>
+	</div>
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="es-es"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Tabla de contenido </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Salir del modo de enfoque</span>
+			</button>
+		</div>
+	</div>
+			<div data-main-column class="padding-sm padding-top-none padding-top-sm-tablet">
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="Todas las rutas de navegación"
+			>
+				<span class="icon">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content padding-none"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none display-none-tablet flex-shrink-0  "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Preguntar a Learn"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0  "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+			</span>
+			<span>Preguntar a Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop  "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle gradient-ask-learn-logo"></span>
+			</span>
+			<span>Preguntar a Learn</span>
+		</button>
+	  
+		<a
+			id="lang-link-tablet"
+			class="button button-primary button-clear button-sm display-none display-inline-flex-tablet"
+			title="Leer en inglés"
+			data-bi-name="language-toggle"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon margin-none" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span class="is-visually-hidden" data-read-in-link-text>Leer en inglés</span>
+		</a>
+	 
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-primary display-none display-inline-flex-tablet"
+			data-list-type="collection"
+			data-bi-name="collection"
+		>
+			<span class="icon margin-none" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status is-visually-hidden">Guardar</span>
+		</button>
+	 
+			
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary"
+					aria-label="Más acciones"
+					title="Más acciones"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content padding-xs">
+					
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="button-block button-sm has-inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon">
+				<span class="docon docon-editor-list-bullet" aria-hidden="true"></span>
+			</span>
+			<span class="contents-expand-title">Tabla de contenido</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm has-inner-focus button button-clear button-block justify-content-flex-start text-align-left display-none-tablet"
+			title="Leer en inglés"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-mobile"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Leer en inglés</span>
+		</a>
+	 
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none-tablet"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-mobile"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Sumar</span>
+		</button>
+	
+					
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus display-none-tablet"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-mobile"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Agregar al plan</span>
+		</button>
+	  
+		<hr class="display-none-tablet margin-block-xxs" />
+		<h4 class="font-size-sm padding-left-xxs">Compartir a través de</h4>
+		
+					<a
+						class="button button-clear button-sm inner-focus button-block justify-content-flex-start text-align-left text-decoration-none share-facebook"
+						data-bi-name="facebook"
+						data-page-action-item="overflow-all"
+						href="#"
+					>
+						<span class="icon color-primary" aria-hidden="true">
+							<span class="docon docon-facebook-share"></span>
+						</span>
+						<span>Facebook</span>
+					</a>
+
+					<a
+						href="#"
+						class="button button-clear button-sm inner-focus button-block justify-content-flex-start text-align-left text-decoration-none share-twitter"
+						data-bi-name="twitter"
+						data-page-action-item="overflow-all"
+					>
+						<span class="icon color-text" aria-hidden="true">
+							<span class="docon docon-xlogo-share"></span>
+						</span>
+						<span>x.com</span>
+					</a>
+
+					<a
+						href="#"
+						class="button button-clear button-sm inner-focus button-block justify-content-flex-start text-align-left text-decoration-none share-linkedin"
+						data-bi-name="linkedin"
+						data-page-action-item="overflow-all"
+					>
+						<span class="icon color-primary" aria-hidden="true">
+							<span class="docon docon-linked-in-logo"></span>
+						</span>
+						<span>LinkedIn</span>
+					</a>
+					<a
+						href="#"
+						class="button button-clear button-sm inner-focus button-block justify-content-flex-start text-align-left text-decoration-none margin-bottom-xxs share-email"
+						data-bi-name="email"
+						data-page-action-item="overflow-all"
+					>
+						<span class="icon color-primary" aria-hidden="true">
+							<span class="docon docon-mail-message"></span>
+						</span>
+						<span>Correo electrónico</span>
+					</a>
+			  
+	 
+		<hr class="margin-block-xxs" />
+		<button
+			class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			type="button"
+			data-bi-name="print"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			data-print-page
+			data-check-hidden="true"
+		>
+			<span class="icon color-primary" aria-hidden="true">
+				<span class="docon docon-print"></span>
+			</span>
+			<span>Imprimir</span>
+		</button>
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	
+					<!-- privateUnauthorizedTemplate is hidden by default -->
+					
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon">
+							<span class="docon docon-exclamation-circle-solid" aria-hidden="true"></span>
+						</span>
+						<span>Nota</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						El acceso a esta página requiere autorización. Puede intentar <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">iniciar sesión</a> o <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">cambiar directorios</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						El acceso a esta página requiere autorización. Puede intentar <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">cambiar los directorios</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="understand-star-schema-and-the-importance-for-power-bi">Descripción de un esquema de estrella e importancia para Power BI</h1></div>
+					
+		<div
+			id="article-metadata"
+			class="display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap page-metadata-container"
+		>
+			
+		<ul class="metadata page-metadata" data-bi-name="page info" lang="es-es" dir="ltr">
+			<li class="">Artículo</li>   <li class="visibility-hidden-visual-diff">
+			<local-time
+				format="twoDigitNumeric"
+				datetime="2024-12-27T08:00:00.000Z"
+				data-article-date-source="calculated"
+				class="is-invisible"
+			>
+				2024-12-27
+			</local-time>
+		</li> 
+			<li class="contributors-holder display-none-print">
+			<button type="button" data-bi-name="contributors" class="contributors-button link-button">
+				10 colaboradores
+			</button>
+		</li> 
+		</ul>
+	 
+				<div id="user-feedback" class="margin-block-xxs display-none-print" data-hide-on-archived>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Comentarios</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline is-hidden-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="En este artículo"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				En este artículo
+			</h2>
+		</nav>
+	
+					<div class="content"><p>Este artículo va dirigido a los modeladores de datos de Power BI Desktop. Describe el diseño del esquema de estrella y su relevancia para desarrollar modelos semánticos de Power BI optimizados para el rendimiento y la facilidad de uso.</p>
+<div class="IMPORTANT">
+<p>Importante</p>
+<p>Los modelos semánticos de Power BI dependen de Power Query para importar o conectarse a datos. Esto significa que debe usar <a href="/es-es/power-query/power-query-what-is-power-query" data-linktype="absolute-path">Power Query</a> para transformar y preparar los datos de origen, lo que puede resultar difícil cuando tiene grandes volúmenes de datos o necesita implementar conceptos avanzados como dimensiones que cambian lentamente (que se describen <a href="#slowly-changing-dimensions" data-linktype="self-bookmark">más adelante en este artículo</a>).</p>
+<p>Cuando se le presentan estos desafíos, se recomienda desarrollar primero un almacenamiento de datos y procesos de extracción, transformación y carga (ETL) para cargar periódicamente el almacenamiento de datos. Después, el modelo semántico puede conectarse al almacenamiento de datos. Para obtener más información, vea <a href="/es-es/fabric/data-warehouse/dimensional-modeling-overview" data-linktype="absolute-path">Modelado dimensional en Microsoft Fabric Warehouse</a>.</p>
+</div>
+<div class="TIP">
+<p>Sugerencia</p>
+<p>Este artículo no pretende proporcionar una explicación completa del diseño del esquema de estrella. Para obtener más información, consulte directamente el contenido publicado con mayor difusión, como <em>The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling</em> (3ª edición, 2013) de Ralph Kimball y otros.</p>
+</div>
+<h2 id="star-schema-overview">Información general del esquema de estrella</h2>
+<p>El <em>esquema de estrella</em> es un enfoque de modelado maduro ampliamente adoptado por los almacenes de datos relacionales. Requiere que los modeladores clasifiquen las tablas del modelo como <em>dimensiones</em> o <em>hechos</em>.</p>
+<h3 id="dimension-tables">Tablas de dimensiones</h3>
+<p>Las <em>tablas de dimensiones</em> describen entidades empresariales (las <em>cosas</em> que se modelan). Las entidades pueden incluir productos, personas, lugares y conceptos, incluido el propio tiempo. La tabla más coherente de un esquema de estrella es una tabla de dimensiones de fecha. Una tabla de dimensiones contiene una columna de clave (o columnas) que actúa como identificador único y otras columnas. Otras columnas admiten el filtrado y la agrupación de los datos.</p>
+<h3 id="fact-tables">Tablas de hechos</h3>
+<p><em>Las tablas</em> de hechos almacenan observaciones o eventos, y pueden ser pedidos de venta, saldos de existencias, tipos de cambio, temperaturas, etc. Una tabla de hechos contiene columnas clave de dimensiones que se relacionan con tablas de dimensiones y columnas de medidas numéricas. Las columnas de clave de dimensiones determinan la <em>dimensionalidad</em> de una tabla de hechos, mientras que los valores de clave de dimensiones determinan la <em>granularidad</em> de una tabla de hechos. Por ejemplo, considere una tabla de hechos diseñada para almacenar destinos de venta con dos columnas <code>Date</code> clave de dimensión y <code>ProductKey</code>. Resulta fácil comprender que la tabla tiene dos dimensiones. Pero la granularidad no se puede determinar sin tener en cuenta los valores de clave de dimensiones. En este ejemplo, considere que los valores almacenados en la <code>Date</code> columna son el primer día de cada mes. En este caso, la granularidad está en el nivel mes-producto.</p>
+<p>Normalmente, las tablas de dimensiones contienen un número relativamente pequeño de filas. Por otro lado, las tablas de hechos pueden contener un gran número de filas y seguir creciendo con el tiempo.</p>
+<p><img src="media/star-schema/star-schema-example-1.svg" alt="Diagrama que muestra una ilustración de un esquema de estrella." data-linktype="relative-path">
+</p>
+<h2 id="normalization-vs-denormalization">Normalización frente a desnormalización</h2>
+<p>Para comprender algunos conceptos de los esquemas de estrella descritos en este artículo, es importante conocer dos términos: normalización y desnormalización.</p>
+<p><em>Normalización</em> es el término que se usa para describir los datos almacenados de una manera que reduce los datos repetitivos. Considere una tabla de productos que tiene una columna de valor de clave única, como la clave de producto y otras columnas que describen las características del producto, como el nombre del producto, la categoría, el color y el tamaño. Una tabla de ventas se considera normalizada cuando almacena solo claves, como la clave de producto. En la imagen siguiente, observe que solo la <code>ProductKey</code> columna registra el producto.</p>
+<p><img src="media/star-schema/normalized-data-example.svg" alt="Diagrama que muestra una tabla de datos que incluye una columna Clave de producto." data-linktype="relative-path">
+</p>
+<p>Pero si la tabla de ventas almacena detalles de los productos más allá de la clave, se considera <em>desnormalizada</em>. En la imagen siguiente, observe que las columnas relacionadas con el <code>ProductKey</code> producto y otras columnas relacionadas con el producto registran.</p>
+<p><img src="media/star-schema/denormalized-data-example.svg" alt="Diagrama que muestra una tabla de datos que incluye una clave de producto y otras columnas relacionadas con el producto, como categoría, color y tamaño." data-linktype="relative-path">
+</p>
+<p>Cuando se extraen datos de un archivo de exportación o de un extracto de datos, es probable que representen un conjunto de datos desnormalizado. En este caso, use <a href="/es-es/training/modules/clean-data-power-bi/" data-linktype="absolute-path">Power Query</a> para transformar y dar forma a los datos de origen en varias tablas normalizadas.</p>
+<p>Como se describe en este artículo, debe esforzarse por desarrollar modelos semánticos de Power BI optimizados con tablas que representan datos de dimensiones y hechos normalizados. Sin embargo, hay una excepción en la que una <a href="#snowflake-dimensions" data-linktype="self-bookmark">dimensión</a> de copo de nieve podría desnormalizarse para generar una sola tabla de modelos.</p>
+<h2 id="star-schema-relevance-to-power-bi-semantic-models">Relevancia del esquema de estrella para los modelos semánticos de Power BI</h2>
+<p>El diseño de esquema de estrella y muchos conceptos relacionados presentados en este artículo son muy importantes para desarrollar modelos de Power BI optimizados para el rendimiento y la facilidad de uso.</p>
+<p>Tenga en cuenta que cada objeto visual de informe de Power BI genera una consulta que se envía al modelo semántico de Power BI. Por lo general, las consultas filtran, agrupan y resumen los datos del modelo. Por tanto, un modelo bien diseñado es aquel que proporciona tablas para filtrar y agrupar y tablas para resumir. Este diseño se ajusta bien a los principios de los esquemas de estrella:</p>
+<ul>
+<li>Las tablas de dimensiones habilitan <em>el filtrado</em> y <em>la agrupación</em>.</li>
+<li>Las tablas de hechos habilitan <em>el resumen</em>.</li>
+</ul>
+<p>No hay ninguna propiedad de tabla que los modeladores establezcan para establecer el tipo de tabla como dimensión o hecho. De hecho, viene determinado por las relaciones<a href="../transform-model/desktop-relationships-understand" data-linktype="relative-path"> del </a>modelo. Una relación de modelo establece una ruta de propagación de filtro entre dos tablas y es la propiedad de cardinalidad de la relación que determina el tipo de tabla. Una cardinalidad de relación común es <em>uno a varios</em> o su inversa <em>varios a uno</em>. El lado "uno" siempre es una tabla de dimensiones mientras que el lado "varios" siempre es una tabla de hechos.</p>
+<p><img src="media/star-schema/star-schema-example-2.svg" alt="Diagrama que muestra una ilustración conceptual de un esquema de estrella." data-linktype="relative-path">
+</p>
+<p>Un diseño de modelo bien estructurado incluye tablas que son tablas de dimensiones o tablas de hechos. Evite mezclar los dos tipos en una sola tabla. También se recomienda que se esfuerza por entregar el número correcto de tablas con las relaciones correctas en su lugar. También es importante que las tablas de hechos siempre carguen datos de forma coherente.</p>
+<p>Por último, es importante entender que un diseño óptimo del modelo es en parte ciencia y en parte arte. A veces puede tener sentido comenzar con una buena orientación.</p>
+<p>Hay muchos conceptos relacionados con el diseño de esquema de estrella que se pueden aplicar a un modelo semántico de Power BI. Entre estos conceptos se incluyen los siguientes:</p>
+<ul>
+<li><a href="#measures" data-linktype="self-bookmark">Medidas</a></li>
+<li><a href="#surrogate-keys" data-linktype="self-bookmark">Claves suplentes</a></li>
+<li><a href="#snowflake-dimensions" data-linktype="self-bookmark">Dimensiones de copo de nieve</a></li>
+<li><a href="#role-playing-dimensions" data-linktype="self-bookmark">Dimensiones realizadoras de roles</a></li>
+<li><a href="#slowly-changing-dimensions" data-linktype="self-bookmark">Dimensiones de variación lenta</a></li>
+<li><a href="#junk-dimensions" data-linktype="self-bookmark">Dimensiones no deseadas</a></li>
+<li><a href="#degenerate-dimensions" data-linktype="self-bookmark">Dimensiones degeneradas</a></li>
+<li><a href="#factless-fact-tables" data-linktype="self-bookmark">Tablas de hechos sin hechos</a></li>
+</ul>
+<h2 id="measures">Medidas</h2>
+<p>En el diseño de esquemas de estrella, una <em>medida</em> es una columna de tabla de hechos que almacena valores que se van a resumir. En un modelo semántico de Power BI, una medida tiene una definición diferente, pero similar. Un modelo admite medidas explícitas e implícitas.</p>
+<ul>
+<li><strong>Las medidas</strong> explícitas se crean expresamente y se basan en una fórmula escrita en <a href="/es-es/dax/data-analysis-expressions-dax-reference" data-linktype="absolute-path">Expresiones de análisis de datos (DAX)</a> que logra el resumen. Las expresiones de medida suelen usar funciones de agregación DAX como <code>SUM</code>, <code>MIN</code>, <code>MAX</code>, <code>AVERAGE</code>, y otras para generar un resultado de valor escalar en el momento de la consulta (los valores nunca se almacenan en el modelo). La expresión de medida puede abarcar desde agregaciones de columnas simples hasta fórmulas más sofisticadas que invalidan las propagaciones de contexto o de relación de filtrado. Para obtener más información, lea sobre <a href="../transform-model/desktop-quickstart-learn-dax-basics" data-linktype="relative-path">los conceptos básicos de DAX en Power BI Desktop</a>.</li>
+<li><strong>Las medidas</strong> implícitas son columnas que se pueden resumir mediante un objeto visual de informe o <a href="../consumer/end-user-q-and-a" data-linktype="relative-path">Q&amp;A</a>. Ofrecen una comodidad para usted como desarrollador de modelos, ya que en muchas instancias no es necesario crear medidas (explícitas). Por ejemplo, la columna de ventas <code>Sales Amount</code> de revendedores de Adventure Works se puede resumir de varias maneras (suma, recuento, promedio, mediana, mínimo, máximo y otros), sin necesidad de crear una medida para cada tipo de agregación posible.</li>
+</ul>
+<p>En el panel Datos<strong>, las </strong>medidas explícitas se representan mediante el icono de la calculadora, mientras que las medidas implícitas se representan mediante el símbolo sigma (∑).</p>
+<p><img src="media/star-schema/field-list-example.svg" alt="Diagrama que muestra los iconos encontrados en el panel Datos." data-linktype="relative-path">
+</p>
+<p>Sin embargo, hay tres razones convincentes por las que puede crear medidas, incluso para resúmenes simples de nivel de columna:</p>
+<ul>
+<li><p>Cuando sepa que los autores de informes consultarán el modelo semántico mediante <a href="/es-es/sql/analysis-services/multidimensional-models/mdx/mdx-query-the-basic-query" data-linktype="absolute-path">expresiones multidimensionales (MDX),</a> el modelo debe incluir medidas explícitas. Esto se debe a que MDX no puede lograr el resumen de los valores de columna. En particular, MDX se usa al realizar <a href="../collaborate-share/service-analyze-in-excel" data-linktype="relative-path">Análisis en Excel</a> porque las tablas dinámicas emiten consultas MDX.</p>
+</li>
+<li><p>Cuando sepa que los autores de informes crearán informes paginados de Power BI mediante el diseñador de consultas MDX, el modelo semántico debe incluir medidas explícitas. Solo el diseñador de consultas MDX admite <a href="/es-es/sql/reporting-services/report-design/report-builder-functions-aggregate-functions-reference" data-linktype="absolute-path">agregados de servidor</a>. Por tanto, si los autores del informe necesitan que Power&nbsp;BI evalúe las medidas (y no lo haga el motor de informes paginados), tendrán que usar el diseñador de consultas MDX.</p>
+</li>
+<li><p>Cuando quiera controlar cómo los autores de informes resumen las columnas de maneras específicas. Por ejemplo, la columna ventas <code>Unit Price</code> de revendedores (que representa una tasa por unidad) se puede resumir, pero solo mediante funciones de agregación específicas. Nunca se debe sumar, pero es adecuado resumir mediante otras funciones de agregación como min, max o average. En esta instancia, el modelador puede ocultar la <code>Unit Price</code> columna y crear medidas para todas las funciones de agregación adecuadas.</p>
+<p>Este enfoque de diseño funciona bien con los informes creados en el servicio Power BI y con Preguntas y respuestas. Sin embargo, las conexiones<a href="../connect-data/service-live-connect-dq-datasets#live-connection" data-linktype="relative-path"> dinámicas de Power BI Desktop </a>permiten a los autores de informes mostrar campos ocultos en el <strong>panel Datos</strong>, lo que puede dar lugar a evitar este enfoque de diseño.</p>
+</li>
+</ul>
+<h2 id="surrogate-keys">Claves suplentes</h2>
+<p>Una <em>clave suplente</em> es un identificador único que se agrega a una tabla para admitir el modelado de esquemas de estrella. Por definición, no se define ni se almacena en los datos de origen. Normalmente, las claves suplentes se agregan a las tablas de dimensiones del almacén de datos relacionales para proporcionar un identificador único para cada fila de la tabla de dimensiones.</p>
+<p>Las relaciones del modelo semántico de Power BI se basan en una sola columna única de una tabla, que propaga los filtros a una sola columna de una tabla diferente. Cuando una tabla de dimensiones del modelo semántico no incluye una sola columna única, debe agregar un identificador único para convertirse en el lado "uno" de una relación. En Power BI Desktop, puede lograr este requisito agregando una columna<a href="/es-es/powerquery-m/table-addindexcolumn" data-linktype="absolute-path"> de índice de Power Query</a>.</p>
+<p><img src="media/star-schema/toolbar-index-column.svg" alt="Diagrama que muestra el comando Crear columna de índice en Editor de Power Query." data-linktype="relative-path">
+</p>
+<p>Debe combinar esta consulta con la consulta "varios" para poder agregarle también la columna de índice. Al cargar estas consultas en el modelo semántico, puede crear una relación uno a varios entre las tablas del modelo.</p>
+<h2 id="snowflake-dimensions">Dimensiones de copo de nieve</h2>
+<p>Una <em>dimensión de copo de nieve</em> es un conjunto de tablas normalizadas para una sola entidad de negocio. Por ejemplo, Adventure Works clasifica los productos por categoría y subcategoría. Los productos se asignan a subcategorías y, a su vez, las subcategorías se asignan a categorías. En el almacenamiento de datos relacionales de Adventure Works, la dimensión del producto se normaliza y almacena en tres tablas relacionadas: <code>DimProductCategory</code>, <code>DimProductSubcategory</code>y <code>DimProduct</code>.</p>
+<p><img src="media/star-schema/snowflake-design.svg" alt="Diagrama que muestra un ejemplo de un diagrama de copos de nieve que consta de tres tablas relacionadas." data-linktype="relative-path">
+</p>
+<p>Si usa su imaginación, puede imaginarse las tablas normalizadas colocadas hacia fuera de la tabla de hechos, formando un diseño de copo de nieve.</p>
+<p><img src="media/star-schema/snowflake-dimension.svg" alt="Diagrama que muestra un ejemplo conceptual de un diagrama de copos de nieve que consta de tres tablas relacionadas." data-linktype="relative-path">
+</p>
+<p>En Power BI Desktop, puede elegir imitar un diseño de dimensión de copo de nieve (quizás porque los datos de origen lo hacen) o combinar las tablas de origen para formar una sola tabla de modelo desnormalizada. Por lo general, las ventajas de una sola tabla del modelo compensan las ventajas de varias tablas del modelo. La decisión óptima puede depender de los volúmenes de datos y de los requisitos de facilidad de uso del modelo.</p>
+<p>Si elige imitar un diseño de dimensiones de copo de nieve:</p>
+<ul>
+<li>Power BI carga más tablas, lo que resulta menos eficaz desde el punto del vista del almacenamiento y el rendimiento. Estas tablas deben incluir columnas para admitir las relaciones del modelo, lo que puede dar lugar a un mayor tamaño del modelo.</li>
+<li>Es necesario recorrer cadenas de propagación de filtros de relación más largas, lo que podría ser menos eficaz que los filtros aplicados a una sola tabla.</li>
+<li>El <strong>panel Datos</strong> presenta más tablas de modelos a los autores de informes, lo que puede dar lugar a una experiencia menos intuitiva, especialmente cuando las tablas de dimensiones de copo de nieve contienen solo una o dos columnas.</li>
+<li>No es posible crear una jerarquía que incluya columnas de más de una tabla.</li>
+</ul>
+<p>Si elige integrar en una sola tabla del modelo, además puede definir una jerarquía que abarque el mayor y menor nivel de detalle de la dimensión. Posiblemente, el almacenamiento de datos desnormalizados redundantes puede dar lugar a un aumento del tamaño de almacenamiento del modelo, especialmente para las tablas de dimensiones grandes.</p>
+<p><img src="media/star-schema/hierarchy.svg" alt="Diagrama que muestra un ejemplo de una jerarquía dentro de una tabla de dimensiones que tiene columnas como Category, Subcategory y Product." data-linktype="relative-path">
+</p>
+<h2 id="slowly-changing-dimensions">Dimensiones de variación lenta</h2>
+<p>Una <em>dimensión</em> que cambia lentamente (o SCD) es una que administra adecuadamente el cambio de miembros de dimensión a lo largo del tiempo. Se aplica cuando los valores de entidad empresarial cambian <em>lentamente</em> con el tiempo de una manera no planeada. Un buen ejemplo de scD es una dimensión de cliente, ya que sus columnas de detalles de contacto, como la dirección de correo electrónico y el número de teléfono cambian con poca frecuencia. Por el contrario, algunas dimensiones se consideran rápidamente <em></em> cambiantes cuando un atributo de dimensión cambia a menudo, como el precio de mercado de una acción. El enfoque de diseño común en estas instancias es almacenar los valores de atributo de variación rápida en una medida de tabla de hechos.</p>
+<p>La teoría de diseño de esquemas de estrella hace referencia a dos tipos de SCD comunes: Tipo 1 y tipo 2. Una tabla de dimensiones podría ser tipo 1 o tipo 2, o admitir ambos tipos simultáneamente para columnas diferentes.</p>
+<h3 id="type-1-scd">SCD de tipo 1</h3>
+<p>Una <em>SCD de tipo&nbsp;1</em> siempre refleja los valores más recientes y, cuando se detectan cambios en los datos de origen, se sobrescriben los datos de la tabla de dimensiones. Este enfoque de diseño es común para las columnas que almacenan valores auxiliares, como la dirección de correo electrónico o el número de teléfono de un cliente. Cuando cambia la dirección de correo electrónico o el número de teléfono de un cliente, la tabla de dimensiones actualiza la fila del cliente con los nuevos valores. Es como si el cliente tuviera siempre esta información de contacto.</p>
+<p><img src="media/star-schema/slowly-changing-dimension-type-1.svg" alt="Diagrama que muestra un ejemplo de un tipo de dimensión de variación lenta 1 en el que se actualiza un número de teléfono de empleado." data-linktype="relative-path">
+</p>
+<p>Una actualización no incremental de una tabla de dimensiones de modelo de Power BI logra el resultado de un SCD de tipo 1. Actualiza los datos de la tabla para garantizar que se carguen los valores más recientes.</p>
+<h3 id="type-2-scd">SCD de tipo 2</h3>
+<p>Una <em>SCD de tipo&nbsp;2</em> admite el control de versiones de los miembros de la dimensión. Si el sistema de origen no almacena versiones, normalmente es el proceso de carga del almacenamiento de datos que detecta los cambios y administra correctamente el cambio en una tabla de dimensiones. En este caso, la tabla de dimensiones debe usar una clave suplente para proporcionar una referencia única a una <em>versión</em> del miembro de la dimensión. También incluye columnas que definen la validez del intervalo de fechas de la versión (por ejemplo, <code>StartDate</code> y <code>EndDate</code>) y, posiblemente, una columna de marca (por ejemplo, <code>IsCurrent</code>) para filtrar fácilmente por miembros de la dimensión actuales.</p>
+<p>Por ejemplo, Adventure Works asigna cada vendedor a una región de ventas. Cuando un vendedor se reasigna a otra región, debe crearse una nueva versión del vendedor para asegurarse de que los hechos históricos sigan asociados a la región anterior. Para admitir un análisis histórico preciso de ventas por vendedor, la tabla de dimensiones debe almacenar versiones de vendedores y sus regiones asociadas. La tabla también debe incluir valores de fecha de inicio y finalización para definir la validez temporal. Las versiones actuales pueden definir una fecha de finalización vacía (o 31/12/9999), lo que indica que la fila es la versión actual. La tabla también debe tener una <a href="#surrogate-keys" data-linktype="self-bookmark">clave</a> suplente porque la clave de negocio (en esta instancia, el identificador de empleado) no será única.</p>
+<p><img src="media/star-schema/slowly-changing-dimension-type-2.svg" alt="Diagrama que muestra un ejemplo de un tipo de dimensión de variación lenta 2 en el que se actualiza una región de ventas de empleados mediante la creación de una nueva versión." data-linktype="relative-path">
+</p>
+<p>Es importante comprender que si los datos de origen no almacenan versiones, debe usar un sistema intermedio (como un almacenamiento de datos) para detectar y almacenar los cambios. El proceso de carga de la tabla debe conservar los datos existentes y detectar los cambios. Cuando se detecta un cambio, el proceso de carga de la tabla debe hacer que expire la versión actual. Para registrar estos cambios actualiza el valor <code>EndDate</code> e inserta una versión nueva con el valor <code>StartDate</code> que comienza a partir del valor <code>EndDate</code> anterior. Además, los hechos relacionados deben usar una búsqueda basada en tiempo para recuperar el valor de clave de dimensión pertinente para la fecha de los hechos. Un modelo semántico de Power BI usa Power Query, por lo que no puede generar este resultado. Pero puede cargar datos de una tabla de dimensiones SCD de tipo 2 previamente cargada.</p>
+<div class="TIP">
+<p>Sugerencia</p>
+<p>Para obtener información sobre cómo implementar una tabla de dimensiones scD de tipo 2 en un almacenamiento de Fabric, consulte <a href="/es-es/fabric/data-warehouse/dimensional-modeling-dimension-tables#manage-historical-change" data-linktype="absolute-path">Administración de cambios históricos</a>.</p>
+</div>
+<p>El modelo semántico de Power BI debe admitir la consulta de datos históricos para un miembro, independientemente del cambio, y para una versión del miembro, que representa un estado determinado del miembro en el tiempo. En el contexto de Adventure Works, este diseño permite consultar el vendedor con independencia de la región de ventas asignada, o una versión determinada del vendedor.</p>
+<p>Para lograr este requisito, la tabla de dimensiones del modelo semántico de Power BI debe incluir una columna para filtrar el vendedor y otra columna para filtrar una versión específica del vendedor. Es importante que la columna de versión proporcione una descripción no ambigua, como <code>David Campbell (12/15/2008-06/26/2019)</code> o <code>David Campbell (06/27/2019-Current)</code>. También es importante educar a los autores y usuarios de informes sobre los aspectos básicos de la SCD de tipo 2 y cómo lograr diseños de informe adecuados mediante la aplicación de los filtros correctos.</p>
+<p>Se recomienda incluir una jerarquía que permita a los objetos visuales explorar en profundidad el nivel de versión.</p>
+<p><img src="media/star-schema/hierarchy-drill-down.svg" alt="Diagrama que muestra el panel Datos con columnas para Salesperson y Salesperson Version." data-linktype="relative-path">
+</p>
+<h2 id="role-playing-dimensions">Dimensiones realizadoras de roles</h2>
+<p>Una <em>dimensión realizadora de roles</em> es una dimensión que puede filtrar datos relacionados de manera diferente. Por ejemplo, en Adventure Works, la tabla de dimensiones de fecha tiene tres relaciones con los hechos de ventas del revendedor. Se puede usar la misma tabla de dimensiones para filtrar los hechos por fecha de pedido, fecha de envío o fecha de entrega.</p>
+<p><img src="media/star-schema/role-playing-dimensions.svg" alt="Diagrama que muestra un ejemplo conceptual de una sola dimensión y relaciones de rol. La tabla de fechas tiene dos relaciones con la tabla de hechos." data-linktype="relative-path">
+</p>
+<p>En un almacenamiento de datos, el enfoque de diseño aceptado es definir una sola tabla de dimensiones de fecha. En tiempo de consulta, el "rol" de la dimensión de fecha se establece mediante la columna de hechos que se usa para combinar las tablas. Por ejemplo, al analizar las ventas por fecha de pedido, la combinación de tabla se relaciona con la columna de fecha de pedido de ventas del distribuidor.</p>
+<p>En un modelo semántico de Power BI, este diseño se puede imitar mediante la creación de varias relaciones entre dos tablas. En el ejemplo de Adventure Works, las tablas de fecha y ventas del distribuidor tendrían tres relaciones.</p>
+<p><img src="media/star-schema/relationships-single-dimension-table.svg" alt="Diagrama que muestra un ejemplo de una sola dimensión y relaciones de rol. La tabla Date tiene tres relaciones con la tabla de hechos." data-linktype="relative-path">
+</p>
+<p>Aunque este diseño es posible, solo puede haber una <em>relación activa</em> entre dos tablas de modelos semánticos de Power BI. Todas las demás relaciones se deben establecer en inactivas. Tener una única relación activa significa que hay una propagación de filtro predeterminada de fecha a ventas de revendedor. En este caso, la relación activa se establece en el filtro más común que usan los informes, que en Adventure Works es la relación de fecha de pedido.</p>
+<p>La única forma de usar una relación inactiva es definir una expresión DAX que use la <a href="/es-es/dax/userelationship-function-dax" data-linktype="absolute-path">función USERELATIONSHIP</a>. En el ejemplo, el desarrollador del modelo debe crear medidas para habilitar el análisis de las ventas del distribuidor por fecha de envío y fecha de entrega. Este trabajo puede resultar tedioso, sobre todo si en la tabla del distribuidor se definen muchas medidas. También crea un panel De datos<strong> desordenado </strong>que tiene una sobreabundancia de medidas. También hay otras limitaciones:</p>
+<ul>
+<li>Cuando los autores de informes se basan en resumir columnas en lugar de definir medidas, no pueden lograr el resumen de las relaciones inactivas sin escribir una medida de nivel de informe. Las medidas de nivel de informe solo se pueden definir al crear informes en Power BI Desktop.</li>
+<li>Con solo una ruta de relación activa entre la fecha y las ventas del distribuidor, no es posible filtrar simultáneamente las ventas del distribuidor por diferentes tipos de fechas. Por ejemplo, no se puede generar un objeto visual que trace las ventas de fecha de pedido por ventas enviadas.</li>
+</ul>
+<p>Para superar estas limitaciones, una técnica de modelado común de Power BI es crear una tabla de dimensiones para cada instancia de rol. Puede crear cada tabla de dimensiones como una <a href="power-query-referenced-queries" data-linktype="relative-path">consulta</a> de referencia mediante Power Query o una <a href="/es-es/dax/calculatetable-function-dax" data-linktype="absolute-path">tabla</a> calculada mediante DAX. El modelo puede contener una <code>Date</code> tabla, una <code>Ship Date</code> tabla y una <code>Delivery Date</code> tabla, cada una con una relación única y activa con sus respectivas columnas de tabla de ventas de revendedores.</p>
+<p><img src="media/star-schema/relationships-multiple-dimension-tables.svg" alt="Diagrama que muestra un ejemplo de las dimensiones y relaciones de juego de roles. Hay tres tablas de dimensiones de fecha diferentes relacionadas con la tabla de hechos." data-linktype="relative-path">
+</p>
+<p>Este enfoque de diseño no requiere la definición de varias medidas para los distintos roles de fecha y permite el filtrado simultáneo mediante diferentes roles de fecha. Sin embargo, un precio menor para pagar con este enfoque de diseño es que habrá duplicación de la tabla de dimensiones de fecha, lo que da lugar a un mayor tamaño de almacenamiento del modelo. Dado que las tablas de dimensiones suelen almacenar menos filas en relación con las tablas de hechos, rara vez es un problema.</p>
+<p>Se recomienda seguir los procedimientos de diseño recomendados al crear tablas de dimensiones de modelo para cada rol:</p>
+<ul>
+<li>Asegúrese de que los nombres de columna sean autodescriptivos. Aunque es posible tener una <code>Year</code> columna en todas las tablas de fechas (los nombres de columna son únicos dentro de su tabla), no se describe automáticamente con títulos visuales predeterminados. Considere la posibilidad de cambiar el nombre de las columnas de cada tabla de roles de dimensión para que la <code>Ship Date</code> tabla tenga una columna de año denominada <code>Ship Year</code>, etc.</li>
+<li>Cuando sea pertinente, asegúrese de que las descripciones de la tabla proporcionan comentarios a los autores de informes (a través <strong>de la información sobre herramientas del panel de datos</strong> ) sobre cómo se configura la propagación de filtros. Esta claridad es importante cuando el modelo contiene una tabla con nombre genérico, como <code>Date</code>, que se usa para filtrar muchas tablas de hechos. En caso de que esta tabla tenga, por ejemplo, una relación activa con la columna de fecha del pedido de ventas del revendedor, considere la posibilidad de proporcionar una descripción de tabla como <code>Filters reseller sales by order date</code>.</li>
+</ul>
+<p>Para más información, consulte <a href="relationships-active-inactive" data-linktype="relative-path">Instrucciones para relaciones activas frente a inactivas</a>.</p>
+<h2 id="junk-dimensions">Dimensiones no deseadas</h2>
+<p>Una <em>dimensión no deseada</em> es útil cuando hay muchas dimensiones, especialmente si constan de pocos atributos (quizás uno) y si estos atributos tienen pocos valores. Los buenos candidatos incluyen columnas de estado de pedido o columnas demográficas del cliente, como el sexo o el grupo de edad.</p>
+<p>El objetivo de diseño de una dimensión no deseado es consolidar muchas <em>dimensiones pequeñas</em> en una sola dimensión para reducir el tamaño de almacenamiento del modelo y también reducir <strong>el desorden del panel Datos</strong> al mostrar menos tablas de modelos.</p>
+<p>Normalmente, una tabla de dimensiones no deseado es el producto cartesiano de todos los miembros de atributo de dimensión, con una <a href="#surrogate-keys" data-linktype="self-bookmark">columna de clave</a> suplente para identificar de forma única cada fila. Puede compilar la dimensión en un almacenamiento de datos o al usar Power Query para crear una consulta que realice <a href="/es-es/powerquery-m/table-join" data-linktype="absolute-path">combinaciones de consulta externas completas</a> y luego agregue una clave suplente (columna de índice).</p>
+<p><img src="media/star-schema/junk-dimension.svg" alt="Diagrama que muestra un ejemplo de tabla de dimensiones no deseadas. El Estado del Pedido tiene tres estados mientras que el Estado de la Entrega tiene dos estados." data-linktype="relative-path">
+</p>
+<p>Esta consulta se carga en el modelo como una tabla de dimensiones. También debe combinar esta consulta con la consulta de hechos para que la columna de índice se cargue en el modelo para admitir la creación de una relación de modelo de uno a varios.</p>
+<h2 id="degenerate-dimensions">Dimensiones degeneradas</h2>
+<p>Una <em>dimensión</em> degenerada hace referencia a un atributo de la tabla de hechos necesaria para el filtrado. En Adventure Works, el número de pedido de ventas del distribuidor es un buen ejemplo. En este caso, no tiene sentido crear una tabla independiente que consta solo de esta columna porque aumentaría el tamaño de almacenamiento del modelo y daría como resultado un desorden en <strong>el panel Datos</strong> .</p>
+<p>En el modelo semántico de Power BI, puede ser adecuado agregar la columna número de pedido de ventas a la tabla de hechos para permitir el filtrado o la agrupación por número de pedido de ventas. Es una excepción a la regla anteriormente introducida que no debe mezclar tipos de tabla (por lo general, las tablas de modelo deben ser dimensiones o hechos).</p>
+<p><img src="media/star-schema/degenerate-dimension.svg" alt="Diagrama que muestra el panel Datos y la tabla de hechos de ventas, que incluye el campo Número de pedido." data-linktype="relative-path">
+</p>
+<p>Sin embargo, si la tabla de ventas de revendedores de Adventure Works tiene columnas de número <em>de pedido y</em> número de línea de pedido, y son necesarias para el filtrado, la creación de una tabla de dimensiones degenerada sería un buen diseño. Para más información, consulte <a href="relationships-one-to-one#degenerate-dimensions" data-linktype="relative-path">Instrucciones para relaciones uno a uno (Dimensiones degeneradas)</a>.</p>
+<h2 id="factless-fact-tables">Tablas de hechos sin hechos</h2>
+<p>Una tabla de <em>hechos sin hechos</em> no incluye ninguna columna de medida. Solo contiene claves de dimensión.</p>
+<p>Una tabla de hechos sin hechos podría almacenar observaciones definidas por claves de dimensión. Por ejemplo, en una fecha y hora determinados, un cliente determinado inició sesión en el sitio web. Puede definir una medida para contar las filas de la tabla de hechos sin hechos para realizar análisis de cuándo y cuántos clientes han iniciado sesión.</p>
+<p>Un uso más atractivo de una tabla de hechos sin hechos es almacenar relaciones entre dimensiones y es un enfoque de diseño de modelo semántico de Power BI que se recomienda para definir relaciones de dimensión de varios a varios. En un <a href="relationships-many-to-many#relate-many-to-many-dimensions" data-linktype="relative-path">diseño de relaciones de dimensión de varios a varios</a>, la tabla de datos sin datos se conoce como <em>tabla de puente</em>.</p>
+<p>Por ejemplo, imagine que los vendedores pueden asignarse a una <em>o más</em> regiones de ventas. La tabla de puente se diseñaría como una tabla de hechos sin hechos de dos columnas: clave de vendedor y clave de región. Los valores duplicados se pueden almacenar en ambas columnas.</p>
+<p><img src="media/star-schema/factless-fact-table.svg" alt="Diagrama que muestra una tabla sin hechos que conecta las dimensiones Vendedor y Región. La tabla sin hechos consta de dos columnas." data-linktype="relative-path">
+</p>
+<p>Este enfoque de diseño de varios a varios está bien documentado y se puede lograr sin una tabla de puente. Pero el enfoque de tabla de puente se considera el procedimiento recomendado al relacionar dos dimensiones. Para más información, consulte <a href="relationships-many-to-many#relate-many-to-many-dimensions" data-linktype="relative-path">Instrucciones para relaciones de varios a varios (Relación de dimensiones varios a varios)</a>.</p>
+<h2 id="related-content">Contenido relacionado</h2>
+<p>Para obtener más información sobre el diseño del esquema de estrella o el diseño del modelo semántico de Power BI, consulte los artículos siguientes:</p>
+<ul>
+<li><a href="https://go.microsoft.com/fwlink/p/?linkid=246459" data-linktype="external">Artículo de la Wikipedia sobre el modelado dimensional</a></li>
+<li><a href="../transform-model/desktop-relationships-understand" data-linktype="relative-path">Relaciones de modelos en Power&nbsp;BI Desktop</a></li>
+<li><a href="relationships-one-to-one" data-linktype="relative-path">Instrucciones para relaciones uno a uno</a></li>
+<li><a href="relationships-many-to-many" data-linktype="relative-path">Instrucciones para relaciones de varios a varios</a></li>
+<li><a href="relationships-bidirectional-filtering" data-linktype="relative-path">Instrucciones para relaciones bidireccionales</a></li>
+<li><a href="relationships-active-inactive" data-linktype="relative-path">Instrucciones para relaciones activas frente a inactivas</a></li>
+<li><a href="/es-es/fabric/data-warehouse/dimensional-modeling-overview" data-linktype="absolute-path">Modelado dimensional en Microsoft Fabric Warehouse</a></li>
+<li>¿Tiene alguna pregunta? <a href="https://community.fabric.microsoft.com/" data-linktype="external">Intente preguntar a la comunidad de Fabric.</a></li>
+<li>¿Sugerencias? <a href="https://ideas.fabric.microsoft.com/" data-linktype="external">Contribuir a ideas para mejorar Fabric</a></li>
+</ul>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Comentarios</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					¿Le ha resultado útil esta página?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="Este artículo es útil"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Sí</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="Este artículo no es útil"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+				</div>
+			</div>
+			
+		<div class="display-flex flex-wrap-wrap gap-xxs margin-top-xxs">
+			
+				<a
+					data-bi-name="provide-feedback-cta"
+					class="has-external-link-indicator"
+					href="https://ideas.fabric.microsoft.com/?forum=2d80fd4a-16cb-4189-896b-e0dac5e08b41"
+					data-bi-name="product-feedback"
+				>
+					<span>Proporcionar comentarios sobre el producto</span>
+				</a>
+		   <span aria-hidden="true">|</span> 
+				<a
+					href="https://community.fabric.microsoft.com/powerbi"
+					class="has-external-link-indicator"
+					data-bi-name="ask-the-community"
+				>
+					<span>Preguntar a la comunidad</span>
+				</a>
+		  
+		</div>
+	
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-desktop display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Recursos adicionales
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-qna-mobile"
+			class="margin-top-xxs"
+			data-bi-name="qna-link-card"
+			hidden
+		></section>
+	
+		</div>
+	
+			</div>
+			
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Panel de acciones"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside "
+					data-bi-name="aside"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+			role="complementary"
+			aria-label="Recursos adicionales"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				<h2 id="ms--additional-resources-heading" class="title is-6 margin-top-xxs" hidden>
+					Recursos adicionales
+				</h2>
+				
+		<section
+			id="right-rail-events"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-recommendations"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline"
+			data-bi-name="intopic toc"
+			aria-label="En este artículo"
+		>
+			<h3>En este artículo</h3>
+		</nav>
+	 
+		<section
+			id="right-rail-qna"
+			class="margin-top-xxs"
+			data-bi-name="qna-link-card"
+			hidden
+		></section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout has-padding has-default-focus border-top  uhf-container"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">es-es</span></a
+		>
+	
+				<div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Sus opciones de privacidad</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm has-inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-expanded="false"
+				title="Tema"
+				data-bi-name="theme"
+			>
+				<span class="icon">
+					<span class="docon docon-sun" aria-hidden="true"></span>
+				</span>
+				<span>Tema</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu">
+					<li class="theme display-block">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							data-theme-to="light"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span role="menuitem"> Claro </span>
+						</button>
+					</li>
+					<li class="theme display-block">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							data-theme-to="dark"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span role="menuitem"> Oscuro </span>
+						</button>
+					</li>
+					<li class="theme display-block">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							data-theme-to="high-contrast"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span role="menuitem"> Contraste alto </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/es-es/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Versiones anteriores</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/es-es/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribuir</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacidad</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/es-es/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Términos de uso</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Marcas comerciales</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2025</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

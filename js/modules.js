@@ -164,25 +164,41 @@ const workshopResources = {
             icon: '<i class="fas fa-chart-bar"></i>',
             title: "Dataset de Ventas Trimestrales",
             description: "Conjunto de datos de ejemplo con información de ventas por región, producto y fecha.",
-            type: "Excel",
-            size: "1.2 MB",
-            url: "assets/datasets/ventas_trimestrales.xlsx"
+            type: "CSV",
+            size: "12 KB",
+            url: "assets/datasets/ventas_trimestrales.csv"
         },
         {
             icon: '<i class="fas fa-headset"></i>',
             title: "Dataset de Tickets de Soporte",
             description: "Datos de ejemplo de un sistema de tickets de soporte técnico.",
             type: "CSV",
-            size: "850 KB",
+            size: "4.2 KB",
             url: "assets/datasets/tickets_soporte.csv"
         },
         {
-            icon: '<i class="fas fa-balance-scale"></i>',
-            title: "Dataset de Marduk (Simplificado)",
-            description: "Versión simplificada de los datos del sistema judicial Marduk.",
+            icon: '<i class="fas fa-chart-line"></i>',
+            title: "Dataset Financiero",
+            description: "Muestra financiera con datos de ventas, productos, segmentos y países.",
             type: "Excel",
-            size: "2.1 MB",
-            url: "assets/datasets/marduk_simplificado.xlsx"
+            size: "83 KB",
+            url: "assets/datasets/financial_sample.xlsx"
+        },
+        {
+            icon: '<i class="fas fa-running"></i>',
+            title: "Dataset de Ventas de Adidas",
+            description: "Datos de ventas de Adidas con información sobre productos, regiones y retailers.",
+            type: "Excel",
+            size: "2.9 MB",
+            url: "assets/datasets/ventas_adidas.xlsx"
+        },
+        {
+            icon: '<i class="fas fa-shopping-cart"></i>',
+            title: "Dataset de AdventureWorks",
+            description: "Conjunto completo de datos de ventas de la empresa de ejemplo AdventureWorks.",
+            type: "Excel",
+            size: "13.6 MB",
+            url: "assets/datasets/adventureworks_sales.xlsx"
         }
     ],
     guides: [
@@ -190,16 +206,48 @@ const workshopResources = {
             icon: '<i class="fas fa-book"></i>',
             title: "Guía Rápida de Power BI",
             description: "Pasos básicos para comenzar a usar Power BI Desktop con ejemplos prácticos.",
-            type: "PDF",
-            size: "1.5 MB",
-            url: "assets/guides/guia_rapida_power_bi.pdf"
+            type: "Markdown",
+            size: "5 KB",
+            url: "assets/guides/guia_rapida_power_bi.md"
         },
         {
             icon: '<i class="fas fa-exchange-alt"></i>',
-            title: "Manual de Transformaciones",
+            title: "Guía de Power Query",
             description: "Referencia completa de las transformaciones más comunes en Power Query.",
-            type: "Web",
-            url: "https://learn.microsoft.com/es-es/power-query/power-query-ui"
+            type: "Markdown",
+            size: "8 KB",
+            url: "assets/guides/guia_power_query.md"
+        },
+        {
+            icon: '<i class="fas fa-calculator"></i>',
+            title: "Guía de DAX",
+            description: "Guía de funciones y expresiones DAX para análisis de datos en Power BI.",
+            type: "Markdown",
+            size: "6.5 KB",
+            url: "assets/guides/guia_dax.md"
+        },
+        {
+            icon: '<i class="fas fa-file-pdf"></i>',
+            title: "Referencia DAX",
+            description: "Documento oficial de Microsoft con todas las funciones DAX.",
+            type: "PDF",
+            size: "2.4 MB",
+            url: "assets/guides/dax_reference.pdf"
+        },
+        {
+            icon: '<i class="fas fa-file-pdf"></i>',
+            title: "Guía Power BI Completa",
+            description: "Guía completa de Power BI con ejemplos prácticos y casos de uso.",
+            type: "PDF",
+            size: "6.6 MB",
+            url: "assets/guides/guia_power_bi_pontia.pdf"
+        },
+        {
+            icon: '<i class="fas fa-list-alt"></i>',
+            title: "Recursos Online",
+            description: "Colección de enlaces a videos y sitios web en español para ampliar conocimientos.",
+            type: "Markdown",
+            url: "assets/recursos_online.md"
         },
         {
             icon: '<i class="fas fa-chart-pie"></i>',
@@ -238,17 +286,33 @@ const workshopResources = {
             icon: '<i class="fas fa-store"></i>',
             title: "Dashboard de Ventas",
             description: "Plantilla completa de dashboard para análisis de ventas con KPIs, tendencias y segmentación.",
-            type: "PBIT",
-            size: "450 KB",
-            url: "assets/templates/plantilla_dashboard_ventas.pbit"
+            type: "JSON",
+            size: "8 KB",
+            url: "assets/templates/plantilla_dashboard_ventas.json"
         },
         {
             icon: '<i class="fas fa-users"></i>',
             title: "Dashboard de RRHH",
             description: "Plantilla para análisis de recursos humanos con indicadores de rendimiento y satisfacción.",
+            type: "JSON",
+            size: "10.5 KB",
+            url: "assets/templates/plantilla_dashboard_rrhh.json"
+        },
+        {
+            icon: '<i class="fas fa-chart-line"></i>',
+            title: "Pipeline de Ventas",
+            description: "Plantilla para seguimiento de pipeline de ventas y oportunidades comerciales.",
             type: "PBIT",
-            size: "520 KB",
-            url: "assets/templates/plantilla_dashboard_rrhh.pbit"
+            size: "276 KB",
+            url: "assets/templates/sales_pipeline.pbit"
+        },
+        {
+            icon: '<i class="fas fa-user-tie"></i>',
+            title: "Dashboard de Recursos Humanos",
+            description: "Dashboard completo para análisis de personal, contrataciones y rendimiento.",
+            type: "PBIX",
+            size: "8.7 MB",
+            url: "assets/templates/human_resources.pbix"
         },
         {
             icon: '<i class="fas fa-file-powerpoint"></i>',

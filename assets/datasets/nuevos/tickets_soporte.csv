@@ -1,0 +1,31 @@
+ID,Fecha_Creacion,Asunto,Descripcion,Solicitante,Categoria,Prioridad,Estado,Asignado_A,Tiempo_Resolucion,Satisfaccion_Cliente
+TK-001,2023-01-05,Error al iniciar sesión,El usuario no puede iniciar sesión en el sistema,Juan Pérez,Acceso,Alta,Resuelto,Ana Gómez,2.5,4
+TK-002,2023-01-07,Problema con impresora,La impresora no responde a los comandos de impresión,María López,Hardware,Media,Resuelto,Carlos Ruiz,4.2,3
+TK-003,2023-01-10,Solicitud de software,Necesita instalación de Microsoft Office,Pedro Sánchez,Software,Baja,Resuelto,Ana Gómez,8.0,5
+TK-004,2023-01-12,Error en aplicación,La aplicación se cierra inesperadamente,Laura Martínez,Software,Alta,Resuelto,Carlos Ruiz,3.5,4
+TK-005,2023-01-15,Problema de red,No puede conectarse a la red corporativa,Juan Pérez,Red,Alta,Resuelto,Miguel Torres,1.8,5
+TK-006,2023-01-18,Actualización de sistema,Solicitud para actualizar Windows,Carmen Díaz,Software,Baja,Resuelto,Ana Gómez,12.0,4
+TK-007,2023-01-20,Problema con correo,No recibe correos externos,Roberto Fernández,Correo,Media,Resuelto,Miguel Torres,5.5,3
+TK-008,2023-01-23,Error en base de datos,No puede acceder a la base de datos SQL,María López,Base de Datos,Alta,Resuelto,Carlos Ruiz,6.2,4
+TK-009,2023-01-25,Solicitud de acceso,Necesita acceso al sistema de facturación,Elena Rodríguez,Acceso,Media,Resuelto,Ana Gómez,3.0,5
+TK-010,2023-01-28,Problema con VPN,No puede conectarse mediante VPN,Pedro Sánchez,Red,Alta,Resuelto,Miguel Torres,2.3,4
+TK-011,2023-02-01,Lentitud en sistema,El sistema responde muy lentamente,Laura Martínez,Rendimiento,Media,Resuelto,Carlos Ruiz,4.8,3
+TK-012,2023-02-03,Error al guardar archivos,No puede guardar documentos en la red,Juan Pérez,Almacenamiento,Media,Resuelto,Ana Gómez,3.2,4
+TK-013,2023-02-06,Problema con antivirus,El antivirus bloquea aplicaciones legítimas,Carmen Díaz,Seguridad,Baja,Resuelto,Miguel Torres,7.5,4
+TK-014,2023-02-08,Error en aplicación web,No puede acceder a la aplicación web interna,Roberto Fernández,Software,Alta,Resuelto,Carlos Ruiz,2.0,5
+TK-015,2023-02-10,Solicitud de hardware,Necesita un monitor adicional,María López,Hardware,Baja,Resuelto,Ana Gómez,48.0,4
+TK-016,2023-02-13,Problema con audio,No funciona el audio en videoconferencias,Elena Rodríguez,Hardware,Media,Resuelto,Miguel Torres,3.7,3
+TK-017,2023-02-15,Error al imprimir,Documentos se imprimen incompletos,Pedro Sánchez,Hardware,Media,Resuelto,Carlos Ruiz,5.0,4
+TK-018,2023-02-17,Problema con Excel,Fórmulas no funcionan correctamente,Laura Martínez,Software,Baja,Resuelto,Ana Gómez,4.3,5
+TK-019,2023-02-20,Lentitud en internet,La conexión a internet es muy lenta,Juan Pérez,Red,Media,Resuelto,Miguel Torres,6.8,3
+TK-020,2023-02-22,Error en sistema ERP,No puede generar informes en el ERP,Carmen Díaz,Software,Alta,Resuelto,Carlos Ruiz,8.5,4
+TK-021,2023-02-24,Problema con escáner,El escáner no funciona con el nuevo software,Roberto Fernández,Hardware,Media,Resuelto,Ana Gómez,7.2,4
+TK-022,2023-02-27,Solicitud de capacitación,Necesita capacitación en Power BI,María López,Capacitación,Baja,Resuelto,Miguel Torres,72.0,5
+TK-023,2023-03-01,Error al abrir archivos PDF,No puede abrir documentos PDF,Elena Rodríguez,Software,Baja,Resuelto,Carlos Ruiz,2.8,4
+TK-024,2023-03-03,Problema con proyector,El proyector no se conecta al portátil,Pedro Sánchez,Hardware,Alta,Resuelto,Ana Gómez,1.5,5
+TK-025,2023-03-06,Error en aplicación móvil,La aplicación móvil corporativa falla al iniciar,Laura Martínez,Software,Media,Resuelto,Miguel Torres,9.0,3
+TK-026,2023-03-08,Problema con contraseña,No puede cambiar su contraseña,Juan Pérez,Acceso,Alta,Resuelto,Carlos Ruiz,1.0,5
+TK-027,2023-03-10,Solicitud de restauración,Necesita restaurar archivos borrados,Carmen Díaz,Almacenamiento,Media,Resuelto,Ana Gómez,5.5,4
+TK-028,2023-03-13,Error en Outlook,Outlook se cierra inesperadamente,Roberto Fernández,Software,Alta,Resuelto,Miguel Torres,3.8,4
+TK-029,2023-03-15,Problema con teclado,Algunas teclas no funcionan,María López,Hardware,Baja,Resuelto,Carlos Ruiz,24.0,3
+TK-030,2023-03-17,Error al sincronizar datos,No se sincronizan los datos con la nube,Elena Rodríguez,Almacenamiento,Media,Resuelto,Ana Gómez,6.5,4

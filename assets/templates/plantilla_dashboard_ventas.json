@@ -1,0 +1,297 @@
+{
+  "name": "Plantilla Dashboard de Ventas",
+  "description": "Plantilla para crear un dashboard de análisis de ventas",
+  "version": "1.0",
+  "author": "FUNDETEC",
+  "dataSchema": {
+    "tables": [
+      {
+        "name": "Ventas",
+        "columns": [
+          {"name": "ID_Venta", "dataType": "string"},
+          {"name": "Fecha", "dataType": "dateTime"},
+          {"name": "ID_Producto", "dataType": "string"},
+          {"name": "ID_Cliente", "dataType": "string"},
+          {"name": "ID_Vendedor", "dataType": "string"},
+          {"name": "Cantidad", "dataType": "int64"},
+          {"name": "Precio_Unitario", "dataType": "decimal"},
+          {"name": "Total", "dataType": "decimal"},
+          {"name": "Descuento", "dataType": "decimal"},
+          {"name": "Metodo_Pago", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Productos",
+        "columns": [
+          {"name": "ID_Producto", "dataType": "string"},
+          {"name": "Nombre", "dataType": "string"},
+          {"name": "Categoria", "dataType": "string"},
+          {"name": "Subcategoria", "dataType": "string"},
+          {"name": "Costo", "dataType": "decimal"},
+          {"name": "Precio", "dataType": "decimal"}
+        ]
+      },
+      {
+        "name": "Clientes",
+        "columns": [
+          {"name": "ID_Cliente", "dataType": "string"},
+          {"name": "Nombre", "dataType": "string"},
+          {"name": "Segmento", "dataType": "string"},
+          {"name": "Ciudad", "dataType": "string"},
+          {"name": "Region", "dataType": "string"},
+          {"name": "Pais", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Vendedores",
+        "columns": [
+          {"name": "ID_Vendedor", "dataType": "string"},
+          {"name": "Nombre", "dataType": "string"},
+          {"name": "Departamento", "dataType": "string"},
+          {"name": "Supervisor", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Calendario",
+        "columns": [
+          {"name": "Fecha", "dataType": "dateTime"},
+          {"name": "Año", "dataType": "int64"},
+          {"name": "Trimestre", "dataType": "string"},
+          {"name": "Mes", "dataType": "string"},
+          {"name": "Semana", "dataType": "int64"},
+          {"name": "DiaSemana", "dataType": "string"},
+          {"name": "EsFestivo", "dataType": "boolean"}
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "fromTable": "Ventas",
+        "fromColumn": "ID_Producto",
+        "toTable": "Productos",
+        "toColumn": "ID_Producto"
+      },
+      {
+        "fromTable": "Ventas",
+        "fromColumn": "ID_Cliente",
+        "toTable": "Clientes",
+        "toColumn": "ID_Cliente"
+      },
+      {
+        "fromTable": "Ventas",
+        "fromColumn": "ID_Vendedor",
+        "toTable": "Vendedores",
+        "toColumn": "ID_Vendedor"
+      },
+      {
+        "fromTable": "Ventas",
+        "fromColumn": "Fecha",
+        "toTable": "Calendario",
+        "toColumn": "Fecha"
+      }
+    ]
+  },
+  "measures": [
+    {
+      "name": "Total Ventas",
+      "expression": "SUM(Ventas[Total])",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "Total Unidades",
+      "expression": "SUM(Ventas[Cantidad])",
+      "formatString": "#,0"
+    },
+    {
+      "name": "Precio Promedio",
+      "expression": "DIVIDE([Total Ventas], [Total Unidades])",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "Margen Bruto",
+      "expression": "SUM(Ventas[Total]) - SUMX(Ventas, Ventas[Cantidad] * RELATED(Productos[Costo]))",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "% Margen",
+      "expression": "DIVIDE([Margen Bruto], [Total Ventas])",
+      "formatString": "0.00%"
+    },
+    {
+      "name": "Ventas YTD",
+      "expression": "TOTALYTD([Total Ventas], Calendario[Fecha])",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "Ventas Año Anterior",
+      "expression": "CALCULATE([Total Ventas], SAMEPERIODLASTYEAR(Calendario[Fecha]))",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "% Crecimiento",
+      "expression": "DIVIDE([Total Ventas] - [Ventas Año Anterior], [Ventas Año Anterior])",
+      "formatString": "0.00%"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Resumen",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Total Ventas",
+          "measure": "Total Ventas"
+        },
+        {
+          "type": "card",
+          "title": "Total Unidades",
+          "measure": "Total Unidades"
+        },
+        {
+          "type": "card",
+          "title": "Margen Bruto",
+          "measure": "Margen Bruto"
+        },
+        {
+          "type": "card",
+          "title": "% Crecimiento",
+          "measure": "% Crecimiento"
+        },
+        {
+          "type": "lineChart",
+          "title": "Tendencia de Ventas",
+          "xAxis": "Calendario[Mes]",
+          "yAxis": "Total Ventas"
+        },
+        {
+          "type": "barChart",
+          "title": "Ventas por Categoría",
+          "xAxis": "Productos[Categoria]",
+          "yAxis": "Total Ventas"
+        },
+        {
+          "type": "pieChart",
+          "title": "Ventas por Región",
+          "category": "Clientes[Region]",
+          "value": "Total Ventas"
+        }
+      ]
+    },
+    {
+      "name": "Productos",
+      "visualizations": [
+        {
+          "type": "tableEx",
+          "title": "Rendimiento de Productos",
+          "columns": [
+            "Productos[Nombre]",
+            "Productos[Categoria]",
+            "Total Ventas",
+            "Total Unidades",
+            "% Margen"
+          ]
+        },
+        {
+          "type": "barChart",
+          "title": "Top 10 Productos",
+          "xAxis": "Productos[Nombre]",
+          "yAxis": "Total Ventas",
+          "topN": 10
+        },
+        {
+          "type": "scatterChart",
+          "title": "Margen vs. Volumen",
+          "xAxis": "Total Unidades",
+          "yAxis": "% Margen",
+          "size": "Total Ventas",
+          "category": "Productos[Categoria]"
+        }
+      ]
+    },
+    {
+      "name": "Clientes",
+      "visualizations": [
+        {
+          "type": "tableEx",
+          "title": "Rendimiento de Clientes",
+          "columns": [
+            "Clientes[Nombre]",
+            "Clientes[Segmento]",
+            "Clientes[Region]",
+            "Total Ventas",
+            "% Crecimiento"
+          ]
+        },
+        {
+          "type": "barChart",
+          "title": "Top 10 Clientes",
+          "xAxis": "Clientes[Nombre]",
+          "yAxis": "Total Ventas",
+          "topN": 10
+        },
+        {
+          "type": "mapChart",
+          "title": "Ventas por Ubicación",
+          "location": "Clientes[Ciudad]",
+          "value": "Total Ventas"
+        }
+      ]
+    },
+    {
+      "name": "Tiempo",
+      "visualizations": [
+        {
+          "type": "lineChart",
+          "title": "Ventas por Trimestre",
+          "xAxis": "Calendario[Trimestre]",
+          "yAxis": "Total Ventas",
+          "series": "Calendario[Año]"
+        },
+        {
+          "type": "columnChart",
+          "title": "Ventas por Mes",
+          "xAxis": "Calendario[Mes]",
+          "yAxis": "Total Ventas",
+          "series": "Calendario[Año]"
+        },
+        {
+          "type": "areaChart",
+          "title": "Ventas Acumuladas",
+          "xAxis": "Calendario[Mes]",
+          "yAxis": "Ventas YTD",
+          "series": "Calendario[Año]"
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "name": "FUNDETEC",
+    "colors": [
+      "#0078D4",
+      "#0E8C8C",
+      "#8764B8",
+      "#744DA9",
+      "#C43E1C",
+      "#E2871E",
+      "#EF6950",
+      "#85C1E9",
+      "#9CC3D5",
+      "#D2B4DE"
+    ],
+    "dataColors": [
+      "#0078D4",
+      "#0E8C8C",
+      "#8764B8",
+      "#744DA9",
+      "#C43E1C",
+      "#E2871E",
+      "#EF6950",
+      "#85C1E9",
+      "#9CC3D5",
+      "#D2B4DE"
+    ],
+    "background": "#FFFFFF",
+    "foreground": "#252423",
+    "tableAccent": "#0078D4"
+  }
+}

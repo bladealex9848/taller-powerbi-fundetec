@@ -1,0 +1,91 @@
+ID_Venta,Fecha,Producto,Categoria,Subcategoria,Cliente,Segmento,Ciudad,Region,Pais,Cantidad,Precio_Unitario,Total,Descuento,Costo,Beneficio
+V-001,2023-01-05,Laptop HP ProBook,Tecnología,Portátiles,Empresa ABC,Corporativo,Madrid,Centro,España,5,899.99,4499.95,0.05,3800,699.95
+V-002,2023-01-10,Monitor Dell 27",Tecnología,Monitores,Consultora XYZ,Corporativo,Barcelona,Este,España,10,249.99,2499.9,0.1,2000,499.9
+V-003,2023-01-15,Teclado Logitech,Tecnología,Periféricos,Juan Pérez,Consumidor,Sevilla,Sur,España,2,59.99,119.98,0,90,29.98
+V-004,2023-01-20,Impresora HP LaserJet,Tecnología,Impresoras,Distribuidora 123,Pequeña Empresa,Valencia,Este,España,3,349.99,1049.97,0.15,800,249.97
+V-005,2023-01-25,Smartphone Samsung,Tecnología,Móviles,María López,Consumidor,Madrid,Centro,España,1,699.99,699.99,0,550,149.99
+V-006,2023-02-01,Escritorio Ejecutivo,Mobiliario,Escritorios,Empresa ABC,Corporativo,Madrid,Centro,España,2,499.99,999.98,0.1,800,199.98
+V-007,2023-02-05,Silla Ergonómica,Mobiliario,Sillas,Consultora XYZ,Corporativo,Barcelona,Este,España,15,199.99,2999.85,0.2,2100,899.85
+V-008,2023-02-10,Archivador Metálico,Mobiliario,Almacenamiento,Juan Pérez,Consumidor,Sevilla,Sur,España,1,129.99,129.99,0,100,29.99
+V-009,2023-02-15,Mesa de Reuniones,Mobiliario,Mesas,Distribuidora 123,Pequeña Empresa,Valencia,Este,España,1,899.99,899.99,0.05,800,99.99
+V-010,2023-02-20,Estantería Modular,Mobiliario,Almacenamiento,María López,Consumidor,Madrid,Centro,España,3,149.99,449.97,0,350,99.97
+V-011,2023-03-01,Papel A4 (Caja),Papelería,Papel,Empresa ABC,Corporativo,Madrid,Centro,España,20,24.99,499.8,0.15,350,149.8
+V-012,2023-03-05,Bolígrafos (Pack 50),Papelería,Escritura,Consultora XYZ,Corporativo,Barcelona,Este,España,5,19.99,99.95,0,75,24.95
+V-013,2023-03-10,Cuadernos (Pack 10),Papelería,Libretas,Juan Pérez,Consumidor,Sevilla,Sur,España,2,29.99,59.98,0,40,19.98
+V-014,2023-03-15,Carpetas Archivadoras,Papelería,Archivo,Distribuidora 123,Pequeña Empresa,Valencia,Este,España,10,5.99,59.9,0.1,40,19.9
+V-015,2023-03-20,Grapadora Industrial,Papelería,Accesorios,María López,Consumidor,Madrid,Centro,España,1,39.99,39.99,0,30,9.99
+V-016,2023-03-25,Software Contabilidad,Software,Finanzas,Empresa ABC,Corporativo,Madrid,Centro,España,1,1999.99,1999.99,0.2,1500,499.99
+V-017,2023-03-30,Antivirus (5 licencias),Software,Seguridad,Consultora XYZ,Corporativo,Barcelona,Este,España,2,149.99,299.98,0.1,240,59.98
+V-018,2023-04-05,Suite Ofimática,Software,Productividad,Juan Pérez,Consumidor,Sevilla,Sur,España,1,299.99,299.99,0.15,230,69.99
+V-019,2023-04-10,Diseño Gráfico Pro,Software,Diseño,Distribuidora 123,Pequeña Empresa,Valencia,Este,España,2,899.99,1799.98,0.1,1500,299.98
+V-020,2023-04-15,Sistema Operativo,Software,Sistemas,María López,Consumidor,Madrid,Centro,España,1,199.99,199.99,0,150,49.99
+V-021,2023-04-20,Laptop Dell XPS,Tecnología,Portátiles,Carlos Ruiz,Consumidor,Bilbao,Norte,España,1,1299.99,1299.99,0.05,1100,199.99
+V-022,2023-04-25,Monitor Curvo Samsung,Tecnología,Monitores,Empresa DEF,Corporativo,Zaragoza,Norte,España,5,349.99,1749.95,0.1,1400,349.95
+V-023,2023-04-30,Ratón Inalámbrico,Tecnología,Periféricos,Ana Martínez,Consumidor,Málaga,Sur,España,3,29.99,89.97,0,60,29.97
+V-024,2023-05-05,Impresora Multifunción,Tecnología,Impresoras,Tienda Online SL,Pequeña Empresa,Alicante,Este,España,2,249.99,499.98,0.05,400,99.98
+V-025,2023-05-10,Tablet Samsung,Tecnología,Tablets,Pedro Sánchez,Consumidor,Madrid,Centro,España,1,399.99,399.99,0,320,79.99
+V-026,2023-05-15,Mesa de Trabajo,Mobiliario,Mesas,Carlos Ruiz,Consumidor,Bilbao,Norte,España,1,349.99,349.99,0,280,69.99
+V-027,2023-05-20,Silla de Oficina,Mobiliario,Sillas,Empresa DEF,Corporativo,Zaragoza,Norte,España,8,149.99,1199.92,0.15,900,299.92
+V-028,2023-05-25,Cajonera,Mobiliario,Almacenamiento,Ana Martínez,Consumidor,Málaga,Sur,España,1,99.99,99.99,0,80,19.99
+V-029,2023-05-30,Mesa Plegable,Mobiliario,Mesas,Tienda Online SL,Pequeña Empresa,Alicante,Este,España,2,199.99,399.98,0.1,320,79.98
+V-030,2023-06-05,Librería Modular,Mobiliario,Almacenamiento,Pedro Sánchez,Consumidor,Madrid,Centro,España,1,299.99,299.99,0,240,59.99
+V-031,2023-06-10,Papel Fotográfico,Papelería,Papel,Carlos Ruiz,Consumidor,Bilbao,Norte,España,2,19.99,39.98,0,30,9.98
+V-032,2023-06-15,Rotuladores (Pack 24),Papelería,Escritura,Empresa DEF,Corporativo,Zaragoza,Norte,España,10,14.99,149.9,0.2,100,49.9
+V-033,2023-06-20,Agendas 2023,Papelería,Organización,Ana Martínez,Consumidor,Málaga,Sur,España,2,24.99,49.98,0,35,14.98
+V-034,2023-06-25,Archivadores (Pack 5),Papelería,Archivo,Tienda Online SL,Pequeña Empresa,Alicante,Este,España,3,29.99,89.97,0.05,75,14.97
+V-035,2023-06-30,Calculadora Científica,Papelería,Accesorios,Pedro Sánchez,Consumidor,Madrid,Centro,España,1,49.99,49.99,0,40,9.99
+V-036,2023-07-05,CRM Premium,Software,Gestión,Carlos Ruiz,Consumidor,Bilbao,Norte,España,1,1499.99,1499.99,0.1,1200,299.99
+V-037,2023-07-10,Edición Video Pro,Software,Multimedia,Empresa DEF,Corporativo,Zaragoza,Norte,España,1,799.99,799.99,0.05,700,99.99
+V-038,2023-07-15,Gestor Proyectos,Software,Productividad,Ana Martínez,Consumidor,Málaga,Sur,España,1,399.99,399.99,0,320,79.99
+V-039,2023-07-20,CAD Profesional,Software,Diseño,Tienda Online SL,Pequeña Empresa,Alicante,Este,España,1,1999.99,1999.99,0.2,1500,499.99
+V-040,2023-07-25,Backup Empresarial,Software,Seguridad,Pedro Sánchez,Consumidor,Madrid,Centro,España,1,299.99,299.99,0.1,240,59.99
+V-041,2023-08-01,Portátil Ultraligero,Tecnología,Portátiles,Laura Gómez,Consumidor,Valencia,Este,España,1,999.99,999.99,0,850,149.99
+V-042,2023-08-05,Monitor 4K LG,Tecnología,Monitores,Corporación GHI,Corporativo,Madrid,Centro,España,3,499.99,1499.97,0.1,1200,299.97
+V-043,2023-08-10,Teclado Mecánico,Tecnología,Periféricos,Roberto Fernández,Consumidor,Barcelona,Este,España,1,129.99,129.99,0,100,29.99
+V-044,2023-08-15,Escáner Documental,Tecnología,Escáneres,Pyme Innovadora,Pequeña Empresa,Sevilla,Sur,España,1,399.99,399.99,0.05,350,49.99
+V-045,2023-08-20,Auriculares Bluetooth,Tecnología,Audio,Elena Martín,Consumidor,Bilbao,Norte,España,2,89.99,179.98,0,140,39.98
+V-046,2023-08-25,Armario Oficina,Mobiliario,Almacenamiento,Laura Gómez,Consumidor,Valencia,Este,España,1,599.99,599.99,0.15,450,149.99
+V-047,2023-08-30,Silla Ejecutiva,Mobiliario,Sillas,Corporación GHI,Corporativo,Madrid,Centro,España,5,299.99,1499.95,0.2,1050,449.95
+V-048,2023-09-05,Perchero,Mobiliario,Accesorios,Roberto Fernández,Consumidor,Barcelona,Este,España,1,79.99,79.99,0,60,19.99
+V-049,2023-09-10,Mesa Auxiliar,Mobiliario,Mesas,Pyme Innovadora,Pequeña Empresa,Sevilla,Sur,España,2,149.99,299.98,0.1,240,59.98
+V-050,2023-09-15,Biombo Separador,Mobiliario,Accesorios,Elena Martín,Consumidor,Bilbao,Norte,España,1,199.99,199.99,0,160,39.99
+V-051,2023-09-20,Papel Reciclado (Caja),Papelería,Papel,Laura Gómez,Consumidor,Valencia,Este,España,5,29.99,149.95,0.05,125,24.95
+V-052,2023-09-25,Lápices Colores (Pack),Papelería,Escritura,Corporación GHI,Corporativo,Madrid,Centro,España,10,9.99,99.9,0.1,80,19.9
+V-053,2023-09-30,Libretas Premium,Papelería,Libretas,Roberto Fernández,Consumidor,Barcelona,Este,España,3,14.99,44.97,0,35,9.97
+V-054,2023-10-05,Clasificadores,Papelería,Archivo,Pyme Innovadora,Pequeña Empresa,Sevilla,Sur,España,5,12.99,64.95,0,50,14.95
+V-055,2023-10-10,Pizarra Magnética,Papelería,Accesorios,Elena Martín,Consumidor,Bilbao,Norte,España,1,89.99,89.99,0.05,75,14.99
+V-056,2023-10-15,ERP Completo,Software,Gestión,Laura Gómez,Consumidor,Valencia,Este,España,1,2999.99,2999.99,0.15,2400,599.99
+V-057,2023-10-20,Suite Diseño Web,Software,Diseño,Corporación GHI,Corporativo,Madrid,Centro,España,2,599.99,1199.98,0.1,1000,199.98
+V-058,2023-10-25,Gestor Documental,Software,Productividad,Roberto Fernández,Consumidor,Barcelona,Este,España,1,499.99,499.99,0.05,450,49.99
+V-059,2023-10-30,Software Análisis Datos,Software,Análisis,Pyme Innovadora,Pequeña Empresa,Sevilla,Sur,España,1,899.99,899.99,0.1,750,149.99
+V-060,2023-11-05,Seguridad Empresarial,Software,Seguridad,Elena Martín,Consumidor,Bilbao,Norte,España,1,399.99,399.99,0,350,49.99
+V-061,2023-11-10,Workstation HP,Tecnología,Ordenadores,Miguel Torres,Consumidor,Madrid,Centro,España,1,1799.99,1799.99,0.05,1600,199.99
+V-062,2023-11-15,Monitor Ultrawide,Tecnología,Monitores,Empresa JKL,Corporativo,Barcelona,Este,España,2,699.99,1399.98,0.1,1100,299.98
+V-063,2023-11-20,Webcam HD,Tecnología,Periféricos,Carmen Díaz,Consumidor,Valencia,Este,España,3,59.99,179.97,0,135,44.97
+V-064,2023-11-25,Impresora 3D,Tecnología,Impresoras,Startup Tech,Pequeña Empresa,Madrid,Centro,España,1,999.99,999.99,0.2,700,299.99
+V-065,2023-11-30,Disco Duro Externo,Tecnología,Almacenamiento,Javier Ruiz,Consumidor,Sevilla,Sur,España,2,129.99,259.98,0,200,59.98
+V-066,2023-12-05,Mostrador Recepción,Mobiliario,Mostradores,Miguel Torres,Consumidor,Madrid,Centro,España,1,1299.99,1299.99,0.15,1000,299.99
+V-067,2023-12-10,Sillas Visitante (Pack 4),Mobiliario,Sillas,Empresa JKL,Corporativo,Barcelona,Este,España,3,249.99,749.97,0.1,600,149.97
+V-068,2023-12-15,Armario Archivador,Mobiliario,Almacenamiento,Carmen Díaz,Consumidor,Valencia,Este,España,1,399.99,399.99,0.05,350,49.99
+V-069,2023-12-20,Mesa Sala Juntas,Mobiliario,Mesas,Startup Tech,Pequeña Empresa,Madrid,Centro,España,1,1499.99,1499.99,0.2,1100,399.99
+V-070,2023-12-25,Lámparas Oficina (Pack 3),Mobiliario,Iluminación,Javier Ruiz,Consumidor,Sevilla,Sur,España,2,199.99,399.98,0.1,320,79.98
+V-071,2023-12-30,Tarjetas Visita (500),Papelería,Imprenta,Miguel Torres,Consumidor,Madrid,Centro,España,1,49.99,49.99,0,40,9.99
+V-072,2024-01-05,Marcadores (Pack 50),Papelería,Escritura,Empresa JKL,Corporativo,Barcelona,Este,España,5,24.99,124.95,0.15,90,34.95
+V-073,2024-01-10,Planificador Anual,Papelería,Organización,Carmen Díaz,Consumidor,Valencia,Este,España,1,39.99,39.99,0,30,9.99
+V-074,2024-01-15,Destructora Documentos,Papelería,Accesorios,Startup Tech,Pequeña Empresa,Madrid,Centro,España,1,199.99,199.99,0.1,160,39.99
+V-075,2024-01-20,Etiquetadora,Papelería,Accesorios,Javier Ruiz,Consumidor,Sevilla,Sur,España,1,79.99,79.99,0,65,14.99
+V-076,2024-01-25,Software Facturación,Software,Finanzas,Miguel Torres,Consumidor,Madrid,Centro,España,1,599.99,599.99,0.05,550,49.99
+V-077,2024-01-30,Diseño 3D Pro,Software,Diseño,Empresa JKL,Corporativo,Barcelona,Este,España,1,1299.99,1299.99,0.15,1000,299.99
+V-078,2024-02-05,Gestor Correo Premium,Software,Comunicación,Carmen Díaz,Consumidor,Valencia,Este,España,1,199.99,199.99,0,170,29.99
+V-079,2024-02-10,Business Intelligence,Software,Análisis,Startup Tech,Pequeña Empresa,Madrid,Centro,España,1,1999.99,1999.99,0.2,1500,499.99
+V-080,2024-02-15,Antivirus Empresarial,Software,Seguridad,Javier Ruiz,Consumidor,Sevilla,Sur,España,1,249.99,249.99,0.1,200,49.99
+V-081,2024-02-20,Servidor Rack,Tecnología,Servidores,Empresa MNO,Corporativo,Madrid,Centro,España,1,2999.99,2999.99,0.1,2500,499.99
+V-082,2024-02-25,Proyector 4K,Tecnología,Proyectores,Consultora PQR,Corporativo,Barcelona,Este,España,1,1499.99,1499.99,0.15,1200,299.99
+V-083,2024-03-01,Router Empresarial,Tecnología,Redes,Distribuidora STU,Pequeña Empresa,Valencia,Este,España,2,399.99,799.98,0.05,700,99.98
+V-084,2024-03-05,NAS 8TB,Tecnología,Almacenamiento,Empresa MNO,Corporativo,Madrid,Centro,España,1,899.99,899.99,0.1,750,149.99
+V-085,2024-03-10,Tablet Profesional,Tecnología,Tablets,Consultora PQR,Corporativo,Barcelona,Este,España,3,599.99,1799.97,0.2,1300,499.97
+V-086,2024-03-15,Mampara Divisoria,Mobiliario,Accesorios,Distribuidora STU,Pequeña Empresa,Valencia,Este,España,2,349.99,699.98,0.1,560,139.98
+V-087,2024-03-20,Sillón Directivo,Mobiliario,Sillas,Empresa MNO,Corporativo,Madrid,Centro,España,1,499.99,499.99,0.05,450,49.99
+V-088,2024-03-25,Estantería Industrial,Mobiliario,Almacenamiento,Consultora PQR,Corporativo,Barcelona,Este,España,3,299.99,899.97,0.15,700,199.97
+V-089,2024-03-30,Mesa Altura Regulable,Mobiliario,Mesas,Distribuidora STU,Pequeña Empresa,Valencia,Este,España,2,799.99,1599.98,0.2,1150,449.98
+V-090,2024-03-31,Sofá Recepción,Mobiliario,Accesorios,Empresa MNO,Corporativo,Madrid,Centro,España,1,899.99,899.99,0.1,750,149.99

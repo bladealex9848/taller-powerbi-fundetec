@@ -1,0 +1,350 @@
+{
+  "name": "Plantilla Dashboard de Recursos Humanos",
+  "description": "Plantilla para crear un dashboard de análisis de recursos humanos",
+  "version": "1.0",
+  "author": "FUNDETEC",
+  "dataSchema": {
+    "tables": [
+      {
+        "name": "Empleados",
+        "columns": [
+          {"name": "ID_Empleado", "dataType": "string"},
+          {"name": "Nombre", "dataType": "string"},
+          {"name": "Apellido", "dataType": "string"},
+          {"name": "Genero", "dataType": "string"},
+          {"name": "Fecha_Nacimiento", "dataType": "dateTime"},
+          {"name": "Fecha_Contratacion", "dataType": "dateTime"},
+          {"name": "Departamento", "dataType": "string"},
+          {"name": "Cargo", "dataType": "string"},
+          {"name": "Nivel", "dataType": "string"},
+          {"name": "Supervisor", "dataType": "string"},
+          {"name": "Salario", "dataType": "decimal"},
+          {"name": "Ciudad", "dataType": "string"},
+          {"name": "Pais", "dataType": "string"},
+          {"name": "Modalidad_Trabajo", "dataType": "string"},
+          {"name": "Estado", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Evaluaciones",
+        "columns": [
+          {"name": "ID_Evaluacion", "dataType": "string"},
+          {"name": "ID_Empleado", "dataType": "string"},
+          {"name": "Fecha", "dataType": "dateTime"},
+          {"name": "Tipo", "dataType": "string"},
+          {"name": "Puntuacion_Desempeño", "dataType": "decimal"},
+          {"name": "Puntuacion_Competencias", "dataType": "decimal"},
+          {"name": "Puntuacion_Objetivos", "dataType": "decimal"},
+          {"name": "Puntuacion_Total", "dataType": "decimal"},
+          {"name": "Comentarios", "dataType": "string"},
+          {"name": "Evaluador", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Capacitaciones",
+        "columns": [
+          {"name": "ID_Capacitacion", "dataType": "string"},
+          {"name": "ID_Empleado", "dataType": "string"},
+          {"name": "Nombre_Curso", "dataType": "string"},
+          {"name": "Categoria", "dataType": "string"},
+          {"name": "Fecha_Inicio", "dataType": "dateTime"},
+          {"name": "Fecha_Fin", "dataType": "dateTime"},
+          {"name": "Horas", "dataType": "int64"},
+          {"name": "Costo", "dataType": "decimal"},
+          {"name": "Calificacion", "dataType": "decimal"},
+          {"name": "Estado", "dataType": "string"},
+          {"name": "Proveedor", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Ausencias",
+        "columns": [
+          {"name": "ID_Ausencia", "dataType": "string"},
+          {"name": "ID_Empleado", "dataType": "string"},
+          {"name": "Fecha_Inicio", "dataType": "dateTime"},
+          {"name": "Fecha_Fin", "dataType": "dateTime"},
+          {"name": "Dias", "dataType": "int64"},
+          {"name": "Tipo", "dataType": "string"},
+          {"name": "Motivo", "dataType": "string"},
+          {"name": "Estado", "dataType": "string"}
+        ]
+      },
+      {
+        "name": "Calendario",
+        "columns": [
+          {"name": "Fecha", "dataType": "dateTime"},
+          {"name": "Año", "dataType": "int64"},
+          {"name": "Trimestre", "dataType": "string"},
+          {"name": "Mes", "dataType": "string"},
+          {"name": "Semana", "dataType": "int64"},
+          {"name": "DiaSemana", "dataType": "string"},
+          {"name": "EsFestivo", "dataType": "boolean"}
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "fromTable": "Evaluaciones",
+        "fromColumn": "ID_Empleado",
+        "toTable": "Empleados",
+        "toColumn": "ID_Empleado"
+      },
+      {
+        "fromTable": "Capacitaciones",
+        "fromColumn": "ID_Empleado",
+        "toTable": "Empleados",
+        "toColumn": "ID_Empleado"
+      },
+      {
+        "fromTable": "Ausencias",
+        "fromColumn": "ID_Empleado",
+        "toTable": "Empleados",
+        "toColumn": "ID_Empleado"
+      },
+      {
+        "fromTable": "Evaluaciones",
+        "fromColumn": "Fecha",
+        "toTable": "Calendario",
+        "toColumn": "Fecha"
+      },
+      {
+        "fromTable": "Capacitaciones",
+        "fromColumn": "Fecha_Inicio",
+        "toTable": "Calendario",
+        "toColumn": "Fecha"
+      },
+      {
+        "fromTable": "Ausencias",
+        "fromColumn": "Fecha_Inicio",
+        "toTable": "Calendario",
+        "toColumn": "Fecha"
+      }
+    ]
+  },
+  "measures": [
+    {
+      "name": "Total Empleados",
+      "expression": "COUNTROWS(Empleados)",
+      "formatString": "#,0"
+    },
+    {
+      "name": "Salario Promedio",
+      "expression": "AVERAGE(Empleados[Salario])",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "Antigüedad Promedio",
+      "expression": "AVERAGEX(Empleados, DATEDIFF(Empleados[Fecha_Contratacion], TODAY(), YEAR))",
+      "formatString": "#,0.0 'años'"
+    },
+    {
+      "name": "Tasa de Rotación",
+      "expression": "DIVIDE(COUNTX(FILTER(Empleados, Empleados[Estado] = \"Baja\"), Empleados[ID_Empleado]), [Total Empleados])",
+      "formatString": "0.00%"
+    },
+    {
+      "name": "Puntuación Promedio",
+      "expression": "AVERAGE(Evaluaciones[Puntuacion_Total])",
+      "formatString": "0.00"
+    },
+    {
+      "name": "Horas Capacitación",
+      "expression": "SUM(Capacitaciones[Horas])",
+      "formatString": "#,0 'horas'"
+    },
+    {
+      "name": "Inversión Capacitación",
+      "expression": "SUM(Capacitaciones[Costo])",
+      "formatString": "$#,0.00"
+    },
+    {
+      "name": "Días Ausencia",
+      "expression": "SUM(Ausencias[Dias])",
+      "formatString": "#,0 'días'"
+    },
+    {
+      "name": "Tasa Ausentismo",
+      "expression": "DIVIDE([Días Ausencia], COUNTROWS(Empleados) * 365)",
+      "formatString": "0.00%"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Resumen",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Total Empleados",
+          "measure": "Total Empleados"
+        },
+        {
+          "type": "card",
+          "title": "Salario Promedio",
+          "measure": "Salario Promedio"
+        },
+        {
+          "type": "card",
+          "title": "Antigüedad Promedio",
+          "measure": "Antigüedad Promedio"
+        },
+        {
+          "type": "card",
+          "title": "Tasa de Rotación",
+          "measure": "Tasa de Rotación"
+        },
+        {
+          "type": "donutChart",
+          "title": "Distribución por Departamento",
+          "category": "Empleados[Departamento]",
+          "value": "Total Empleados"
+        },
+        {
+          "type": "columnChart",
+          "title": "Empleados por Nivel",
+          "xAxis": "Empleados[Nivel]",
+          "yAxis": "Total Empleados"
+        },
+        {
+          "type": "pieChart",
+          "title": "Distribución por Género",
+          "category": "Empleados[Genero]",
+          "value": "Total Empleados"
+        }
+      ]
+    },
+    {
+      "name": "Desempeño",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Puntuación Promedio",
+          "measure": "Puntuación Promedio"
+        },
+        {
+          "type": "tableEx",
+          "title": "Evaluaciones por Departamento",
+          "columns": [
+            "Empleados[Departamento]",
+            "AVERAGEX(RELATEDTABLE(Evaluaciones), Evaluaciones[Puntuacion_Desempeño])",
+            "AVERAGEX(RELATEDTABLE(Evaluaciones), Evaluaciones[Puntuacion_Competencias])",
+            "AVERAGEX(RELATEDTABLE(Evaluaciones), Evaluaciones[Puntuacion_Objetivos])",
+            "AVERAGEX(RELATEDTABLE(Evaluaciones), Evaluaciones[Puntuacion_Total])"
+          ]
+        },
+        {
+          "type": "lineChart",
+          "title": "Tendencia de Evaluaciones",
+          "xAxis": "Calendario[Trimestre]",
+          "yAxis": "Puntuación Promedio",
+          "series": "Calendario[Año]"
+        },
+        {
+          "type": "scatterChart",
+          "title": "Desempeño vs. Antigüedad",
+          "xAxis": "Antigüedad Promedio",
+          "yAxis": "Puntuación Promedio",
+          "size": "Total Empleados",
+          "category": "Empleados[Departamento]"
+        }
+      ]
+    },
+    {
+      "name": "Capacitación",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Horas Capacitación",
+          "measure": "Horas Capacitación"
+        },
+        {
+          "type": "card",
+          "title": "Inversión Capacitación",
+          "measure": "Inversión Capacitación"
+        },
+        {
+          "type": "barChart",
+          "title": "Horas por Categoría",
+          "xAxis": "Capacitaciones[Categoria]",
+          "yAxis": "Horas Capacitación"
+        },
+        {
+          "type": "columnChart",
+          "title": "Inversión por Departamento",
+          "xAxis": "Empleados[Departamento]",
+          "yAxis": "Inversión Capacitación"
+        },
+        {
+          "type": "lineChart",
+          "title": "Tendencia de Capacitación",
+          "xAxis": "Calendario[Mes]",
+          "yAxis": "Horas Capacitación",
+          "series": "Calendario[Año]"
+        }
+      ]
+    },
+    {
+      "name": "Ausentismo",
+      "visualizations": [
+        {
+          "type": "card",
+          "title": "Días Ausencia",
+          "measure": "Días Ausencia"
+        },
+        {
+          "type": "card",
+          "title": "Tasa Ausentismo",
+          "measure": "Tasa Ausentismo"
+        },
+        {
+          "type": "pieChart",
+          "title": "Ausencias por Tipo",
+          "category": "Ausencias[Tipo]",
+          "value": "Días Ausencia"
+        },
+        {
+          "type": "columnChart",
+          "title": "Ausencias por Departamento",
+          "xAxis": "Empleados[Departamento]",
+          "yAxis": "Días Ausencia"
+        },
+        {
+          "type": "lineChart",
+          "title": "Tendencia de Ausencias",
+          "xAxis": "Calendario[Mes]",
+          "yAxis": "Días Ausencia",
+          "series": "Calendario[Año]"
+        }
+      ]
+    }
+  ],
+  "theme": {
+    "name": "FUNDETEC",
+    "colors": [
+      "#0078D4",
+      "#0E8C8C",
+      "#8764B8",
+      "#744DA9",
+      "#C43E1C",
+      "#E2871E",
+      "#EF6950",
+      "#85C1E9",
+      "#9CC3D5",
+      "#D2B4DE"
+    ],
+    "dataColors": [
+      "#0078D4",
+      "#0E8C8C",
+      "#8764B8",
+      "#744DA9",
+      "#C43E1C",
+      "#E2871E",
+      "#EF6950",
+      "#85C1E9",
+      "#9CC3D5",
+      "#D2B4DE"
+    ],
+    "background": "#FFFFFF",
+    "foreground": "#252423",
+    "tableAccent": "#0078D4"
+  }
+}
