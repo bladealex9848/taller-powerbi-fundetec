@@ -93,6 +93,28 @@ function insertIntroVideos(containerId) {
             'Power BI: La herramienta de análisis de datos más potente',
             'Introducción a Power BI como herramienta de análisis de datos.'
         );
+    } else if (currentStep === 1) {
+        // Videos específicos para el paso 2: Microsoft Power BI: Componentes Esenciales
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'yKTSLuJ9hSY',
+            'Power BI: Componentes y Arquitectura',
+            'Explicación detallada de los componentes de Power BI y cómo se relacionan entre sí.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'DFWFqLKE3Gs',
+            'Power BI Desktop vs Power BI Service: Diferencias y usos',
+            'Comparación entre los dos componentes principales de Power BI y cuándo usar cada uno.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'ByZrxlBGiIY',
+            'Cómo descargar e instalar Power BI Desktop',
+            'Tutorial paso a paso para descargar e instalar Power BI Desktop en tu computadora.'
+        );
     } else {
         // Videos generales para otros pasos del módulo de introducción
         insertYouTubeVideo(

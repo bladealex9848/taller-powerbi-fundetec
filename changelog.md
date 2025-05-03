@@ -2,6 +2,21 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.3.3] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 2 del módulo de introducción (Microsoft Power BI: Componentes Esenciales)
+- Diagrama de la arquitectura de Power BI para el paso 2
+- Lista de beneficios de Power BI para el paso 2
+- Quiz para comprobar comprensión en el paso 2
+- Recursos adicionales (videos y enlaces) para el paso 2 del módulo de introducción
+- Videos específicos sobre componentes de Power BI para el paso 2
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 2 del módulo de introducción
+- Falta de recursos adicionales en el paso 2 del módulo de introducción
+- Falta de componentes adicionales (diagrama, beneficios, quiz) en el paso 2
+
 ## [1.3.2] - 2024-07-16
 
 ### Añadido

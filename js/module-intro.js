@@ -241,6 +241,153 @@ const introStep2Content = {
     // Descripción general
     description: "Power BI es un conjunto de herramientas y servicios que permiten conectar, transformar, visualizar y compartir datos. Veamos sus componentes principales:",
 
+    // Contenido principal
+    content: `
+        <div class="mb-6">
+            <p class="mb-4">Microsoft Power BI es una plataforma de análisis de datos que permite a los usuarios conectarse a diversas fuentes de datos, transformar y modelar esos datos, y crear visualizaciones interactivas para compartir insights valiosos.</p>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                <h4 class="font-bold text-blue-800 mb-2">¿Qué es Power BI?</h4>
+                <p class="mb-2">Power BI es una colección de servicios de software, aplicaciones y conectores que trabajan juntos para convertir datos no relacionados en información coherente, visualmente inmersiva e interactiva.</p>
+                <p>Ya sea que tus datos estén en una simple hoja de Excel o en una colección de almacenes de datos híbridos en la nube y locales, Power BI te permite conectarte fácilmente a tus fuentes de datos, visualizar lo importante y compartirlo con quien quieras.</p>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Los tres componentes principales de Power BI</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h4 class="font-bold text-blue-800 mb-2">Power BI Desktop</h4>
+                    <p class="text-sm mb-2">Aplicación gratuita para Windows que permite:</p>
+                    <ul class="list-disc pl-5 text-sm space-y-1">
+                        <li>Conectar a múltiples fuentes de datos</li>
+                        <li>Transformar y limpiar datos</li>
+                        <li>Crear modelos de datos con relaciones</li>
+                        <li>Diseñar visualizaciones interactivas</li>
+                    </ul>
+                    <p class="text-xs mt-2 italic">Formato de archivo: .pbix</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-600">
+                    <h4 class="font-bold text-green-800 mb-2">Power BI Service</h4>
+                    <p class="text-sm mb-2">Servicio en la nube (SaaS) que permite:</p>
+                    <ul class="list-disc pl-5 text-sm space-y-1">
+                        <li>Publicar informes y dashboards</li>
+                        <li>Compartir con otros usuarios</li>
+                        <li>Configurar actualizaciones automáticas</li>
+                        <li>Crear apps y espacios de trabajo</li>
+                    </ul>
+                    <p class="text-xs mt-2 italic">Acceso: powerbi.microsoft.com</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h4 class="font-bold text-purple-800 mb-2">Power BI Mobile</h4>
+                    <p class="text-sm mb-2">Aplicaciones para dispositivos móviles:</p>
+                    <ul class="list-disc pl-5 text-sm space-y-1">
+                        <li>Disponible para iOS y Android</li>
+                        <li>Acceso a informes en cualquier lugar</li>
+                        <li>Recibir notificaciones y alertas</li>
+                        <li>Escanear códigos QR para acceder a informes</li>
+                    </ul>
+                    <p class="text-xs mt-2 italic">Descarga: App Store o Google Play</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Flujo de trabajo típico en Power BI</h3>
+
+            <div class="relative mb-6">
+                <div class="flex flex-wrap justify-between items-start relative">
+                    <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                        <div class="text-2xl mb-1">🔌</div>
+                        <h5 class="font-bold">1. Conectar</h5>
+                        <p class="text-xs">Conectar a fuentes de datos</p>
+                    </div>
+
+                    <div class="hidden md:block absolute top-12 left-[19%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                    <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                        <div class="text-2xl mb-1">🔄</div>
+                        <h5 class="font-bold">2. Transformar</h5>
+                        <p class="text-xs">Limpiar y preparar datos</p>
+                    </div>
+
+                    <div class="hidden md:block absolute top-12 left-[39%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                    <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                        <div class="text-2xl mb-1">🧩</div>
+                        <h5 class="font-bold">3. Modelar</h5>
+                        <p class="text-xs">Crear relaciones y medidas</p>
+                    </div>
+
+                    <div class="hidden md:block absolute top-12 left-[59%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                    <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                        <div class="text-2xl mb-1">📊</div>
+                        <h5 class="font-bold">4. Visualizar</h5>
+                        <p class="text-xs">Crear dashboards</p>
+                    </div>
+
+                    <div class="hidden md:block absolute top-12 left-[79%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                    <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                        <div class="text-2xl mb-1">📤</div>
+                        <h5 class="font-bold">5. Compartir</h5>
+                        <p class="text-xs">Publicar y distribuir</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Licencias y versiones de Power BI</h3>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Versión</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Costo</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Características principales</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ideal para</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">Power BI Desktop</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Gratuito</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Creación de informes y visualizaciones</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Uso personal o desarrollo</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">Power BI Service (Gratuito)</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Gratuito</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Publicación personal, límite de 1GB</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Uso individual, aprendizaje</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">Power BI Pro</td>
+                            <td class="py-2 px-4 border-b border-gray-200">$9.99/usuario/mes</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Compartir, colaborar, 10GB por usuario</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Equipos y organizaciones</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200">Power BI Premium</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Desde $4,995/mes</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Capacidad dedicada, informes paginados</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Grandes empresas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                <h4 class="font-bold text-yellow-800 mb-2">Importante para este taller</h4>
+                <p>En este taller nos enfocaremos principalmente en <strong>Power BI Desktop</strong>, que es gratuito y contiene todas las funcionalidades necesarias para aprender los fundamentos del análisis de datos. Todas las prácticas se realizarán utilizando esta versión.</p>
+            </div>
+
+            <div class="flex items-center justify-center mb-4">
+                <img src="assets/img/power-bi-ecosystem.jpg" alt="Ecosistema de Power BI" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+        </div>
+    `,
+
     // Componentes de Power BI
     components: [
         {
@@ -356,7 +503,78 @@ const introStep2Content = {
             title: "Compartir",
             description: "Publicar y distribuir"
         }
-    ]
+    ],
+
+    // Diagrama de la arquitectura de Power BI
+    diagram: {
+        title: "Arquitectura de Power BI",
+        description: "Este diagrama muestra cómo se relacionan los diferentes componentes de Power BI:",
+        imageUrl: "assets/img/power-bi-architecture.png",
+        elements: [
+            {
+                name: "Fuentes de datos",
+                description: "Excel, SQL, servicios web, etc."
+            },
+            {
+                name: "Power BI Desktop",
+                description: "Herramienta de desarrollo principal"
+            },
+            {
+                name: "Power BI Service",
+                description: "Plataforma de publicación y colaboración"
+            },
+            {
+                name: "Power BI Mobile",
+                description: "Acceso desde dispositivos móviles"
+            },
+            {
+                name: "Consumidores",
+                description: "Usuarios que visualizan los informes"
+            }
+        ]
+    },
+
+    // Beneficios de Power BI
+    benefits: [
+        {
+            icon: "💰",
+            title: "Costo accesible",
+            description: "Power BI Desktop es gratuito, y las versiones en la nube tienen opciones para diferentes presupuestos."
+        },
+        {
+            icon: "🔄",
+            title: "Actualizaciones frecuentes",
+            description: "Microsoft lanza actualizaciones mensuales con nuevas características y mejoras."
+        },
+        {
+            icon: "🔌",
+            title: "Amplia conectividad",
+            description: "Conecta con cientos de fuentes de datos diferentes, desde Excel hasta servicios en la nube."
+        },
+        {
+            icon: "🧩",
+            title: "Integración con Microsoft",
+            description: "Se integra perfectamente con Excel, SharePoint, Teams y otras herramientas de Microsoft."
+        },
+        {
+            icon: "📱",
+            title: "Acceso multiplataforma",
+            description: "Accede a tus informes desde Windows, web o dispositivos móviles."
+        }
+    ],
+
+    // Quiz para comprobar comprensión
+    quiz: {
+        questionId: "intro-quiz-components",
+        question: "¿Cuál de los siguientes componentes de Power BI es el que utilizarás principalmente para crear informes y visualizaciones en este taller?",
+        options: [
+            "Power BI Service",
+            "Power BI Mobile",
+            "Power BI Desktop",
+            "Power BI Gateway"
+        ],
+        correctIndex: 2
+    }
 };
 
 // Paso 3: Recorrido por la Interfaz

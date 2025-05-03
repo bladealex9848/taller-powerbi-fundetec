@@ -932,8 +932,11 @@ function initStepInteractiveElements() {
             // Insertar videos según el módulo
             switch (currentModule) {
                 case 'intro':
-                    // Agregar videos en el primer y último paso del módulo
+                    // Agregar videos en el primer, segundo y último paso del módulo
                     if (currentStep === 0) { // Importancia del Análisis de Datos
+                        insertIntroVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 1) { // Microsoft Power BI: Componentes Esenciales
                         insertIntroVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     } else if (currentStep === 4) { // Asistentes IA en el Flujo de Trabajo
