@@ -2,6 +2,31 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.2.0] - 2024-07-10
+
+### Añadido
+- Integración de recursos adicionales del archivo 'docs/recursos/Recursos para Taller Power BI_.md'
+- Nuevos datasets: ventas_supermercados.csv y financial_sample.xlsx adicional
+- Nueva plantilla: project_web_template.pbit (Microsoft Project for the Web)
+- Nuevas guías: introduccion_power_bi_cea.pdf y excel_power_query.pdf
+- Colección de enlaces a videos instructivos (assets/videos_instructivos.md)
+- Colección de enlaces a sitios web de referencia (assets/sitios_referencia.md)
+- Integración de videos de YouTube en el contenido de los módulos
+- Integración de enlaces a sitios web de referencia en el contenido de los módulos
+- Archivo js/video-integrator.js para manejar la integración de videos
+- Archivo js/markdown-loader.js para cargar contenido Markdown
+- Archivo js/content-paths.js para definir rutas de archivos Markdown
+- Documentación detallada en README_RECURSOS_ADICIONALES.md
+
+### Modificado
+- Actualización de js/modules.js para incluir los nuevos recursos
+- Actualización de js/app-initializer.js para integrar videos y enlaces
+- Actualización de index.html para incluir los nuevos scripts
+
+### Corregido
+- Errores en la carga de contenido de módulos
+- Problemas con la visualización de recursos adicionales
+
 ## [1.1.0] - 2024-05-04
 
 ### Añadido

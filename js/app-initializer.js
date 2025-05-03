@@ -482,42 +482,120 @@ async function renderStepContent(moduleId, stepIndex) {
 
         // Primero intentar usar el contenido predefinido en JavaScript
         let moduleContent;
-        let usingMarkdown = false;
         let usingFallback = false;
 
         // Verificar si existe contenido predefinido para este módulo
         let predefinedContent = null;
 
+        // Definir contenido predefinido para cada módulo
+        const defaultContent = {
+            intro: {
+                title: "Introducción al Análisis de Datos y Power BI",
+                description: "Aprende los conceptos fundamentales",
+                step1: {
+                    title: "Importancia del Análisis de Datos",
+                    content: "<p>Este paso explica la importancia del análisis de datos.</p>"
+                },
+                step2: {
+                    title: "Microsoft Power BI: Componentes Esenciales",
+                    content: "<p>Este paso explica los componentes esenciales de Power BI.</p>"
+                },
+                step3: {
+                    title: "Recorrido por la Interfaz",
+                    content: "<p>Este paso muestra un recorrido por la interfaz de Power BI.</p>"
+                },
+                step4: {
+                    title: "Tipos de Datos y Modelos (Conceptos Básicos)",
+                    content: "<p>Este paso explica los tipos de datos y modelos básicos.</p>"
+                },
+                step5: {
+                    title: "Asistentes IA en el Flujo de Trabajo",
+                    content: "<p>Este paso explica cómo usar asistentes IA en el flujo de trabajo.</p>"
+                }
+            },
+            transform: {
+                title: "Conexión y Transformación de Datos",
+                description: "Aprende a conectar y transformar datos",
+                step1: {
+                    title: "Conexión a Fuentes de Datos",
+                    content: "<p>Este paso explica cómo conectarse a fuentes de datos.</p>"
+                },
+                step2: {
+                    title: "Introducción a Power Query (Editor)",
+                    content: "<p>Este paso introduce el editor de Power Query.</p>"
+                },
+                step3: {
+                    title: "Transformaciones Fundamentales",
+                    content: "<p>Este paso explica las transformaciones fundamentales.</p>"
+                },
+                step4: {
+                    title: "Modelado Básico: Creación de Relaciones",
+                    content: "<p>Este paso explica cómo crear relaciones entre tablas.</p>"
+                }
+            },
+            demo: {
+                title: "Demostración de Power BI",
+                description: "Aprende a través de ejemplos prácticos",
+                step1: {
+                    title: "Contexto: Sistema Marduk y Dashboards Judiciales",
+                    content: "<p>Este paso proporciona contexto sobre el sistema Marduk y los dashboards judiciales.</p>"
+                },
+                step2: {
+                    title: "Conexión y Preparación de Datos",
+                    content: "<p>Este paso muestra cómo conectar y preparar datos para el análisis.</p>"
+                },
+                step3: {
+                    title: "Introducción a DAX",
+                    content: "<p>Este paso introduce el lenguaje DAX para cálculos avanzados.</p>"
+                },
+                step4: {
+                    title: "Construcción de Visualizaciones",
+                    content: "<p>Este paso muestra cómo construir visualizaciones efectivas.</p>"
+                },
+                step5: {
+                    title: "Interactividad y Filtros",
+                    content: "<p>Este paso explica cómo agregar interactividad y filtros a los dashboards.</p>"
+                }
+            },
+            practice: {
+                title: "Práctica con Power BI",
+                description: "Aplica lo aprendido con ejercicios prácticos",
+                step1: {
+                    title: "Práctica Guiada: Introducción y Dataset",
+                    content: "<p>Este paso introduce la práctica guiada y el dataset a utilizar.</p>"
+                },
+                step2: {
+                    title: "Desarrollo Paso a Paso",
+                    content: "<p>Este paso proporciona instrucciones paso a paso para el desarrollo.</p>"
+                },
+                step3: {
+                    title: "Resultado Esperado y Solución de Problemas",
+                    content: "<p>Este paso muestra el resultado esperado y cómo solucionar problemas comunes.</p>"
+                },
+                step4: {
+                    title: "Recursos para Continuar Aprendiendo",
+                    content: "<p>Este paso proporciona recursos adicionales para seguir aprendiendo.</p>"
+                }
+            }
+        };
+
+        // Seleccionar el contenido predefinido según el módulo
         switch (moduleId) {
             case 'intro':
                 console.log('Usando contenido predefinido para intro');
-                predefinedContent = introModuleContent;
+                predefinedContent = defaultContent.intro;
                 break;
             case 'transform':
                 console.log('Usando contenido predefinido para transform');
-                predefinedContent = transformModuleContent;
+                predefinedContent = defaultContent.transform;
                 break;
             case 'demo':
                 console.log('Usando contenido predefinido para demo');
-                predefinedContent = demoModuleContent || {
-                    title: "Demostración de Power BI",
-                    description: "Aprende a través de ejemplos prácticos",
-                    step1: {
-                        title: "Demostración Práctica",
-                        content: "<p>Este módulo contiene demostraciones prácticas de Power BI.</p>"
-                    }
-                };
+                predefinedContent = defaultContent.demo;
                 break;
             case 'practice':
                 console.log('Usando contenido predefinido para practice');
-                predefinedContent = practiceModuleContent || {
-                    title: "Práctica con Power BI",
-                    description: "Aplica lo aprendido con ejercicios prácticos",
-                    step1: {
-                        title: "Ejercicios Prácticos",
-                        content: "<p>Este módulo contiene ejercicios prácticos de Power BI.</p>"
-                    }
-                };
+                predefinedContent = defaultContent.practice;
                 break;
         }
 
@@ -535,8 +613,23 @@ async function renderStepContent(moduleId, stepIndex) {
             } else {
                 // Si no, intentar cargarlo desde el archivo Markdown
                 console.log(`Intentando cargar contenido para el módulo ${moduleId} desde ${modulePath}`);
-                moduleContent = await loadModuleContent(moduleId, modulePath);
-                usingMarkdown = true;
+
+                try {
+                    // Intentar cargar el archivo Markdown
+                    const response = await fetch(modulePath);
+
+                    if (response.ok) {
+                        const markdown = await response.text();
+                        // Usar el contenido predefinido como respaldo
+                        moduleContent = defaultContent[moduleId];
+                    } else {
+                        console.warn(`No se pudo cargar el archivo Markdown: ${response.status} ${response.statusText}`);
+                        moduleContent = defaultContent[moduleId];
+                    }
+                } catch (error) {
+                    console.error(`Error al cargar el archivo Markdown: ${error.message}`);
+                    moduleContent = defaultContent[moduleId];
+                }
 
                 // Si se cargó correctamente, guardar en caché
                 if (moduleContent) {
@@ -554,47 +647,8 @@ async function renderStepContent(moduleId, stepIndex) {
 
         // Si no se pudo cargar ningún contenido, usar un respaldo genérico
         if (!moduleContent) {
-            switch (moduleId) {
-                case 'intro':
-                    console.log('Usando contenido predefinido para intro');
-                    moduleContent = introModuleContent;
-                    break;
-                case 'transform':
-                    console.log('Usando contenido predefinido para transform');
-                    moduleContent = transformModuleContent;
-                    break;
-                case 'demo':
-                    console.log('Usando contenido predefinido para demo');
-                    moduleContent = {
-                        title: "Demostración de Power BI",
-                        description: "Contenido en desarrollo",
-                        step1: {
-                            title: "Demostración Práctica",
-                            content: "<p>Este módulo está en desarrollo. Pronto tendrás acceso a demostraciones prácticas de Power BI.</p>"
-                        }
-                    };
-                    break;
-                case 'practice':
-                    console.log('Usando contenido predefinido para practice');
-                    moduleContent = {
-                        title: "Práctica con Power BI",
-                        description: "Contenido en desarrollo",
-                        step1: {
-                            title: "Ejercicios Prácticos",
-                            content: "<p>Este módulo está en desarrollo. Pronto tendrás acceso a ejercicios prácticos de Power BI.</p>"
-                        }
-                    };
-                    break;
-                default:
-                    moduleContent = {
-                        title: `Módulo ${moduleId}`,
-                        description: "Módulo no encontrado",
-                        step1: {
-                            title: "Contenido no disponible",
-                            content: "<p>No se encontró contenido para este módulo.</p>"
-                        }
-                    };
-            }
+            // Usar el contenido predefinido
+            moduleContent = defaultContent[moduleId];
         }
 
         // Modo de usuario (obtener del localStorage o usar el predeterminado)
@@ -740,6 +794,66 @@ function initStepInteractiveElements() {
             }
         });
     });
+
+    // Integrar videos y enlaces según el módulo actual
+    const moduleContentSection = document.getElementById('module-content-section');
+    if (moduleContentSection) {
+        const currentModule = moduleContentSection.getAttribute('data-current-module');
+        const currentStep = parseInt(moduleContentSection.getAttribute('data-current-step') || '0');
+        const stepContentContainer = document.getElementById('step-content-container');
+
+        if (stepContentContainer && currentModule) {
+            // Crear un contenedor para recursos adicionales si no existe
+            let resourcesContainer = document.getElementById('additional-resources-container');
+            if (!resourcesContainer) {
+                resourcesContainer = document.createElement('div');
+                resourcesContainer.id = 'additional-resources-container';
+                resourcesContainer.className = 'mt-8 pt-6 border-t border-gray-200';
+                stepContentContainer.appendChild(resourcesContainer);
+            }
+
+            // Limpiar el contenedor de recursos adicionales
+            resourcesContainer.innerHTML = '';
+
+            // Agregar título de sección
+            const resourcesTitle = document.createElement('h3');
+            resourcesTitle.className = 'text-xl font-bold text-blue-900 mb-4';
+            resourcesTitle.textContent = 'Recursos Adicionales';
+            resourcesContainer.appendChild(resourcesTitle);
+
+            // Insertar videos según el módulo
+            switch (currentModule) {
+                case 'intro':
+                    // Solo agregar videos en el último paso del módulo
+                    if (currentStep === 4) { // Asistentes IA en el Flujo de Trabajo
+                        insertIntroVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    }
+                    break;
+                case 'transform':
+                    // Solo agregar videos en el último paso del módulo
+                    if (currentStep === 3) { // Modelado Básico: Creación de Relaciones
+                        insertTransformVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    }
+                    break;
+                case 'demo':
+                    // Solo agregar videos en el último paso del módulo
+                    if (currentStep === 4) { // Interactividad y Filtros
+                        insertDemoVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    }
+                    break;
+                case 'practice':
+                    // Solo agregar videos en el último paso del módulo
+                    if (currentStep === 3) { // Recursos para Continuar Aprendiendo
+                        insertPracticeVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    }
+                    break;
+            }
+        }
+    }
 }
 
 /**

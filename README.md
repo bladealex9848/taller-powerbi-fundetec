@@ -171,17 +171,32 @@ La aplicación está diseñada con una arquitectura modular que permite la inter
 - `tickets_soporte.csv`: Datos de tickets de soporte IT para análisis
 - `ventas_trimestrales.xlsx`: Datos de ventas por trimestre, producto y región
 - `marduk_simplificado.xlsx`: Conjunto de datos simplificado del sistema Marduk
+- `ventas_supermercados.csv`: Datos de ventas en supermercados de Argentina
+- `financial_sample.xlsx`: Muestra financiera oficial de Microsoft con datos de ventas por segmentos y países
 
 ### Plantillas
 - `plantilla_dashboard_ventas.pbit`: Plantilla para crear dashboard de ventas
 - `plantilla_dashboard_rrhh.pbit`: Plantilla para análisis de recursos humanos
+- `project_web_template.pbit`: Plantilla oficial de Microsoft para análisis de proyectos y tareas en Project for the Web
+
+### Guías y Manuales
+- `guia_rapida_power_bi.md`: Pasos básicos para comenzar a usar Power BI Desktop
+- `guia_power_query.md`: Referencia de transformaciones comunes en Power Query
+- `guia_dax.md`: Guía de funciones y expresiones DAX
+- `dax_reference.pdf`: Documento oficial de Microsoft con todas las funciones DAX
+- `introduccion_power_bi_cea.pdf`: Guía introductoria de la Universidad de Puerto Rico
+- `excel_power_query.pdf`: Manual completo sobre el uso de Power Query en Excel
 
 ### Videos Instructivos
-- Introducción a Power BI Desktop
-- Conexión a fuentes de datos
-- Transformación con Power Query
-- Creación de visualizaciones básicas
-- Construcción de dashboards interactivos
+- Colección organizada de enlaces a videos tutoriales en español (assets/videos_instructivos.md)
+- Videos embebidos en el contenido de los módulos
+- Tutoriales paso a paso para cada fase del análisis de datos
+- Demostraciones de creación de dashboards completos
+
+### Sitios Web de Referencia
+- Colección de enlaces a documentación oficial, blogs de expertos y comunidades (assets/sitios_referencia.md)
+- Enlaces a Microsoft Learn, PowerBI SP, Biti y El Futuro de los Datos
+- Comunidades activas como Power Platform España y PowerBIEspañol
 
 ## Estructura del Proyecto
 
@@ -203,8 +218,9 @@ La aplicación está diseñada con una arquitectura modular que permite la inter
 │   ├── module-transform.js # Contenido del módulo de transformación
 │   ├── module-demo.js    # Contenido del módulo de demostración
 │   ├── module-practice.js # Contenido del módulo de práctica
-│   ├── module-renderer.js # Renderizador de módulos
-│   ├── content-config.js # Configuración de contenido
+│   ├── video-integrator.js # Integrador de videos de YouTube
+│   ├── markdown-loader.js # Cargador de contenido Markdown
+│   ├── content-paths.js  # Rutas de archivos Markdown
 │   ├── debug-helper.js   # Utilidades para depuración
 │   ├── image-handler.js  # Manejador de imágenes
 │   ├── modal-init.js     # Inicializador de modales
@@ -216,12 +232,18 @@ La aplicación está diseñada con una arquitectura modular que permite la inter
 ├── assets/               # Recursos estáticos
 │   ├── img/              # Imágenes y logos
 │   ├── datasets/         # Conjuntos de datos para práctica
+│   │   └── adicionales/  # Datasets adicionales
 │   ├── guides/           # Guías y manuales
+│   │   └── adicionales/  # Guías adicionales
 │   ├── templates/        # Plantillas de Power BI
-│   └── videos/           # Videos instructivos
-├── docs/                 # Carpetas vacías para mantener estructura
+│   │   └── adicionales/  # Plantillas adicionales
+│   ├── videos/           # Videos instructivos
+│   ├── videos_instructivos.md # Colección de enlaces a videos
+│   └── sitios_referencia.md # Colección de enlaces a sitios web
+├── docs/                 # Documentación y recursos
 │   ├── modulos/          # (Vacía - contenido movido a legacy_code)
-│   └── guias/            # (Vacía - contenido movido a legacy_code)
+│   ├── guias/            # (Vacía - contenido movido a legacy_code)
+│   └── recursos/         # Recursos adicionales para el taller
 ├── legacy_code/          # Código no utilizado (para referencia)
 │   ├── html/             # Páginas HTML no utilizadas
 │   ├── js/               # Scripts JS no utilizados
@@ -232,6 +254,7 @@ La aplicación está diseñada con una arquitectura modular que permite la inter
 ├── server.js             # Servidor local para desarrollo
 ├── .htaccess             # Configuración para servidores Apache
 ├── README.md             # Documentación principal
+├── README_RECURSOS_ADICIONALES.md # Documentación de recursos adicionales
 └── CHANGELOG.md          # Registro de cambios
 ```
 
@@ -281,19 +304,31 @@ Si los recursos no se cargan correctamente:
 ## Recursos Externos Recomendados
 
 ### Documentación Oficial
-- [Documentación de Power BI](https://docs.microsoft.com/es-es/power-bi/)
-- [Guía de inicio rápido de Power BI Desktop](https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-getting-started)
-- [Referencia de funciones DAX](https://docs.microsoft.com/es-es/dax/dax-function-reference)
+- [Documentación de Power BI](https://learn.microsoft.com/es-es/power-bi/)
+- [Guía de inicio rápido de Power BI Desktop](https://learn.microsoft.com/es-es/power-bi/fundamentals/desktop-getting-started)
+- [Referencia de funciones DAX](https://learn.microsoft.com/es-es/dax/dax-function-reference)
+- [Documentación de Power Query](https://learn.microsoft.com/es-es/power-query/)
+- [Guía de Power BI](https://learn.microsoft.com/es-es/power-bi/guidance/)
 
-### Cursos y Tutoriales
-- [Microsoft Learn: Power BI](https://docs.microsoft.com/es-es/learn/powerplatform/power-bi)
-- [Guy in a Cube (YouTube)](https://www.youtube.com/c/GuyinaCube)
-- [SQLBI (Blog y tutoriales)](https://www.sqlbi.com/articles/)
+### Cursos y Tutoriales en Español
+- [Microsoft Learn: Power BI](https://learn.microsoft.com/es-es/training/powerplatform/power-bi)
+- [datdata (YouTube)](https://www.youtube.com/c/datdata)
+- [EXCELeINFO (YouTube)](https://www.youtube.com/channel/UCZHYfToa95Ybj3vPN9EPMAg)
+- [PowerBIEspañol (YouTube)](https://www.youtube.com/channel/UCSK9waxG-zoj_GyfKLuTU4w)
+- [PowerBI SP (Blog)](https://powerbisp.com/blog)
+- [Biti (Blog)](https://www.biti.es/)
+- [El Futuro de los Datos (Blog)](https://www.elfuturodelosdatos.com/)
 
 ### Comunidad
-- [Comunidad de Power BI](https://community.powerbi.com/)
-- [Foro de Power BI en Microsoft Q&A](https://docs.microsoft.com/es-es/answers/topics/power-bi.html)
-- [Power BI en Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi)
+- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol)
+- [Power Platform España](https://www.next-step.es/power-platform-espana/)
+- [Grupo de Telegram PowerBIEspañol](https://t.me/powerbiespanol)
+- [Galería de Temas](https://community.fabric.microsoft.com/t5/Themes-Gallery/bd-p/ThemesGallery)
+
+### Datasets y Ejemplos
+- [Ejemplos y datasets oficiales](https://learn.microsoft.com/es-es/power-bi/create-reports/sample-datasets)
+- [Datos Abiertos Argentina](https://datos.gob.ar/)
+- [Datos Abiertos España](https://datos.gob.es/)
 
 ## Licencia
 

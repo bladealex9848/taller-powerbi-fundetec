@@ -1,0 +1,305 @@
+/**
+ * Integrador de videos para el taller de Power BI
+ * Este archivo contiene funciones para integrar videos de YouTube en el contenido del taller
+ */
+
+/**
+ * Inserta un video de YouTube en un contenedor
+ * @param {string} containerId - ID del contenedor donde se insertará el video
+ * @param {string} videoId - ID del video de YouTube
+ * @param {string} title - Título del video
+ * @param {string} description - Descripción breve del video
+ */
+function insertYouTubeVideo(containerId, videoId, title, description = '') {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+
+    const videoContainer = document.createElement('div');
+    videoContainer.className = 'video-container mb-6 bg-white rounded-lg shadow-sm p-4';
+    
+    const videoTitle = document.createElement('h4');
+    videoTitle.className = 'text-lg font-medium text-blue-800 mb-2';
+    videoTitle.textContent = title;
+    
+    const videoDescription = document.createElement('p');
+    videoDescription.className = 'text-gray-600 text-sm mb-3';
+    videoDescription.textContent = description;
+    
+    const videoWrapper = document.createElement('div');
+    videoWrapper.className = 'relative pb-56.25 h-0 overflow-hidden rounded-lg';
+    videoWrapper.style.paddingBottom = '56.25%'; // 16:9 aspect ratio
+    
+    const iframe = document.createElement('iframe');
+    iframe.className = 'absolute top-0 left-0 w-full h-full';
+    iframe.src = `https://www.youtube.com/embed/${videoId}`;
+    iframe.title = title;
+    iframe.frameBorder = '0';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    
+    videoWrapper.appendChild(iframe);
+    videoContainer.appendChild(videoTitle);
+    
+    if (description) {
+        videoContainer.appendChild(videoDescription);
+    }
+    
+    videoContainer.appendChild(videoWrapper);
+    container.appendChild(videoContainer);
+}
+
+/**
+ * Inserta videos relacionados con la introducción a Power BI
+ * @param {string} containerId - ID del contenedor donde se insertarán los videos
+ */
+function insertIntroVideos(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+    
+    // Crear título de sección
+    const sectionTitle = document.createElement('h3');
+    sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
+    sectionTitle.textContent = 'Videos Recomendados';
+    container.appendChild(sectionTitle);
+    
+    // Crear contenedor para videos
+    const videosContainer = document.createElement('div');
+    videosContainer.id = 'intro-videos-container';
+    videosContainer.className = 'videos-container';
+    container.appendChild(videosContainer);
+    
+    // Insertar videos de introducción
+    insertYouTubeVideo(
+        'intro-videos-container',
+        'oQ4q2CSXP4M',
+        'Curso de Microsoft Power BI desde cero | INTRODUCCIÓN',
+        'Explicación de versiones, descarga e instalación de Power BI.'
+    );
+    
+    insertYouTubeVideo(
+        'intro-videos-container',
+        'C8HatpMK9Hw',
+        '¿Cómo usar Power BI? Tutorial desde 0',
+        'Tutorial completo para principiantes que cubre los conceptos básicos.'
+    );
+}
+
+/**
+ * Inserta videos relacionados con la transformación de datos
+ * @param {string} containerId - ID del contenedor donde se insertarán los videos
+ */
+function insertTransformVideos(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+    
+    // Crear título de sección
+    const sectionTitle = document.createElement('h3');
+    sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
+    sectionTitle.textContent = 'Videos Recomendados';
+    container.appendChild(sectionTitle);
+    
+    // Crear contenedor para videos
+    const videosContainer = document.createElement('div');
+    videosContainer.id = 'transform-videos-container';
+    videosContainer.className = 'videos-container';
+    container.appendChild(videosContainer);
+    
+    // Insertar videos de transformación
+    insertYouTubeVideo(
+        'transform-videos-container',
+        'ezc9ZVMxYwU',
+        'Conecta, Transforma y Automatiza tus Datos con Power BI',
+        'Proceso completo de conexión y transformación de datos.'
+    );
+    
+    insertYouTubeVideo(
+        'transform-videos-container',
+        'f3nEZo4b-Yg',
+        'Power Query desde Cero: Tutorial Completo para Principiantes',
+        'Interfaz de Power Query y transformaciones básicas.'
+    );
+}
+
+/**
+ * Inserta videos relacionados con la demostración de Power BI
+ * @param {string} containerId - ID del contenedor donde se insertarán los videos
+ */
+function insertDemoVideos(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+    
+    // Crear título de sección
+    const sectionTitle = document.createElement('h3');
+    sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
+    sectionTitle.textContent = 'Videos Recomendados';
+    container.appendChild(sectionTitle);
+    
+    // Crear contenedor para videos
+    const videosContainer = document.createElement('div');
+    videosContainer.id = 'demo-videos-container';
+    videosContainer.className = 'videos-container';
+    container.appendChild(videosContainer);
+    
+    // Insertar videos de demostración
+    insertYouTubeVideo(
+        'demo-videos-container',
+        '8L2ArDp-IDI',
+        'Creación de Visualizaciones Simples en Power BI',
+        'Gráficos básicos y personalización de visualizaciones.'
+    );
+    
+    insertYouTubeVideo(
+        'demo-videos-container',
+        'ZY5uhdKllYk',
+        'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+        'Tutorial paso a paso para crear un dashboard completo.'
+    );
+}
+
+/**
+ * Inserta videos relacionados con la práctica de Power BI
+ * @param {string} containerId - ID del contenedor donde se insertarán los videos
+ */
+function insertPracticeVideos(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+    
+    // Crear título de sección
+    const sectionTitle = document.createElement('h3');
+    sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
+    sectionTitle.textContent = 'Videos Recomendados';
+    container.appendChild(sectionTitle);
+    
+    // Crear contenedor para videos
+    const videosContainer = document.createElement('div');
+    videosContainer.id = 'practice-videos-container';
+    videosContainer.className = 'videos-container';
+    container.appendChild(videosContainer);
+    
+    // Insertar videos de práctica
+    insertYouTubeVideo(
+        'practice-videos-container',
+        'hKe7bHPiSPU',
+        'Tutorial Power BI - Creación de Dashboard en 3 horas',
+        'Tutorial detallado para crear un dashboard completo desde cero.'
+    );
+    
+    insertYouTubeVideo(
+        'practice-videos-container',
+        'sjrlIAQnD8M',
+        'Curso Completo de Power BI',
+        'Curso completo con todas las funcionalidades para seguir aprendiendo.'
+    );
+}
+
+/**
+ * Inserta enlaces a sitios web de referencia
+ * @param {string} containerId - ID del contenedor donde se insertarán los enlaces
+ */
+function insertWebsiteLinks(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Contenedor con ID ${containerId} no encontrado`);
+        return;
+    }
+    
+    // Crear título de sección
+    const sectionTitle = document.createElement('h3');
+    sectionTitle.className = 'text-xl font-bold text-blue-900 mb-4 mt-6';
+    sectionTitle.textContent = 'Sitios Web de Referencia';
+    container.appendChild(sectionTitle);
+    
+    // Crear contenedor para enlaces
+    const linksContainer = document.createElement('div');
+    linksContainer.className = 'links-container grid grid-cols-1 md:grid-cols-2 gap-4 mb-6';
+    container.appendChild(linksContainer);
+    
+    // Definir enlaces
+    const links = [
+        {
+            title: 'Documentación de Power BI',
+            url: 'https://learn.microsoft.com/es-es/power-bi/',
+            description: 'Documentación oficial completa de Microsoft.',
+            icon: 'fas fa-book'
+        },
+        {
+            title: 'Documentación de Power Query',
+            url: 'https://learn.microsoft.com/es-es/power-query/',
+            description: 'Documentación específica sobre Power Query.',
+            icon: 'fas fa-exchange-alt'
+        },
+        {
+            title: 'Comunidad Microsoft Fabric/Power BI',
+            url: 'https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol',
+            description: 'Foro oficial en español para resolver dudas.',
+            icon: 'fas fa-users'
+        },
+        {
+            title: 'PowerBI SP (Francisco Mullor)',
+            url: 'https://powerbisp.com/blog',
+            description: 'Blog con artículos sobre novedades y tutoriales.',
+            icon: 'fas fa-user-tie'
+        }
+    ];
+    
+    // Insertar enlaces
+    links.forEach(link => {
+        const linkElement = document.createElement('a');
+        linkElement.href = link.url;
+        linkElement.target = '_blank';
+        linkElement.rel = 'noopener noreferrer';
+        linkElement.className = 'block bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow duration-300';
+        
+        linkElement.innerHTML = `
+            <div class="flex items-start">
+                <div class="flex-shrink-0 text-blue-600 text-xl mr-3">
+                    <i class="${link.icon}"></i>
+                </div>
+                <div>
+                    <h4 class="font-medium text-blue-800">${link.title}</h4>
+                    <p class="text-sm text-gray-600 mt-1">${link.description}</p>
+                </div>
+            </div>
+        `;
+        
+        linksContainer.appendChild(linkElement);
+    });
+    
+    // Agregar enlace para ver todos los recursos
+    const viewAllLink = document.createElement('div');
+    viewAllLink.className = 'text-center mt-4';
+    viewAllLink.innerHTML = `
+        <a href="assets/sitios_referencia.md" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+            <span>Ver todos los sitios de referencia</span>
+            <i class="fas fa-external-link-alt ml-1"></i>
+        </a>
+    `;
+    container.appendChild(viewAllLink);
+}
+
+// Exportar funciones
+if (typeof module !== 'undefined') {
+    module.exports = {
+        insertYouTubeVideo,
+        insertIntroVideos,
+        insertTransformVideos,
+        insertDemoVideos,
+        insertPracticeVideos,
+        insertWebsiteLinks
+    };
+}
