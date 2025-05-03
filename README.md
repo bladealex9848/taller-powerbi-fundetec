@@ -13,11 +13,21 @@ tags:
 
 Aplicación web para el Seminario/Taller: Modelado y Análisis de Datos con Microsoft Power BI, desarrollado para FUNDETEC.
 
+![Power BI Logo](assets/img/logos/logo-powerbi.png)
+
 ## Descripción
 
 Esta aplicación web proporciona una plataforma interactiva para el taller de Power BI, permitiendo a los participantes seguir el contenido de manera estructurada, acceder a recursos y realizar ejercicios prácticos.
 
 El taller está diseñado específicamente para estudiantes de Auxiliar en Sistemas Informáticos de FUNDETEC, con enfoque en aplicaciones prácticas de análisis de datos relevantes para su perfil profesional.
+
+### Objetivos del Taller
+
+- Introducir a los participantes en los conceptos fundamentales del análisis de datos
+- Familiarizar a los estudiantes con la interfaz y funcionalidades de Power BI Desktop
+- Enseñar técnicas prácticas de conexión, transformación y visualización de datos
+- Desarrollar habilidades para crear dashboards interactivos y profesionales
+- Proporcionar recursos para continuar el aprendizaje de manera autónoma
 
 ## Estructura del Taller
 
@@ -56,6 +66,39 @@ El taller está organizado en cuatro módulos principales:
 - **Recursos Descargables**: Datasets, guías, plantillas y prompts para IA
 - **Ejercicios Interactivos**: Quizzes y actividades prácticas para reforzar el aprendizaje
 - **Verificación de Requisitos**: Comprobación de los requisitos técnicos necesarios
+- **Contenido Multimedia**: Videos instructivos y demostraciones para enriquecer el aprendizaje
+- **Diseño Responsivo**: Adaptación a diferentes dispositivos y tamaños de pantalla
+
+## Modos de Uso
+
+La aplicación ofrece tres modos de uso diferentes, cada uno adaptado a un perfil específico:
+
+### Modo Facilitador
+
+Diseñado para quien imparte el taller, incluye:
+- Notas específicas para el facilitador en cada módulo
+- Distribución de tiempo recomendada para cada paso
+- Puntos clave a enfatizar durante la explicación
+- Preguntas frecuentes y sus respuestas
+- Consejos para la enseñanza y manejo del grupo
+
+### Modo Estudiante
+
+Orientado a los participantes del taller presencial, incluye:
+- Contenido estructurado para seguir la explicación del facilitador
+- Ejercicios prácticos paso a paso
+- Actividades colaborativas para realizar en clase
+- Cuestionarios para verificar la comprensión
+- Recursos complementarios para profundizar
+
+### Modo Autoguiado
+
+Para aprendizaje independiente sin facilitador, incluye:
+- Explicaciones más detalladas de cada concepto
+- Checkpoints para verificar el progreso y comprensión
+- Recursos adicionales para ampliar conocimientos
+- Guías paso a paso más exhaustivas
+- Enlaces a documentación oficial y tutoriales externos
 
 ## Requisitos Técnicos
 
@@ -96,11 +139,58 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 2. Asegúrate de que el archivo `.htaccess` esté correctamente configurado (para servidores Apache)
 3. Accede a la aplicación a través de la URL de tu servidor
 
+## Interacción entre Componentes
+
+La aplicación está diseñada con una arquitectura modular que permite la interacción fluida entre sus diferentes componentes:
+
+1. **Inicialización de la Aplicación**: El archivo `app-initializer.js` es el punto de entrada que configura la aplicación, carga los módulos y establece los eventos.
+
+2. **Sistema de Navegación**:
+   - La ruta de aprendizaje muestra todos los módulos disponibles
+   - Al seleccionar un módulo, se carga su contenido específico
+   - Dentro de cada módulo, el navegador de pasos permite avanzar secuencialmente
+
+3. **Gestión de Modos**:
+   - El selector de modo almacena la preferencia en localStorage
+   - El renderizador de contenido (`module-renderer.js`) adapta la visualización según el modo seleccionado
+   - Cada módulo contiene secciones específicas para cada modo (facilitador, estudiante, autoguiado)
+
+4. **Sistema de Progreso**:
+   - El progreso se guarda automáticamente en localStorage
+   - Se actualiza al completar pasos, responder quizzes o marcar checkpoints
+   - El indicador visual muestra el avance global y por módulo
+
+5. **Recursos y Modales**:
+   - Los recursos se cargan dinámicamente en modales
+   - Los modales se gestionan de forma centralizada para evitar conflictos
+   - La verificación de requisitos utiliza el sistema de modales
+
+## Recursos Incluidos
+
+### Datasets
+- `tickets_soporte.csv`: Datos de tickets de soporte IT para análisis
+- `ventas_trimestrales.xlsx`: Datos de ventas por trimestre, producto y región
+- `marduk_simplificado.xlsx`: Conjunto de datos simplificado del sistema Marduk
+
+### Plantillas
+- `plantilla_dashboard_ventas.pbit`: Plantilla para crear dashboard de ventas
+- `plantilla_dashboard_rrhh.pbit`: Plantilla para análisis de recursos humanos
+
+### Videos Instructivos
+- Introducción a Power BI Desktop
+- Conexión a fuentes de datos
+- Transformación con Power Query
+- Creación de visualizaciones básicas
+- Construcción de dashboards interactivos
+
 ## Estructura del Proyecto
 
 ```
 /
 ├── index.html            # Aplicación web principal
+├── perfil.html           # Página de perfil de usuario
+├── diagnostico.html      # Herramienta de diagnóstico
+├── acceso-directo.html   # Página de acceso directo a módulos
 ├── css/                  # Estilos CSS
 │   ├── styles.css        # Estilos personalizados
 │   ├── enhanced-mode.css # Estilos mejorados para modos de usuario
@@ -124,10 +214,11 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 │   ├── step-navigator.js # Navegador de pasos
 │   └── interactive-elements.js # Elementos interactivos (quizzes, etc.)
 ├── assets/               # Recursos estáticos
-│   ├── img/              # Imágenes
+│   ├── img/              # Imágenes y logos
 │   ├── datasets/         # Conjuntos de datos para práctica
 │   ├── guides/           # Guías y manuales
-│   └── templates/        # Plantillas de Power BI
+│   ├── templates/        # Plantillas de Power BI
+│   └── videos/           # Videos instructivos
 ├── docs/                 # Carpetas vacías para mantener estructura
 │   ├── modulos/          # (Vacía - contenido movido a legacy_code)
 │   └── guias/            # (Vacía - contenido movido a legacy_code)
@@ -139,7 +230,9 @@ El taller es impartido por el Ing. Alexander Oviedo Fadul, Ingeniero de Sistemas
 │       ├── modulos/      # Contenido Markdown de módulos
 │       └── guias/        # Guías en formato Markdown
 ├── server.js             # Servidor local para desarrollo
-└── .htaccess             # Configuración para servidores Apache
+├── .htaccess             # Configuración para servidores Apache
+├── README.md             # Documentación principal
+└── CHANGELOG.md          # Registro de cambios
 ```
 
 ## Solución de Problemas
@@ -168,6 +261,39 @@ La aplicación utiliza Tailwind CSS desde CDN para los estilos principales:
 1. Asegúrate de tener conexión a Internet para cargar Tailwind CSS desde CDN
 2. Si hay problemas con el CDN, la aplicación utiliza `css/vendor/basic.css` como respaldo
 3. Los estilos personalizados se encuentran en `css/styles.css` y `css/enhanced-mode.css`
+
+### Problemas con los modos de usuario
+
+Si experimentas problemas con los modos de usuario:
+
+1. Verifica que localStorage esté habilitado en tu navegador
+2. Intenta limpiar el localStorage con `localStorage.clear()` en la consola del navegador
+3. Asegúrate de que los archivos JS de los módulos incluyan contenido específico para cada modo
+
+### Problemas con los recursos
+
+Si los recursos no se cargan correctamente:
+
+1. Verifica que los archivos existan en las carpetas correspondientes
+2. Comprueba que los formatos sean compatibles con tu navegador
+3. Si usas un servidor local, asegúrate de que esté configurado para servir archivos estáticos
+
+## Recursos Externos Recomendados
+
+### Documentación Oficial
+- [Documentación de Power BI](https://docs.microsoft.com/es-es/power-bi/)
+- [Guía de inicio rápido de Power BI Desktop](https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-getting-started)
+- [Referencia de funciones DAX](https://docs.microsoft.com/es-es/dax/dax-function-reference)
+
+### Cursos y Tutoriales
+- [Microsoft Learn: Power BI](https://docs.microsoft.com/es-es/learn/powerplatform/power-bi)
+- [Guy in a Cube (YouTube)](https://www.youtube.com/c/GuyinaCube)
+- [SQLBI (Blog y tutoriales)](https://www.sqlbi.com/articles/)
+
+### Comunidad
+- [Comunidad de Power BI](https://community.powerbi.com/)
+- [Foro de Power BI en Microsoft Q&A](https://docs.microsoft.com/es-es/answers/topics/power-bi.html)
+- [Power BI en Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi)
 
 ## Licencia
 

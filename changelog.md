@@ -2,6 +2,31 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.1.0] - 2024-05-04
+
+### Añadido
+- Contenido específico para cada modo de usuario (Facilitador, Estudiante, Autoguiado)
+- Notas detalladas para el facilitador en todos los módulos
+- Ejercicios específicos para el modo estudiante
+- Checkpoints y recursos adicionales para el modo autoguiado
+- Documentación completa en README.md sobre la interacción entre componentes
+- Carpeta para videos instructivos en assets/videos/
+- Páginas faltantes: perfil.html, diagnostico.html, acceso-directo.html
+- Enlaces a recursos externos en la documentación
+
+### Mejorado
+- Cuestionarios con mejor visualización y experiencia de usuario
+- Contenido de los pasos que estaban en desarrollo
+- Documentación sobre los modos de usuario y su funcionamiento
+- Estructura del proyecto con mejor organización
+- Mensajes de error y solución de problemas en la documentación
+
+### Corregido
+- Enlaces rotos en el menú de navegación
+- Problemas con la visualización de cuestionarios
+- Inconsistencias en la visualización de contenido específico por modo
+- Errores en la documentación sobre la estructura del proyecto
+
 ## [1.0.0] - 2024-05-03
 
 ### Añadido
