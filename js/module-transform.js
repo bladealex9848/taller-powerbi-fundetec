@@ -5,6 +5,52 @@
 
 // Estructura básica del módulo
 const transformModuleContent = {
+    // Notas para el facilitador (solo visibles en modo facilitador)
+    facilitatorNotes: {
+        timeAllocation: {
+            step1: "20-25 minutos",
+            step2: "25-30 minutos",
+            step3: "30-35 minutos",
+            step4: "25-30 minutos"
+        },
+        keyPoints: [
+            "Enfatizar la importancia de elegir el modo de conexión adecuado según el tamaño y la naturaleza de los datos",
+            "Destacar que Power Query es una herramienta poderosa para la preparación de datos que se puede usar en Excel y otras aplicaciones",
+            "Resaltar que el panel de Pasos Aplicados es clave para entender y documentar las transformaciones",
+            "Explicar que un buen modelo de datos es fundamental para un análisis eficiente y visualizaciones efectivas",
+            "Mencionar que las relaciones correctas son la base de cualquier informe de Power BI exitoso"
+        ],
+        generalTips: [
+            "Antes de comenzar, asegúrate de que todos los participantes tienen instalado Power BI Desktop",
+            "Proporciona los archivos de ejemplo con anticipación para evitar retrasos",
+            "Alterna entre explicaciones teóricas y demostraciones prácticas para mantener el interés",
+            "Anima a los participantes a seguir los pasos en sus propios equipos",
+            "Reserva tiempo para preguntas después de cada sección",
+            "Si hay participantes con diferentes niveles de experiencia, considera formar parejas para aprendizaje colaborativo"
+        ],
+        commonQuestions: [
+            {
+                question: "¿Cuál es la diferencia entre Power Query y Power BI?",
+                answer: "Power Query es el motor de ETL (Extracción, Transformación y Carga) que forma parte de Power BI. Power BI es la solución completa que incluye Power Query, el modelado de datos, visualizaciones y publicación."
+            },
+            {
+                question: "¿Puedo usar Power Query sin Power BI?",
+                answer: "Sí, Power Query también está disponible en Excel y otras aplicaciones de Microsoft como herramienta independiente para transformación de datos."
+            },
+            {
+                question: "¿Cuándo debo usar DirectQuery en lugar de Importación?",
+                answer: "DirectQuery es recomendable cuando: 1) Los datos son demasiado grandes para importar, 2) Necesitas datos en tiempo real, 3) Las políticas de seguridad requieren que los datos permanezcan en la fuente original."
+            },
+            {
+                question: "¿Cómo puedo mejorar el rendimiento de mis consultas en Power Query?",
+                answer: "Algunas estrategias incluyen: filtrar datos innecesarios lo antes posible en el proceso, eliminar columnas no utilizadas, usar tipos de datos adecuados, y dividir transformaciones complejas en pasos más pequeños."
+            },
+            {
+                question: "¿Qué es un modelo en estrella y por qué es importante?",
+                answer: "Un modelo en estrella es un diseño donde una tabla de hechos central (como ventas) se conecta a múltiples tablas de dimensiones (como productos, clientes, fechas). Es importante porque optimiza el rendimiento y facilita la creación de informes."
+            }
+        ]
+    },
     // Paso 1: Conexión a Fuentes de Datos
     step1: {
         title: "Conexión a Fuentes de Datos",
@@ -441,13 +487,481 @@ const transformModuleContent = {
     // Paso 3: Transformaciones Fundamentales
     step3: {
         title: "Transformaciones Fundamentales",
-        // El contenido detallado se agregará en pasos posteriores
+        description: "En este paso, aprenderás las transformaciones más comunes y útiles en Power Query para limpiar y preparar tus datos.",
+
+        // Categorías de transformaciones
+        transformationCategories: [
+            {
+                category: "Transformaciones de Columnas",
+                icon: "🔄",
+                description: "Operaciones que modifican columnas existentes o crean nuevas columnas.",
+                transformations: [
+                    {
+                        name: "Cambiar tipo de datos",
+                        description: "Asigna el tipo de datos correcto a una columna.",
+                        howTo: "Selecciona la columna > pestaña Transformar > grupo Cualquier columna > Tipo de datos",
+                        importance: "Fundamental para cálculos correctos y visualizaciones adecuadas."
+                    },
+                    {
+                        name: "Reemplazar valores",
+                        description: "Sustituye valores específicos por otros en una columna.",
+                        howTo: "Clic derecho en columna > Reemplazar valores",
+                        importance: "Útil para corregir errores de entrada o estandarizar valores."
+                    },
+                    {
+                        name: "Dividir columna",
+                        description: "Divide una columna en múltiples basándose en un delimitador o posición.",
+                        howTo: "Selecciona la columna > pestaña Transformar > Dividir columna",
+                        importance: "Ideal para separar nombres completos, direcciones o datos combinados."
+                    },
+                    {
+                        name: "Columna personalizada",
+                        description: "Crea una nueva columna basada en una fórmula personalizada.",
+                        howTo: "Pestaña Agregar columna > Columna personalizada",
+                        importance: "Permite cálculos complejos y transformaciones avanzadas."
+                    }
+                ]
+            },
+            {
+                category: "Transformaciones de Filas",
+                icon: "📋",
+                description: "Operaciones que filtran, ordenan o modifican filas completas.",
+                transformations: [
+                    {
+                        name: "Filtrar filas",
+                        description: "Elimina filas que no cumplen con criterios específicos.",
+                        howTo: "Clic en flecha desplegable de columna > seleccionar filtros",
+                        importance: "Fundamental para eliminar datos irrelevantes o erróneos."
+                    },
+                    {
+                        name: "Quitar duplicados",
+                        description: "Elimina filas duplicadas basándose en una o más columnas.",
+                        howTo: "Selecciona columnas > pestaña Inicio > Quitar filas > Quitar duplicados",
+                        importance: "Esencial para datos limpios y análisis precisos."
+                    },
+                    {
+                        name: "Mantener/quitar filas superiores",
+                        description: "Mantiene o elimina un número específico de filas desde el principio.",
+                        howTo: "Pestaña Inicio > Quitar filas > Mantener/quitar filas superiores",
+                        importance: "Útil para eliminar encabezados adicionales o filas de resumen."
+                    },
+                    {
+                        name: "Quitar filas vacías",
+                        description: "Elimina filas que no contienen datos.",
+                        howTo: "Pestaña Inicio > Quitar filas > Quitar filas vacías",
+                        importance: "Ayuda a limpiar conjuntos de datos con espacios en blanco."
+                    }
+                ]
+            },
+            {
+                category: "Transformaciones de Tabla",
+                icon: "📊",
+                description: "Operaciones que afectan a la estructura general de la tabla.",
+                transformations: [
+                    {
+                        name: "Transponer",
+                        description: "Convierte filas en columnas y viceversa.",
+                        howTo: "Pestaña Transformar > Transponer",
+                        importance: "Útil cuando los datos están en formato 'ancho' en lugar de 'largo' o viceversa."
+                    },
+                    {
+                        name: "Dinamizar/Anular dinamización",
+                        description: "Convierte valores de columna en columnas separadas (dinamizar) o viceversa (anular dinamización).",
+                        howTo: "Pestaña Transformar > Dinamizar/Anular dinamización",
+                        importance: "Fundamental para reestructurar datos para análisis específicos."
+                    },
+                    {
+                        name: "Combinar consultas",
+                        description: "Une dos tablas basándose en columnas comunes (similar a JOIN en SQL).",
+                        howTo: "Pestaña Inicio > Combinar consultas",
+                        importance: "Esencial para relacionar datos de diferentes fuentes."
+                    },
+                    {
+                        name: "Anexar consultas",
+                        description: "Apila dos o más tablas con estructura similar (similar a UNION en SQL).",
+                        howTo: "Pestaña Inicio > Anexar consultas",
+                        importance: "Útil para consolidar datos del mismo tipo de diferentes períodos o fuentes."
+                    }
+                ]
+            }
+        ],
+
+        // Ejemplos prácticos
+        practicalExamples: [
+            {
+                title: "Limpieza de datos de ventas",
+                scenario: "Tenemos una tabla de ventas con problemas comunes de datos.",
+                steps: [
+                    {
+                        description: "Cambiar tipos de datos (fechas, números)",
+                        code: "Seleccionar columna 'Fecha' > Transformar > Tipo de datos > Fecha",
+                        result: "Las fechas ahora se reconocen correctamente para filtrado y análisis temporal."
+                    },
+                    {
+                        description: "Reemplazar valores inconsistentes",
+                        code: "Clic derecho en 'Categoría' > Reemplazar valores > Valor a buscar: 'Electronicos' > Reemplazar con: 'Electrónicos'",
+                        result: "Categorías estandarizadas para análisis consistente."
+                    },
+                    {
+                        description: "Quitar filas con valores nulos en campos críticos",
+                        code: "Clic en flecha de 'ID_Producto' > Filtros > Desmarcar 'Null'",
+                        result: "Eliminación de transacciones incompletas que podrían distorsionar el análisis."
+                    },
+                    {
+                        description: "Crear columna calculada para margen de beneficio",
+                        code: "Agregar columna > Columna personalizada > Nombre: 'Margen' > Fórmula: [Precio_Venta] - [Costo]",
+                        result: "Nueva columna que facilita el análisis de rentabilidad."
+                    }
+                ]
+            }
+        ],
+
+        // Mejores prácticas
+        bestPractices: [
+            {
+                title: "Nombrar pasos claramente",
+                description: "Renombra los pasos en el panel de Pasos Aplicados con nombres descriptivos para facilitar la comprensión y mantenimiento.",
+                how: "Clic derecho en un paso > Cambiar nombre"
+            },
+            {
+                title: "Orden de transformaciones",
+                description: "Filtra y elimina datos innecesarios al principio para mejorar el rendimiento de pasos posteriores.",
+                why: "Trabajar con menos datos acelera las transformaciones siguientes."
+            },
+            {
+                title: "Comentar pasos complejos",
+                description: "Añade comentarios a pasos complejos o no obvios para documentar tu lógica.",
+                how: "Clic derecho en un paso > Propiedades > Descripción"
+            },
+            {
+                title: "Verificar resultados",
+                description: "Revisa regularmente los resultados de tus transformaciones para asegurarte de que funcionan como esperas.",
+                why: "Es más fácil corregir problemas inmediatamente que encontrarlos más tarde."
+            },
+            {
+                title: "Crear consultas de referencia",
+                description: "Para transformaciones complejas, crea consultas intermedias de referencia para dividir el proceso en pasos manejables.",
+                how: "Clic derecho en una consulta > Referencia"
+            }
+        ],
+
+        // Ejercicio práctico
+        exercise: {
+            title: "Ejercicio: Aplicar Transformaciones Fundamentales",
+            description: "Continuando con nuestro conjunto de datos de ventas, aplicaremos varias transformaciones clave:",
+            steps: [
+                "Cambia los tipos de datos de las columnas (Fecha a tipo Fecha, Ventas a Decimal, etc.)",
+                "Filtra para mostrar solo ventas del último año",
+                "Reemplaza valores inconsistentes en la columna 'Región' (ej. 'Norte' y 'NORTE' a 'Norte')",
+                "Crea una columna personalizada 'Trimestre' basada en la columna 'Fecha'",
+                "Elimina las columnas innecesarias para el análisis",
+                "Ordena los datos por fecha y monto de venta"
+            ],
+            expectedResult: "Una tabla limpia y bien estructurada lista para el análisis."
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "Esta sección te guiará paso a paso en la aplicación de transformaciones fundamentales en Power Query.",
+            exercises: [
+                {
+                    title: "Limpieza de datos de ventas",
+                    description: "Practica la limpieza de un conjunto de datos de ventas con problemas comunes.",
+                    steps: [
+                        "Abre el archivo 'Ventas_Ejercicio.xlsx' proporcionado en los recursos",
+                        "Conecta a la tabla 'Ventas' usando Power Query",
+                        "Cambia el tipo de datos de la columna 'Fecha' a Fecha",
+                        "Cambia el tipo de datos de las columnas 'Monto', 'Costo' y 'Cantidad' a Decimal",
+                        "Filtra la columna 'Región' para eliminar valores vacíos",
+                        "Reemplaza los valores 'N/A' en la columna 'Categoría' por 'Sin categorizar'",
+                        "Crea una columna personalizada 'Beneficio' con la fórmula [Monto] - [Costo]",
+                        "Elimina las columnas que no necesitarás para el análisis ('ID_Interno', 'Notas')",
+                        "Ordena los datos por 'Fecha' en orden ascendente",
+                        "Carga los datos transformados en Power BI"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te proporcionará una guía detallada para dominar las transformaciones fundamentales en Power Query, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He identificado al menos tres tipos diferentes de transformaciones que puedo aplicar a mis datos",
+                "Entiendo la diferencia entre transformaciones de columnas, filas y tablas",
+                "Puedo cambiar correctamente los tipos de datos de las columnas",
+                "Sé cómo filtrar datos para eliminar valores no deseados",
+                "Puedo crear columnas personalizadas con fórmulas básicas",
+                "Entiendo cómo combinar datos de diferentes tablas",
+                "He practicado la limpieza de datos con al menos un conjunto de datos"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía completa de transformaciones en Power Query",
+                    url: "https://docs.microsoft.com/es-es/power-query/power-query-ui",
+                    description: "Documentación oficial de Microsoft sobre todas las transformaciones disponibles"
+                },
+                {
+                    title: "Ejercicios adicionales de transformación de datos",
+                    url: "assets/exercises/transformaciones_adicionales.xlsx",
+                    description: "Archivo con ejercicios adicionales para practicar diferentes transformaciones"
+                }
+            ]
+        },
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "transform-quiz-3",
+            question: "¿Cuál de las siguientes transformaciones deberías usar para convertir una tabla donde cada producto es una columna, a un formato donde haya una sola columna de 'Producto' y otra de 'Valor'?",
+            options: [
+                "Transponer",
+                "Anular dinamización",
+                "Dividir columna",
+                "Combinar consultas"
+            ],
+            correctIndex: 1
+        }
     },
 
     // Paso 4: Modelado Básico: Creación de Relaciones
     step4: {
         title: "Modelado Básico: Creación de Relaciones",
-        // El contenido detallado se agregará en pasos posteriores
+        description: "En este paso, aprenderás a crear relaciones entre tablas para construir un modelo de datos efectivo en Power BI.",
+
+        // Conceptos fundamentales de relaciones
+        fundamentalConcepts: {
+            title: "Conceptos Fundamentales de Relaciones",
+            concepts: [
+                {
+                    concept: "¿Qué es una relación?",
+                    description: "Una relación conecta dos tablas a través de campos comunes, permitiendo analizar datos de múltiples tablas juntas.",
+                    example: "Relacionar una tabla de Ventas con una tabla de Productos a través del campo 'ID_Producto'."
+                },
+                {
+                    concept: "Cardinalidad",
+                    description: "Define cómo se relacionan los registros entre las tablas conectadas.",
+                    types: [
+                        {
+                            name: "Uno a muchos (1:N)",
+                            description: "Cada registro en la primera tabla puede relacionarse con múltiples registros en la segunda tabla.",
+                            example: "Un producto puede tener muchas ventas.",
+                            isCommon: true
+                        },
+                        {
+                            name: "Uno a uno (1:1)",
+                            description: "Cada registro en la primera tabla se relaciona con exactamente un registro en la segunda tabla.",
+                            example: "Un empleado tiene un único perfil de usuario.",
+                            isCommon: false
+                        },
+                        {
+                            name: "Muchos a muchos (N:N)",
+                            description: "Múltiples registros en la primera tabla pueden relacionarse con múltiples registros en la segunda tabla.",
+                            example: "Estudiantes y cursos (un estudiante puede tomar varios cursos, y un curso puede tener varios estudiantes).",
+                            isCommon: false,
+                            note: "Requiere una tabla puente o se implementa con dos relaciones uno a muchos."
+                        }
+                    ]
+                },
+                {
+                    concept: "Dirección del filtro",
+                    description: "Define cómo se propagan los filtros entre tablas relacionadas.",
+                    types: [
+                        {
+                            name: "Única (predeterminada)",
+                            description: "Los filtros se propagan de la tabla 'uno' a la tabla 'muchos'.",
+                            example: "Filtrar por categoría de producto filtrará las ventas relacionadas."
+                        },
+                        {
+                            name: "Bidireccional",
+                            description: "Los filtros se propagan en ambas direcciones.",
+                            example: "Filtrar por región de ventas también filtrará los productos vendidos en esa región.",
+                            warning: "Puede causar problemas de rendimiento y ambigüedades en el modelo si no se usa correctamente."
+                        }
+                    ]
+                },
+                {
+                    concept: "Integridad referencial",
+                    description: "Asegura que cada valor en la columna 'muchos' existe en la columna 'uno'.",
+                    options: [
+                        {
+                            name: "Asumir integridad referencial",
+                            description: "Power BI asume que todos los valores en la tabla 'muchos' existen en la tabla 'uno'.",
+                            when: "Activar cuando estés seguro de que los datos cumplen esta condición."
+                        }
+                    ]
+                }
+            ]
+        },
+
+        // Vista de modelo
+        modelView: {
+            title: "Vista de Modelo en Power BI",
+            description: "La Vista de Modelo es donde crearás y gestionarás las relaciones entre tablas.",
+            howToAccess: "Haz clic en el icono de Vista de Modelo en la barra lateral izquierda (segundo icono).",
+            keyFeatures: [
+                {
+                    feature: "Representación visual",
+                    description: "Muestra todas las tablas y sus relaciones como un diagrama."
+                },
+                {
+                    feature: "Creación de relaciones",
+                    description: "Permite arrastrar y soltar campos entre tablas para crear relaciones."
+                },
+                {
+                    feature: "Edición de propiedades",
+                    description: "Permite configurar cardinalidad, dirección de filtro e integridad referencial."
+                },
+                {
+                    feature: "Organización",
+                    description: "Permite reorganizar las tablas para una mejor visualización del modelo."
+                }
+            ]
+        },
+
+        // Creación de relaciones
+        creatingRelationships: {
+            title: "Creación de Relaciones",
+            methods: [
+                {
+                    method: "Arrastrar y soltar",
+                    steps: [
+                        "Ve a la Vista de Modelo",
+                        "Identifica las dos tablas que deseas relacionar",
+                        "Haz clic en el campo de una tabla y arrástralo al campo correspondiente en la otra tabla",
+                        "Configura las propiedades de la relación en el diálogo que aparece"
+                    ],
+                    isPreferred: true
+                },
+                {
+                    method: "Administrar relaciones",
+                    steps: [
+                        "En la pestaña Modelado, haz clic en 'Administrar relaciones'",
+                        "Haz clic en 'Nueva...'",
+                        "Selecciona las tablas y campos para relacionar",
+                        "Configura las propiedades de la relación",
+                        "Haz clic en 'Aceptar'"
+                    ],
+                    isPreferred: false,
+                    when: "Útil cuando tienes muchas tablas o necesitas una vista más detallada."
+                },
+                {
+                    method: "Detección automática",
+                    steps: [
+                        "En la pestaña Inicio, haz clic en 'Administrar relaciones'",
+                        "Haz clic en 'Detección automática...'",
+                        "Power BI intentará detectar posibles relaciones",
+                        "Revisa las relaciones sugeridas y selecciona las que deseas crear",
+                        "Haz clic en 'Aceptar'"
+                    ],
+                    isPreferred: false,
+                    when: "Útil como punto de partida, pero siempre revisa las relaciones detectadas."
+                }
+            ]
+        },
+
+        // Mejores prácticas
+        bestPractices: [
+            {
+                title: "Diseño en estrella",
+                description: "Organiza tu modelo con tablas de hechos (transacciones) en el centro y tablas de dimensiones (categorías, productos, clientes) alrededor.",
+                why: "Mejora el rendimiento y facilita la comprensión del modelo."
+            },
+            {
+                title: "Evita relaciones circulares",
+                description: "No crees cadenas de relaciones que formen un círculo cerrado.",
+                why: "Causan ambigüedades en la propagación de filtros y pueden generar resultados incorrectos."
+            },
+            {
+                title: "Usa relaciones bidireccionales con precaución",
+                description: "Limita el uso de relaciones bidireccionales solo a casos donde sean absolutamente necesarias.",
+                why: "Pueden causar problemas de rendimiento y resultados inesperados."
+            },
+            {
+                title: "Verifica la integridad de los datos",
+                description: "Asegúrate de que los datos cumplen con la integridad referencial antes de crear relaciones.",
+                why: "Evita resultados incorrectos por datos no coincidentes."
+            },
+            {
+                title: "Usa claves numéricas cuando sea posible",
+                description: "Las relaciones basadas en columnas numéricas tienen mejor rendimiento que las basadas en texto.",
+                why: "Las comparaciones numéricas son más eficientes que las de texto."
+            }
+        ],
+
+        // Ejercicio práctico
+        exercise: {
+            title: "Ejercicio: Creación de un Modelo de Datos Básico",
+            description: "Vamos a crear un modelo de datos relacionando varias tablas:",
+            steps: [
+                "Carga las tablas 'Ventas', 'Productos', 'Clientes' y 'Fechas' del archivo de ejemplo",
+                "Ve a la Vista de Modelo",
+                "Crea una relación entre 'Ventas' y 'Productos' usando el campo 'ID_Producto'",
+                "Crea una relación entre 'Ventas' y 'Clientes' usando el campo 'ID_Cliente'",
+                "Crea una relación entre 'Ventas' y 'Fechas' usando el campo 'Fecha'",
+                "Configura todas las relaciones como 'Uno a muchos' con la dirección de filtro única",
+                "Verifica que las relaciones se muestren correctamente en el diagrama"
+            ],
+            expectedResult: "Un modelo en estrella con la tabla de Ventas en el centro, conectada a las dimensiones."
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "Esta sección te guiará paso a paso en la creación de un modelo de datos efectivo en Power BI.",
+            exercises: [
+                {
+                    title: "Creación de un modelo de ventas",
+                    description: "Practica la creación de un modelo de datos para análisis de ventas.",
+                    steps: [
+                        "Abre el archivo 'Modelo_Ventas.pbix' proporcionado en los recursos",
+                        "Observa que ya se han cargado las tablas 'Ventas', 'Productos', 'Clientes' y 'Fechas'",
+                        "Ve a la Vista de Modelo haciendo clic en el segundo icono de la barra lateral izquierda",
+                        "Crea una relación entre 'Ventas' y 'Productos': arrastra el campo 'ID_Producto' de Ventas al campo 'ID_Producto' de Productos",
+                        "En el diálogo, asegúrate de que la cardinalidad sea 'Uno a muchos' (1:*) con 'Productos' en el lado 'Uno'",
+                        "Repite el proceso para relacionar 'Ventas' con 'Clientes' a través de 'ID_Cliente'",
+                        "Relaciona 'Ventas' con 'Fechas' arrastrando el campo 'Fecha' de Ventas al campo 'Fecha' de la tabla Fechas",
+                        "Reorganiza las tablas en el diagrama para que 'Ventas' esté en el centro y las demás alrededor",
+                        "Guarda el archivo y crea una visualización simple para probar las relaciones"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te proporcionará una guía detallada para crear modelos de datos efectivos en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "Entiendo los diferentes tipos de cardinalidad en las relaciones (1:N, 1:1, N:N)",
+                "Puedo identificar cuándo usar la dirección de filtro única vs. bidireccional",
+                "Sé cómo crear relaciones usando el método de arrastrar y soltar",
+                "Comprendo el concepto de modelo en estrella y su importancia",
+                "Puedo identificar y evitar relaciones circulares",
+                "He creado un modelo con al menos tres tablas relacionadas",
+                "He verificado que mis relaciones funcionan correctamente creando visualizaciones que usan datos de múltiples tablas"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía completa de modelado de datos en Power BI",
+                    url: "https://docs.microsoft.com/es-es/power-bi/transform-model/desktop-relationships-understand",
+                    description: "Documentación oficial de Microsoft sobre relaciones en Power BI"
+                },
+                {
+                    title: "Ejercicio avanzado de modelado",
+                    url: "assets/exercises/modelado_avanzado.pbix",
+                    description: "Archivo con un ejercicio más complejo para practicar técnicas avanzadas de modelado"
+                }
+            ]
+        },
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "transform-quiz-4",
+            question: "En un modelo de datos de Power BI, ¿cuál es la cardinalidad más común y recomendada para relacionar una tabla de hechos (como Ventas) con una tabla de dimensiones (como Productos)?",
+            options: [
+                "Muchos a muchos (N:N)",
+                "Uno a uno (1:1)",
+                "Uno a muchos (1:N) con la tabla de dimensiones en el lado 'uno'",
+                "Uno a muchos (1:N) con la tabla de hechos en el lado 'uno'"
+            ],
+            correctIndex: 2
+        }
     }
 };
 

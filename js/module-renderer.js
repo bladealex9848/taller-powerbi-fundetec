@@ -142,12 +142,304 @@ function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
         html += renderQuiz(stepContent.quiz);
     }
 
-    // Renderizar panel de facilitador si el modo es facilitador
+    // Renderizar contenido específico según el modo de usuario
     if (userMode === 'facilitador' && moduleContent.facilitatorNotes) {
         html += renderFacilitatorPanel(moduleContent.facilitatorNotes);
+    } else if (userMode === 'autoguiado' && stepContent.selfGuidedContent) {
+        html += renderSelfGuidedContent(stepContent.selfGuidedContent);
+    } else if (userMode === 'estudiante' && stepContent.studentContent) {
+        html += renderStudentContent(stepContent.studentContent);
+    }
+
+    // Si no hay contenido específico para el paso actual, mostrar un contenido genérico
+    if (!stepContent.content && !stepContent.description) {
+        html += `
+            <div class="p-4 bg-blue-50 rounded-lg mb-6">
+                <p class="text-blue-800">Este paso está en desarrollo. Pronto tendrás acceso a más contenido.</p>
+            </div>
+        `;
     }
 
     return html;
+}
+
+/**
+ * Renderiza contenido específico para el modo autoguiado
+ * @param {Object} content - Contenido para el modo autoguiado
+ * @returns {string} HTML del contenido
+ */
+function renderSelfGuidedContent(content) {
+    return `
+        <div class="mt-6 p-4 bg-green-50 border-l-4 border-green-500 rounded self-guided-content">
+            <h4 class="font-bold text-green-800 mb-2 flex items-center">
+                <i class="fas fa-book-reader mr-2"></i>
+                Guía de Aprendizaje Autoguiado
+            </h4>
+            <div class="mb-3">
+                ${content.description || ''}
+            </div>
+            ${content.checkpoints ? renderCheckpoints(content.checkpoints) : ''}
+            ${content.additionalResources ? renderAdditionalResources(content.additionalResources) : ''}
+        </div>
+    `;
+}
+
+/**
+ * Renderiza checkpoints para el modo autoguiado
+ * @param {Array} checkpoints - Lista de checkpoints
+ * @returns {string} HTML de los checkpoints
+ */
+function renderCheckpoints(checkpoints) {
+    let checkpointsHtml = '';
+
+    checkpoints.forEach((checkpoint, index) => {
+        checkpointsHtml += `
+            <div class="flex items-start mb-2">
+                <input type="checkbox" id="checkpoint-${index}" class="mt-1 mr-2 h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500">
+                <label for="checkpoint-${index}" class="text-sm">${checkpoint}</label>
+            </div>
+        `;
+    });
+
+    return `
+        <div class="mt-3">
+            <h5 class="font-medium text-green-700 mb-2">Verifica tu progreso:</h5>
+            <div class="space-y-1">
+                ${checkpointsHtml}
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza recursos adicionales para el modo autoguiado
+ * @param {Array} resources - Lista de recursos adicionales
+ * @returns {string} HTML de los recursos
+ */
+function renderAdditionalResources(resources) {
+    let resourcesHtml = '';
+
+    resources.forEach(resource => {
+        resourcesHtml += `
+            <li class="mb-1">
+                <a href="${resource.url}" target="_blank" class="text-green-700 hover:underline flex items-center">
+                    <i class="fas fa-external-link-alt mr-1 text-xs"></i>
+                    ${resource.title}
+                </a>
+                ${resource.description ? `<p class="text-xs text-gray-600 ml-5">${resource.description}</p>` : ''}
+            </li>
+        `;
+    });
+
+    return `
+        <div class="mt-4">
+            <h5 class="font-medium text-green-700 mb-2">Recursos adicionales:</h5>
+            <ul class="list-none space-y-2">
+                ${resourcesHtml}
+            </ul>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza contenido específico para el modo estudiante
+ * @param {Object} content - Contenido para el modo estudiante
+ * @returns {string} HTML del contenido
+ */
+function renderStudentContent(content) {
+    return `
+        <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded student-content">
+            <h4 class="font-bold text-blue-800 mb-2 flex items-center">
+                <i class="fas fa-user-graduate mr-2"></i>
+                Guía para Estudiantes
+            </h4>
+            <div class="mb-3">
+                ${content.description || ''}
+            </div>
+            ${content.exercises ? renderExercises(content.exercises) : ''}
+        </div>
+    `;
+}
+
+/**
+ * Renderiza ejercicios para el modo estudiante
+ * @param {Array} exercises - Lista de ejercicios
+ * @returns {string} HTML de los ejercicios
+ */
+function renderExercises(exercises) {
+    let exercisesHtml = '';
+
+    exercises.forEach((exercise, index) => {
+        exercisesHtml += `
+            <div class="mb-3 p-3 bg-white rounded shadow-sm">
+                <h5 class="font-medium text-blue-700 mb-1">Ejercicio ${index + 1}: ${exercise.title}</h5>
+                <p class="text-sm mb-2">${exercise.description}</p>
+                ${exercise.steps ? renderExerciseSteps(exercise.steps) : ''}
+            </div>
+        `;
+    });
+
+    return `
+        <div class="mt-3">
+            <h5 class="font-medium text-blue-700 mb-2">Ejercicios prácticos:</h5>
+            <div class="space-y-3">
+                ${exercisesHtml}
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza pasos de un ejercicio
+ * @param {Array} steps - Lista de pasos
+ * @returns {string} HTML de los pasos
+ */
+function renderExerciseSteps(steps) {
+    let stepsHtml = '';
+
+    steps.forEach((step, index) => {
+        stepsHtml += `
+            <li class="mb-1">
+                <span class="font-medium">${index + 1}.</span> ${step}
+            </li>
+        `;
+    });
+
+    return `
+        <ol class="list-none pl-2 text-sm text-gray-700">
+            ${stepsHtml}
+        </ol>
+    `;
+}
+
+/**
+ * Renderiza el panel de facilitador
+ * @param {Object} facilitatorNotes - Notas para el facilitador
+ * @returns {string} HTML del panel de facilitador
+ */
+function renderFacilitatorPanel(facilitatorNotes) {
+    return `
+        <div class="mt-6 p-4 bg-red-50 border-l-4 border-red-500 rounded facilitator-content">
+            <h4 class="font-bold text-red-800 mb-2 flex items-center">
+                <i class="fas fa-chalkboard-teacher mr-2"></i>
+                Notas para el Facilitador
+            </h4>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                ${facilitatorNotes.timeAllocation ? renderTimeAllocation(facilitatorNotes.timeAllocation) : ''}
+                ${facilitatorNotes.keyPoints ? renderKeyPoints(facilitatorNotes.keyPoints) : ''}
+            </div>
+
+            ${facilitatorNotes.generalTips ? renderGeneralTips(facilitatorNotes.generalTips) : ''}
+            ${facilitatorNotes.commonQuestions ? renderCommonQuestions(facilitatorNotes.commonQuestions) : ''}
+
+            <div class="mt-3 text-sm text-red-700 border-t border-red-200 pt-2">
+                <strong>Nota:</strong> Esta información es exclusiva para facilitadores y no es visible para los estudiantes.
+            </div>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza la distribución de tiempo recomendada
+ * @param {Object|Array} timeAllocation - Distribución de tiempo
+ * @returns {string} HTML de la distribución de tiempo
+ */
+function renderTimeAllocation(timeAllocation) {
+    let timeHtml = '';
+
+    if (Array.isArray(timeAllocation)) {
+        timeAllocation.forEach(item => {
+            timeHtml += `<li class="mb-1 text-sm">${item}</li>`;
+        });
+    } else {
+        for (const key in timeAllocation) {
+            if (timeAllocation.hasOwnProperty(key)) {
+                const stepNumber = key.replace('step', '');
+                timeHtml += `<li class="mb-1 text-sm">Paso ${stepNumber}: ${timeAllocation[key]}</li>`;
+            }
+        }
+    }
+
+    return `
+        <div>
+            <h5 class="font-medium text-red-700 mb-2">Distribución de Tiempo:</h5>
+            <ul class="list-disc pl-5 space-y-1">
+                ${timeHtml}
+            </ul>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza los puntos clave a enfatizar
+ * @param {Array} keyPoints - Puntos clave
+ * @returns {string} HTML de los puntos clave
+ */
+function renderKeyPoints(keyPoints) {
+    let pointsHtml = '';
+
+    keyPoints.forEach(point => {
+        pointsHtml += `<li class="mb-1 text-sm">${point}</li>`;
+    });
+
+    return `
+        <div>
+            <h5 class="font-medium text-red-700 mb-2">Puntos Clave a Enfatizar:</h5>
+            <ul class="list-disc pl-5 space-y-1">
+                ${pointsHtml}
+            </ul>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza consejos generales para el facilitador
+ * @param {Array} tips - Consejos generales
+ * @returns {string} HTML de los consejos
+ */
+function renderGeneralTips(tips) {
+    let tipsHtml = '';
+
+    tips.forEach(tip => {
+        tipsHtml += `<li class="mb-1 text-sm">${tip}</li>`;
+    });
+
+    return `
+        <div class="mt-4">
+            <h5 class="font-medium text-red-700 mb-2">Consejos Generales:</h5>
+            <ul class="list-disc pl-5 space-y-1">
+                ${tipsHtml}
+            </ul>
+        </div>
+    `;
+}
+
+/**
+ * Renderiza preguntas frecuentes para el facilitador
+ * @param {Array} questions - Preguntas frecuentes
+ * @returns {string} HTML de las preguntas
+ */
+function renderCommonQuestions(questions) {
+    let questionsHtml = '';
+
+    questions.forEach(qa => {
+        questionsHtml += `
+            <div class="mb-2 p-2 bg-white rounded shadow-sm">
+                <div class="font-medium text-red-700">${qa.question}</div>
+                <div class="text-sm mt-1">${qa.answer}</div>
+            </div>
+        `;
+    });
+
+    return `
+        <div class="mt-4">
+            <h5 class="font-medium text-red-700 mb-2">Preguntas Frecuentes:</h5>
+            <div class="space-y-2">
+                ${questionsHtml}
+            </div>
+        </div>
+    `;
 }
 
 /**

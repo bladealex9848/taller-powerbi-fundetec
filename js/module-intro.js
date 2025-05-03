@@ -2,10 +2,53 @@
  * Contenido del módulo de Introducción
  */
 
+// Notas para el facilitador (solo visibles en modo facilitador)
+const introModuleFacilitatorNotes = {
+    timeAllocation: {
+        step1: "15-20 minutos",
+        step2: "20-25 minutos",
+        step3: "15-20 minutos",
+        step4: "20-25 minutos",
+        step5: "15-20 minutos"
+    },
+    keyPoints: [
+        "Enfatizar la importancia del análisis de datos en el contexto laboral actual",
+        "Destacar que Power BI es una herramienta accesible incluso para quienes no tienen experiencia previa en análisis de datos",
+        "Resaltar la diferencia entre los componentes de Power BI (Desktop, Service, Mobile)",
+        "Explicar que un buen entendimiento de la interfaz facilita el aprendizaje posterior",
+        "Mencionar que los asistentes IA son complementos que potencian el trabajo, no reemplazos del conocimiento técnico"
+    ],
+    generalTips: [
+        "Comienza con una breve encuesta para conocer el nivel de experiencia de los participantes con análisis de datos",
+        "Utiliza ejemplos relevantes para el perfil de Auxiliar en Sistemas",
+        "Muestra la interfaz de Power BI Desktop en tiempo real mientras explicas",
+        "Permite que los participantes hagan preguntas después de cada sección",
+        "Relaciona los conceptos con situaciones reales que podrían enfrentar en su trabajo"
+    ],
+    commonQuestions: [
+        {
+            question: "¿Es necesario tener conocimientos de programación para usar Power BI?",
+            answer: "No es necesario para comenzar. Power BI tiene una interfaz visual intuitiva. Sin embargo, para transformaciones más avanzadas, es útil familiarizarse con el lenguaje M (Power Query) y DAX (para cálculos), pero se pueden aprender gradualmente."
+        },
+        {
+            question: "¿Power BI es solo para grandes empresas?",
+            answer: "No, Power BI es escalable. Desde profesionales independientes hasta grandes corporaciones pueden beneficiarse. Power BI Desktop es gratuito, y hay opciones de licenciamiento para diferentes necesidades."
+        },
+        {
+            question: "¿Cómo se diferencia Power BI de Excel?",
+            answer: "Excel es excelente para análisis ad-hoc y cálculos, pero Power BI está diseñado específicamente para visualización de datos, manejo de grandes volúmenes de información y creación de dashboards interactivos. Power BI puede conectarse a muchas más fuentes de datos y ofrece capacidades de modelado más avanzadas."
+        },
+        {
+            question: "¿Qué recursos necesito para seguir este taller?",
+            answer: "Necesitarás una computadora con Windows y Power BI Desktop instalado (es gratuito). También proporcionaremos archivos de ejemplo para los ejercicios prácticos."
+        }
+    ]
+};
+
 // Paso 1: Importancia del Análisis de Datos
 const introStep1Content = {
     title: "Importancia del Análisis de Datos",
-    
+
     // Diagrama de flujo de datos a información
     diagram: {
         stages: [
@@ -41,7 +84,7 @@ const introStep1Content = {
             }
         ]
     },
-    
+
     // Beneficios del análisis de datos
     benefits: [
         {
@@ -61,14 +104,14 @@ const introStep1Content = {
             example: "Las habilidades de análisis de datos son altamente valoradas en el mercado laboral. Como Auxiliar en Sistemas, podrás generar informes valiosos para la toma de decisiones en tu organización."
         }
     ],
-    
+
     // Caso práctico
     caseStudy: {
         title: "Caso Práctico: Análisis de Tickets de Soporte IT",
         content: `
             <p class="mb-2">
-                Imagina que trabajas como Auxiliar en Sistemas en una empresa con 500 empleados. 
-                La empresa utiliza un sistema de tickets para solicitudes de soporte técnico. 
+                Imagina que trabajas como Auxiliar en Sistemas en una empresa con 500 empleados.
+                La empresa utiliza un sistema de tickets para solicitudes de soporte técnico.
                 Sin análisis de datos, solo verías una lista interminable de tickets.
             </p>
             <p class="mb-2">Con análisis de datos en Power BI, podrías:</p>
@@ -79,12 +122,12 @@ const introStep1Content = {
                 <li>Detectar patrones temporales (ej. picos después de actualizaciones)</li>
             </ul>
             <p class="text-sm text-yellow-800">
-                Esto te permitiría implementar soluciones proactivas, como capacitaciones específicas 
+                Esto te permitiría implementar soluciones proactivas, como capacitaciones específicas
                 o actualizaciones preventivas.
             </p>
         `
     },
-    
+
     // Quiz para comprobar comprensión
     quiz: {
         questionId: "intro-quiz-1",
@@ -96,16 +139,56 @@ const introStep1Content = {
             "Reemplazar el conocimiento técnico especializado"
         ],
         correctIndex: 1
+    },
+
+    // Contenido específico para modo estudiante
+    studentContent: {
+        description: "Como Auxiliar en Sistemas, el análisis de datos te permitirá destacar en tu rol profesional y aportar mayor valor a tu organización.",
+        exercises: [
+            {
+                title: "Identificación de oportunidades de análisis",
+                description: "Piensa en tu entorno laboral actual o futuro como Auxiliar en Sistemas:",
+                steps: [
+                    "Identifica 3 procesos o áreas donde el análisis de datos podría mejorar la eficiencia",
+                    "Para cada área, anota qué tipo de datos se podrían analizar",
+                    "Reflexiona sobre qué decisiones podrían mejorarse con este análisis",
+                    "Comparte tus ideas con un compañero o con el grupo"
+                ]
+            }
+        ]
+    },
+
+    // Contenido específico para modo autoguiado
+    selfGuidedContent: {
+        description: "El análisis de datos es una habilidad fundamental en el mundo tecnológico actual. Esta sección te ayudará a comprender su importancia y aplicaciones prácticas.",
+        checkpoints: [
+            "Comprendo la diferencia entre datos brutos e información procesada",
+            "Puedo identificar al menos tres beneficios concretos del análisis de datos",
+            "Entiendo cómo el análisis de datos puede mejorar mi perfil profesional como Auxiliar en Sistemas",
+            "Puedo explicar con mis propias palabras el flujo desde datos brutos hasta decisiones informadas"
+        ],
+        additionalResources: [
+            {
+                title: "Introducción al análisis de datos para principiantes",
+                url: "https://docs.microsoft.com/es-es/learn/paths/data-analytics-beginners/",
+                description: "Curso gratuito de Microsoft Learn sobre fundamentos de análisis de datos"
+            },
+            {
+                title: "Casos de éxito de análisis de datos en IT",
+                url: "https://powerbi.microsoft.com/es-es/industries/it/",
+                description: "Ejemplos reales de cómo el análisis de datos ha transformado departamentos de IT"
+            }
+        ]
     }
 };
 
 // Paso 2: Microsoft Power BI: Componentes Esenciales
 const introStep2Content = {
     title: "Microsoft Power BI: Componentes Esenciales",
-    
+
     // Descripción general
     description: "Power BI es un conjunto de herramientas y servicios que permiten conectar, transformar, visualizar y compartir datos. Veamos sus componentes principales:",
-    
+
     // Componentes de Power BI
     components: [
         {
@@ -188,7 +271,7 @@ const introStep2Content = {
             note: "Las aplicaciones móviles son gratuitas y se conectan a tu cuenta de Power BI Service."
         }
     ],
-    
+
     // Flujo de trabajo en Power BI
     workflow: [
         {
@@ -227,10 +310,10 @@ const introStep2Content = {
 // Paso 3: Recorrido por la Interfaz
 const introStep3Content = {
     title: "Recorrido por la Interfaz de Power BI Desktop",
-    
+
     // Descripción general
     description: "Power BI Desktop tiene una interfaz intuitiva organizada en diferentes áreas funcionales. Vamos a explorar las principales secciones:",
-    
+
     // Áreas principales de la interfaz
     interfaceAreas: [
         {
@@ -322,7 +405,7 @@ const introStep3Content = {
             ]
         }
     ],
-    
+
     // Ejercicio práctico
     exercise: {
         title: "Ejercicio: Exploración de la Interfaz",
@@ -339,7 +422,7 @@ const introStep3Content = {
 // Paso 4: Tipos de Datos y Modelos (Conceptos Básicos)
 const introStep4Content = {
     title: "Tipos de Datos y Modelos (Conceptos Básicos)",
-    
+
     // Tipos de datos
     dataTypes: [
         {
@@ -373,7 +456,7 @@ const introStep4Content = {
             examples: ["Foto de perfil", "Documento adjunto"]
         }
     ],
-    
+
     // Importancia de los tipos de datos correctos
     dataTypeImportance: [
         "Cálculos precisos: Los números deben ser reconocidos como números para poder sumarlos, promediarlos, etc.",
@@ -381,7 +464,7 @@ const introStep4Content = {
         "Ordenamiento correcto: Los textos se ordenan alfabéticamente, los números por valor.",
         "Visualizaciones adecuadas: Power BI sugiere visualizaciones según los tipos de datos seleccionados."
     ],
-    
+
     // Conceptos básicos de modelado
     modelingConcepts: {
         title: "Conceptos Básicos de Modelado de Datos",
@@ -449,7 +532,7 @@ const introStep4Content = {
             ]
         }
     },
-    
+
     // Quiz para comprobar comprensión
     quiz: {
         questionId: "intro-quiz-2",
@@ -467,10 +550,10 @@ const introStep4Content = {
 // Paso 5: Asistentes IA en el Flujo de Trabajo
 const introStep5Content = {
     title: "Asistentes IA en el Flujo de Trabajo",
-    
+
     // Descripción general
     description: "Los asistentes de Inteligencia Artificial pueden complementar significativamente tu trabajo en Power BI, ayudándote a ser más productivo y a superar obstáculos técnicos.",
-    
+
     // Rol de los asistentes IA
     aiAssistantsRole: [
         {
@@ -486,7 +569,7 @@ const introStep5Content = {
             description: "Te ayudan a superar obstáculos técnicos, depurar errores y encontrar soluciones alternativas."
         }
     ],
-    
+
     // Casos de uso de asistentes IA con Power BI
     aiUseCases: [
         {
@@ -522,7 +605,7 @@ const introStep5Content = {
             ]
         }
     ],
-    
+
     // Ejemplos prácticos de prompts
     aiPromptExamples: [
         {
@@ -541,7 +624,7 @@ const introStep5Content = {
             response: "Para este caso, recomendaría:\n1. Un gráfico de líneas para mostrar la tendencia temporal\n2. Un mapa para la dimensión regional\n3. Un gráfico de barras combinado que muestre año actual vs. anterior\n\nPuedes usar un filtro de tiempo como segmentador para permitir exploración interactiva."
         }
     ],
-    
+
     // Mejores prácticas
     aiBestPractices: [
         {
@@ -561,7 +644,7 @@ const introStep5Content = {
             description: "Usa los asistentes IA como herramientas de aprendizaje. Pide explicaciones sobre el porqué de las soluciones propuestas."
         }
     ],
-    
+
     // Quiz para comprobar comprensión
     quiz: {
         questionId: "intro-quiz-3",
@@ -573,11 +656,71 @@ const introStep5Content = {
             "Sustituir a los profesionales de análisis de datos"
         ],
         correctIndex: 1
+    },
+
+    // Contenido específico para modo estudiante
+    studentContent: {
+        description: "Como futuro profesional en sistemas, es importante que comprendas cómo integrar los asistentes IA en tu flujo de trabajo con Power BI para maximizar tu productividad.",
+        exercises: [
+            {
+                title: "Práctica con prompts efectivos",
+                description: "Vamos a practicar la creación de prompts efectivos para asistentes IA:",
+                steps: [
+                    "Identifica un problema o tarea específica que podrías enfrentar al trabajar con Power BI",
+                    "Redacta un prompt claro y específico para un asistente IA, incluyendo contexto y detalles relevantes",
+                    "Intercambia tu prompt con un compañero y evalúen mutuamente la claridad y especificidad",
+                    "Refina tu prompt basado en la retroalimentación recibida"
+                ]
+            },
+            {
+                title: "Análisis de casos de uso",
+                description: "Analiza cómo los asistentes IA pueden ayudarte en diferentes fases del trabajo con Power BI:",
+                steps: [
+                    "Para cada fase (Preparación, Modelado, Visualización, Análisis), identifica una tarea específica donde un asistente IA sería útil",
+                    "Describe cómo formularías tu consulta al asistente",
+                    "Explica qué harías con la respuesta recibida (verificación, implementación, etc.)",
+                    "Comparte tus ideas con el grupo"
+                ]
+            }
+        ]
+    },
+
+    // Contenido específico para modo autoguiado
+    selfGuidedContent: {
+        description: "Los asistentes IA pueden ser aliados poderosos en tu aprendizaje y trabajo con Power BI. Esta sección te ayudará a utilizarlos de manera efectiva y responsable.",
+        checkpoints: [
+            "Comprendo que los asistentes IA son complementos, no reemplazos del conocimiento técnico",
+            "Puedo identificar al menos tres casos de uso específicos para asistentes IA en mi flujo de trabajo con Power BI",
+            "Sé cómo formular prompts efectivos para obtener respuestas útiles",
+            "Entiendo la importancia de verificar y comprender las soluciones propuestas por los asistentes IA",
+            "Puedo explicar cómo los asistentes IA pueden ayudarme en diferentes fases del trabajo con Power BI"
+        ],
+        additionalResources: [
+            {
+                title: "Guía de prompts efectivos para análisis de datos",
+                url: "https://learn.microsoft.com/es-es/fabric/data-engineering/prompt-engineering",
+                description: "Técnicas para formular prompts que generen respuestas útiles para tareas de análisis de datos"
+            },
+            {
+                title: "Copilot en Power BI",
+                url: "https://learn.microsoft.com/es-es/power-bi/create-reports/copilot-introduction",
+                description: "Documentación oficial sobre cómo utilizar Copilot, el asistente IA integrado en Power BI"
+            },
+            {
+                title: "Ética y mejores prácticas en el uso de IA",
+                url: "https://www.microsoft.com/es-es/ai/responsible-ai",
+                description: "Consideraciones éticas y mejores prácticas para el uso responsable de asistentes IA"
+            }
+        ]
     }
 };
 
 // Exportar todos los contenidos del módulo
 const introModuleContent = {
+    // Notas para el facilitador (solo visibles en modo facilitador)
+    facilitatorNotes: introModuleFacilitatorNotes,
+
+    // Pasos del módulo
     step1: introStep1Content,
     step2: introStep2Content,
     step3: introStep3Content,
