@@ -58,10 +58,58 @@ function generateStepContentHTML(moduleContent, moduleId, stepIndex, userMode) {
     const stepContent = moduleContent[stepKey];
 
     if (!stepContent) {
+        console.warn(`No se encontró contenido para el paso ${stepIndex + 1} en el módulo ${moduleId}`);
+
+        // Intentar cargar desde el archivo Markdown directamente
+        try {
+            // Verificar si la función está disponible
+            if (typeof window.loadModuleMarkdownContent === 'function') {
+                console.log('Intentando cargar contenido Markdown directamente...');
+
+                // Crear un elemento para mostrar un mensaje de carga
+                const loadingElement = document.createElement('div');
+                loadingElement.className = 'text-center py-8';
+                loadingElement.innerHTML = `
+                    <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                    <p class="text-gray-600">Cargando contenido...</p>
+                `;
+
+                // Insertar el elemento de carga en el contenedor
+                const contentContainer = document.getElementById('module-content');
+                if (contentContainer) {
+                    contentContainer.innerHTML = '';
+                    contentContainer.appendChild(loadingElement);
+                }
+
+                // Cargar el contenido Markdown
+                window.loadModuleMarkdownContent(moduleId, stepIndex)
+                    .then(html => {
+                        // Actualizar el contenido
+                        if (contentContainer) {
+                            contentContainer.innerHTML = html;
+                        }
+                        return html;
+                    })
+                    .catch(error => {
+                        console.error('Error al cargar contenido Markdown:', error);
+                        return createErrorMessage(error.message);
+                    });
+
+                // Devolver un mensaje temporal mientras se carga
+                return 'Cargando...';
+            }
+        } catch (error) {
+            console.error('Error al intentar cargar contenido alternativo:', error);
+        }
+
+        // Si no se puede cargar, mostrar mensaje de contenido en desarrollo
         return `<div class="text-center py-8">
             <div class="text-6xl mb-4">🚧</div>
             <h4 class="text-xl font-bold mb-2">Contenido en Desarrollo</h4>
             <p class="text-gray-600">Este contenido estará disponible próximamente.</p>
+            <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                <p class="text-blue-800">Estamos trabajando para mejorar esta sección. Por favor, intenta con otro paso o módulo.</p>
+            </div>
         </div>`;
     }
 
@@ -257,12 +305,43 @@ function renderResources(resources) {
     return html;
 }
 
+/**
+ * Crea un mensaje de error formateado
+ * @param {string} message - Mensaje de error
+ * @returns {string} HTML del mensaje de error
+ */
+function createErrorMessage(message) {
+    return `
+        <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-4">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-red-800">Error al cargar el contenido</h3>
+                    <div class="mt-2 text-sm text-red-700">
+                        <p>${message}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-8">
+            <div class="text-6xl mb-4">📚</div>
+            <h4 class="text-xl font-bold mb-2">Contenido no disponible</h4>
+            <p class="text-gray-600">Estamos trabajando para mejorar esta sección. Por favor, intenta con otro paso o módulo.</p>
+        </div>
+    `;
+}
+
 // Exportar funciones
 if (typeof module !== 'undefined') {
     module.exports = {
         renderLearningPath,
         generateStepContentHTML,
         renderResources,
-        calculateModuleProgress
+        calculateModuleProgress,
+        createErrorMessage
     };
 }

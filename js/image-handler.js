@@ -9,6 +9,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar el manejo de errores de imágenes
     initImageErrorHandling();
+
+    // Verificar la imagen de fondo del hero
+    checkHeroBackgroundImage();
 });
 
 /**
@@ -17,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
 function initImageErrorHandling() {
     // Obtener todas las imágenes en la página
     const images = document.querySelectorAll('img');
-    
+
     // Agregar manejador de errores a cada imagen
     images.forEach(img => {
         img.addEventListener('error', handleImageError);
     });
-    
+
     console.log(`Manejador de errores agregado a ${images.length} imágenes`);
 }
 
@@ -34,9 +37,9 @@ function handleImageError(event) {
     const img = event.target;
     const originalSrc = img.src;
     const alt = img.alt || 'Imagen';
-    
+
     console.warn(`Error al cargar la imagen: ${originalSrc}`);
-    
+
     // Determinar qué imagen de respaldo usar según el contexto
     if (originalSrc.includes('logo')) {
         // Respaldo para logos
@@ -51,7 +54,7 @@ function handleImageError(event) {
         // Respaldo genérico
         img.src = createTextImage('📷', '#f5f8ff', '#1a3e82');
     }
-    
+
     // Evitar bucle infinito de errores
     img.removeEventListener('error', handleImageError);
 }
@@ -67,24 +70,70 @@ function createTextImage(text, bgColor, textColor) {
     // Crear un canvas
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    
+
     // Configurar tamaño
     canvas.width = 200;
     canvas.height = 200;
-    
+
     // Dibujar fondo
     ctx.fillStyle = bgColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     // Dibujar texto
     ctx.fillStyle = textColor;
     ctx.font = '48px Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-    
+
     // Convertir a URL de datos
     return canvas.toDataURL('image/png');
+}
+
+/**
+ * Verifica si la imagen de fondo del hero se carga correctamente
+ */
+function checkHeroBackgroundImage() {
+    const heroSection = document.querySelector('.hero-section');
+    if (!heroSection) return;
+
+    // Intentar cargar la imagen de fondo
+    const bgImage = new Image();
+    bgImage.onload = () => {
+        console.log('Imagen de fondo del hero cargada correctamente');
+    };
+
+    bgImage.onerror = () => {
+        console.warn('Error al cargar la imagen de fondo del hero, aplicando respaldo');
+
+        // Aplicar un gradiente como respaldo
+        heroSection.style.background = 'linear-gradient(135deg, #1a3e82 0%, #4a69bd 100%)';
+
+        // Añadir un mensaje en la consola con las rutas probadas
+        console.info('Rutas probadas para la imagen de fondo:');
+        console.info('1. ../assets/img/hero-background.jpg (desde CSS)');
+        console.info('2. assets/img/hero-background.jpg (ruta relativa)');
+        console.info('3. /assets/img/hero-background.jpg (ruta absoluta)');
+    };
+
+    // Extraer la URL de la imagen del estilo computado
+    const computedStyle = window.getComputedStyle(heroSection);
+    const backgroundImage = computedStyle.backgroundImage;
+
+    // Si ya hay una imagen de fondo, intentar cargarla
+    if (backgroundImage && backgroundImage !== 'none' && !backgroundImage.includes('linear-gradient')) {
+        // Extraer la URL de la cadena "url('...')"
+        const urlMatch = backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
+        if (urlMatch && urlMatch[1]) {
+            bgImage.src = urlMatch[1];
+        } else {
+            // Si no se puede extraer la URL, intentar con la ruta predeterminada
+            bgImage.src = 'assets/img/hero-background.jpg';
+        }
+    } else {
+        // Si no hay imagen de fondo, intentar con la ruta predeterminada
+        bgImage.src = 'assets/img/hero-background.jpg';
+    }
 }
 
 /**
@@ -104,6 +153,6 @@ function preloadImages(urls) {
             img.src = url;
         });
     });
-    
+
     return Promise.all(promises);
 }

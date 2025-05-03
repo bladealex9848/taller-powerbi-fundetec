@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const isDirect = urlParams.get('direct') === 'true';
     const modeFromUrl = urlParams.get('mode');
+    const resetProgress = urlParams.get('reset') === 'true';
+
+    // Si se solicita reiniciar el progreso, limpiar localStorage
+    if (resetProgress) {
+        console.log('Reiniciando progreso del taller...');
+        resetWorkshopProgress();
+    }
 
     // Si viene de acceso directo y hay un modo especificado, establecerlo
     if (isDirect && modeFromUrl) {
@@ -50,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar verificación de requisitos
     initRequirementsChecker();
+
+    // Inicializar el botón de reinicio del taller
+    initResetProgressButton();
 
     // Asegurarse de que los modales estén cerrados después de toda la inicialización
     setTimeout(function() {
@@ -1206,6 +1216,64 @@ function closeAllModals() {
         console.log(`${modals.length} modales han sido cerrados`);
     } catch (error) {
         console.error('Error al cerrar modales:', error);
+    }
+}
+
+/**
+ * Inicializa el botón de reinicio del taller
+ */
+function initResetProgressButton() {
+    const resetButton = document.getElementById('reset-progress-btn');
+    if (!resetButton) return;
+
+    resetButton.addEventListener('click', function() {
+        // Mostrar confirmación antes de reiniciar
+        if (confirm('¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.')) {
+            resetWorkshopProgress();
+
+            // Recargar la página con parámetro de reinicio
+            window.location.href = window.location.pathname + '?reset=true';
+        }
+    });
+}
+
+/**
+ * Reinicia todo el progreso del taller
+ */
+function resetWorkshopProgress() {
+    try {
+        // Eliminar datos de progreso
+        localStorage.removeItem('moduleProgress');
+        localStorage.removeItem('currentState');
+
+        // Mantener el modo de usuario
+        const userMode = localStorage.getItem('userMode');
+
+        // Limpiar localStorage completamente
+        localStorage.clear();
+
+        // Restaurar el modo de usuario si existía
+        if (userMode) {
+            localStorage.setItem('userMode', userMode);
+        }
+
+        console.log('Progreso del taller reiniciado correctamente');
+
+        // Crear progreso inicial
+        const initialProgress = {
+            intro: { completed: false, steps: [false, false, false, false, false] },
+            transform: { completed: false, steps: [false, false, false, false] },
+            demo: { completed: false, steps: [false, false, false, false, false] },
+            practice: { completed: false, steps: [false, false, false, false] }
+        };
+
+        // Guardar progreso inicial
+        localStorage.setItem('moduleProgress', JSON.stringify(initialProgress));
+
+        return true;
+    } catch (error) {
+        console.error('Error al reiniciar el progreso:', error);
+        return false;
     }
 }
 

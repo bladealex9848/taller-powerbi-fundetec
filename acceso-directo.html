@@ -65,7 +65,12 @@
             console.log(`Modo establecido: ${mode}`);
 
             // Redirigir a la página principal con un parámetro para evitar problemas de modales
-            window.location.href = 'index.html?direct=true&mode=' + mode;
+            // Obtener la ruta base correcta
+            const currentPath = window.location.pathname;
+            const basePath = currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+
+            // Construir la URL completa
+            window.location.href = basePath + 'index.html?direct=true&mode=' + mode;
         }
 
         // Verificar si hay un modo guardado

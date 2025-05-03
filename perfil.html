@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Taller Power BI</title>
+    <!-- Tailwind CSS desde CDN (versión más actualizada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-900 to-blue-700 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/img/logos/logo-fundetec.png" alt="FUNDETEC Logo" class="h-10 w-auto rounded-full">
+                    <img src="assets/img/logos/logo-powerbi.png" alt="Power BI Logo" class="h-10 w-auto rounded-full ml-2">
+                    <h1 class="text-xl font-bold ml-4">Taller Power BI</h1>
+                </a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-white hover:text-yellow-300 transition-colors">
+                    <i class="fas fa-home mr-2"></i>Inicio
+                </a>
+                <a href="diagnostico.html" class="text-white hover:text-yellow-300 transition-colors">
+                    <i class="fas fa-stethoscope mr-2"></i>Diagnóstico
+                </a>
+                <a href="acceso-directo.html" class="text-white hover:text-yellow-300 transition-colors">
+                    <i class="fas fa-door-open mr-2"></i>Acceso Directo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/3 bg-gradient-to-br from-blue-900 to-blue-700 text-white p-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="h-32 w-32 rounded-full bg-white flex items-center justify-center mb-4 border-4 border-yellow-400">
+                            <i class="fas fa-user text-blue-900 text-5xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2" id="profile-name">Participante</h2>
+                        <p class="text-yellow-300 mb-4" id="profile-mode">Modo: No seleccionado</p>
+                        
+                        <div class="mt-6 w-full">
+                            <div class="bg-blue-800 rounded-lg p-4 mb-4">
+                                <h3 class="font-bold mb-2 text-yellow-300">Progreso del Taller</h3>
+                                <div class="flex items-center justify-between mb-2">
+                                    <span>Progreso General:</span>
+                                    <span id="overall-progress">0%</span>
+                                </div>
+                                <div class="w-full bg-blue-950 rounded-full h-2.5">
+                                    <div class="bg-yellow-400 h-2.5 rounded-full" id="progress-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-800 rounded-lg p-4">
+                                <h3 class="font-bold mb-2 text-yellow-300">Módulos Completados</h3>
+                                <ul class="space-y-2 text-sm" id="modules-list">
+                                    <li class="flex justify-between items-center">
+                                        <span>Introducción</span>
+                                        <span class="text-red-300"><i class="fas fa-times-circle"></i></span>
+                                    </li>
+                                    <li class="flex justify-between items-center">
+                                        <span>Transformación de Datos</span>
+                                        <span class="text-red-300"><i class="fas fa-times-circle"></i></span>
+                                    </li>
+                                    <li class="flex justify-between items-center">
+                                        <span>Demostración</span>
+                                        <span class="text-red-300"><i class="fas fa-times-circle"></i></span>
+                                    </li>
+                                    <li class="flex justify-between items-center">
+                                        <span>Práctica</span>
+                                        <span class="text-red-300"><i class="fas fa-times-circle"></i></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 p-6">
+                    <h2 class="text-2xl font-bold text-blue-900 mb-6 flex items-center">
+                        <i class="fas fa-user-cog mr-3"></i>
+                        Configuración de Perfil
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-blue-800 mb-3">Modo de Aprendizaje</h3>
+                            <p class="text-gray-600 mb-4">Selecciona el modo que mejor se adapte a tu rol en el taller.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="facilitador">
+                                    <div class="text-red-600 text-2xl mb-2"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <h4 class="font-bold mb-1">Facilitador</h4>
+                                    <p class="text-sm text-gray-600">Para instructores del taller.</p>
+                                </div>
+                                
+                                <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="estudiante">
+                                    <div class="text-blue-600 text-2xl mb-2"><i class="fas fa-user-graduate"></i></div>
+                                    <h4 class="font-bold mb-1">Estudiante</h4>
+                                    <p class="text-sm text-gray-600">Para participantes del taller.</p>
+                                </div>
+                                
+                                <div class="mode-option bg-white rounded-lg shadow-sm p-4 border-2 border-transparent hover:border-yellow-400 cursor-pointer" data-mode="autoguiado">
+                                    <div class="text-green-600 text-2xl mb-2"><i class="fas fa-book-reader"></i></div>
+                                    <h4 class="font-bold mb-1">Autoguiado</h4>
+                                    <p class="text-sm text-gray-600">Para aprendizaje independiente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-blue-800 mb-3">Requisitos Técnicos</h3>
+                            <p class="text-gray-600 mb-4">Verifica que cumples con los requisitos para el taller.</p>
+                            
+                            <ul class="space-y-2" id="requirements-list">
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <div class="flex items-center">
+                                        <span class="h-6 w-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3">
+                                            <i class="fas fa-check text-xs"></i>
+                                        </span>
+                                        <span>Power BI Desktop instalado</span>
+                                    </div>
+                                    <button class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="powerbi">Verificar</button>
+                                </li>
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <div class="flex items-center">
+                                        <span class="h-6 w-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3">
+                                            <i class="fas fa-check text-xs"></i>
+                                        </span>
+                                        <span>Windows 10/11</span>
+                                    </div>
+                                    <button class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="windows">Verificar</button>
+                                </li>
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <div class="flex items-center">
+                                        <span class="h-6 w-6 rounded-full bg-red-100 text-red-800 flex items-center justify-center mr-3">
+                                            <i class="fas fa-times text-xs"></i>
+                                        </span>
+                                        <span>Mínimo 4GB RAM</span>
+                                    </div>
+                                    <button class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="ram">Verificar</button>
+                                </li>
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg">
+                                    <div class="flex items-center">
+                                        <span class="h-6 w-6 rounded-full bg-yellow-100 text-yellow-800 flex items-center justify-center mr-3">
+                                            <i class="fas fa-question text-xs"></i>
+                                        </span>
+                                        <span>Conexión a Internet</span>
+                                    </div>
+                                    <button class="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full hover:bg-blue-200" data-requirement="internet">Verificar</button>
+                                </li>
+                            </ul>
+                            
+                            <button class="mt-4 w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition duration-200" id="verify-all-btn">
+                                Verificar Todos los Requisitos
+                            </button>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-bold text-lg text-blue-800 mb-3">Acciones</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <button id="reset-progress-btn" class="flex items-center justify-center bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 transition-colors">
+                                    <i class="fas fa-redo-alt mr-2"></i>
+                                    Reiniciar Progreso
+                                </button>
+                                
+                                <a href="index.html" class="flex items-center justify-center bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                    <i class="fas fa-play mr-2"></i>
+                                    Continuar Taller
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white p-4 mt-8">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="assets/img/logos/logo-fundetec.png" alt="FUNDETEC Logo" class="h-8 w-auto mr-2">
+                <span class="text-sm">© 2025 FUNDETEC - Ing. Alexander Oviedo Fadul</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white hover:text-yellow-300 text-sm">
+                    Inicio
+                </a>
+                <a href="diagnostico.html" class="text-white hover:text-yellow-300 text-sm">
+                    Diagnóstico
+                </a>
+                <a href="acceso-directo.html" class="text-white hover:text-yellow-300 text-sm">
+                    Acceso Directo
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar datos del usuario
+            loadUserData();
+            
+            // Inicializar eventos de modo
+            initModeOptions();
+            
+            // Inicializar botón de reinicio
+            initResetButton();
+            
+            // Inicializar verificación de requisitos
+            initRequirementsChecker();
+        });
+        
+        /**
+         * Carga los datos del usuario desde localStorage
+         */
+        function loadUserData() {
+            // Cargar modo de usuario
+            const userMode = localStorage.getItem('userMode') || 'No seleccionado';
+            document.getElementById('profile-mode').textContent = 'Modo: ' + userMode.charAt(0).toUpperCase() + userMode.slice(1);
+            
+            // Resaltar el modo seleccionado
+            const modeOptions = document.querySelectorAll('.mode-option');
+            modeOptions.forEach(option => {
+                const mode = option.getAttribute('data-mode');
+                if (mode === userMode) {
+                    option.classList.add('border-yellow-400');
+                    option.classList.add('bg-yellow-50');
+                }
+            });
+            
+            // Cargar progreso
+            let progress = {
+                intro: { completed: false, steps: [false, false, false, false, false] },
+                transform: { completed: false, steps: [false, false, false, false] },
+                demo: { completed: false, steps: [false, false, false, false, false] },
+                practice: { completed: false, steps: [false, false, false, false] }
+            };
+            
+            try {
+                const savedProgress = localStorage.getItem('moduleProgress');
+                if (savedProgress) {
+                    progress = JSON.parse(savedProgress);
+                }
+            } catch (error) {
+                console.error('Error al cargar el progreso:', error);
+            }
+            
+            // Calcular progreso general
+            let completedSteps = 0;
+            let totalSteps = 0;
+            
+            Object.keys(progress).forEach(moduleId => {
+                if (progress[moduleId].steps) {
+                    completedSteps += progress[moduleId].steps.filter(step => step).length;
+                    totalSteps += progress[moduleId].steps.length;
+                }
+            });
+            
+            const percentage = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
+            
+            // Actualizar UI
+            document.getElementById('overall-progress').textContent = `${percentage}%`;
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+            
+            // Actualizar lista de módulos
+            const modulesList = document.getElementById('modules-list');
+            if (modulesList) {
+                modulesList.innerHTML = '';
+                
+                const modules = [
+                    { id: 'intro', name: 'Introducción' },
+                    { id: 'transform', name: 'Transformación de Datos' },
+                    { id: 'demo', name: 'Demostración' },
+                    { id: 'practice', name: 'Práctica' }
+                ];
+                
+                modules.forEach(module => {
+                    const isCompleted = progress[module.id]?.completed || false;
+                    const li = document.createElement('li');
+                    li.className = 'flex justify-between items-center';
+                    li.innerHTML = `
+                        <span>${module.name}</span>
+                        <span class="${isCompleted ? 'text-green-300' : 'text-red-300'}">
+                            <i class="fas fa-${isCompleted ? 'check-circle' : 'times-circle'}"></i>
+                        </span>
+                    `;
+                    modulesList.appendChild(li);
+                });
+            }
+        }
+        
+        /**
+         * Inicializa las opciones de modo
+         */
+        function initModeOptions() {
+            const modeOptions = document.querySelectorAll('.mode-option');
+            
+            modeOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const mode = this.getAttribute('data-mode');
+                    
+                    // Guardar el modo seleccionado
+                    localStorage.setItem('userMode', mode);
+                    
+                    // Actualizar UI
+                    document.getElementById('profile-mode').textContent = 'Modo: ' + mode.charAt(0).toUpperCase() + mode.slice(1);
+                    
+                    // Resaltar opción seleccionada
+                    modeOptions.forEach(opt => {
+                        opt.classList.remove('border-yellow-400');
+                        opt.classList.remove('bg-yellow-50');
+                    });
+                    
+                    this.classList.add('border-yellow-400');
+                    this.classList.add('bg-yellow-50');
+                    
+                    // Mostrar mensaje de confirmación
+                    alert(`Modo cambiado a: ${mode.charAt(0).toUpperCase() + mode.slice(1)}`);
+                });
+            });
+        }
+        
+        /**
+         * Inicializa el botón de reinicio
+         */
+        function initResetButton() {
+            const resetButton = document.getElementById('reset-progress-btn');
+            if (!resetButton) return;
+            
+            resetButton.addEventListener('click', function() {
+                if (confirm('¿Estás seguro de que deseas reiniciar todo el progreso del taller? Esta acción no se puede deshacer.')) {
+                    // Eliminar datos de progreso
+                    localStorage.removeItem('moduleProgress');
+                    localStorage.removeItem('currentState');
+                    
+                    // Mantener el modo de usuario
+                    const userMode = localStorage.getItem('userMode');
+                    
+                    // Limpiar localStorage completamente
+                    localStorage.clear();
+                    
+                    // Restaurar el modo de usuario si existía
+                    if (userMode) {
+                        localStorage.setItem('userMode', userMode);
+                    }
+                    
+                    // Recargar la página
+                    window.location.reload();
+                }
+            });
+        }
+        
+        /**
+         * Inicializa la verificación de requisitos
+         */
+        function initRequirementsChecker() {
+            const requirementButtons = document.querySelectorAll('[data-requirement]');
+            const verifyAllButton = document.getElementById('verify-all-btn');
+            
+            requirementButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const requirement = this.getAttribute('data-requirement');
+                    checkRequirement(requirement);
+                });
+            });
+            
+            if (verifyAllButton) {
+                verifyAllButton.addEventListener('click', function() {
+                    requirementButtons.forEach(button => {
+                        const requirement = button.getAttribute('data-requirement');
+                        checkRequirement(requirement);
+                    });
+                });
+            }
+        }
+        
+        /**
+         * Verifica un requisito específico
+         * @param {string} requirement - ID del requisito a verificar
+         */
+        function checkRequirement(requirement) {
+            const button = document.querySelector(`[data-requirement="${requirement}"]`);
+            if (!button) return;
+            
+            const listItem = button.closest('li');
+            const statusIcon = listItem.querySelector('.h-6.w-6');
+            
+            // Simular verificación (en un caso real, esto haría comprobaciones reales)
+            let status = 'success';
+            
+            switch (requirement) {
+                case 'powerbi':
+                    // Simular detección de Power BI
+                    status = Math.random() > 0.3 ? 'success' : 'error';
+                    break;
+                case 'windows':
+                    // Detectar si es Windows
+                    status = navigator.platform.includes('Win') ? 'success' : 'error';
+                    break;
+                case 'ram':
+                    // Simular verificación de RAM
+                    status = Math.random() > 0.5 ? 'success' : 'error';
+                    break;
+                case 'internet':
+                    // Verificar conexión a internet
+                    status = navigator.onLine ? 'success' : 'error';
+                    break;
+            }
+            
+            // Actualizar UI según el resultado
+            statusIcon.className = 'h-6 w-6 rounded-full flex items-center justify-center mr-3';
+            const iconElement = statusIcon.querySelector('i');
+            iconElement.className = 'fas text-xs';
+            
+            switch (status) {
+                case 'success':
+                    statusIcon.classList.add('bg-green-100', 'text-green-800');
+                    iconElement.classList.add('fa-check');
+                    break;
+                case 'error':
+                    statusIcon.classList.add('bg-red-100', 'text-red-800');
+                    iconElement.classList.add('fa-times');
+                    break;
+                case 'warning':
+                    statusIcon.classList.add('bg-yellow-100', 'text-yellow-800');
+                    iconElement.classList.add('fa-question');
+                    break;
+            }
+            
+            // Animar el botón para dar feedback
+            button.classList.add('animate-pulse');
+            setTimeout(() => {
+                button.classList.remove('animate-pulse');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
