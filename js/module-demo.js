@@ -30,8 +30,133 @@ const demoModuleContent = {
                 <div class="flex items-center justify-center mb-4">
                     <img src="assets/img/demo-intro.jpg" alt="Power BI Dashboard" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Requisitos para la demostración</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Software:</strong> Power BI Desktop (última versión)</li>
+                            <li><strong>Datos:</strong> Archivo "VentasEjemplo.xlsx" (incluido en los recursos)</li>
+                            <li><strong>Conocimientos previos:</strong> Conceptos básicos de Power BI cubiertos en el módulo de introducción</li>
+                            <li><strong>Tiempo estimado:</strong> 60-90 minutos para completar todos los pasos</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Beneficios de seguir la demostración</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Aprendizaje práctico:</strong> Consolidar conocimientos teóricos con aplicación real</li>
+                            <li><strong>Flujo de trabajo completo:</strong> Ver el proceso de principio a fin</li>
+                            <li><strong>Mejores prácticas:</strong> Aprender técnicas optimizadas y profesionales</li>
+                            <li><strong>Base para proyectos:</strong> Obtener una plantilla que puedes adaptar a tus propios datos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Consejo para aprovechar al máximo esta demostración</h4>
+                    <p class="mb-2">Para obtener el mayor beneficio de esta demostración, te recomendamos:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Seguir los pasos en tu propia computadora mientras avanzas</li>
+                        <li>Experimentar con variaciones de las visualizaciones sugeridas</li>
+                        <li>Tomar notas sobre técnicas o conceptos nuevos para ti</li>
+                        <li>Intentar replicar el proceso con tus propios datos después de completar la demostración</li>
+                    </ul>
+                </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "demo-quiz-1",
+            question: "¿Cuál es el propósito principal de seguir una demostración paso a paso en Power BI?",
+            options: [
+                "Memorizar exactamente los mismos pasos para aplicarlos sin variación en todos los proyectos",
+                "Aprender el flujo de trabajo completo y las mejores prácticas que luego puedes adaptar a tus propios proyectos",
+                "Evitar tener que aprender los conceptos teóricos de Power BI",
+                "Crear un dashboard idéntico al de la demostración para usar en tu trabajo"
+            ],
+            correctIndex: 1
+        },
+
+        // Diagrama del flujo de trabajo
+        diagram: {
+            title: "Flujo de trabajo de la demostración",
+            description: "Este diagrama muestra los pasos principales que seguiremos en esta demostración práctica.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Importación de datos",
+                    description: "Conectar a fuentes de datos y cargarlos en Power BI"
+                },
+                {
+                    step: 2,
+                    title: "Transformación",
+                    description: "Limpiar y dar forma a los datos para el análisis"
+                },
+                {
+                    step: 3,
+                    title: "Modelado",
+                    description: "Crear relaciones y medidas calculadas"
+                },
+                {
+                    step: 4,
+                    title: "Visualización",
+                    description: "Crear gráficos y visuales efectivos"
+                },
+                {
+                    step: 5,
+                    title: "Dashboard",
+                    description: "Combinar visualizaciones en un dashboard coherente"
+                },
+                {
+                    step: 6,
+                    title: "Publicación",
+                    description: "Compartir el dashboard con otros usuarios"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "Esta demostración te guiará paso a paso en la creación de un dashboard completo en Power BI, desde la importación de datos hasta la publicación final.",
+            exercises: [
+                {
+                    title: "Preparación para la demostración",
+                    description: "Antes de comenzar, asegúrate de tener todo lo necesario:",
+                    steps: [
+                        "Descarga e instala Power BI Desktop desde el sitio oficial de Microsoft",
+                        "Descarga el archivo 'VentasEjemplo.xlsx' de los recursos del taller",
+                        "Crea una carpeta en tu computadora para guardar tu trabajo",
+                        "Abre Power BI Desktop y familiarízate con la interfaz"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te proporcionará una guía detallada para crear un dashboard completo en Power BI, con verificaciones para asegurar tu comprensión en cada paso.",
+            checkpoints: [
+                "He instalado Power BI Desktop en mi computadora",
+                "He descargado el archivo de datos de ejemplo 'VentasEjemplo.xlsx'",
+                "Entiendo los objetivos generales de la demostración",
+                "Estoy familiarizado con la interfaz básica de Power BI Desktop",
+                "Tengo claros los pasos que seguiremos en la demostración"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía de inicio rápido de Power BI Desktop",
+                    url: "https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-getting-started",
+                    description: "Documentación oficial de Microsoft sobre los primeros pasos con Power BI Desktop"
+                },
+                {
+                    title: "Descargar Power BI Desktop",
+                    url: "https://powerbi.microsoft.com/es-es/desktop/",
+                    description: "Enlace oficial para descargar la última versión de Power BI Desktop"
+                }
+            ]
+        }
+
     },
 
     step2: {
@@ -40,6 +165,30 @@ const demoModuleContent = {
         content: `
             <div class="mb-6">
                 <p class="mb-4">El primer paso en cualquier proyecto de Power BI es importar los datos que queremos analizar. Power BI permite conectarse a una amplia variedad de fuentes de datos, desde archivos Excel y CSV hasta bases de datos SQL Server, servicios en la nube y más.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Fuentes de datos comunes</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Archivos:</strong> Excel, CSV, XML, JSON, PDF</li>
+                            <li><strong>Bases de datos:</strong> SQL Server, Oracle, MySQL, PostgreSQL</li>
+                            <li><strong>Servicios en la nube:</strong> Dynamics 365, Salesforce, Google Analytics</li>
+                            <li><strong>Servicios web:</strong> APIs REST, OData, Web</li>
+                            <li><strong>Otros:</strong> Carpetas, SharePoint, Azure</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Consideraciones importantes</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Permisos:</strong> Asegúrate de tener acceso a los datos que necesitas</li>
+                            <li><strong>Volumen:</strong> Considera el tamaño de los datos para un rendimiento óptimo</li>
+                            <li><strong>Actualización:</strong> Define la frecuencia con la que necesitas actualizar los datos</li>
+                            <li><strong>Seguridad:</strong> Ten en cuenta las políticas de seguridad de tu organización</li>
+                            <li><strong>Calidad:</strong> Evalúa la calidad de los datos antes de importarlos</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <h4 class="font-bold text-blue-800 mb-2">Pasos para importar datos:</h4>
 
@@ -61,9 +210,130 @@ const demoModuleContent = {
                     <img src="assets/img/demo-import.jpg" alt="Importación de datos en Power BI" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
 
+                <h4 class="font-bold text-blue-800 mb-3">Decisión: ¿Cargar o Transformar?</h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-blue-800 mb-2">Cargar directamente cuando:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Los datos ya están limpios y bien estructurados</li>
+                            <li>No necesitas combinar con otras fuentes</li>
+                            <li>Los tipos de datos ya son correctos</li>
+                            <li>No necesitas columnas calculadas complejas</li>
+                            <li>Quieres un proceso rápido y directo</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-green-800 mb-2">Transformar primero cuando:</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Los datos necesitan limpieza o reestructuración</li>
+                            <li>Necesitas combinar múltiples fuentes</li>
+                            <li>Debes cambiar tipos de datos</li>
+                            <li>Quieres crear columnas calculadas</li>
+                            <li>Necesitas filtrar filas o columnas innecesarias</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <p class="mb-4">Una vez importados los datos, verás las tablas en el panel de "Campos" a la derecha de la pantalla. Ahora estamos listos para comenzar a crear visualizaciones.</p>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "demo-quiz-2",
+            question: "¿Cuál es la mejor práctica al importar datos en Power BI?",
+            options: [
+                "Siempre cargar los datos directamente para ahorrar tiempo",
+                "Transformar los datos en el Editor de Power Query antes de cargarlos al modelo cuando sea necesario",
+                "Importar todas las tablas disponibles para asegurarse de tener todos los datos posibles",
+                "Evitar el uso de Excel como fuente de datos"
+            ],
+            correctIndex: 1
+        },
+
+        // Diagrama del proceso de importación
+        diagram: {
+            title: "Proceso de importación de datos",
+            description: "Este diagrama muestra el flujo de trabajo para importar datos en Power BI.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Seleccionar fuente",
+                    description: "Elegir el tipo de fuente de datos adecuado"
+                },
+                {
+                    step: 2,
+                    title: "Conectar",
+                    description: "Proporcionar credenciales y parámetros de conexión"
+                },
+                {
+                    step: 3,
+                    title: "Vista previa",
+                    description: "Revisar los datos disponibles"
+                },
+                {
+                    step: 4,
+                    title: "Decisión",
+                    description: "Decidir entre cargar directamente o transformar"
+                },
+                {
+                    step: 5,
+                    title: "Transformar (opcional)",
+                    description: "Limpiar y dar forma a los datos en Power Query"
+                },
+                {
+                    step: 6,
+                    title: "Cargar",
+                    description: "Importar los datos al modelo de Power BI"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a importar datos desde diferentes fuentes en Power BI, con énfasis en archivos Excel.",
+            exercises: [
+                {
+                    title: "Importación de datos desde Excel",
+                    description: "Practica la importación de datos desde un archivo Excel:",
+                    steps: [
+                        "Abre Power BI Desktop",
+                        "Haz clic en 'Obtener datos' en la pestaña Inicio",
+                        "Selecciona 'Excel' como fuente de datos",
+                        "Navega hasta el archivo 'VentasEjemplo.xlsx' proporcionado en los recursos",
+                        "En el navegador, selecciona las tablas 'Ventas' y 'Productos'",
+                        "Haz clic en 'Transformar datos' para abrir el Editor de Power Query",
+                        "Explora las opciones de transformación disponibles",
+                        "Haz clic en 'Cerrar y aplicar' para cargar los datos en Power BI"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de importación de datos en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He identificado las fuentes de datos disponibles en Power BI",
+                "Entiendo la diferencia entre cargar directamente y transformar datos",
+                "He importado correctamente el archivo 'VentasEjemplo.xlsx'",
+                "Puedo ver las tablas importadas en el panel de Campos",
+                "Comprendo cuándo es necesario usar el Editor de Power Query"
+            ],
+            additionalResources: [
+                {
+                    title: "Obtener datos en Power BI Desktop",
+                    url: "https://learn.microsoft.com/es-es/power-bi/connect-data/desktop-quickstart-connect-to-data",
+                    description: "Documentación oficial de Microsoft sobre cómo conectarse a diferentes fuentes de datos"
+                },
+                {
+                    title: "Introducción a Power Query",
+                    url: "https://learn.microsoft.com/es-es/power-query/power-query-what-is-power-query",
+                    description: "Guía oficial sobre Power Query, la herramienta de transformación de datos de Power BI"
+                }
+            ]
+        }
     },
 
     step3: {
@@ -72,6 +342,47 @@ const demoModuleContent = {
         content: `
             <div class="mb-6">
                 <p class="mb-4">Las visualizaciones son el corazón de Power BI. Nos permiten transformar datos en información visual que facilita la comprensión y el análisis. Power BI ofrece una amplia variedad de visualizaciones, desde gráficos básicos hasta mapas y visualizaciones personalizadas.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Visualizaciones de comparación</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Gráfico de barras:</strong> Comparar valores entre categorías</li>
+                            <li><strong>Gráfico de columnas:</strong> Similar al de barras, pero vertical</li>
+                            <li><strong>Gráfico de cascada:</strong> Mostrar cambios acumulativos</li>
+                            <li><strong>Gráfico de embudo:</strong> Visualizar etapas de un proceso</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Ideal para: Comparar rendimiento entre regiones, productos o períodos</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Visualizaciones de tendencias</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Gráfico de líneas:</strong> Mostrar cambios a lo largo del tiempo</li>
+                            <li><strong>Gráfico de áreas:</strong> Enfatizar volumen en tendencias</li>
+                            <li><strong>Gráfico de velas:</strong> Analizar datos financieros</li>
+                            <li><strong>Gráfico de dispersión:</strong> Identificar correlaciones</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Ideal para: Análisis de tendencias temporales y patrones</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Visualizaciones de parte-todo</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Gráfico circular:</strong> Mostrar proporciones de un total</li>
+                            <li><strong>Gráfico de anillos:</strong> Similar al circular, con espacio central</li>
+                            <li><strong>Treemap:</strong> Visualizar jerarquías y proporciones</li>
+                            <li><strong>Gráfico de rectángulos:</strong> Comparar proporciones con áreas</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Ideal para: Distribución de ventas por categoría, segmentación de clientes</p>
+                        </div>
+                    </div>
+                </div>
 
                 <h4 class="font-bold text-blue-800 mb-2">Creando tu primera visualización:</h4>
 
@@ -105,6 +416,20 @@ const demoModuleContent = {
                     </div>
                 </div>
 
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Elegir la visualización correcta</h4>
+                    <p class="mb-2">La elección de la visualización adecuada depende de lo que quieras comunicar:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Para comparar valores:</strong> Gráficos de barras o columnas</li>
+                        <li><strong>Para mostrar tendencias en el tiempo:</strong> Gráficos de líneas o áreas</li>
+                        <li><strong>Para mostrar proporciones:</strong> Gráficos circulares o de anillos (limita a 7 categorías máximo)</li>
+                        <li><strong>Para mostrar relaciones:</strong> Gráficos de dispersión o burbujas</li>
+                        <li><strong>Para mostrar distribuciones:</strong> Histogramas o diagramas de caja</li>
+                        <li><strong>Para mostrar datos geográficos:</strong> Mapas</li>
+                        <li><strong>Para mostrar valores específicos:</strong> Tarjetas, indicadores o KPIs</li>
+                    </ul>
+                </div>
+
                 <div class="flex items-center justify-center mb-4">
                     <img src="assets/img/demo-visualization.jpg" alt="Creación de visualizaciones en Power BI" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
@@ -128,8 +453,129 @@ const demoModuleContent = {
                 <div class="bg-blue-50 p-4 rounded-lg mb-4">
                     <p class="italic text-blue-800">Con este simple gráfico, ya podemos identificar patrones importantes en nuestros datos de ventas y tomar decisiones basadas en evidencia.</p>
                 </div>
+
+                <h4 class="font-bold text-blue-800 mb-3">Personalización de visualizaciones</h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Formato básico</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Colores:</strong> Personaliza colores de datos, fondos y bordes</li>
+                            <li><strong>Títulos:</strong> Añade títulos claros y descriptivos</li>
+                            <li><strong>Leyendas:</strong> Configura posición y formato de leyendas</li>
+                            <li><strong>Ejes:</strong> Ajusta escalas, etiquetas y líneas de cuadrícula</li>
+                            <li><strong>Etiquetas de datos:</strong> Muestra valores específicos en el gráfico</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Formato avanzado</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Líneas de referencia:</strong> Añade líneas para destacar objetivos o promedios</li>
+                            <li><strong>Formato condicional:</strong> Cambia colores según valores o reglas</li>
+                            <li><strong>Tooltips:</strong> Personaliza la información que aparece al pasar el cursor</li>
+                            <li><strong>Interacciones:</strong> Configura cómo interactúa con otras visualizaciones</li>
+                            <li><strong>Análisis:</strong> Añade líneas de tendencia o previsiones</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "demo-quiz-3",
+            question: "¿Qué tipo de visualización es más adecuada para mostrar tendencias a lo largo del tiempo?",
+            options: [
+                "Gráfico circular",
+                "Gráfico de líneas",
+                "Gráfico de barras",
+                "Treemap"
+            ],
+            correctIndex: 1
+        },
+
+        // Diagrama de selección de visualizaciones
+        diagram: {
+            title: "Guía de selección de visualizaciones",
+            description: "Este diagrama te ayuda a elegir la visualización más adecuada según el tipo de análisis que deseas realizar.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Comparación",
+                    description: "Barras/Columnas: Comparar valores entre categorías"
+                },
+                {
+                    step: 2,
+                    title: "Tendencia",
+                    description: "Líneas/Áreas: Mostrar cambios a lo largo del tiempo"
+                },
+                {
+                    step: 3,
+                    title: "Proporción",
+                    description: "Circular/Anillos: Mostrar partes de un todo"
+                },
+                {
+                    step: 4,
+                    title: "Distribución",
+                    description: "Histograma/Caja: Analizar distribución de valores"
+                },
+                {
+                    step: 5,
+                    title: "Correlación",
+                    description: "Dispersión/Burbujas: Identificar relaciones entre variables"
+                },
+                {
+                    step: 6,
+                    title: "Geográfico",
+                    description: "Mapas: Visualizar datos por ubicación"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a crear visualizaciones efectivas en Power BI para comunicar tus datos de manera clara y convincente.",
+            exercises: [
+                {
+                    title: "Creación de un gráfico de barras",
+                    description: "Practica la creación de un gráfico de barras para comparar ventas por región:",
+                    steps: [
+                        "Selecciona el icono de gráfico de barras en el panel de Visualizaciones",
+                        "Arrastra el campo 'Región' al área 'Eje'",
+                        "Arrastra el campo 'Ventas' al área 'Valores'",
+                        "Haz clic en los tres puntos (...) en la esquina superior derecha del gráfico",
+                        "Selecciona 'Ordenar por' > 'Ventas' para ordenar de mayor a menor",
+                        "Haz clic en el icono de formato (rodillo de pintura) en el panel de Visualizaciones",
+                        "Expande la sección 'Título' y cambia el texto a 'Ventas por Región'",
+                        "Experimenta con diferentes opciones de formato para personalizar tu gráfico"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de creación de visualizaciones efectivas en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He identificado los diferentes tipos de visualizaciones disponibles en Power BI",
+                "Entiendo qué visualización usar según el tipo de análisis que quiero realizar",
+                "He creado un gráfico de barras para comparar ventas por región",
+                "He personalizado el formato de mi visualización (colores, títulos, etc.)",
+                "Comprendo cómo ordenar y filtrar datos en una visualización"
+            ],
+            additionalResources: [
+                {
+                    title: "Tipos de visualizaciones en Power BI",
+                    url: "https://learn.microsoft.com/es-es/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a",
+                    description: "Documentación oficial de Microsoft sobre los diferentes tipos de visualizaciones disponibles"
+                },
+                {
+                    title: "Mejores prácticas para crear visualizaciones efectivas",
+                    url: "https://learn.microsoft.com/es-es/power-bi/create-reports/desktop-accessibility-creating-reports",
+                    description: "Guía oficial sobre cómo crear visualizaciones accesibles y efectivas"
+                }
+            ]
+        }
     },
 
     step4: {

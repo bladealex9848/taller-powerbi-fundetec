@@ -1176,6 +1176,377 @@ const transformModuleContent = {
         title: "Transformaciones Fundamentales",
         description: "En este paso, aprenderás las transformaciones más comunes y útiles en Power Query para limpiar y preparar tus datos.",
 
+        // Contenido principal
+        content: `
+            <div class="mb-6">
+                <p class="mb-4">Una vez que has conectado tus datos y te has familiarizado con la interfaz de Power Query, el siguiente paso es dominar las transformaciones fundamentales que te permitirán limpiar, dar forma y preparar tus datos para el análisis.</p>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">¿Por qué son importantes las transformaciones?</h4>
+                    <p class="mb-2">Los datos rara vez vienen en el formato exacto que necesitamos para el análisis. Las transformaciones nos permiten:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Limpiar datos inconsistentes o erróneos</li>
+                        <li>Estandarizar formatos y valores</li>
+                        <li>Reestructurar los datos para facilitar el análisis</li>
+                        <li>Enriquecer los datos con cálculos y categorías adicionales</li>
+                        <li>Combinar datos de múltiples fuentes de manera coherente</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Categorías de Transformaciones</h3>
+
+                <p class="mb-4">Power Query ofrece una amplia variedad de transformaciones que podemos clasificar en tres categorías principales:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">🔄</span>
+                            <h4 class="font-bold text-gray-800">Transformaciones de Columnas</h4>
+                        </div>
+                        <p class="text-sm mb-3">Operaciones que modifican columnas existentes o crean nuevas columnas.</p>
+                        <ul class="text-sm space-y-2 list-disc pl-5">
+                            <li><strong>Cambiar tipo de datos</strong></li>
+                            <li><strong>Reemplazar valores</strong></li>
+                            <li><strong>Dividir columna</strong></li>
+                            <li><strong>Columna personalizada</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">📋</span>
+                            <h4 class="font-bold text-gray-800">Transformaciones de Filas</h4>
+                        </div>
+                        <p class="text-sm mb-3">Operaciones que filtran, ordenan o modifican filas completas.</p>
+                        <ul class="text-sm space-y-2 list-disc pl-5">
+                            <li><strong>Filtrar filas</strong></li>
+                            <li><strong>Quitar duplicados</strong></li>
+                            <li><strong>Mantener/quitar filas superiores</strong></li>
+                            <li><strong>Quitar filas vacías</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">📊</span>
+                            <h4 class="font-bold text-gray-800">Transformaciones de Tabla</h4>
+                        </div>
+                        <p class="text-sm mb-3">Operaciones que afectan a la estructura general de la tabla.</p>
+                        <ul class="text-sm space-y-2 list-disc pl-5">
+                            <li><strong>Transponer</strong></li>
+                            <li><strong>Dinamizar/Anular dinamización</strong></li>
+                            <li><strong>Combinar consultas</strong></li>
+                            <li><strong>Anexar consultas</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Transformaciones de Columnas Esenciales</h3>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Transformación</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Descripción</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Cómo aplicarla</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Caso de uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Cambiar tipo de datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Asigna el tipo de datos correcto a una columna.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Selecciona la columna > pestaña Transformar > grupo Cualquier columna > Tipo de datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Convertir texto a fechas para análisis temporal, o texto a números para cálculos.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Reemplazar valores</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Sustituye valores específicos por otros en una columna.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Clic derecho en columna > Reemplazar valores</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Corregir errores de ortografía, estandarizar categorías (ej. "Norte", "NORTE" a "Norte").</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Dividir columna</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Divide una columna en múltiples basándose en un delimitador o posición.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Selecciona la columna > pestaña Transformar > Dividir columna</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Separar nombres completos en nombre y apellido, o direcciones en calle, ciudad, etc.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Columna personalizada</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Crea una nueva columna basada en una fórmula personalizada.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Agregar columna > Columna personalizada</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Calcular márgenes de beneficio, crear categorías basadas en condiciones, combinar texto.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Transformaciones de Filas Esenciales</h3>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Transformación</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Descripción</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Cómo aplicarla</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Caso de uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Filtrar filas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Elimina filas que no cumplen con criterios específicos.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Clic en flecha desplegable de columna > seleccionar filtros</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Mostrar solo ventas del último año, eliminar registros con valores nulos en campos críticos.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Quitar duplicados</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Elimina filas duplicadas basándose en una o más columnas.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Selecciona columnas > pestaña Inicio > Quitar filas > Quitar duplicados</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Eliminar transacciones duplicadas, crear una lista única de clientes o productos.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Mantener/quitar filas superiores</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Mantiene o elimina un número específico de filas desde el principio.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Inicio > Quitar filas > Mantener/quitar filas superiores</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Eliminar filas de encabezado adicionales, quitar filas de resumen al principio de un informe.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Quitar filas vacías</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Elimina filas que no contienen datos.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Inicio > Quitar filas > Quitar filas vacías</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Limpiar datos exportados que contienen líneas en blanco entre secciones.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Transformaciones de Tabla Esenciales</h3>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Transformación</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Descripción</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Cómo aplicarla</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Caso de uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Transponer</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Convierte filas en columnas y viceversa.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Transformar > Transponer</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Convertir datos de formato horizontal a vertical o viceversa para facilitar el análisis.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Dinamizar/Anular dinamización</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Convierte valores de columna en columnas separadas (dinamizar) o viceversa (anular dinamización).</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Transformar > Dinamizar/Anular dinamización</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Convertir datos de formato ancho a largo para análisis o viceversa para presentación.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Combinar consultas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Une dos tablas basándose en columnas comunes (similar a JOIN en SQL).</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Inicio > Combinar consultas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Unir datos de ventas con información de productos o clientes basándose en IDs comunes.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Anexar consultas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Apila dos o más tablas con estructura similar (similar a UNION en SQL).</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Pestaña Inicio > Anexar consultas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Combinar datos de ventas de diferentes períodos o regiones en una sola tabla.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Ejemplo Práctico: Limpieza de Datos de Ventas</h3>
+
+                <p class="mb-4">Veamos un ejemplo práctico de cómo aplicar estas transformaciones para limpiar un conjunto de datos de ventas con problemas comunes:</p>
+
+                <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                    <h4 class="font-bold text-gray-800 mb-3">Escenario: Tabla de ventas con problemas comunes</h4>
+
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="font-medium">Paso 1: Cambiar tipos de datos</p>
+                            <p class="text-sm text-gray-600 mb-2">Problema: Las fechas están como texto y los valores numéricos no tienen el formato correcto.</p>
+                            <div class="bg-gray-100 p-2 rounded text-xs">
+                                <code>Seleccionar columna 'Fecha' > Transformar > Tipo de datos > Fecha</code>
+                            </div>
+                            <p class="text-sm text-green-600 mt-1">Resultado: Las fechas ahora se reconocen correctamente para filtrado y análisis temporal.</p>
+                        </div>
+
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="font-medium">Paso 2: Reemplazar valores inconsistentes</p>
+                            <p class="text-sm text-gray-600 mb-2">Problema: La columna 'Categoría' tiene valores inconsistentes como 'Electronicos' y 'Electrónicos'.</p>
+                            <div class="bg-gray-100 p-2 rounded text-xs">
+                                <code>Clic derecho en 'Categoría' > Reemplazar valores > Valor a buscar: 'Electronicos' > Reemplazar con: 'Electrónicos'</code>
+                            </div>
+                            <p class="text-sm text-green-600 mt-1">Resultado: Categorías estandarizadas para análisis consistente.</p>
+                        </div>
+
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="font-medium">Paso 3: Quitar filas con valores nulos en campos críticos</p>
+                            <p class="text-sm text-gray-600 mb-2">Problema: Algunas filas tienen valores nulos en el campo 'ID_Producto', lo que podría distorsionar el análisis.</p>
+                            <div class="bg-gray-100 p-2 rounded text-xs">
+                                <code>Clic en flecha de 'ID_Producto' > Filtros > Desmarcar 'Null'</code>
+                            </div>
+                            <p class="text-sm text-green-600 mt-1">Resultado: Eliminación de transacciones incompletas que podrían distorsionar el análisis.</p>
+                        </div>
+
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <p class="font-medium">Paso 4: Crear columna calculada para margen de beneficio</p>
+                            <p class="text-sm text-gray-600 mb-2">Problema: Necesitamos calcular el margen de beneficio para cada venta.</p>
+                            <div class="bg-gray-100 p-2 rounded text-xs">
+                                <code>Agregar columna > Columna personalizada > Nombre: 'Margen' > Fórmula: [Precio_Venta] - [Costo]</code>
+                            </div>
+                            <p class="text-sm text-green-600 mt-1">Resultado: Nueva columna que facilita el análisis de rentabilidad.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Mejores Prácticas para Transformaciones</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Nombrar pasos claramente</h4>
+                        <p class="text-sm mb-2">Renombra los pasos en el panel de Pasos Aplicados con nombres descriptivos para facilitar la comprensión y mantenimiento.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>Clic derecho en un paso > Cambiar nombre</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Ejemplo: Cambiar "Tipo cambiado" por "Convertir Fecha a tipo Fecha"</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Orden de transformaciones</h4>
+                        <p class="text-sm mb-2">Filtra y elimina datos innecesarios al principio para mejorar el rendimiento de pasos posteriores.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>1. Filtrar filas no deseadas</code><br>
+                            <code>2. Eliminar columnas innecesarias</code><br>
+                            <code>3. Luego aplicar transformaciones más complejas</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Trabajar con menos datos acelera las transformaciones siguientes.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Comentar pasos complejos</h4>
+                        <p class="text-sm mb-2">Añade comentarios a pasos complejos o no obvios para documentar tu lógica.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>Clic derecho en un paso > Propiedades > Descripción</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Especialmente útil para fórmulas personalizadas o transformaciones poco comunes.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Verificar resultados</h4>
+                        <p class="text-sm mb-2">Revisa regularmente los resultados de tus transformaciones para asegurarte de que funcionan como esperas.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>Haz clic en cada paso para ver cómo cambian los datos</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Es más fácil corregir problemas inmediatamente que encontrarlos más tarde.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Crear consultas de referencia</h4>
+                        <p class="text-sm mb-2">Para transformaciones complejas, crea consultas intermedias de referencia para dividir el proceso en pasos manejables.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>Clic derecho en una consulta > Referencia</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">Facilita la depuración y mejora la organización de transformaciones complejas.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Usar funciones M para casos avanzados</h4>
+                        <p class="text-sm mb-2">Para transformaciones más complejas, aprende a usar el lenguaje M directamente en columnas personalizadas.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <code>Agregar columna > Columna personalizada > Fórmula avanzada</code>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-2">El lenguaje M ofrece funcionalidades que no están disponibles en la interfaz gráfica.</p>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Consejo importante: Transformaciones vs. Medidas DAX</h4>
+                    <p class="mb-2">Es importante entender cuándo usar transformaciones en Power Query y cuándo usar medidas DAX en el modelo:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
+                        <div>
+                            <h5 class="font-bold text-sm mb-1">Usa Power Query para:</h5>
+                            <ul class="list-disc pl-5 text-sm space-y-1">
+                                <li>Limpiar y preparar datos antes de cargarlos</li>
+                                <li>Combinar datos de múltiples fuentes</li>
+                                <li>Crear columnas que necesitas en todas las visualizaciones</li>
+                                <li>Transformaciones estructurales (transponer, dinamizar)</li>
+                                <li>Operaciones que solo necesitas hacer una vez</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-sm mb-1">Usa DAX para:</h5>
+                            <ul class="list-disc pl-5 text-sm space-y-1">
+                                <li>Cálculos que dependen de selecciones del usuario</li>
+                                <li>Agregaciones (sumas, promedios, etc.)</li>
+                                <li>Análisis de tiempo (comparaciones año tras año)</li>
+                                <li>Cálculos que necesitan responder a filtros</li>
+                                <li>Medidas que cambian según el contexto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Flujo de Trabajo Recomendado</h3>
+
+                <p class="mb-4">Para aprovechar al máximo Power Query, te recomendamos seguir este flujo de trabajo para tus transformaciones:</p>
+
+                <div class="relative mb-6">
+                    <div class="flex flex-wrap justify-between items-start relative">
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">1</div>
+                            <h5 class="font-bold">Explorar</h5>
+                            <p class="text-xs">Examina tus datos para identificar problemas y necesidades</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[19%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">2</div>
+                            <h5 class="font-bold">Limpiar</h5>
+                            <p class="text-xs">Corrige tipos de datos, valores inconsistentes y errores</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[39%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">3</div>
+                            <h5 class="font-bold">Transformar</h5>
+                            <p class="text-xs">Reestructura los datos al formato necesario para análisis</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[59%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">4</div>
+                            <h5 class="font-bold">Enriquecer</h5>
+                            <p class="text-xs">Añade columnas calculadas y categorías útiles</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[79%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">5</div>
+                            <h5 class="font-bold">Documentar</h5>
+                            <p class="text-xs">Nombra y comenta pasos para facilitar mantenimiento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mb-4">Dominar las transformaciones fundamentales en Power Query te permitirá preparar tus datos de manera eficiente para el análisis, ahorrando tiempo y asegurando resultados más precisos. En el siguiente paso, aprenderemos a crear relaciones entre tablas para construir un modelo de datos efectivo.</p>
+            </div>
+        `,
+
         // Categorías de transformaciones
         transformationCategories: [
             {
@@ -1413,6 +1784,361 @@ const transformModuleContent = {
     step4: {
         title: "Modelado Básico: Creación de Relaciones",
         description: "En este paso, aprenderás a crear relaciones entre tablas para construir un modelo de datos efectivo en Power BI.",
+
+        // Contenido principal
+        content: `
+            <div class="mb-6">
+                <p class="mb-4">Una vez que has limpiado y transformado tus datos, el siguiente paso crucial es crear relaciones entre las diferentes tablas. Las relaciones son el corazón de un modelo de datos efectivo en Power BI, permitiéndote combinar información de múltiples fuentes para obtener insights más profundos.</p>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">¿Por qué son importantes las relaciones?</h4>
+                    <p class="mb-2">Las relaciones entre tablas permiten:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Analizar datos de múltiples tablas simultáneamente</li>
+                        <li>Crear visualizaciones que combinen campos de diferentes tablas</li>
+                        <li>Filtrar datos en una tabla basándose en selecciones en otra tabla</li>
+                        <li>Mantener un modelo de datos normalizado y eficiente</li>
+                        <li>Implementar cálculos complejos que atraviesan múltiples tablas</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Conceptos Fundamentales de Relaciones</h3>
+
+                <div class="mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+                        <h4 class="font-bold text-gray-800 mb-2">¿Qué es una relación?</h4>
+                        <p class="mb-2">Una relación es una conexión entre dos tablas a través de campos comunes, que permite a Power BI entender cómo se relacionan los datos entre sí.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-sm"><strong>Ejemplo:</strong> Relacionar una tabla de Ventas con una tabla de Productos a través del campo 'ID_Producto' permite analizar las ventas por categoría de producto, precio, o cualquier otro atributo del producto.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center mb-6">
+                        <img src="assets/img/relationship-example.png" alt="Ejemplo de relación entre tablas" class="max-w-full h-auto rounded-lg shadow-md">
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Cardinalidad de Relaciones</h3>
+
+                <p class="mb-4">La cardinalidad define cómo se relacionan los registros entre las tablas conectadas. Existen tres tipos principales:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">1:N</span>
+                            <h4 class="font-bold text-gray-800">Uno a muchos</h4>
+                        </div>
+                        <p class="text-sm mb-3">Cada registro en la primera tabla puede relacionarse con múltiples registros en la segunda tabla.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ejemplo:</strong> Un producto puede tener muchas ventas.</p>
+                        </div>
+                        <div class="mt-3 text-xs text-green-600">
+                            <p>✓ Más común en Power BI</p>
+                            <p>✓ Recomendada para la mayoría de los casos</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">1:1</span>
+                            <h4 class="font-bold text-gray-800">Uno a uno</h4>
+                        </div>
+                        <p class="text-sm mb-3">Cada registro en la primera tabla se relaciona con exactamente un registro en la segunda tabla.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ejemplo:</strong> Un empleado tiene un único perfil de usuario.</p>
+                        </div>
+                        <div class="mt-3 text-xs text-yellow-600">
+                            <p>⚠️ Menos común en Power BI</p>
+                            <p>⚠️ Generalmente, es mejor combinar las tablas</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">N:N</span>
+                            <h4 class="font-bold text-gray-800">Muchos a muchos</h4>
+                        </div>
+                        <p class="text-sm mb-3">Múltiples registros en la primera tabla pueden relacionarse con múltiples registros en la segunda tabla.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ejemplo:</strong> Estudiantes y cursos (un estudiante puede tomar varios cursos, y un curso puede tener varios estudiantes).</p>
+                        </div>
+                        <div class="mt-3 text-xs text-yellow-600">
+                            <p>⚠️ Requiere una tabla puente</p>
+                            <p>⚠️ Más complejo de implementar y entender</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Dirección del Filtro</h3>
+
+                <p class="mb-4">La dirección del filtro define cómo se propagan los filtros entre tablas relacionadas:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">→</span>
+                            <h4 class="font-bold text-gray-800">Única (predeterminada)</h4>
+                        </div>
+                        <p class="text-sm mb-3">Los filtros se propagan de la tabla 'uno' a la tabla 'muchos'.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ejemplo:</strong> Filtrar por categoría de producto filtrará las ventas relacionadas, pero filtrar por región de ventas no filtrará los productos.</p>
+                        </div>
+                        <div class="mt-3 text-xs text-green-600">
+                            <p>✓ Opción predeterminada y recomendada</p>
+                            <p>✓ Mejor rendimiento</p>
+                            <p>✓ Evita ambigüedades en el modelo</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-2xl mr-2">↔️</span>
+                            <h4 class="font-bold text-gray-800">Bidireccional</h4>
+                        </div>
+                        <p class="text-sm mb-3">Los filtros se propagan en ambas direcciones.</p>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ejemplo:</strong> Filtrar por categoría de producto filtrará las ventas relacionadas, Y filtrar por región de ventas también filtrará los productos vendidos en esa región.</p>
+                        </div>
+                        <div class="mt-3 text-xs text-red-600">
+                            <p>⚠️ Puede causar problemas de rendimiento</p>
+                            <p>⚠️ Puede crear ambigüedades en el modelo</p>
+                            <p>⚠️ Usar solo cuando sea absolutamente necesario</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Integridad Referencial</h4>
+                    <p class="mb-2">La opción "Asumir integridad referencial" indica a Power BI que todos los valores en la tabla 'muchos' existen en la tabla 'uno'.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Actívala cuando:</strong> Estés seguro de que los datos cumplen esta condición (por ejemplo, todas las ventas tienen un producto válido).</li>
+                        <li><strong>Beneficio:</strong> Puede mejorar el rendimiento de las consultas.</li>
+                        <li><strong>Precaución:</strong> Si hay valores en la tabla 'muchos' que no existen en la tabla 'uno', podrías obtener resultados incorrectos.</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Vista de Modelo en Power BI</h3>
+
+                <p class="mb-4">La Vista de Modelo es donde crearás y gestionarás las relaciones entre tablas. Es una representación visual de tu modelo de datos.</p>
+
+                <div class="flex items-center justify-center mb-6">
+                    <img src="assets/img/model-view.png" alt="Vista de Modelo en Power BI" class="max-w-full h-auto rounded-lg shadow-md">
+                </div>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Característica</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Descripción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Representación visual</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Muestra todas las tablas y sus relaciones como un diagrama, facilitando la comprensión del modelo.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Creación de relaciones</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Permite arrastrar y soltar campos entre tablas para crear relaciones de forma intuitiva.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Edición de propiedades</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Permite configurar cardinalidad, dirección de filtro e integridad referencial para cada relación.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Organización</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Permite reorganizar las tablas para una mejor visualización del modelo y documentación.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Métodos para Crear Relaciones</h3>
+
+                <p class="mb-4">Power BI ofrece varios métodos para crear relaciones entre tablas:</p>
+
+                <div class="space-y-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-green-600 font-bold mr-2">✓</span>
+                            <h4 class="font-bold text-gray-800">Método 1: Arrastrar y soltar (Recomendado)</h4>
+                        </div>
+                        <ol class="list-decimal pl-5 space-y-1 mb-3">
+                            <li>Ve a la Vista de Modelo (segundo icono en la barra lateral izquierda)</li>
+                            <li>Identifica las dos tablas que deseas relacionar</li>
+                            <li>Haz clic en el campo de una tabla y arrástralo al campo correspondiente en la otra tabla</li>
+                            <li>Configura las propiedades de la relación en el diálogo que aparece</li>
+                        </ol>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ventaja:</strong> Método visual e intuitivo, ideal para la mayoría de los casos.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-blue-600 font-bold mr-2">⚙️</span>
+                            <h4 class="font-bold text-gray-800">Método 2: Administrar relaciones</h4>
+                        </div>
+                        <ol class="list-decimal pl-5 space-y-1 mb-3">
+                            <li>En la pestaña Modelado, haz clic en 'Administrar relaciones'</li>
+                            <li>Haz clic en 'Nueva...'</li>
+                            <li>Selecciona las tablas y campos para relacionar</li>
+                            <li>Configura las propiedades de la relación</li>
+                            <li>Haz clic en 'Aceptar'</li>
+                        </ol>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ventaja:</strong> Útil cuando tienes muchas tablas o necesitas una vista más detallada de todas las relaciones.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-3">
+                            <span class="text-yellow-600 font-bold mr-2">🔍</span>
+                            <h4 class="font-bold text-gray-800">Método 3: Detección automática</h4>
+                        </div>
+                        <ol class="list-decimal pl-5 space-y-1 mb-3">
+                            <li>En la pestaña Inicio, haz clic en 'Administrar relaciones'</li>
+                            <li>Haz clic en 'Detección automática...'</li>
+                            <li>Power BI intentará detectar posibles relaciones</li>
+                            <li>Revisa las relaciones sugeridas y selecciona las que deseas crear</li>
+                            <li>Haz clic en 'Aceptar'</li>
+                        </ol>
+                        <div class="bg-gray-100 p-3 rounded-lg">
+                            <p class="text-xs"><strong>Ventaja:</strong> Útil como punto de partida, pero siempre revisa las relaciones detectadas para asegurarte de que son correctas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Diseño en Estrella: El Modelo Recomendado</h3>
+
+                <p class="mb-4">El diseño en estrella es el modelo de datos más recomendado para Power BI. Consiste en:</p>
+
+                <div class="flex flex-col md:flex-row gap-6 mb-6">
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h4 class="font-bold text-gray-800 mb-3">Estructura del Modelo en Estrella</h4>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Tablas de hechos</strong> (en el centro):
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>Contienen medidas y eventos transaccionales</li>
+                                        <li>Ejemplos: Ventas, Pedidos, Presupuestos</li>
+                                        <li>Suelen tener muchas filas</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Tablas de dimensiones</strong> (alrededor):
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>Contienen atributos descriptivos</li>
+                                        <li>Ejemplos: Productos, Clientes, Fechas</li>
+                                        <li>Suelen tener menos filas que las tablas de hechos</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Relaciones</strong>:
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>Uno a muchos (1:N)</li>
+                                        <li>Desde dimensiones (lado "uno") hacia hechos (lado "muchos")</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h4 class="font-bold text-gray-800 mb-3">Ventajas del Modelo en Estrella</h4>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Rendimiento optimizado</strong>:
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>El motor de Power BI está optimizado para este diseño</li>
+                                        <li>Consultas más rápidas y eficientes</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Facilidad de uso</strong>:
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>Modelo intuitivo y fácil de entender</li>
+                                        <li>Simplifica la creación de medidas y visualizaciones</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Flexibilidad</strong>:
+                                    <ul class="list-circle pl-5 mt-1">
+                                        <li>Fácil de extender con nuevas dimensiones</li>
+                                        <li>Adaptable a diferentes necesidades analíticas</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center mb-6">
+                    <img src="assets/img/star-schema.png" alt="Modelo en Estrella" class="max-w-full h-auto rounded-lg shadow-md">
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Mejores Prácticas para Relaciones</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Evita relaciones circulares</h4>
+                        <p class="text-sm mb-2">No crees cadenas de relaciones que formen un círculo cerrado.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Causan ambigüedades en la propagación de filtros y pueden generar resultados incorrectos.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Usa relaciones bidireccionales con precaución</h4>
+                        <p class="text-sm mb-2">Limita el uso de relaciones bidireccionales solo a casos donde sean absolutamente necesarias.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Pueden causar problemas de rendimiento y resultados inesperados.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Verifica la integridad de los datos</h4>
+                        <p class="text-sm mb-2">Asegúrate de que los datos cumplen con la integridad referencial antes de crear relaciones.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Evita resultados incorrectos por datos no coincidentes.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Usa claves numéricas cuando sea posible</h4>
+                        <p class="text-sm mb-2">Las relaciones basadas en columnas numéricas tienen mejor rendimiento que las basadas en texto.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Las comparaciones numéricas son más eficientes que las de texto.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Crea una tabla de fechas dedicada</h4>
+                        <p class="text-sm mb-2">Utiliza una tabla de fechas dedicada para análisis temporales en lugar de usar directamente las columnas de fecha en las tablas de hechos.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Permite análisis temporales más avanzados (año a la fecha, mes a la fecha, etc.).</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Documenta tu modelo</h4>
+                        <p class="text-sm mb-2">Organiza visualmente tu modelo y añade descripciones a las tablas y relaciones.</p>
+                        <div class="bg-gray-100 p-2 rounded text-xs">
+                            <p><strong>Por qué:</strong> Facilita el mantenimiento y la comprensión del modelo por parte de otros usuarios.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-red-800 mb-2">Problemas comunes y cómo evitarlos</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Relaciones ambiguas:</strong> Si hay múltiples rutas entre tablas, Power BI puede no saber cuál usar. Solución: Diseña un modelo claro en estrella.</li>
+                        <li><strong>Relaciones inactivas:</strong> Solo una relación entre dos tablas puede estar activa. Las demás deben usarse explícitamente en fórmulas DAX. Solución: Usa la función USERELATIONSHIP en DAX cuando necesites usar relaciones inactivas.</li>
+                        <li><strong>Problemas de rendimiento:</strong> Demasiadas relaciones bidireccionales pueden degradar el rendimiento. Solución: Limita su uso a lo estrictamente necesario.</li>
+                        <li><strong>Datos no coincidentes:</strong> Valores en la tabla "muchos" que no existen en la tabla "uno". Solución: Limpia los datos antes de crear relaciones o usa la función TREATAS en DAX.</li>
+                    </ul>
+                </div>
+
+                <p class="mb-4">Crear un modelo de datos efectivo con relaciones bien diseñadas es fundamental para el éxito de tus informes en Power BI. Un buen modelo facilita el análisis, mejora el rendimiento y permite obtener insights más profundos de tus datos.</p>
+            </div>
+        `,
 
         // Conceptos fundamentales de relaciones
         fundamentalConcepts: {

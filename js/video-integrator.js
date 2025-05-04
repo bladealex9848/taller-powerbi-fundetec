@@ -277,6 +277,35 @@ function insertTransformVideos(containerId) {
             'Tipos de Datos en Power Query: Guía Completa',
             'Explicación de los diferentes tipos de datos y cómo trabajar con ellos en Power Query.'
         );
+    } else if (currentStep === 2) {
+        // Videos específicos para el paso 3: Transformaciones Fundamentales
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Hn9kNzN8H4I',
+            'Transformaciones de Columnas en Power Query',
+            'Aprende a modificar, dividir, combinar y crear columnas personalizadas en Power Query.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Jbocj79eBXQ',
+            'Transformaciones de Filas en Power Query',
+            'Técnicas para filtrar, ordenar y manipular filas en Power Query.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'ezc9ZVMxYwU',
+            'Transformaciones de Tabla en Power Query',
+            'Aprende a transponer, dinamizar y anular dinamización de tablas en Power Query.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'f3nEZo4b-Yg',
+            'Combinación y Anexo de Tablas en Power Query',
+            'Cómo combinar datos de múltiples fuentes usando Power Query.'
+        );
     } else {
         // Videos generales para otros pasos del módulo de transformación
         insertYouTubeVideo(
@@ -318,20 +347,125 @@ function insertDemoVideos(containerId) {
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
 
-    // Insertar videos de demostración
-    insertYouTubeVideo(
-        'demo-videos-container',
-        '8L2ArDp-IDI',
-        'Creación de Visualizaciones Simples en Power BI',
-        'Gráficos básicos y personalización de visualizaciones.'
-    );
+    // Obtener el paso actual del módulo de demostración
+    const moduleContentSection = document.getElementById('module-content-section');
+    const currentStep = parseInt(moduleContentSection?.getAttribute('data-current-step') || '0');
 
-    insertYouTubeVideo(
-        'demo-videos-container',
-        'ZY5uhdKllYk',
-        'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
-        'Tutorial paso a paso para crear un dashboard completo.'
-    );
+    // Insertar videos específicos según el paso
+    if (currentStep === 0) { // Introducción a la Demostración
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ZY5uhdKllYk',
+            'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+            'Tutorial completo que muestra el proceso de creación de un dashboard desde el principio.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'hKe7bHPiSPU',
+            'Tutorial Power BI - Creación de Dashboard en 3 horas',
+            'Demostración detallada del flujo de trabajo completo en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'iiNDq2VnZSo',
+            'Introducción a Power BI: Primeros pasos para crear dashboards',
+            'Conceptos básicos para comenzar a crear dashboards efectivos.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'sjrlIAQnD8M',
+            'Curso Completo de Power BI',
+            'Visión general de todas las funcionalidades que veremos en la demostración.'
+        );
+    } else if (currentStep === 1) { // Importación de Datos
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ezc9ZVMxYwU',
+            'Importar datos en Power BI: Guía completa de conexiones',
+            'Tutorial detallado sobre cómo conectarse a diferentes fuentes de datos en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'f3nEZo4b-Yg',
+            'Power Query: Transformación de datos en Power BI',
+            'Cómo usar Power Query para limpiar y transformar datos antes de cargarlos.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'Jbocj79eBXQ',
+            'Conexión a Excel y CSV en Power BI',
+            'Tutorial específico sobre cómo importar datos desde archivos Excel y CSV.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'Hn9kNzN8H4I',
+            'Conexión a bases de datos SQL en Power BI',
+            'Cómo conectar Power BI a bases de datos SQL Server y otras bases de datos relacionales.'
+        );
+    } else if (currentStep === 2) { // Creación de Visualizaciones
+        insertYouTubeVideo(
+            'demo-videos-container',
+            '8L2ArDp-IDI',
+            'Visualizaciones en Power BI: Guía completa',
+            'Tutorial detallado sobre los diferentes tipos de visualizaciones disponibles en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ZY5uhdKllYk',
+            'Cómo elegir la visualización correcta en Power BI',
+            'Guía para seleccionar el tipo de visualización más adecuado según tus datos y objetivos.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'iiNDq2VnZSo',
+            'Personalización de visualizaciones en Power BI',
+            'Cómo dar formato y personalizar tus visualizaciones para hacerlas más efectivas.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'sjrlIAQnD8M',
+            'Visualizaciones avanzadas en Power BI',
+            'Técnicas avanzadas para crear visualizaciones más sofisticadas e interactivas.'
+        );
+    } else if (currentStep === 4) { // Interactividad y Filtros
+        insertYouTubeVideo(
+            'demo-videos-container',
+            '8L2ArDp-IDI',
+            'Creación de Visualizaciones Simples en Power BI',
+            'Gráficos básicos y personalización de visualizaciones.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ZY5uhdKllYk',
+            'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+            'Tutorial paso a paso para crear un dashboard completo.'
+        );
+    } else {
+        // Videos generales para otros pasos del módulo de demostración
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ZY5uhdKllYk',
+            'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+            'Tutorial paso a paso para crear un dashboard completo.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            '8L2ArDp-IDI',
+            'Creación de Visualizaciones Simples en Power BI',
+            'Gráficos básicos y personalización de visualizaciones.'
+        );
+    }
 }
 
 /**

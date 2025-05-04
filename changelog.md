@@ -2,6 +2,74 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.4.3] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 3 del módulo de demostración (Creación de Visualizaciones)
+- Quiz para comprobar comprensión en el paso 3 del módulo de demostración
+- Diagrama de selección de visualizaciones
+- Contenido específico para modos estudiante y autoguiado en el paso 3 del módulo de demostración
+- Recursos adicionales (videos y enlaces) para el paso 3 del módulo de demostración
+- Videos específicos sobre visualizaciones en Power BI para el paso 3 del módulo de demostración
+
+### Mejorado
+- Contenido principal del paso 3 del módulo de demostración con secciones adicionales sobre tipos de visualizaciones
+- Sección sobre personalización de visualizaciones con opciones de formato básico y avanzado
+- Guía para elegir la visualización correcta según el tipo de análisis
+
+## [1.4.2] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 2 del módulo de demostración (Importación de Datos)
+- Quiz para comprobar comprensión en el paso 2 del módulo de demostración
+- Diagrama del proceso de importación de datos
+- Contenido específico para modos estudiante y autoguiado en el paso 2 del módulo de demostración
+- Recursos adicionales (videos y enlaces) para el paso 2 del módulo de demostración
+- Videos específicos sobre importación de datos para el paso 2 del módulo de demostración
+
+### Mejorado
+- Contenido principal del paso 2 del módulo de demostración con secciones adicionales sobre fuentes de datos y consideraciones importantes
+- Sección sobre la decisión entre cargar directamente o transformar datos
+
+## [1.4.1] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 1 del módulo de demostración (Introducción a la Demostración)
+- Quiz para comprobar comprensión en el paso 1 del módulo de demostración
+- Diagrama del flujo de trabajo de la demostración
+- Contenido específico para modos estudiante y autoguiado en el paso 1 del módulo de demostración
+- Recursos adicionales (videos y enlaces) para el paso 1 del módulo de demostración
+- Videos específicos sobre creación de dashboards para el paso 1 del módulo de demostración
+
+### Mejorado
+- Contenido principal del paso 1 del módulo de demostración con secciones adicionales
+- Función insertDemoVideos para mostrar videos específicos según el paso actual
+
+## [1.4.0] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 4 del módulo de transformación (Modelado Básico: Creación de Relaciones)
+- Sección detallada sobre cardinalidad de relaciones (uno a muchos, uno a uno, muchos a muchos)
+- Sección sobre dirección del filtro en relaciones
+- Explicación del modelo en estrella y mejores prácticas para relaciones
+- Métodos para crear relaciones en Power BI
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 4 del módulo de transformación
+
+## [1.3.9] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 3 del módulo de transformación (Transformaciones Fundamentales)
+- Recursos adicionales (videos y enlaces) para el paso 3 del módulo de transformación
+- Videos específicos sobre transformaciones en Power Query para el paso 3 del módulo de transformación
+- Sección de mejores prácticas para transformaciones en Power Query
+- Sección de flujo de trabajo recomendado para transformaciones
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 3 del módulo de transformación
+- Falta de recursos adicionales en el paso 3 del módulo de transformación
+
 ## [1.3.8] - 2024-07-16
 
 ### Añadido
