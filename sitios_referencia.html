@@ -83,7 +83,7 @@
                 <!-- Buscador -->
                 <div class="search-container mb-4">
                     <div class="relative">
-                        <input type="text" id="site-search" placeholder="Buscar sitios web..." 
+                        <input type="text" id="site-search" placeholder="Buscar sitios web..."
                             class="w-full px-4 py-2 pl-10 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                             <i class="fas fa-search text-gray-400"></i>
@@ -93,7 +93,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Filtros de categoría -->
                 <div class="filters-container mb-4">
                     <h3 class="text-sm font-medium text-gray-700 mb-2">Filtrar por categoría:</h3>
@@ -126,9 +126,13 @@
                             <i class="fas fa-file-pdf mr-1"></i>
                             Guías y Manuales
                         </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="plantillas">
+                            <i class="fas fa-file-code mr-1"></i>
+                            Plantillas Power BI
+                        </button>
                     </div>
                 </div>
-                
+
                 <!-- Selector de favoritos -->
                 <div class="favorites-container flex items-center">
                     <label class="inline-flex items-center cursor-pointer">
@@ -177,7 +181,8 @@
             'comunidades': { name: 'Comunidades', icon: 'fas fa-users' },
             'videos': { name: 'Canales de Video', icon: 'fab fa-youtube' },
             'datasets': { name: 'Datasets', icon: 'fas fa-database' },
-            'guias': { name: 'Guías y Manuales', icon: 'fas fa-file-pdf' }
+            'guias': { name: 'Guías y Manuales', icon: 'fas fa-file-pdf' },
+            'plantillas': { name: 'Plantillas Power BI', icon: 'fas fa-file-code' }
         };
 
         // Clave para almacenar favoritos en localStorage
@@ -232,9 +237,9 @@
                 category: 'blogs'
             },
             {
-                url: 'https://www.bitigabi.com/',
-                title: 'Biti (Santiago Tomás Selma)',
-                description: 'Blog enfocado en Business Intelligence con Power BI.',
+                url: 'https://powerbi.pe/blog/',
+                title: 'Power BI Training Perú',
+                description: 'Blog con tutoriales y tips sobre Power BI en español.',
                 category: 'blogs'
             },
             {
@@ -259,6 +264,36 @@
                 url: 'https://radacad.com/blog',
                 title: 'RADACAD Blog',
                 description: 'Blog con artículos técnicos avanzados sobre Power BI.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.dataprix.com/es/blog/business-intelligence/power-bi',
+                title: 'Dataprix - Power BI',
+                description: 'Artículos sobre análisis de datos con Power BI en español.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.powerbitraining.net/blog',
+                title: 'Power BI Training - Tutoriales',
+                description: 'Tutoriales paso a paso para desarrollar en Power BI.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.blue-granite.com/blog/power-bi-best-practices-for-creating-reports-and-dashboards',
+                title: 'Blue Granite - Mejores prácticas',
+                description: 'Consejos para crear dashboards efectivos.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.pontia.tech/',
+                title: 'Pontia Tech',
+                description: 'Guías y tutoriales sobre Power BI, Power Query y modelado de datos.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://todobi.com/',
+                title: 'TodoBI / Stratebi',
+                description: 'Blog con consejos prácticos sobre rendimiento, modelado y optimización en Power BI.',
                 category: 'blogs'
             }
         ];
@@ -294,6 +329,24 @@
                 title: 'Foro de Modelado de Datos',
                 description: 'Discusiones específicas sobre modelado de datos.',
                 category: 'comunidades'
+            },
+            {
+                url: 'https://community.fabric.microsoft.com/t5/DAX-Commands-and-Tips/bd-p/DAXCommands',
+                title: 'Foro de DAX',
+                description: 'Discusiones específicas sobre DAX.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://community.fabric.microsoft.com/t5/Data-Visualization/bd-p/DataVisualization',
+                title: 'Foro de Visualización de Datos',
+                description: 'Discusiones sobre visualizaciones en Power BI.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://t.me/PowerBIEspanol',
+                title: 'PowerBIEspañol (Telegram)',
+                description: 'Comunidad activa en Telegram con discusiones diarias sobre Power BI.',
+                category: 'comunidades'
             }
         ];
 
@@ -322,6 +375,30 @@
                 title: 'Power BI en Español',
                 description: 'Tutoriales y consejos en español.',
                 category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/@datdata',
+                title: 'datdata',
+                description: 'Canal muy activo dedicado a la visualización de datos, con mucho contenido de Power BI.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/@EXCELeINFO',
+                title: 'Sergio Alejandro Campos (EXCELeINFO)',
+                description: 'Canal con tutoriales sobre Excel, Power BI, Power Query y macros aplicables.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/@SandiellyOrtegaPolanco',
+                title: 'Sandielly Ortega Polanco',
+                description: 'Creador de contenido sobre Power BI, Fabric, IA, SQL y automatización.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/@PowerBIEspanol',
+                title: 'PowerBIEspañol',
+                description: 'Repositorio de conferencias virtuales organizadas por la comunidad de Telegram.',
+                category: 'videos'
             }
         ];
 
@@ -343,6 +420,42 @@
                 url: 'https://datos.gob.es/',
                 title: 'Datos.gob.es',
                 description: 'Portal de datos abiertos del gobierno español.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://datos.gov.co/',
+                title: 'Datos Abiertos Colombia',
+                description: 'Portal de datos abiertos del gobierno colombiano.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://datosabiertos.gob.pe/',
+                title: 'Plataforma Nacional de Datos Abiertos (Perú)',
+                description: 'Datasets en .xlsx y .csv sin coste ni registro.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://data.buenosaires.gob.ar/',
+                title: 'Buenos Aires Data',
+                description: 'Portal de datos abiertos de la ciudad de Buenos Aires.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/create-reports/sample-datasets',
+                title: 'Ejemplos y datasets oficiales de Microsoft',
+                description: 'Conjuntos de datos de ejemplo directamente utilizables con Power BI.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://help-desk-migration.com/es/help/csv-migration-guides/',
+                title: 'Help Desk Migration - Guías CSV',
+                description: 'Ejemplos de datos de tickets de soporte y guías de migración CSV.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://support.zendesk.com/hc/es/articles/4408886165402',
+                title: 'Zendesk - Exportación de datos',
+                description: 'Guía para exportar datos de tickets, usuarios y organizaciones.',
                 category: 'datasets'
             }
         ];
@@ -366,6 +479,94 @@
                 title: 'SQLBI - Guías avanzadas',
                 description: 'Guías avanzadas para dominar Power BI.',
                 category: 'guias'
+            },
+            {
+                url: 'https://landing.bismart.com/guia-definitiva-power-bi',
+                title: 'La Guía Definitiva de Power BI - Bismart',
+                description: 'Guía completa en PDF gratuita (requiere completar un formulario).',
+                category: 'guias'
+            },
+            {
+                url: 'https://bismart.com/ebooks',
+                title: 'Ebooks Bismart',
+                description: 'Recursos sobre BI, Data Analytics y Power BI.',
+                category: 'guias'
+            },
+            {
+                url: 'https://imaginaformacion.com/tutoriales/guia-completa-de-power-query-en-excel',
+                title: 'Guía Completa de Power Query en Excel',
+                description: 'Tutorial online detallado de Power Query aplicable a Power BI.',
+                category: 'guias'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/dax/',
+                title: 'Referencia de DAX',
+                description: 'Documentación oficial del lenguaje DAX en español.',
+                category: 'guias'
+            },
+            {
+                url: 'https://www.pontia.tech/wp-content/uploads/2025/04/guia-power-bi.pdf',
+                title: 'Guía Power BI (Pontia Tech)',
+                description: 'Guía estructurada que cubre introducción, instalación, Power Query, DAX y visualización.',
+                category: 'guias'
+            },
+            {
+                url: 'https://todobi.com/content/files/2023/02/TipsPowerBI_V3-1.pdf',
+                title: 'Power BI TIPS Vol. III (TodoBI)',
+                description: 'Consejos prácticos sobre rendimiento, modelado con múltiples tablas y optimización.',
+                category: 'guias'
+            },
+            {
+                url: 'https://cea.uprrp.edu/wp-content/uploads/2024/03/IntroduccionPowerBI-CEA.pdf',
+                title: 'Introducción Power BI (UPR)',
+                description: 'Guía introductoria que cubre conceptos básicos, instalación e interfaz.',
+                category: 'guias'
+            }
+        ];
+
+        // Plantillas de Power BI (.pbit)
+        const templates = [
+            {
+                url: 'https://digitalfactory.store/es/pages/5-modeles-de-tableau-de-bord-power-bi-a-telecharger-gratuits',
+                title: 'Digital Factory Store',
+                description: 'Plantillas gratuitas para gestión de proyectos, control de producción, análisis FMEA e inventario.',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://themes.powerbi.tips/themes/gallery',
+                title: 'PowerBI.Tips Theme Gallery',
+                description: 'Galería de temas y plantillas con diferentes estilos visuales.',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://zebrabi.com/templates/',
+                title: 'Zebra BI - Galería de Plantillas',
+                description: 'Plantillas gratuitas para análisis de costes, inventario y finanzas.',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://windsor.ai/powerbi-templates/',
+                title: 'Windsor.ai - Plantillas de Marketing',
+                description: 'Plantillas para análisis de marketing (Facebook Ads, Google Ads, etc.).',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://github.com/PlayFab/PlayFabPowerBITemplates',
+                title: 'GitHub - PlayFab Templates',
+                description: 'Plantillas para análisis de videojuegos y KPIs.',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://github.com/microsoft/PowerBI-LogAnalytics-Template-Reports',
+                title: 'GitHub - Log Analytics Templates',
+                description: 'Plantillas para analizar datos de Power BI en Azure Log Analytics.',
+                category: 'plantillas'
+            },
+            {
+                url: 'https://github.com/OfficeDev/Project-Power-BI-Templates',
+                title: 'GitHub - Project Templates',
+                description: 'Plantillas para Microsoft Project Online y Project for the Web.',
+                category: 'plantillas'
             }
         ];
 
@@ -376,7 +577,8 @@
             ...communitiesAndForums,
             ...videoChannels,
             ...datasets,
-            ...guides
+            ...guides,
+            ...templates
         ];
 
         // Función para cargar los sitios web
@@ -449,7 +651,7 @@
         function toggleFavorite(url, title) {
             const favorites = getFavorites();
             const index = favorites.findIndex(fav => fav.url === url);
-            
+
             if (index === -1) {
                 // Añadir a favoritos
                 favorites.push({ url, title, date: new Date().toISOString() });
@@ -466,13 +668,13 @@
         // Función para inicializar los botones de favoritos
         function initFavoriteButtons() {
             const favoriteButtons = document.querySelectorAll('.favorite-btn');
-            
+
             favoriteButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const url = this.getAttribute('data-url');
                     const title = this.getAttribute('data-title');
                     const isFav = toggleFavorite(url, title);
-                    
+
                     if (isFav) {
                         this.innerHTML = '<i class="fas fa-star"></i>';
                         this.classList.remove('text-gray-400');
@@ -483,7 +685,7 @@
                         this.classList.remove('text-yellow-500');
                         this.classList.add('text-gray-400');
                         this.closest('.site-card').classList.remove('is-favorite');
-                        
+
                         // Si estamos mostrando solo favoritos, ocultar este elemento
                         if (document.getElementById('show-favorites').checked) {
                             this.closest('.site-card').classList.add('hidden');
@@ -499,25 +701,25 @@
             const searchInput = document.getElementById('site-search');
             const showFavoritesCheckbox = document.getElementById('show-favorites');
             const siteCards = document.querySelectorAll('.site-card');
-            
+
             const searchTerm = searchInput.value.toLowerCase();
             const showOnlyFavorites = showFavoritesCheckbox.checked;
             const activeCategory = document.querySelector('.category-filter.bg-blue-600').getAttribute('data-category');
-            
+
             let visibleCount = 0;
             const totalCount = siteCards.length;
-            
+
             siteCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const description = card.querySelector('p').textContent.toLowerCase();
                 const isFavorite = card.classList.contains('is-favorite');
-                
+
                 // Aplicar filtros
                 const matchesCategory = activeCategory === 'all' || category === activeCategory;
                 const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm);
                 const matchesFavorites = !showOnlyFavorites || isFavorite;
-                
+
                 // Mostrar u ocultar según los filtros
                 if (matchesCategory && matchesSearch && matchesFavorites) {
                     card.classList.remove('hidden');
@@ -526,7 +728,7 @@
                     card.classList.add('hidden');
                 }
             });
-            
+
             // Actualizar contador de resultados
             updateResultsCounter(visibleCount, totalCount);
         }
@@ -534,43 +736,43 @@
         // Función para actualizar el contador de resultados
         function updateResultsCounter(visible = null, total = null) {
             const resultsCounter = document.getElementById('results-counter');
-            
+
             if (visible === null || total === null) {
                 // Contar manualmente si no se proporcionan valores
                 const siteCards = document.querySelectorAll('.site-card');
                 visible = 0;
                 total = siteCards.length;
-                
+
                 siteCards.forEach(card => {
                     if (!card.classList.contains('hidden')) {
                         visible++;
                     }
                 });
             }
-            
+
             let message = '';
-            
+
             if (visible === total) {
                 message = 'Mostrando todos los sitios web';
             } else {
                 message = `Mostrando ${visible} de ${total} sitios web`;
             }
-            
+
             const searchTerm = document.getElementById('site-search').value.trim();
             if (searchTerm) {
                 message += ` (búsqueda: "${searchTerm}")`;
             }
-            
+
             const activeCategory = document.querySelector('.category-filter.bg-blue-600').getAttribute('data-category');
             if (activeCategory !== 'all') {
                 const categoryName = SITE_CATEGORIES[activeCategory]?.name || activeCategory;
                 message += ` (categoría: ${categoryName})`;
             }
-            
+
             if (document.getElementById('show-favorites').checked) {
                 message += ' (solo favoritos)';
             }
-            
+
             resultsCounter.textContent = message;
         }
 
@@ -578,21 +780,21 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Cargar los sitios web
             loadSites();
-            
+
             // Inicializar el buscador
             const searchInput = document.getElementById('site-search');
             const clearSearchBtn = document.getElementById('clear-search');
-            
+
             searchInput.addEventListener('input', filterSites);
-            
+
             clearSearchBtn.addEventListener('click', function() {
                 searchInput.value = '';
                 filterSites();
             });
-            
+
             // Inicializar los filtros de categoría
             const categoryFilters = document.querySelectorAll('.category-filter');
-            
+
             categoryFilters.forEach(filter => {
                 filter.addEventListener('click', function() {
                     // Quitar la clase activa de todos los filtros
@@ -600,19 +802,19 @@
                         f.classList.remove('bg-blue-600', 'text-white');
                         f.classList.add('bg-blue-50', 'text-blue-700');
                     });
-                    
+
                     // Añadir la clase activa al filtro seleccionado
                     this.classList.remove('bg-blue-50', 'text-blue-700');
                     this.classList.add('bg-blue-600', 'text-white');
-                    
+
                     // Aplicar filtros
                     filterSites();
                 });
             });
-            
+
             // Inicializar el toggle de favoritos
             const favoritesToggle = document.getElementById('show-favorites');
-            
+
             favoritesToggle.addEventListener('change', function() {
                 // Actualizar estilo del toggle
                 const dot = this.nextElementSibling.querySelector('.dot');
@@ -625,7 +827,7 @@
                     this.nextElementSibling.classList.add('bg-gray-200');
                     dot.classList.remove('translate-x-5');
                 }
-                
+
                 // Aplicar filtros
                 filterSites();
             });
