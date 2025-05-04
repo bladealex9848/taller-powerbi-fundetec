@@ -585,6 +585,47 @@ const demoModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">Un dashboard es una colección de visualizaciones organizadas en una sola página que proporciona una visión general de los datos más importantes. Un buen dashboard debe contar una historia coherente y permitir a los usuarios obtener insights rápidamente.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Tipos de dashboards</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Estratégicos:</strong> Visión general para ejecutivos</li>
+                            <li><strong>Operativos:</strong> Monitoreo de operaciones diarias</li>
+                            <li><strong>Analíticos:</strong> Análisis detallado de datos</li>
+                            <li><strong>Tácticos:</strong> Seguimiento de proyectos o iniciativas</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>El tipo de dashboard determina su contenido y diseño</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Elementos esenciales</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>KPIs:</strong> Indicadores clave de rendimiento</li>
+                            <li><strong>Visualizaciones:</strong> Gráficos y tablas relevantes</li>
+                            <li><strong>Filtros:</strong> Segmentaciones para exploración</li>
+                            <li><strong>Contexto:</strong> Títulos, subtítulos y anotaciones</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Cada elemento debe aportar valor al análisis</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Audiencia y propósito</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>¿Quién?</strong> Identifica a los usuarios finales</li>
+                            <li><strong>¿Qué?</strong> Define las preguntas a responder</li>
+                            <li><strong>¿Por qué?</strong> Establece el objetivo del dashboard</li>
+                            <li><strong>¿Cómo?</strong> Determina el nivel de interactividad</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Adapta el dashboard a las necesidades específicas</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h4 class="font-bold text-blue-800 mb-2">Pasos para crear un dashboard efectivo:</h4>
 
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
@@ -605,6 +646,28 @@ const demoModuleContent = {
                         <li><strong>Interactividad:</strong> Permite a los usuarios explorar los datos por sí mismos</li>
                         <li><strong>Contexto:</strong> Proporciona suficiente información para entender los datos</li>
                     </ul>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Errores comunes a evitar</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Sobrecargar el dashboard con demasiadas visualizaciones</li>
+                                <li>Usar colores inconsistentes o que distraen</li>
+                                <li>No proporcionar contexto suficiente para interpretar los datos</li>
+                                <li>Elegir visualizaciones inadecuadas para los datos</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Ignorar las necesidades de la audiencia</li>
+                                <li>No mantener una jerarquía visual clara</li>
+                                <li>Usar escalas engañosas en los gráficos</li>
+                                <li>Descuidar la accesibilidad del dashboard</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex items-center justify-center mb-4">
@@ -629,6 +692,33 @@ const demoModuleContent = {
                 <div class="bg-yellow-50 p-4 rounded-lg mb-4">
                     <h4 class="font-bold text-yellow-800 mb-2">Consejo práctico</h4>
                     <p>Utiliza el "modo de enfoque" haciendo clic en los puntos suspensivos de una visualización para verla en pantalla completa. Esto es útil para analizar detalles específicos sin distracciones.</p>
+                </div>
+
+                <h4 class="font-bold text-blue-800 mb-3">Diseño y distribución</h4>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Patrones de lectura</h5>
+                        <p class="text-sm mb-2">Organiza tu dashboard siguiendo patrones naturales de lectura:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Patrón Z:</strong> De izquierda a derecha, arriba a abajo</li>
+                            <li><strong>Patrón F:</strong> Concentra información importante a la izquierda</li>
+                            <li><strong>Cuadrantes:</strong> Divide la página en 4 secciones lógicas</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Coloca la información más importante en las zonas de mayor atención visual.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Agrupación lógica</h5>
+                        <p class="text-sm mb-2">Agrupa visualizaciones relacionadas:</p>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Por tema:</strong> Ventas, marketing, operaciones</li>
+                            <li><strong>Por nivel de detalle:</strong> Resumen → Detalle</li>
+                            <li><strong>Por relación:</strong> Causa → Efecto</li>
+                            <li><strong>Por tiempo:</strong> Pasado → Presente → Futuro</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Usa bordes, colores o espaciado para definir grupos visuales.</p>
+                    </div>
                 </div>
             </div>
 
@@ -668,7 +758,107 @@ const demoModuleContent = {
                     </div>
                 </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "demo-quiz-4",
+            question: "¿Cuál es el principio más importante al diseñar un dashboard en Power BI?",
+            options: [
+                "Incluir la mayor cantidad posible de visualizaciones para mostrar todos los datos disponibles",
+                "Usar colores brillantes y llamativos para captar la atención del usuario",
+                "Mantener la simplicidad y enfocarse en comunicar claramente los insights más importantes",
+                "Evitar la interactividad para que los usuarios no se distraigan"
+            ],
+            correctIndex: 2
+        },
+
+        // Diagrama del proceso de creación de dashboards
+        diagram: {
+            title: "Proceso de creación de dashboards",
+            description: "Este diagrama muestra el flujo de trabajo recomendado para crear dashboards efectivos en Power BI.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Planificación",
+                    description: "Definir objetivos, audiencia y preguntas a responder"
+                },
+                {
+                    step: 2,
+                    title: "Preparación",
+                    description: "Recopilar y transformar los datos necesarios"
+                },
+                {
+                    step: 3,
+                    title: "Diseño",
+                    description: "Crear un boceto o wireframe del dashboard"
+                },
+                {
+                    step: 4,
+                    title: "Construcción",
+                    description: "Crear visualizaciones y organizarlas en la página"
+                },
+                {
+                    step: 5,
+                    title: "Refinamiento",
+                    description: "Ajustar formato, interactividad y rendimiento"
+                },
+                {
+                    step: 6,
+                    title: "Validación",
+                    description: "Probar con usuarios reales y recopilar feedback"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a combinar visualizaciones en un dashboard efectivo que cuente una historia coherente con tus datos.",
+            exercises: [
+                {
+                    title: "Creación de un dashboard de ventas",
+                    description: "Practica la creación de un dashboard de ventas completo:",
+                    steps: [
+                        "Abre el archivo 'VentasEjemplo.pbix' que has trabajado en los pasos anteriores",
+                        "Crea un nuevo informe (página) haciendo clic en el signo '+' en la parte inferior",
+                        "Renombra la página como 'Dashboard de Ventas'",
+                        "Añade un objeto visual de tarjeta para mostrar las ventas totales",
+                        "Crea un gráfico de líneas para mostrar la tendencia de ventas por mes",
+                        "Añade un gráfico de barras para las ventas por región",
+                        "Incluye un gráfico circular para la distribución de ventas por categoría",
+                        "Agrega una tabla con los detalles de los mejores clientes",
+                        "Añade segmentaciones para filtrar por fecha, región y categoría",
+                        "Organiza todas las visualizaciones de manera lógica en la página",
+                        "Asegúrate de que las visualizaciones interactúen correctamente entre sí",
+                        "Aplica un tema coherente y ajusta el formato para mejorar la apariencia"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de creación de dashboards efectivos en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He definido claramente el propósito y la audiencia de mi dashboard",
+                "He creado las visualizaciones necesarias para responder a las preguntas clave",
+                "He organizado las visualizaciones de manera lógica siguiendo principios de diseño",
+                "He configurado correctamente la interactividad entre visualizaciones",
+                "He añadido contexto suficiente (títulos, subtítulos, anotaciones)",
+                "He probado mi dashboard para asegurarme de que comunica efectivamente la información"
+            ],
+            additionalResources: [
+                {
+                    title: "Diseño de dashboards efectivos en Power BI",
+                    url: "https://learn.microsoft.com/es-es/power-bi/create-reports/service-dashboards-design-tips",
+                    description: "Guía oficial de Microsoft con consejos para diseñar dashboards efectivos"
+                },
+                {
+                    title: "Mejores prácticas para el diseño de informes",
+                    url: "https://learn.microsoft.com/es-es/power-bi/guidance/report-design-tips",
+                    description: "Recomendaciones para crear informes y dashboards que comuniquen eficazmente"
+                }
+            ]
+        }
     },
 
     step5: {

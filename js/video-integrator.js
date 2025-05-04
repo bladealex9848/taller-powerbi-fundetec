@@ -436,6 +436,34 @@ function insertDemoVideos(containerId) {
             'Visualizaciones avanzadas en Power BI',
             'Técnicas avanzadas para crear visualizaciones más sofisticadas e interactivas.'
         );
+    } else if (currentStep === 3) { // Creación de Dashboards
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'ZY5uhdKllYk',
+            'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+            'Tutorial completo para crear un dashboard efectivo en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'hKe7bHPiSPU',
+            'Diseño de Dashboards Profesionales en Power BI',
+            'Principios de diseño y mejores prácticas para crear dashboards impactantes.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'iiNDq2VnZSo',
+            'Interactividad en Dashboards de Power BI',
+            'Cómo configurar la interactividad entre visualizaciones para crear dashboards dinámicos.'
+        );
+
+        insertYouTubeVideo(
+            'demo-videos-container',
+            'sjrlIAQnD8M',
+            'Storytelling con Dashboards en Power BI',
+            'Técnicas para contar historias efectivas con tus datos a través de dashboards.'
+        );
     } else if (currentStep === 4) { // Interactividad y Filtros
         insertYouTubeVideo(
             'demo-videos-container',

@@ -495,6 +495,11 @@ function renderDiagram(diagram) {
         return createInteractiveDiagram(diagram.stages);
     }
 
+    // Renderizar diagrama de pasos si tiene steps
+    if (diagram.steps) {
+        return renderStepsDiagram(diagram);
+    }
+
     // Diagrama genérico si no hay un tipo específico
     return `
         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-6">
@@ -505,6 +510,40 @@ function renderDiagram(diagram) {
                      class="max-w-full h-auto mx-auto">
             </div>
         </div>
+    `;
+}
+
+/**
+ * Renderiza un diagrama de pasos
+ * @param {Object} diagram - Datos del diagrama con steps
+ * @returns {string} HTML del diagrama de pasos
+ */
+function renderStepsDiagram(diagram) {
+    let stepsHtml = '';
+
+    diagram.steps.forEach((step, index) => {
+        stepsHtml += `
+        <div class="step-item flex flex-col items-center">
+            <div class="step-number bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mb-2">
+                ${step.step}
+            </div>
+            <div class="step-content bg-white p-3 rounded-lg shadow-sm w-full">
+                <h5 class="font-bold text-blue-800 mb-1">${step.title}</h5>
+                <p class="text-sm text-gray-600">${step.description}</p>
+            </div>
+        </div>
+        ${index < diagram.steps.length - 1 ? '<div class="step-connector flex-grow border-t-2 border-dashed border-blue-300 mx-2 mt-4"></div>' : ''}
+        `;
+    });
+
+    return `
+    <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-6">
+        <h4 class="font-bold text-lg text-blue-900 mb-3">${diagram.title || 'Diagrama de Pasos'}</h4>
+        <p class="text-sm text-blue-700 mb-4">${diagram.description || ''}</p>
+        <div class="steps-container flex flex-wrap justify-between items-start">
+            ${stepsHtml}
+        </div>
+    </div>
     `;
 }
 

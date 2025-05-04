@@ -967,7 +967,7 @@ function initStepInteractiveElements() {
                     }
                     break;
                 case 'demo':
-                    // Agregar videos en el primer, segundo, tercer y último paso del módulo
+                    // Agregar videos en todos los pasos del módulo
                     if (currentStep === 0) { // Introducción a la Demostración
                         insertDemoVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
@@ -975,6 +975,9 @@ function initStepInteractiveElements() {
                         insertDemoVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     } else if (currentStep === 2) { // Creación de Visualizaciones
+                        insertDemoVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 3) { // Creación de Dashboards
                         insertDemoVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     } else if (currentStep === 4) { // Interactividad y Filtros

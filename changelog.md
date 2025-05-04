@@ -2,6 +2,30 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.4.5] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 4 del módulo de demostración (Creación de Dashboards)
+- Quiz para comprobar comprensión en el paso 4 del módulo de demostración
+- Diagrama del proceso de creación de dashboards
+- Contenido específico para modos estudiante y autoguiado en el paso 4 del módulo de demostración
+- Recursos adicionales (videos y enlaces) para el paso 4 del módulo de demostración
+- Videos específicos sobre creación de dashboards para el paso 4 del módulo de demostración
+
+### Mejorado
+- Contenido principal del paso 4 del módulo de demostración con secciones adicionales sobre tipos de dashboards, elementos esenciales y audiencia
+- Sección sobre diseño y distribución con patrones de lectura y agrupación lógica
+- Sección sobre errores comunes a evitar en el diseño de dashboards
+
+## [1.4.4] - 2024-07-16
+
+### Añadido
+- Nueva función `renderStepsDiagram` en `module-renderer.js` para renderizar diagramas de pasos
+
+### Corregido
+- Error en la visualización del diagrama "Guía de selección de visualizaciones" en el paso 3 del módulo de demostración
+- Ahora los diagramas con la propiedad `steps` se renderizan correctamente
+
 ## [1.4.3] - 2024-07-16
 
 ### Añadido
