@@ -55,5 +55,5 @@ Repositorio de conferencias virtuales organizadas por la comunidad de Telegram.
 
 ## Temas Específicos
 
-- [Interacciones entre visualizaciones en Power BI](https://www.youtube.com/watch?v=YmYElmzLWgw) - Cómo configurar interacciones entre visualizaciones.
-- [Power Query: Consolidar datos de múltiples hojas Excel](https://www.youtube.com/watch?v=nPlrQUbEn4s) - Cómo consolidar datos de múltiples hojas de Excel.
+- [Interacciones entre visualizaciones en Power BI](https://www.youtube.com/watch?v=Qf6m-2YnEII) - Cómo configurar interacciones entre visualizaciones.
+- [Power Query: Consolidar datos de múltiples hojas Excel](https://www.youtube.com/watch?v=JTSAnYHbPrc) - Cómo consolidar datos de múltiples hojas de Excel.

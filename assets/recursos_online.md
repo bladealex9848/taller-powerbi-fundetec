@@ -8,11 +8,11 @@
 
 ### Conexión y Transformación de Datos
 - [Tutorial Power BI - Primeros pasos con Power Query Editor](https://www.youtube.com/watch?v=jeq1vGx2aSs) - Introducción a Power Query Editor.
-- [Power Query: Consolidar datos de múltiples hojas Excel](https://www.youtube.com/watch?v=nPlrQUbEn4s) - Cómo consolidar datos de múltiples hojas de Excel.
+- [Power Query: Consolidar datos de múltiples hojas Excel](https://www.youtube.com/watch?v=JTSAnYHbPrc) - Cómo consolidar datos de múltiples hojas de Excel.
 
 ### Visualización y Dashboards
 - [Curso Completo de Power BI](https://www.youtube.com/watch?v=sjrlIAQnD8M) - Curso completo con todas las funcionalidades.
-- [Interacciones entre visualizaciones en Power BI](https://www.youtube.com/watch?v=YmYElmzLWgw) - Cómo configurar interacciones entre visualizaciones.
+- [Interacciones entre visualizaciones en Power BI](https://www.youtube.com/watch?v=Qf6m-2YnEII) - Cómo configurar interacciones entre visualizaciones.
 
 ## Sitios Web de Referencia (para abrir en nueva pestaña)
 
