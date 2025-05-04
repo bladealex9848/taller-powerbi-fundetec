@@ -935,70 +935,70 @@ function initStepInteractiveElements() {
                     // Agregar videos en todos los pasos del módulo de introducción
                     if (currentStep === 0) { // Importancia del Análisis de Datos
                         insertIntroVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'intro', 0);
                     } else if (currentStep === 1) { // Microsoft Power BI: Componentes Esenciales
                         insertIntroVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'intro', 1);
                     } else if (currentStep === 2) { // Recorrido por la Interfaz de Power BI Desktop
                         insertIntroVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'intro', 2);
                     } else if (currentStep === 3) { // Tipos de Datos y Modelos (Conceptos Básicos)
                         insertIntroVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'intro', 3);
                     } else if (currentStep === 4) { // Asistentes IA en el Flujo de Trabajo
                         insertIntroVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'intro', 4);
                     }
                     break;
                 case 'transform':
                     // Agregar videos en el primer, segundo, tercer y último paso del módulo
                     if (currentStep === 0) { // Conexión a Fuentes de Datos
                         insertTransformVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'transform', 0);
                     } else if (currentStep === 1) { // Introducción a Power Query (Editor)
                         insertTransformVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'transform', 1);
                     } else if (currentStep === 2) { // Transformaciones Fundamentales
                         insertTransformVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'transform', 2);
                     } else if (currentStep === 3) { // Modelado Básico: Creación de Relaciones
                         insertTransformVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'transform', 3);
                     }
                     break;
                 case 'demo':
                     // Agregar videos en todos los pasos del módulo
                     if (currentStep === 0) { // Introducción a la Demostración
                         insertDemoVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'demo', 0);
                     } else if (currentStep === 1) { // Importación de Datos
                         insertDemoVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'demo', 1);
                     } else if (currentStep === 2) { // Creación de Visualizaciones
                         insertDemoVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'demo', 2);
                     } else if (currentStep === 3) { // Creación de Dashboards
                         insertDemoVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'demo', 3);
                     } else if (currentStep === 4) { // Interactividad y Filtros
                         insertDemoVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'demo', 4);
                     }
                     break;
                 case 'practice':
                     // Agregar videos en todos los pasos del módulo
                     if (currentStep === 0) { // Introducción a la Práctica
                         insertPracticeVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'practice', 0);
                     } else if (currentStep === 1) { // Desarrollo Paso a Paso
                         insertPracticeVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'practice', 1);
                     } else if (currentStep === 2) { // Resultado Esperado y Solución de Problemas
                         insertPracticeVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'practice', 2);
                     } else if (currentStep === 3) { // Recursos para Continuar Aprendiendo
                         insertPracticeVideos(resourcesContainer.id);
-                        insertWebsiteLinks(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id, 'practice', 3);
                     }
                     break;
             }

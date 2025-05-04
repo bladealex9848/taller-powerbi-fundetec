@@ -14,7 +14,7 @@ La fuente más completa, actualizada y fiable sobre todos los aspectos de Power 
 ### Comunidad Microsoft
 Foros oficiales donde los usuarios pueden plantear preguntas y compartir soluciones.
 
-- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol) - Foro oficial en español.
+- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi) - Foro oficial en español.
 - [Galería de Temas](https://community.fabric.microsoft.com/t5/Themes-Gallery/bd-p/ThemesGallery) - Galería de temas para personalizar informes.
 
 ## Blogs de Expertos Hispanohablantes

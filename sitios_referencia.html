@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitios Web de Referencia - Taller Power BI</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/enhanced-mode.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para esta página */
+        .site-card {
+            transition: all 0.3s ease;
+        }
+        .site-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .category-filter {
+            transition: all 0.2s ease-in-out;
+        }
+        .category-filter:hover {
+            transform: translateY(-2px);
+        }
+        .favorite-btn {
+            transition: all 0.2s ease;
+        }
+        .favorite-btn:hover {
+            transform: scale(1.2);
+        }
+        .is-favorite {
+            background-color: rgba(250, 204, 21, 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .site-card {
+            animation: fadeIn 0.3s ease-out forwards;
+            animation-delay: calc(var(--animation-order, 0) * 0.05s);
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+    <!-- Header -->
+    <header class="header-gradient text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="flex items-center">
+                    <img src="assets/img/logos/logo-fundetec.png" alt="FUNDETEC Logo" class="h-10 w-auto rounded-full">
+                    <img src="assets/img/logos/logo-powerbi.png" alt="Power BI Logo" class="h-10 w-auto ml-2">
+                </a>
+                <h1 class="text-xl font-bold">Taller Power BI</h1>
+            </div>
+            <a href="index.html" class="text-white hover:text-yellow-200 flex items-center">
+                <i class="fas fa-home mr-2"></i>
+                <span>Volver al Inicio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <h1 class="text-3xl font-bold text-blue-900 mb-2 flex items-center">
+                <i class="fas fa-globe mr-3 text-blue-700"></i>
+                Sitios Web de Referencia
+            </h1>
+            <p class="text-gray-600 mb-6">
+                Colección completa de recursos web para aprender y dominar Microsoft Power BI. Estos sitios han sido cuidadosamente seleccionados para complementar el taller.
+            </p>
+
+            <!-- Barra de herramientas -->
+            <div class="toolbar bg-blue-50 rounded-lg p-4 sticky top-20 z-10 mb-6 shadow-sm">
+                <!-- Buscador -->
+                <div class="search-container mb-4">
+                    <div class="relative">
+                        <input type="text" id="site-search" placeholder="Buscar sitios web..." 
+                            class="w-full px-4 py-2 pl-10 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                        <button id="clear-search" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filtros de categoría -->
+                <div class="filters-container mb-4">
+                    <h3 class="text-sm font-medium text-gray-700 mb-2">Filtrar por categoría:</h3>
+                    <div class="flex flex-wrap items-center">
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-600 text-white" data-category="all">
+                            <i class="fas fa-globe mr-1"></i>
+                            Todas las categorías
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="documentacion">
+                            <i class="fas fa-book mr-1"></i>
+                            Documentación Oficial
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="blogs">
+                            <i class="fas fa-user-tie mr-1"></i>
+                            Blogs y Expertos
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="comunidades">
+                            <i class="fas fa-users mr-1"></i>
+                            Comunidades
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="videos">
+                            <i class="fab fa-youtube mr-1"></i>
+                            Canales de Video
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="datasets">
+                            <i class="fas fa-database mr-1"></i>
+                            Datasets
+                        </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="guias">
+                            <i class="fas fa-file-pdf mr-1"></i>
+                            Guías y Manuales
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Selector de favoritos -->
+                <div class="favorites-container flex items-center">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="show-favorites" class="sr-only">
+                        <div class="relative w-10 h-5 bg-gray-200 rounded-full transition-colors duration-200 ease-in-out">
+                            <div class="dot absolute left-0.5 top-0.5 bg-white w-4 h-4 rounded-full transition-transform duration-200 ease-in-out"></div>
+                        </div>
+                        <span class="ml-2 text-sm font-medium text-gray-700">Mostrar solo favoritos</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Contador de resultados -->
+            <div id="results-counter" class="mb-4 text-sm text-gray-600 bg-gray-100 px-4 py-2 rounded-lg">
+                Mostrando todos los sitios web
+            </div>
+
+            <!-- Contenedor de sitios web -->
+            <div id="sites-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Los sitios web se cargarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="assets/img/logos/logo-footer-fundetec.png" alt="FUNDETEC Logo" class="h-8 w-auto mr-2">
+                <span class="text-sm">© 2025 FUNDETEC - Ing. Alexander Oviedo Fadul</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="index.html" class="text-white hover:text-yellow-300 text-sm">
+                    Volver al Taller
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Constantes para categorías de sitios web
+        const SITE_CATEGORIES = {
+            'documentacion': { name: 'Documentación Oficial', icon: 'fas fa-book' },
+            'blogs': { name: 'Blogs y Expertos', icon: 'fas fa-user-tie' },
+            'comunidades': { name: 'Comunidades', icon: 'fas fa-users' },
+            'videos': { name: 'Canales de Video', icon: 'fab fa-youtube' },
+            'datasets': { name: 'Datasets', icon: 'fas fa-database' },
+            'guias': { name: 'Guías y Manuales', icon: 'fas fa-file-pdf' }
+        };
+
+        // Clave para almacenar favoritos en localStorage
+        const FAVORITES_STORAGE_KEY = 'powerbi_sitios_favoritos';
+
+        // Sitios web de documentación oficial
+        const officialDocumentation = [
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/',
+                title: 'Documentación de Power BI - Microsoft Learn',
+                description: 'Documentación oficial de Microsoft en español.',
+                category: 'documentacion'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-query/',
+                title: 'Documentación de Power Query - Microsoft Learn',
+                description: 'Documentación oficial de Power Query en español.',
+                category: 'documentacion'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/create-reports/sample-datasets',
+                title: 'Ejemplos y datasets oficiales',
+                description: 'Ejemplos y datasets oficiales de Microsoft.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/dax/',
+                title: 'Referencia de DAX',
+                description: 'Documentación oficial del lenguaje DAX.',
+                category: 'documentacion'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/fundamentals/power-bi-overview',
+                title: 'Introducción a Power BI',
+                description: 'Visión general de Power BI y sus capacidades.',
+                category: 'documentacion'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/fundamentals/desktop-what-is-desktop',
+                title: '¿Qué es Power BI Desktop?',
+                description: 'Introducción a la herramienta principal de Power BI.',
+                category: 'documentacion'
+            }
+        ];
+
+        // Blogs y sitios de expertos
+        const blogsAndExperts = [
+            {
+                url: 'https://powerbisp.com/',
+                title: 'PowerBI SP (Francisco Mullor Cabrera)',
+                description: 'Blog de un MVP de Microsoft centrado en Power BI.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.bitigabi.com/',
+                title: 'Biti (Santiago Tomás Selma)',
+                description: 'Blog enfocado en Business Intelligence con Power BI.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://elfuturodelosdatos.com/',
+                title: 'El Futuro de los Datos (Salvador Ramos)',
+                description: 'Sitio web y blog de un veterano MVP de Microsoft.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.sqlbi.com/',
+                title: 'SQLBI (Marco Russo y Alberto Ferrari)',
+                description: 'Sitio web de referencia para DAX y modelado de datos.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://www.kasperonbi.com/',
+                title: 'Kasper On BI',
+                description: 'Blog con tutoriales y mejores prácticas para Power BI.',
+                category: 'blogs'
+            },
+            {
+                url: 'https://radacad.com/blog',
+                title: 'RADACAD Blog',
+                description: 'Blog con artículos técnicos avanzados sobre Power BI.',
+                category: 'blogs'
+            }
+        ];
+
+        // Comunidades y foros
+        const communitiesAndForums = [
+            {
+                url: 'https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi',
+                title: 'Comunidad Microsoft Fabric/Power BI (Español)',
+                description: 'Foro oficial de Microsoft en español.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://www.powerplatformspain.com/',
+                title: 'Power Platform España',
+                description: 'Comunidad amplia que abarca toda la Power Platform.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://community.powerbi.com/t5/Community-Blog/bg-p/community_blog',
+                title: 'Comunidad Power BI',
+                description: 'Blog de la comunidad con artículos de usuarios.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                title: 'Foro de Power BI Desktop',
+                description: 'Discusiones específicas sobre Power BI Desktop.',
+                category: 'comunidades'
+            },
+            {
+                url: 'https://community.fabric.microsoft.com/t5/Data-Modeling/bd-p/DataModelingDiscussion',
+                title: 'Foro de Modelado de Datos',
+                description: 'Discusiones específicas sobre modelado de datos.',
+                category: 'comunidades'
+            }
+        ];
+
+        // Canales de video
+        const videoChannels = [
+            {
+                url: 'https://www.youtube.com/c/MicrosoftPowerBI',
+                title: 'Canal oficial de Microsoft Power BI',
+                description: 'Videos oficiales de Microsoft sobre Power BI.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/c/GuyInACube',
+                title: 'Guy in a Cube',
+                description: 'Canal de Adam Saxton y Patrick LeBlanc con tutoriales y noticias.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/c/CursosPowerBI',
+                title: 'Cursos Power BI',
+                description: 'Canal en español con tutoriales completos.',
+                category: 'videos'
+            },
+            {
+                url: 'https://www.youtube.com/c/PowerBIenEspañol',
+                title: 'Power BI en Español',
+                description: 'Tutoriales y consejos en español.',
+                category: 'videos'
+            }
+        ];
+
+        // Datasets y recursos de datos
+        const datasets = [
+            {
+                url: 'https://www.kaggle.com/datasets',
+                title: 'Kaggle Datasets',
+                description: 'Miles de datasets gratuitos para practicar.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://data.world/',
+                title: 'Data.world',
+                description: 'Plataforma colaborativa de datos.',
+                category: 'datasets'
+            },
+            {
+                url: 'https://datos.gob.es/',
+                title: 'Datos.gob.es',
+                description: 'Portal de datos abiertos del gobierno español.',
+                category: 'datasets'
+            }
+        ];
+
+        // Guías y manuales
+        const guides = [
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/guidance/',
+                title: 'Guía de Power BI',
+                description: 'Guía completa con mejores prácticas y recomendaciones.',
+                category: 'guias'
+            },
+            {
+                url: 'https://learn.microsoft.com/es-es/power-bi/guided-learning/',
+                title: 'Aprendizaje guiado de Power BI',
+                description: 'Curso oficial de Microsoft para aprender Power BI.',
+                category: 'guias'
+            },
+            {
+                url: 'https://www.sqlbi.com/guides/',
+                title: 'SQLBI - Guías avanzadas',
+                description: 'Guías avanzadas para dominar Power BI.',
+                category: 'guias'
+            }
+        ];
+
+        // Combinar todos los sitios web
+        const allSites = [
+            ...officialDocumentation,
+            ...blogsAndExperts,
+            ...communitiesAndForums,
+            ...videoChannels,
+            ...datasets,
+            ...guides
+        ];
+
+        // Función para cargar los sitios web
+        function loadSites() {
+            const sitesContainer = document.getElementById('sites-container');
+            sitesContainer.innerHTML = '';
+
+            // Asignar un orden de animación a cada sitio
+            allSites.forEach((site, index) => {
+                const siteCard = document.createElement('div');
+                siteCard.className = 'site-card bg-white rounded-lg shadow-sm p-4 border-l-4 border-blue-500 hover:shadow-md';
+                siteCard.style.setProperty('--animation-order', index);
+                siteCard.setAttribute('data-category', site.category);
+
+                // Verificar si el sitio es un favorito
+                const isFavorite = isSiteFavorite(site.url);
+                if (isFavorite) {
+                    siteCard.classList.add('is-favorite');
+                }
+
+                // Obtener el icono según la categoría
+                const categoryInfo = SITE_CATEGORIES[site.category] || { icon: 'fas fa-link' };
+
+                siteCard.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-medium text-blue-800 mb-2 flex items-center">
+                            <i class="${categoryInfo.icon} mr-2 text-blue-600"></i>
+                            <a href="${site.url}" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                                ${site.title}
+                                <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                            </a>
+                        </h3>
+                        <button class="favorite-btn ${isFavorite ? 'text-yellow-500' : 'text-gray-400'} hover:text-yellow-500" data-url="${site.url}" data-title="${site.title}">
+                            <i class="${isFavorite ? 'fas' : 'far'} fa-star"></i>
+                        </button>
+                    </div>
+                    <p class="text-gray-600 text-sm">${site.description}</p>
+                    <div class="mt-2">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                            ${SITE_CATEGORIES[site.category]?.name || 'Otro'}
+                        </span>
+                    </div>
+                `;
+
+                sitesContainer.appendChild(siteCard);
+            });
+
+            // Inicializar eventos de favoritos
+            initFavoriteButtons();
+        }
+
+        // Función para verificar si un sitio es favorito
+        function isSiteFavorite(url) {
+            const favorites = getFavorites();
+            return favorites.some(fav => fav.url === url);
+        }
+
+        // Función para obtener favoritos del localStorage
+        function getFavorites() {
+            const favoritesJson = localStorage.getItem(FAVORITES_STORAGE_KEY);
+            return favoritesJson ? JSON.parse(favoritesJson) : [];
+        }
+
+        // Función para guardar favoritos en localStorage
+        function saveFavorites(favorites) {
+            localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+        }
+
+        // Función para alternar el estado de favorito
+        function toggleFavorite(url, title) {
+            const favorites = getFavorites();
+            const index = favorites.findIndex(fav => fav.url === url);
+            
+            if (index === -1) {
+                // Añadir a favoritos
+                favorites.push({ url, title, date: new Date().toISOString() });
+                saveFavorites(favorites);
+                return true;
+            } else {
+                // Quitar de favoritos
+                favorites.splice(index, 1);
+                saveFavorites(favorites);
+                return false;
+            }
+        }
+
+        // Función para inicializar los botones de favoritos
+        function initFavoriteButtons() {
+            const favoriteButtons = document.querySelectorAll('.favorite-btn');
+            
+            favoriteButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const url = this.getAttribute('data-url');
+                    const title = this.getAttribute('data-title');
+                    const isFav = toggleFavorite(url, title);
+                    
+                    if (isFav) {
+                        this.innerHTML = '<i class="fas fa-star"></i>';
+                        this.classList.remove('text-gray-400');
+                        this.classList.add('text-yellow-500');
+                        this.closest('.site-card').classList.add('is-favorite');
+                    } else {
+                        this.innerHTML = '<i class="far fa-star"></i>';
+                        this.classList.remove('text-yellow-500');
+                        this.classList.add('text-gray-400');
+                        this.closest('.site-card').classList.remove('is-favorite');
+                        
+                        // Si estamos mostrando solo favoritos, ocultar este elemento
+                        if (document.getElementById('show-favorites').checked) {
+                            this.closest('.site-card').classList.add('hidden');
+                            updateResultsCounter();
+                        }
+                    }
+                });
+            });
+        }
+
+        // Función para filtrar sitios web
+        function filterSites() {
+            const searchInput = document.getElementById('site-search');
+            const showFavoritesCheckbox = document.getElementById('show-favorites');
+            const siteCards = document.querySelectorAll('.site-card');
+            
+            const searchTerm = searchInput.value.toLowerCase();
+            const showOnlyFavorites = showFavoritesCheckbox.checked;
+            const activeCategory = document.querySelector('.category-filter.bg-blue-600').getAttribute('data-category');
+            
+            let visibleCount = 0;
+            const totalCount = siteCards.length;
+            
+            siteCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const isFavorite = card.classList.contains('is-favorite');
+                
+                // Aplicar filtros
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                const matchesSearch = !searchTerm || title.includes(searchTerm) || description.includes(searchTerm);
+                const matchesFavorites = !showOnlyFavorites || isFavorite;
+                
+                // Mostrar u ocultar según los filtros
+                if (matchesCategory && matchesSearch && matchesFavorites) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Actualizar contador de resultados
+            updateResultsCounter(visibleCount, totalCount);
+        }
+
+        // Función para actualizar el contador de resultados
+        function updateResultsCounter(visible = null, total = null) {
+            const resultsCounter = document.getElementById('results-counter');
+            
+            if (visible === null || total === null) {
+                // Contar manualmente si no se proporcionan valores
+                const siteCards = document.querySelectorAll('.site-card');
+                visible = 0;
+                total = siteCards.length;
+                
+                siteCards.forEach(card => {
+                    if (!card.classList.contains('hidden')) {
+                        visible++;
+                    }
+                });
+            }
+            
+            let message = '';
+            
+            if (visible === total) {
+                message = 'Mostrando todos los sitios web';
+            } else {
+                message = `Mostrando ${visible} de ${total} sitios web`;
+            }
+            
+            const searchTerm = document.getElementById('site-search').value.trim();
+            if (searchTerm) {
+                message += ` (búsqueda: "${searchTerm}")`;
+            }
+            
+            const activeCategory = document.querySelector('.category-filter.bg-blue-600').getAttribute('data-category');
+            if (activeCategory !== 'all') {
+                const categoryName = SITE_CATEGORIES[activeCategory]?.name || activeCategory;
+                message += ` (categoría: ${categoryName})`;
+            }
+            
+            if (document.getElementById('show-favorites').checked) {
+                message += ' (solo favoritos)';
+            }
+            
+            resultsCounter.textContent = message;
+        }
+
+        // Inicializar la página cuando el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar los sitios web
+            loadSites();
+            
+            // Inicializar el buscador
+            const searchInput = document.getElementById('site-search');
+            const clearSearchBtn = document.getElementById('clear-search');
+            
+            searchInput.addEventListener('input', filterSites);
+            
+            clearSearchBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                filterSites();
+            });
+            
+            // Inicializar los filtros de categoría
+            const categoryFilters = document.querySelectorAll('.category-filter');
+            
+            categoryFilters.forEach(filter => {
+                filter.addEventListener('click', function() {
+                    // Quitar la clase activa de todos los filtros
+                    categoryFilters.forEach(f => {
+                        f.classList.remove('bg-blue-600', 'text-white');
+                        f.classList.add('bg-blue-50', 'text-blue-700');
+                    });
+                    
+                    // Añadir la clase activa al filtro seleccionado
+                    this.classList.remove('bg-blue-50', 'text-blue-700');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    
+                    // Aplicar filtros
+                    filterSites();
+                });
+            });
+            
+            // Inicializar el toggle de favoritos
+            const favoritesToggle = document.getElementById('show-favorites');
+            
+            favoritesToggle.addEventListener('change', function() {
+                // Actualizar estilo del toggle
+                const dot = this.nextElementSibling.querySelector('.dot');
+                if (this.checked) {
+                    this.nextElementSibling.classList.add('bg-yellow-500');
+                    this.nextElementSibling.classList.remove('bg-gray-200');
+                    dot.classList.add('translate-x-5');
+                } else {
+                    this.nextElementSibling.classList.remove('bg-yellow-500');
+                    this.nextElementSibling.classList.add('bg-gray-200');
+                    dot.classList.remove('translate-x-5');
+                }
+                
+                // Aplicar filtros
+                filterSites();
+            });
+        });
+    </script>
+</body>
+</html>

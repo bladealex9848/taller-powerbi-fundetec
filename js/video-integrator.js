@@ -664,7 +664,7 @@ function insertWebsiteLinks(containerId) {
         },
         {
             title: 'Comunidad Microsoft Fabric/Power BI',
-            url: 'https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol',
+            url: 'https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi',
             description: 'Foro oficial en español para resolver dudas.',
             icon: 'fas fa-users'
         },
@@ -699,16 +699,7 @@ function insertWebsiteLinks(containerId) {
         linksContainer.appendChild(linkElement);
     });
 
-    // Agregar enlace para ver todos los recursos
-    const viewAllLink = document.createElement('div');
-    viewAllLink.className = 'text-center mt-4';
-    viewAllLink.innerHTML = `
-        <a href="assets/sitios_referencia.md" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
-            <span>Ver todos los sitios de referencia</span>
-            <i class="fas fa-external-link-alt ml-1"></i>
-        </a>
-    `;
-    container.appendChild(viewAllLink);
+    // El enlace "Ver todos los sitios de referencia" ahora se maneja en js/sitios-referencia.js
 }
 
 // Exportar funciones

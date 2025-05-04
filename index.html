@@ -332,8 +332,8 @@
 
     <!-- Resource Modal -->
     <div id="resource-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
-            <div class="border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+        <div class="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-screen overflow-y-auto">
+            <div class="border-b border-gray-200 px-6 py-4 flex justify-between items-center sticky top-0 bg-white z-10">
                 <h3 class="text-xl font-bold text-blue-800 flex items-center" id="resource-modal-title">
                     <i class="fas fa-book mr-2"></i>
                     Recursos
@@ -343,7 +343,7 @@
                 </button>
             </div>
             <div class="p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="resource-modal-content">
+                <div class="markdown-container" id="resource-modal-content">
                     <!-- El contenido se cargará dinámicamente con JavaScript -->
                 </div>
             </div>
@@ -468,6 +468,8 @@
     <script src="js/module-renderer.js"></script>
     <!-- Recursos adicionales -->
     <script src="js/video-integrator.js"></script>
+    <script src="js/sitios-referencia.js"></script>
+    <script src="js/markdown-viewer.js"></script>
     <!-- Inicializador de la aplicación (cargar último) -->
     <script src="js/app-initializer.js"></script>
 </body>

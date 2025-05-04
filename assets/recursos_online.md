@@ -26,7 +26,7 @@
 - [El Futuro de los Datos (Salvador Ramos)](https://elfuturodelosdatos.com/) - Sitio web y blog de un veterano MVP de Microsoft.
 
 ### Comunidades
-- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol) - Foro oficial de Microsoft en español.
+- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi) - Foro oficial de Microsoft en español.
 - [Power Platform España](https://www.powerplatformspain.com/) - Comunidad amplia que abarca toda la Power Platform.
 
 ### Recursos Adicionales

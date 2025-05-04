@@ -320,7 +320,7 @@ Si los recursos no se cargan correctamente:
 - [El Futuro de los Datos (Blog)](https://www.elfuturodelosdatos.com/)
 
 ### Comunidad
-- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Comunidad-de-Power-BI-en-espa%C3%B1ol/ct-p/PBI_Espanol)
+- [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi)
 - [Power Platform España](https://www.next-step.es/power-platform-espana/)
 - [Grupo de Telegram PowerBIEspañol](https://t.me/powerbiespanol)
 - [Galería de Temas](https://community.fabric.microsoft.com/t5/Themes-Gallery/bd-p/ThemesGallery)
