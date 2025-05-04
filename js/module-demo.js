@@ -723,39 +723,21 @@ const demoModuleContent = {
             </div>
 
             <div class="mb-6">
-                <h4 class="font-bold text-blue-800 mb-2">Comprueba tu comprensión</h4>
+                <h4 class="font-bold text-blue-800 mb-2">Próximos pasos</h4>
 
-                <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
-                    <p class="font-bold mb-2">¿Cuál es el papel principal de los asistentes de IA en el flujo de trabajo de Power BI?</p>
+                <p class="mb-4">Una vez que hayas creado tu dashboard, puedes:</p>
 
-                    <div class="space-y-2 mt-4">
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q1" data-correct="false">
-                            <span>Reemplazar completamente la necesidad de aprender Power BI</span>
-                            <input type="radio" name="q1">
-                        </label>
+                <ul class="list-disc pl-5 space-y-2 mb-4">
+                    <li><strong>Refinar el diseño:</strong> Ajustar colores, fuentes y alineación para mejorar la apariencia</li>
+                    <li><strong>Añadir interactividad:</strong> Configurar acciones de detalle y filtrado cruzado</li>
+                    <li><strong>Probar con usuarios:</strong> Obtener feedback de usuarios reales para mejorar la usabilidad</li>
+                    <li><strong>Documentar:</strong> Añadir información sobre fuentes de datos y metodología</li>
+                    <li><strong>Publicar:</strong> Compartir el dashboard con los interesados</li>
+                </ul>
 
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q1" data-correct="true">
-                            <span>Complementar el trabajo del analista, acelerando tareas y ayudando a superar obstáculos</span>
-                            <input type="radio" name="q1">
-                        </label>
-
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q1" data-correct="false">
-                            <span>Generar automáticamente informes completos sin intervención humana</span>
-                            <input type="radio" name="q1">
-                        </label>
-
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q1" data-correct="false">
-                            <span>Sustituir a los profesionales de análisis de datos</span>
-                            <input type="radio" name="q1">
-                        </label>
-                    </div>
-
-                    <div class="mt-4">
-                        <button class="check-answer-btn px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" data-question="q1">
-                            Verificar respuesta
-                        </button>
-                        <p class="feedback-message hidden mt-2 p-2 rounded"></p>
-                    </div>
+                <div class="bg-green-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-green-800 mb-2">Consejo final</h4>
+                    <p>Recuerda que un buen dashboard evoluciona con el tiempo. Planifica revisiones periódicas para asegurarte de que sigue siendo relevante y útil para tu audiencia.</p>
                 </div>
             </div>
         `,

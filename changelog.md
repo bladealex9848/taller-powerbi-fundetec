@@ -2,6 +2,12 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.4.6] - 2024-07-16
+
+### Corregido
+- Eliminado quiz duplicado en el paso 4 del módulo de demostración (Creación de Dashboards)
+- Reemplazado el quiz duplicado por una sección de "Próximos pasos" con consejos adicionales
+
 ## [1.4.5] - 2024-07-16
 
 ### Añadido
