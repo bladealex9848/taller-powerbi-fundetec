@@ -105,7 +105,7 @@ const communitiesAndForums = [
         icon: 'fas fa-users'
     },
     {
-        url: 'https://www.powerplatformspain.com/',
+        url: 'https://community.fabric.microsoft.com/t5/Power-BI-Spanish-forums/ct-p/pbi_spanish',
         title: 'Power Platform España',
         description: 'Comunidad amplia que abarca toda la Power Platform.',
         icon: 'fas fa-users'
@@ -140,7 +140,7 @@ const introModuleLinks = {
                 icon: 'fas fa-rss'
             },
             {
-                url: 'https://www.dataprix.com/es/blog/business-intelligence/power-bi',
+                url: 'https://www.dataprix.com/es/tecnologia/business-intelligence',
                 title: 'Dataprix - Power BI',
                 description: 'Artículos sobre análisis de datos con Power BI.',
                 icon: 'fas fa-chart-line'
@@ -181,7 +181,7 @@ const introModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones específicas sobre Power BI Desktop.',
                 icon: 'fas fa-comments'
@@ -214,7 +214,7 @@ const introModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones específicas sobre Power BI Desktop.',
                 icon: 'fas fa-comments'
@@ -247,7 +247,7 @@ const introModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Data-Modeling/bd-p/DataModelingDiscussion',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/Data-Modeling/td-p/3432923',
                 title: 'Foro de Modelado de Datos',
                 description: 'Discusiones específicas sobre modelado de datos.',
                 icon: 'fas fa-comments'
@@ -286,7 +286,7 @@ const transformModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones específicas sobre conexiones de datos.',
                 icon: 'fas fa-comments'
@@ -352,7 +352,7 @@ const transformModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Data-Modeling/bd-p/DataModelingDiscussion',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/Data-Modeling/td-p/3432923',
                 title: 'Foro de Modelado de Datos',
                 description: 'Discusiones específicas sobre modelado de datos.',
                 icon: 'fas fa-comments'
@@ -424,7 +424,7 @@ const demoModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre creación de informes.',
                 icon: 'fas fa-comments'
@@ -451,7 +451,7 @@ const demoModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre importación de datos.',
                 icon: 'fas fa-comments'
@@ -477,7 +477,7 @@ const demoModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Data-Visualization/bd-p/DataVisualization',
+                url: 'https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi',
                 title: 'Foro de Visualización de Datos',
                 description: 'Discusiones sobre visualizaciones en Power BI.',
                 icon: 'fas fa-comments'
@@ -536,7 +536,7 @@ const practiceModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre ejercicios prácticos.',
                 icon: 'fas fa-comments'
@@ -563,7 +563,7 @@ const practiceModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre desarrollo paso a paso.',
                 icon: 'fas fa-comments'
@@ -589,7 +589,7 @@ const practiceModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre solución de problemas.',
                 icon: 'fas fa-comments'
@@ -607,7 +607,7 @@ const practiceModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.sqlbi.com/guides/',
+                url: 'https://www.sqlbi.com/',
                 title: 'SQLBI - Guías avanzadas',
                 description: 'Guías avanzadas para dominar Power BI.',
                 icon: 'fas fa-user-graduate'
@@ -615,7 +615,7 @@ const practiceModuleLinks = {
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-desktop',
+                url: 'https://community.fabric.microsoft.com/t5/Desktop/bd-p/power-bi-designer',
                 title: 'Foro de Power BI Desktop',
                 description: 'Discusiones sobre aprendizaje continuo.',
                 icon: 'fas fa-comments'

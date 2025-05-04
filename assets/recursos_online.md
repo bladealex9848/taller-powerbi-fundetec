@@ -27,7 +27,7 @@
 
 ### Comunidades
 - [Comunidad Microsoft Fabric/Power BI (Español)](https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi) - Foro oficial de Microsoft en español.
-- [Power Platform España](https://www.powerplatformspain.com/) - Comunidad amplia que abarca toda la Power Platform.
+- [Power Platform España](https://community.fabric.microsoft.com/t5/Power-BI-Spanish-forums/ct-p/pbi_spanish) - Comunidad amplia que abarca toda la Power Platform.
 
 ### Recursos Adicionales
 - [Ejemplos y datasets oficiales](https://learn.microsoft.com/es-es/power-bi/create-reports/sample-datasets) - Ejemplos y datasets oficiales de Microsoft.
