@@ -519,20 +519,83 @@ function insertPracticeVideos(containerId) {
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
 
-    // Insertar videos de práctica
-    insertYouTubeVideo(
-        'practice-videos-container',
-        'hKe7bHPiSPU',
-        'Tutorial Power BI - Creación de Dashboard en 3 horas',
-        'Tutorial detallado para crear un dashboard completo desde cero.'
-    );
+    // Obtener el módulo y paso actuales
+    const moduleContentSection = document.getElementById('module-content-section');
+    const currentModule = moduleContentSection ? moduleContentSection.getAttribute('data-current-module') : '';
+    const currentStep = moduleContentSection ? parseInt(moduleContentSection.getAttribute('data-current-step') || '0') : 0;
 
-    insertYouTubeVideo(
-        'practice-videos-container',
-        'sjrlIAQnD8M',
-        'Curso Completo de Power BI',
-        'Curso completo con todas las funcionalidades para seguir aprendiendo.'
-    );
+    // Insertar videos según el paso actual
+    if (currentModule === 'practice' && currentStep === 0) { // Introducción a la Práctica
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'f3nEZo4b-Yg',
+            'Preparación para trabajar con Power BI',
+            'Guía para configurar correctamente tu entorno de trabajo antes de comenzar con Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'ezc9ZVMxYwU',
+            'Primeros pasos con Power BI Desktop',
+            'Introducción a la interfaz y funcionalidades básicas de Power BI Desktop.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'Jbocj79eBXQ',
+            'Consejos para practicar eficientemente con Power BI',
+            'Recomendaciones para aprovechar al máximo tus sesiones de práctica.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'Hn9kNzN8H4I',
+            'Errores comunes al comenzar con Power BI',
+            'Problemas frecuentes y cómo evitarlos cuando estás aprendiendo Power BI.'
+        );
+    } else if (currentModule === 'practice' && currentStep === 1) { // Desarrollo Paso a Paso
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'Jbocj79eBXQ',
+            'Conexión a datos en Power BI',
+            'Tutorial detallado sobre cómo conectarse a diferentes fuentes de datos en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'f3nEZo4b-Yg',
+            'Transformación de datos con Power Query',
+            'Guía completa sobre cómo usar Power Query para limpiar y transformar datos.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'ezc9ZVMxYwU',
+            'Modelado de datos en Power BI',
+            'Cómo crear un modelo de datos eficiente con relaciones correctas entre tablas.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'Hn9kNzN8H4I',
+            'Modelo en estrella vs. copo de nieve',
+            'Diferencias entre los modelos de datos en estrella y copo de nieve, y cuándo usar cada uno.'
+        );
+    } else { // Recursos para Continuar Aprendiendo (paso 3) u otros pasos
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'hKe7bHPiSPU',
+            'Tutorial Power BI - Creación de Dashboard en 3 horas',
+            'Tutorial detallado para crear un dashboard completo desde cero.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'sjrlIAQnD8M',
+            'Curso Completo de Power BI',
+            'Curso completo con todas las funcionalidades para seguir aprendiendo.'
+        );
+    }
 }
 
 /**

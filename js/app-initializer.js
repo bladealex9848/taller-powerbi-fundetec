@@ -986,8 +986,14 @@ function initStepInteractiveElements() {
                     }
                     break;
                 case 'practice':
-                    // Solo agregar videos en el último paso del módulo
-                    if (currentStep === 3) { // Recursos para Continuar Aprendiendo
+                    // Agregar videos en el primer, segundo y último paso del módulo
+                    if (currentStep === 0) { // Introducción a la Práctica
+                        insertPracticeVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 1) { // Desarrollo Paso a Paso
+                        insertPracticeVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 3) { // Recursos para Continuar Aprendiendo
                         insertPracticeVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     }

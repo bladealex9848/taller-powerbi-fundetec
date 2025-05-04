@@ -52,6 +52,50 @@ const practiceModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">En esta sección, pondrás en práctica todo lo aprendido hasta ahora a través de ejercicios guiados. Estos ejercicios te permitirán consolidar tus conocimientos y desarrollar habilidades prácticas con Power BI.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Beneficios de la práctica</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Refuerza el aprendizaje teórico</li>
+                            <li>Desarrolla memoria muscular</li>
+                            <li>Identifica áreas de mejora</li>
+                            <li>Aumenta la confianza</li>
+                            <li>Prepara para situaciones reales</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>La práctica constante es clave para dominar Power BI</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Enfoque recomendado</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Sigue los pasos en orden</li>
+                            <li>Toma notas durante el proceso</li>
+                            <li>No temas cometer errores</li>
+                            <li>Experimenta con variaciones</li>
+                            <li>Compara tu resultado final</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Los errores son oportunidades de aprendizaje valiosas</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Después de la práctica</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Revisa tu trabajo final</li>
+                            <li>Identifica áreas de mejora</li>
+                            <li>Busca formas de optimizar</li>
+                            <li>Comparte y recibe feedback</li>
+                            <li>Aplica lo aprendido a otros datos</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>La reflexión posterior mejora la retención</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="bg-blue-50 p-4 rounded-lg mb-4">
                     <h4 class="font-bold text-blue-800 mb-2">Objetivos de la práctica</h4>
                     <ul class="list-disc pl-5 space-y-1">
@@ -76,11 +120,133 @@ const practiceModuleContent = {
                     <p class="mt-2 text-sm">Todos estos archivos están disponibles en la sección de recursos del taller.</p>
                 </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Preparación del entorno</h5>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Verifica que Power BI Desktop esté instalado y actualizado</li>
+                            <li>Crea una carpeta específica para los archivos de práctica</li>
+                            <li>Descarga todos los archivos necesarios desde la sección de recursos</li>
+                            <li>Descomprime los archivos si vienen en formato ZIP</li>
+                            <li>Organiza los archivos en subcarpetas si es necesario</li>
+                            <li>Abre Power BI Desktop antes de comenzar</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Un entorno bien organizado facilita el trabajo y evita confusiones.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Consejos para la práctica</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Guarda frecuentemente:</strong> Evita perder tu trabajo</li>
+                            <li><strong>Nombra adecuadamente:</strong> Usa nombres descriptivos para medidas y columnas</li>
+                            <li><strong>Documenta tu proceso:</strong> Toma notas de los pasos seguidos</li>
+                            <li><strong>Prueba alternativas:</strong> Experimenta con diferentes visualizaciones</li>
+                            <li><strong>Verifica los resultados:</strong> Comprueba que los cálculos sean correctos</li>
+                            <li><strong>Pide ayuda:</strong> No dudes en consultar si te atascas</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Estos consejos te ayudarán a aprovechar al máximo la sesión práctica.</p>
+                    </div>
+                </div>
+
                 <div class="flex items-center justify-center mb-4">
                     <img src="assets/img/practice-intro.jpg" alt="Ejemplo de dashboard de práctica" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "practice-quiz-1",
+            question: "¿Cuál es el primer paso recomendado al crear un nuevo proyecto en Power BI?",
+            options: [
+                "Crear visualizaciones inmediatamente",
+                "Conectar a las fuentes de datos y transformarlos adecuadamente",
+                "Publicar el informe en Power BI Service",
+                "Diseñar el aspecto visual del dashboard"
+            ],
+            correctIndex: 1
+        },
+
+        // Diagrama del flujo de trabajo de práctica
+        diagram: {
+            title: "Flujo de trabajo para la práctica",
+            description: "Este diagrama muestra el proceso recomendado para completar los ejercicios prácticos de manera efectiva.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Preparación",
+                    description: "Instalar Power BI y descargar los archivos necesarios"
+                },
+                {
+                    step: 2,
+                    title: "Conexión",
+                    description: "Conectar a las fuentes de datos (Excel, bases de datos, etc.)"
+                },
+                {
+                    step: 3,
+                    title: "Transformación",
+                    description: "Limpiar y preparar los datos con Power Query"
+                },
+                {
+                    step: 4,
+                    title: "Modelado",
+                    description: "Crear relaciones entre tablas y medidas calculadas"
+                },
+                {
+                    step: 5,
+                    title: "Visualización",
+                    description: "Crear gráficos, tablas y otros elementos visuales"
+                },
+                {
+                    step: 6,
+                    title: "Refinamiento",
+                    description: "Mejorar el diseño y la interactividad del dashboard"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aplicarás todo lo aprendido hasta ahora a través de ejercicios prácticos guiados que te ayudarán a consolidar tus conocimientos.",
+            exercises: [
+                {
+                    title: "Preparación para la práctica",
+                    description: "Antes de comenzar con los ejercicios principales, completa estos pasos preparatorios:",
+                    steps: [
+                        "Verifica que Power BI Desktop esté instalado correctamente en tu equipo",
+                        "Descarga los archivos de práctica desde la sección de recursos del taller",
+                        "Crea una carpeta específica en tu equipo para organizar los archivos de práctica",
+                        "Familiarízate con la estructura de los archivos de datos que utilizaremos",
+                        "Abre Power BI Desktop y configura las opciones según tus preferencias",
+                        "Revisa los objetivos de la práctica para tener claro qué vamos a lograr"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en la preparación para los ejercicios prácticos, con verificaciones para asegurar que estás listo para comenzar.",
+            checkpoints: [
+                "He instalado y actualizado Power BI Desktop a la versión más reciente",
+                "He descargado todos los archivos necesarios para la práctica",
+                "He creado una carpeta específica para organizar los archivos de práctica",
+                "He revisado los objetivos de la práctica y entiendo qué voy a crear",
+                "He verificado que puedo abrir los archivos Excel proporcionados",
+                "He leído los consejos para la práctica y estoy listo para comenzar"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía de instalación de Power BI Desktop",
+                    url: "https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-get-the-desktop",
+                    description: "Instrucciones detalladas para instalar Power BI Desktop en diferentes sistemas operativos"
+                },
+                {
+                    title: "Introducción a Power BI Desktop",
+                    url: "https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-what-is-desktop",
+                    description: "Visión general de las funcionalidades de Power BI Desktop"
+                }
+            ]
+        }
     },
 
     step2: {
@@ -90,6 +256,49 @@ const practiceModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">En este ejercicio práctico, crearemos un dashboard de análisis de ventas minoristas paso a paso. Seguiremos el mismo flujo de trabajo que vimos en los módulos anteriores: conectar, transformar, modelar y visualizar.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Estructura de datos</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Ventas:</strong> Transacciones</li>
+                            <li><strong>Productos:</strong> Catálogo</li>
+                            <li><strong>Clientes:</strong> Información</li>
+                            <li><strong>Tiendas:</strong> Ubicaciones</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Modelo en estrella con tabla de hechos central</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Objetivos del ejercicio</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Conectar múltiples fuentes</li>
+                            <li>Transformar datos correctamente</li>
+                            <li>Crear relaciones entre tablas</li>
+                            <li>Construir un modelo eficiente</li>
+                            <li>Preparar datos para visualización</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Enfoque en la calidad de los datos y el modelado</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Resultado esperado</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Datos limpios y tipados</li>
+                            <li>Modelo en estrella funcional</li>
+                            <li>Relaciones correctas</li>
+                            <li>Base sólida para visualizaciones</li>
+                            <li>Estructura optimizada para análisis</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Un buen modelo es la base de un buen dashboard</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h4 class="font-bold text-blue-800 mb-2">Paso 1: Conexión a los datos</h4>
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
                     <li>Abre Power BI Desktop</li>
@@ -98,6 +307,17 @@ const practiceModuleContent = {
                     <li>En el navegador, selecciona las tablas "Ventas" y "Clientes"</li>
                     <li>Haz clic en "Transformar datos" para abrir el Editor de Power Query</li>
                 </ol>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-yellow-800 mb-2">Nota importante sobre la conexión</h4>
+                    <p class="mb-2">Al conectar a archivos Excel, asegúrate de:</p>
+                    <ul class="list-disc pl-5">
+                        <li>Verificar que las tablas tengan encabezados correctos</li>
+                        <li>Revisar la vista previa para detectar problemas antes de cargar</li>
+                        <li>Seleccionar solo las tablas necesarias para evitar datos innecesarios</li>
+                        <li>Comprobar que los nombres de las tablas sean descriptivos</li>
+                    </ul>
+                </div>
 
                 <h4 class="font-bold text-blue-800 mb-2">Paso 2: Transformación de datos</h4>
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
@@ -116,6 +336,34 @@ const practiceModuleContent = {
                     </li>
                     <li>Carga los datos transformados haciendo clic en "Cerrar y aplicar"</li>
                 </ol>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Transformaciones comunes</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Cambiar tipos de datos:</strong> Asegura cálculos correctos</li>
+                            <li><strong>Eliminar filas/columnas:</strong> Quita datos innecesarios</li>
+                            <li><strong>Reemplazar valores:</strong> Corrige inconsistencias</li>
+                            <li><strong>Combinar consultas:</strong> Une datos relacionados</li>
+                            <li><strong>Dividir columnas:</strong> Separa datos combinados</li>
+                            <li><strong>Agregar columnas:</strong> Crea cálculos personalizados</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Estas transformaciones se realizan en el Editor de Power Query.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Mejores prácticas</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Documentar pasos:</strong> Añade descripciones a los pasos aplicados</li>
+                            <li><strong>Nombres descriptivos:</strong> Usa nombres claros para consultas y pasos</li>
+                            <li><strong>Agrupar transformaciones:</strong> Organiza pasos similares juntos</li>
+                            <li><strong>Probar resultados:</strong> Verifica que los datos sean correctos</li>
+                            <li><strong>Optimizar rendimiento:</strong> Elimina pasos innecesarios</li>
+                            <li><strong>Crear funciones:</strong> Para transformaciones repetitivas</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Un proceso de transformación bien organizado facilita el mantenimiento.</p>
+                    </div>
+                </div>
 
                 <h4 class="font-bold text-blue-800 mb-2">Paso 3: Conexión a datos adicionales</h4>
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
@@ -147,7 +395,113 @@ const practiceModuleContent = {
                     <img src="assets/img/practice-model.jpg" alt="Modelo de datos en estrella" class="max-w-full h-auto rounded-lg shadow-md">
                 </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "practice-quiz-2",
+            question: "¿Qué tipo de relación es más común entre una tabla de hechos (como Ventas) y una tabla de dimensiones (como Productos)?",
+            options: [
+                "Muchos a muchos",
+                "Uno a uno",
+                "Uno a muchos (con 'uno' en la tabla de dimensiones)",
+                "No se necesitan relaciones entre tablas"
+            ],
+            correctIndex: 2
+        },
+
+        // Diagrama del modelo de datos
+        diagram: {
+            title: "Estructura del modelo de datos en estrella",
+            description: "Este diagrama muestra la estructura recomendada para un modelo de datos en estrella con una tabla de hechos central.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Tabla de Hechos",
+                    description: "Ventas (central) contiene las métricas y claves foráneas"
+                },
+                {
+                    step: 2,
+                    title: "Dimensión Productos",
+                    description: "Contiene información descriptiva de los productos"
+                },
+                {
+                    step: 3,
+                    title: "Dimensión Clientes",
+                    description: "Almacena datos de los clientes y segmentación"
+                },
+                {
+                    step: 4,
+                    title: "Dimensión Tiendas",
+                    description: "Incluye ubicaciones y detalles de las tiendas"
+                },
+                {
+                    step: 5,
+                    title: "Dimensión Tiempo",
+                    description: "Opcional: tabla de calendario para análisis temporal avanzado"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a desarrollar paso a paso un dashboard de análisis de ventas minoristas, siguiendo las mejores prácticas de modelado de datos.",
+            exercises: [
+                {
+                    title: "Conexión y transformación de datos",
+                    description: "Practica la conexión a fuentes de datos y la transformación básica:",
+                    steps: [
+                        "Abre Power BI Desktop y conecta al archivo VentasRetail.xlsx",
+                        "Selecciona las tablas Ventas y Clientes",
+                        "En el Editor de Power Query, cambia los tipos de datos según las instrucciones",
+                        "Elimina filas con valores nulos en ID_Producto",
+                        "Reemplaza los valores N/A en la columna Segmento",
+                        "Carga los datos transformados",
+                        "Conecta a los archivos Productos.xlsx y Tiendas.xlsx",
+                        "Verifica que todas las tablas se hayan cargado correctamente"
+                    ]
+                },
+                {
+                    title: "Modelado de datos",
+                    description: "Crea un modelo de datos en estrella:",
+                    steps: [
+                        "Ve a la Vista de Modelo en Power BI Desktop",
+                        "Crea una relación entre Ventas y Productos usando ID_Producto",
+                        "Crea una relación entre Ventas y Clientes usando ID_Cliente",
+                        "Crea una relación entre Ventas y Tiendas usando ID_Tienda",
+                        "Verifica que todas las relaciones sean de tipo Uno a muchos",
+                        "Organiza las tablas en el diagrama con Ventas en el centro",
+                        "Comprueba que las relaciones funcionen filtrando datos en la Vista de Informe"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de desarrollo paso a paso de un dashboard, con verificaciones para asegurar tu comprensión del modelado de datos.",
+            checkpoints: [
+                "He conectado correctamente a los archivos Excel proporcionados",
+                "He seleccionado las tablas necesarias para el análisis",
+                "He aplicado las transformaciones requeridas a los datos",
+                "He cambiado los tipos de datos para asegurar cálculos correctos",
+                "He limpiado los datos eliminando filas con valores nulos",
+                "He creado todas las relaciones necesarias entre las tablas",
+                "He verificado que las relaciones sean del tipo correcto (Uno a muchos)",
+                "He organizado el modelo de datos en una estructura de estrella"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía de modelado de datos en Power BI",
+                    url: "https://docs.microsoft.com/es-es/power-bi/guidance/star-schema",
+                    description: "Documentación oficial sobre cómo crear modelos de datos eficientes en Power BI"
+                },
+                {
+                    title: "Mejores prácticas para transformación de datos",
+                    url: "https://docs.microsoft.com/es-es/power-bi/guidance/power-query-best-practices",
+                    description: "Recomendaciones para optimizar el proceso de transformación de datos"
+                }
+            ]
+        }
     },
 
     step3: {

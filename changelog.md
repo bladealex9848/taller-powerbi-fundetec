@@ -2,6 +2,51 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.4.9] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 2 del módulo de práctica (Desarrollo Paso a Paso)
+- Quiz para comprobar comprensión en el paso 2 del módulo de práctica
+- Diagrama de la estructura del modelo de datos en estrella
+- Contenido específico para modos estudiante y autoguiado en el paso 2 del módulo de práctica
+- Recursos adicionales (videos y enlaces) para el paso 2 del módulo de práctica
+- Videos específicos sobre conexión, transformación y modelado de datos
+
+### Mejorado
+- Contenido principal del paso 2 del módulo de práctica con secciones adicionales sobre estructura de datos, objetivos del ejercicio y resultado esperado
+- Sección sobre transformaciones comunes y mejores prácticas
+- Nota importante sobre la conexión a archivos Excel
+- Función insertPracticeVideos para mostrar videos específicos para el paso 2
+
+## [1.4.8] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 1 del módulo de práctica (Introducción a la Práctica)
+- Quiz para comprobar comprensión en el paso 1 del módulo de práctica
+- Diagrama del flujo de trabajo para la práctica
+- Contenido específico para modos estudiante y autoguiado en el paso 1 del módulo de práctica
+- Recursos adicionales (videos y enlaces) para el paso 1 del módulo de práctica
+- Videos específicos sobre preparación para trabajar con Power BI
+
+### Mejorado
+- Contenido principal del paso 1 del módulo de práctica con secciones adicionales sobre beneficios de la práctica, enfoque recomendado y pasos posteriores
+- Sección sobre preparación del entorno y consejos para la práctica
+- Función insertPracticeVideos para mostrar videos específicos según el paso actual
+
+## [1.4.7] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 5 del módulo de demostración (Publicación y Compartición)
+- Quiz para comprobar comprensión en el paso 5 del módulo de demostración
+- Diagrama del proceso de publicación y compartición
+- Contenido específico para modos estudiante y autoguiado en el paso 5 del módulo de demostración
+- Secciones adicionales sobre tipos de licencias y actualizaciones de datos
+
+### Mejorado
+- Contenido principal del paso 5 del módulo de demostración con secciones adicionales sobre opciones de publicación
+- Sección sobre creación de aplicaciones y configuración de actualizaciones programadas
+- Sección sobre consideraciones de seguridad con más detalles
+
 ## [1.4.6] - 2024-07-16
 
 ### Corregido

@@ -850,6 +850,50 @@ const demoModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">Una vez que has creado tu dashboard, el siguiente paso es compartirlo con las personas que necesitan ver la información. Power BI ofrece varias opciones para publicar y compartir tus informes.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Opciones de publicación</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Power BI Service:</strong> En la nube</li>
+                            <li><strong>PDF/PowerPoint:</strong> Versión estática</li>
+                            <li><strong>Insertar:</strong> En aplicaciones/web</li>
+                            <li><strong>Power BI Mobile:</strong> Dispositivos móviles</li>
+                            <li><strong>Report Server:</strong> Solución local</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Elige según las necesidades de tu audiencia</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Tipos de licencias</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Free:</strong> Uso personal limitado</li>
+                            <li><strong>Pro:</strong> Compartir con otros usuarios Pro</li>
+                            <li><strong>Premium por usuario:</strong> Funciones avanzadas</li>
+                            <li><strong>Premium por capacidad:</strong> Para organizaciones</li>
+                            <li><strong>Embedded:</strong> Para aplicaciones personalizadas</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Las opciones de compartir dependen de tu licencia</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Actualizaciones de datos</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Manual:</strong> Actualizar bajo demanda</li>
+                            <li><strong>Programada:</strong> Según calendario</li>
+                            <li><strong>Puerta de enlace:</strong> Para datos locales</li>
+                            <li><strong>DirectQuery:</strong> Datos en tiempo real</li>
+                            <li><strong>Streaming:</strong> Datos en tiempo real</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Configura según la frecuencia necesaria</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h4 class="font-bold text-blue-800 mb-2">Opciones de publicación:</h4>
 
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
@@ -889,9 +933,46 @@ const demoModuleContent = {
                     <li><strong>Programar actualizaciones:</strong> Envía informes por correo electrónico según un calendario</li>
                 </ul>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Crear una aplicación</h5>
+                        <p class="text-sm mb-2">Las aplicaciones de Power BI son colecciones de dashboards e informes organizados:</p>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Ve a tu área de trabajo en Power BI Service</li>
+                            <li>Haz clic en "Crear app" en la esquina superior derecha</li>
+                            <li>Configura detalles como nombre, descripción e imagen</li>
+                            <li>Selecciona el contenido a incluir en la aplicación</li>
+                            <li>Configura la navegación y permisos</li>
+                            <li>Publica la aplicación para compartirla</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Las aplicaciones son ideales para distribuir contenido a grandes audiencias.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Configurar actualizaciones programadas</h5>
+                        <p class="text-sm mb-2">Mantén tus datos actualizados automáticamente:</p>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Ve al conjunto de datos en Power BI Service</li>
+                            <li>Haz clic en los tres puntos (...) y selecciona "Configuración"</li>
+                            <li>Expande la sección "Actualización programada"</li>
+                            <li>Activa "Mantener tus datos actualizados"</li>
+                            <li>Configura la frecuencia y hora de actualización</li>
+                            <li>Guarda la configuración</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Para datos locales, necesitarás configurar una puerta de enlace.</p>
+                    </div>
+                </div>
+
                 <div class="bg-yellow-50 p-4 rounded-lg mb-4">
                     <h4 class="font-bold text-yellow-800 mb-2">Consideraciones de seguridad</h4>
-                    <p>Asegúrate de entender las implicaciones de seguridad al compartir informes. Configura los permisos adecuadamente para proteger datos sensibles y cumplir con las políticas de tu organización.</p>
+                    <p class="mb-2">Asegúrate de entender las implicaciones de seguridad al compartir informes:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Seguridad a nivel de fila (RLS):</strong> Limita el acceso a datos específicos según el usuario</li>
+                        <li><strong>Permisos granulares:</strong> Configura quién puede ver, editar o compartir cada elemento</li>
+                        <li><strong>Certificación de contenido:</strong> Marca informes como oficiales o aprobados</li>
+                        <li><strong>Auditoría:</strong> Monitorea quién accede a qué contenido y cuándo</li>
+                        <li><strong>Cumplimiento:</strong> Asegúrate de cumplir con las políticas de tu organización</li>
+                    </ul>
                 </div>
             </div>
 
@@ -914,44 +995,100 @@ const demoModuleContent = {
                     <p>Continúa al módulo de práctica para aplicar estos conceptos en ejercicios guiados, o explora recursos adicionales para profundizar en temas específicos de Power BI.</p>
                 </div>
             </div>
+        `,
 
-            <div class="mb-6">
-                <h4 class="font-bold text-blue-800 mb-2">Comprueba tu comprensión</h4>
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "demo-quiz-5",
+            question: "¿Cuál es la mejor opción para compartir un dashboard de Power BI con un gran número de usuarios en una organización?",
+            options: [
+                "Exportar a PDF y enviar por correo electrónico",
+                "Compartir el archivo .pbix directamente",
+                "Crear y publicar una aplicación de Power BI",
+                "Generar un código QR para cada usuario"
+            ],
+            correctIndex: 2
+        },
 
-                <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
-                    <p class="font-bold mb-2">¿Cuál es la mejor práctica al diseñar dashboards en Power BI?</p>
+        // Diagrama del proceso de publicación
+        diagram: {
+            title: "Proceso de publicación y compartición",
+            description: "Este diagrama muestra el flujo de trabajo para publicar y compartir dashboards en Power BI.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Preparación",
+                    description: "Verificar que el dashboard está listo para compartir"
+                },
+                {
+                    step: 2,
+                    title: "Publicación",
+                    description: "Publicar en Power BI Service desde Power BI Desktop"
+                },
+                {
+                    step: 3,
+                    title: "Configuración",
+                    description: "Configurar actualizaciones de datos y seguridad"
+                },
+                {
+                    step: 4,
+                    title: "Compartición",
+                    description: "Compartir con usuarios específicos o crear una aplicación"
+                },
+                {
+                    step: 5,
+                    title: "Mantenimiento",
+                    description: "Actualizar y mejorar según el feedback recibido"
+                }
+            ]
+        },
 
-                    <div class="space-y-2 mt-4">
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q2" data-correct="false">
-                            <span>Incluir la mayor cantidad posible de visualizaciones en una sola página</span>
-                            <input type="radio" name="q2">
-                        </label>
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a publicar y compartir tus dashboards de Power BI con otros usuarios de manera efectiva y segura.",
+            exercises: [
+                {
+                    title: "Publicación de un dashboard",
+                    description: "Practica el proceso de publicación de un dashboard en Power BI Service:",
+                    steps: [
+                        "Abre el archivo 'VentasEjemplo.pbix' que has trabajado en los pasos anteriores",
+                        "Asegúrate de que todas las visualizaciones funcionan correctamente",
+                        "Haz clic en 'Publicar' en la pestaña Inicio de Power BI Desktop",
+                        "Inicia sesión con tu cuenta de Power BI si se te solicita",
+                        "Selecciona 'Mi área de trabajo' como destino",
+                        "Espera a que se complete el proceso de publicación",
+                        "Haz clic en 'Abrir' para ver tu informe en Power BI Service",
+                        "Explora las opciones de compartir disponibles en Power BI Service",
+                        "Prueba a exportar el informe a PDF o PowerPoint",
+                        "Configura las opciones de actualización de datos si es necesario"
+                    ]
+                }
+            ]
+        },
 
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q2" data-correct="false">
-                            <span>Usar colores brillantes y llamativos para todas las visualizaciones</span>
-                            <input type="radio" name="q2">
-                        </label>
-
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q2" data-correct="true">
-                            <span>Mantener la simplicidad y enfocarse en comunicar claramente los insights más importantes</span>
-                            <input type="radio" name="q2">
-                        </label>
-
-                        <label class="quiz-option flex justify-between items-center p-3 rounded-lg hover:bg-blue-50 cursor-pointer" data-question="q2" data-correct="false">
-                            <span>Evitar la interactividad para que los usuarios no se distraigan</span>
-                            <input type="radio" name="q2">
-                        </label>
-                    </div>
-
-                    <div class="mt-4">
-                        <button class="check-answer-btn px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700" data-question="q2">
-                            Verificar respuesta
-                        </button>
-                        <p class="feedback-message hidden mt-2 p-2 rounded"></p>
-                    </div>
-                </div>
-            </div>
-        `
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de publicación y compartición de dashboards en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He publicado correctamente mi dashboard en Power BI Service",
+                "Entiendo las diferentes opciones de licencia y sus limitaciones",
+                "He explorado las opciones de compartir disponibles",
+                "He configurado las actualizaciones de datos según mis necesidades",
+                "Comprendo las consideraciones de seguridad al compartir informes",
+                "He probado diferentes formatos de exportación (PDF, PowerPoint)"
+            ],
+            additionalResources: [
+                {
+                    title: "Compartir dashboards e informes en Power BI",
+                    url: "https://learn.microsoft.com/es-es/power-bi/collaborate-share/service-share-dashboards",
+                    description: "Guía oficial de Microsoft sobre cómo compartir contenido en Power BI"
+                },
+                {
+                    title: "Crear y publicar aplicaciones con dashboards e informes",
+                    url: "https://learn.microsoft.com/es-es/power-bi/collaborate-share/service-create-distribute-apps",
+                    description: "Documentación sobre cómo crear y distribuir aplicaciones en Power BI"
+                }
+            ]
+        }
     },
 
     facilitatorNotes: {
