@@ -248,6 +248,35 @@ function insertTransformVideos(containerId) {
             'Conectar a bases de datos SQL Server desde Power BI',
             'Guía completa para conectar Power BI a bases de datos SQL Server.'
         );
+    } else if (currentStep === 1) {
+        // Videos específicos para el paso 2: Introducción a Power Query (Editor)
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'f3nEZo4b-Yg',
+            'Power Query desde Cero: Tutorial Completo para Principiantes',
+            'Introducción a la interfaz de Power Query y sus funcionalidades básicas.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'ezc9ZVMxYwU',
+            'Interfaz de Power Query: Guía Detallada',
+            'Explicación de cada componente de la interfaz del Editor de Power Query.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Jbocj79eBXQ',
+            'Panel de Pasos Aplicados: El Corazón de Power Query',
+            'Cómo utilizar el panel de Pasos Aplicados para documentar y editar transformaciones.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Hn9kNzN8H4I',
+            'Tipos de Datos en Power Query: Guía Completa',
+            'Explicación de los diferentes tipos de datos y cómo trabajar con ellos en Power Query.'
+        );
     } else {
         // Videos generales para otros pasos del módulo de transformación
         insertYouTubeVideo(

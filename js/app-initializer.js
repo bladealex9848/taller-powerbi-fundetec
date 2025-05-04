@@ -951,8 +951,11 @@ function initStepInteractiveElements() {
                     }
                     break;
                 case 'transform':
-                    // Agregar videos en el primer y último paso del módulo
+                    // Agregar videos en el primer, segundo y último paso del módulo
                     if (currentStep === 0) { // Conexión a Fuentes de Datos
+                        insertTransformVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 1) { // Introducción a Power Query (Editor)
                         insertTransformVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     } else if (currentStep === 3) { // Modelado Básico: Creación de Relaciones

@@ -2,6 +2,17 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.3.8] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 2 del módulo de transformación (Introducción a Power Query (Editor))
+- Recursos adicionales (videos y enlaces) para el paso 2 del módulo de transformación
+- Videos específicos sobre Power Query para el paso 2 del módulo de transformación
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 2 del módulo de transformación
+- Falta de recursos adicionales en el paso 2 del módulo de transformación
+
 ## [1.3.7] - 2024-07-16
 
 ### Añadido

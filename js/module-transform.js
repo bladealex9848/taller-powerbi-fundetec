@@ -552,6 +552,411 @@ const transformModuleContent = {
         // Descripción general
         description: "Power Query es el motor de Extracción, Transformación y Carga (ETL) integrado en Power BI. Permite limpiar, transformar y dar forma a los datos antes de cargarlos en el modelo.",
 
+        // Contenido principal
+        content: `
+            <div class="mb-6">
+                <p class="mb-4">Power Query es una de las herramientas más poderosas dentro del ecosistema de Power BI. Es el motor que te permite conectar, transformar y combinar datos de múltiples fuentes antes de cargarlos en tu modelo de datos.</p>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">¿Por qué es importante Power Query?</h4>
+                    <p class="mb-2">Se estima que los analistas de datos dedican entre el 60% y el 80% de su tiempo a la preparación de datos. Power Query automatiza y simplifica este proceso, permitiéndote:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Limpiar datos inconsistentes o con errores</li>
+                        <li>Combinar datos de múltiples fuentes</li>
+                        <li>Transformar datos en el formato adecuado para análisis</li>
+                        <li>Crear procesos reproducibles y documentados</li>
+                        <li>Actualizar automáticamente las transformaciones cuando cambian los datos de origen</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">¿Qué es Power Query?</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <p class="mb-3">Power Query es una tecnología de conexión de datos que permite descubrir, conectar, combinar y refinar fuentes de datos para satisfacer tus necesidades de análisis.</p>
+
+                        <p class="mb-3">Aunque está integrado en Power BI Desktop, Power Query también está disponible en:</p>
+
+                        <ul class="list-disc pl-5 mb-4">
+                            <li>Excel (como "Obtener y transformar datos")</li>
+                            <li>Power BI Service (para flujos de datos)</li>
+                            <li>Power Apps (para flujos de datos)</li>
+                            <li>Analysis Services</li>
+                            <li>Dynamics 365</li>
+                        </ul>
+
+                        <p>Esta consistencia te permite transferir tus habilidades entre diferentes productos de Microsoft.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Características clave de Power Query</h4>
+
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-blue-800 font-bold">1</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Motor ETL</h5>
+                                    <p class="text-sm text-gray-600">Herramienta especializada para Extraer, Transformar y Cargar datos.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-blue-800 font-bold">2</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Lenguaje M</h5>
+                                    <p class="text-sm text-gray-600">Utiliza un lenguaje de fórmulas llamado M (Power Query Formula Language) para realizar transformaciones.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-blue-800 font-bold">3</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Interfaz visual</h5>
+                                    <p class="text-sm text-gray-600">Proporciona una interfaz gráfica intuitiva que genera código M automáticamente.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-blue-800 font-bold">4</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Pasos reproducibles</h5>
+                                    <p class="text-sm text-gray-600">Registra cada transformación como un paso, creando un proceso reproducible y documentado.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                    <span class="text-blue-800 font-bold">5</span>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium">Actualizable</h5>
+                                    <p class="text-sm text-gray-600">Las transformaciones se aplican automáticamente cuando se actualizan los datos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Interfaz del Editor de Power Query</h3>
+
+                <p class="mb-4">Cuando haces clic en "Transformar datos" al conectarte a una fuente, se abre el Editor de Power Query. Esta interfaz está diseñada para facilitar la transformación de datos sin necesidad de programación avanzada.</p>
+
+                <div class="flex items-center justify-center mb-6">
+                    <img src="assets/img/power-query-interface.png" alt="Interfaz del Editor de Power Query" class="max-w-full h-auto rounded-lg shadow-md">
+                </div>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Área</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ubicación</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Función</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Características clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Cinta de opciones</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Parte superior</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Contiene todas las transformaciones disponibles organizadas por categorías</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Transformaciones comunes</li>
+                                        <li>Operaciones de columna</li>
+                                        <li>Operaciones de tabla</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Panel de consultas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Lado izquierdo</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Muestra todas las consultas (tablas) disponibles en el modelo</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Organización en carpetas</li>
+                                        <li>Consultas vinculadas</li>
+                                        <li>Parámetros</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Vista previa de datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Centro</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Muestra una vista previa de los datos con las transformaciones aplicadas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Muestra primeras 1000 filas</li>
+                                        <li>Tipos de datos por colores</li>
+                                        <li>Filtros de columna</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Panel de Pasos Aplicados</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Lado derecho</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Registra cada transformación como un paso secuencial</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Secuencia de transformaciones</li>
+                                        <li>Edición de pasos</li>
+                                        <li>Eliminación de pasos</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Barra de fórmulas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Debajo de la cinta</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Muestra y permite editar la fórmula M del paso seleccionado</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Edición avanzada</li>
+                                        <li>Sintaxis M</li>
+                                        <li>Personalización</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Panel de Pasos Aplicados: El Corazón de Power Query</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="md:col-span-1">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h4 class="font-bold text-gray-800 mb-3">¿Qué es?</h4>
+                            <p class="text-sm">El panel de Pasos Aplicados registra cada transformación que realizas en tus datos como un paso secuencial. Cada paso es una instrucción en lenguaje M que modifica los datos de alguna manera.</p>
+
+                            <div class="mt-4">
+                                <img src="assets/img/applied-steps.png" alt="Panel de Pasos Aplicados" class="max-w-full h-auto rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <div class="bg-white p-4 rounded-lg shadow-md h-full">
+                            <h4 class="font-bold text-gray-800 mb-3">Beneficios clave</h4>
+
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-green-500 mr-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Registra cada transformación en orden secuencial</p>
+                                        <p class="text-sm text-gray-600">Documenta automáticamente todo el proceso de transformación de datos.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-green-500 mr-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Permite ver el efecto de cada paso individualmente</p>
+                                        <p class="text-sm text-gray-600">Haz clic en cualquier paso para ver cómo se veían los datos en ese punto.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-green-500 mr-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Facilita la depuración</p>
+                                        <p class="text-sm text-gray-600">Puedes deshabilitar pasos temporalmente para identificar problemas.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-green-500 mr-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Permite reorganizar, editar o eliminar pasos</p>
+                                        <p class="text-sm text-gray-600">Modifica tu proceso de transformación en cualquier momento.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 text-green-500 mr-2">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium">Crea un proceso reproducible</p>
+                                        <p class="text-sm text-gray-600">Las mismas transformaciones se aplicarán automáticamente cuando se actualicen los datos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Pasos comunes en Power Query</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Origen:</strong> El primer paso que conecta a la fuente de datos original.</li>
+                                <li><strong>Navegación:</strong> Selección de tablas o vistas específicas de la fuente.</li>
+                                <li><strong>Tipo cambiado:</strong> Asignación de tipos de datos correctos a las columnas.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Encabezados promovidos:</strong> Conversión de la primera fila en encabezados de columna.</li>
+                                <li><strong>Columnas eliminadas:</strong> Eliminación de columnas innecesarias.</li>
+                                <li><strong>Filas filtradas:</strong> Filtrado de filas según criterios específicos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Tipos de Datos en Power Query</h3>
+
+                <p class="mb-4">Power Query asigna tipos de datos a cada columna, indicados por iconos de colores en los encabezados. Es crucial verificar y corregir estos tipos para asegurar transformaciones y cálculos correctos.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-blue-600 font-bold mr-2">Abc</span>
+                            <h4 class="font-bold text-gray-800">Texto</h4>
+                        </div>
+                        <p class="text-sm mb-2">Cadenas de caracteres alfanuméricos.</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Nombres, direcciones, códigos de producto.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-green-600 font-bold mr-2">123</span>
+                            <h4 class="font-bold text-gray-800">Número entero</h4>
+                        </div>
+                        <p class="text-sm mb-2">Valores numéricos sin decimales.</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Cantidades, conteos, edades.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-green-600 font-bold mr-2">1.23</span>
+                            <h4 class="font-bold text-gray-800">Número decimal</h4>
+                        </div>
+                        <p class="text-sm mb-2">Valores numéricos con decimales.</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Precios, porcentajes, medidas.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-red-600 font-bold mr-2">📅</span>
+                            <h4 class="font-bold text-gray-800">Fecha</h4>
+                        </div>
+                        <p class="text-sm mb-2">Valores de fecha sin componente de hora.</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Fechas de venta, fechas de nacimiento.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-red-600 font-bold mr-2">⏰</span>
+                            <h4 class="font-bold text-gray-800">Fecha/Hora</h4>
+                        </div>
+                        <p class="text-sm mb-2">Valores que incluyen fecha y hora.</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Marcas de tiempo, registros de eventos.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-purple-600 font-bold mr-2">✓/✗</span>
+                            <h4 class="font-bold text-gray-800">Lógico</h4>
+                        </div>
+                        <p class="text-sm mb-2">Valores Verdadero/Falso (Sí/No).</p>
+                        <p class="text-xs text-gray-600">Ejemplos: Indicadores, estados, flags.</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">Importancia de los tipos de datos correctos</h4>
+                    <p class="mb-2">Asignar el tipo de dato correcto es fundamental porque:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Determina qué operaciones se pueden realizar con los datos (suma, promedio, etc.)</li>
+                        <li>Afecta cómo se ordenan y filtran los valores</li>
+                        <li>Influye en las visualizaciones que Power BI sugerirá</li>
+                        <li>Impacta en el rendimiento y la memoria utilizada</li>
+                        <li>Previene errores en cálculos y transformaciones</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Navegación Básica en Power Query</h3>
+
+                <p class="mb-4">Aquí hay algunas acciones básicas que te ayudarán a navegar y trabajar eficientemente en el Editor de Power Query:</p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Acción</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Cómo hacerlo</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Consejo útil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Seleccionar columnas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Haz clic en el encabezado de la columna</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Ctrl+clic para seleccionar múltiples columnas no adyacentes</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Seleccionar filas</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Haz clic en el número de fila</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Shift+clic para seleccionar un rango de filas</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Ver menú de columna</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Haz clic en la flecha desplegable en el encabezado</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Acceso rápido a filtros y transformaciones comunes</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Cambiar tipo de datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Clic derecho en columna > Cambiar tipo > Seleccionar tipo</td>
+                                <td class="py-2 px-4 border-b border-gray-200">También en la pestaña Transformar > grupo Cualquier columna</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Filtrar datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Usar la flecha desplegable en el encabezado</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Puedes aplicar múltiples filtros en diferentes columnas</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Buscar en datos</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Ctrl+F o Inicio > Buscar</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Útil para localizar valores específicos en grandes conjuntos de datos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-green-800 mb-2">Consejo práctico</h4>
+                    <p class="mb-2">Una de las mejores formas de aprender Power Query es explorar las opciones disponibles en la cinta de opciones. Cada pestaña contiene transformaciones específicas:</p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Inicio:</strong> Transformaciones más comunes y gestión de consultas</li>
+                        <li><strong>Transformar:</strong> Operaciones para modificar columnas y filas</li>
+                        <li><strong>Agregar columna:</strong> Crear nuevas columnas con diferentes métodos</li>
+                        <li><strong>Vista:</strong> Opciones para personalizar la interfaz</li>
+                    </ul>
+                    <p class="mt-2">No te preocupes por "romper" algo. Siempre puedes deshacer acciones con Ctrl+Z o eliminar pasos del panel de Pasos Aplicados.</p>
+                </div>
+
+                <p class="mb-4">En el siguiente paso, aprenderemos a aplicar transformaciones específicas para limpiar y dar forma a nuestros datos utilizando las herramientas que ofrece Power Query.</p>
+            </div>
+        `,
+
         // ¿Qué es Power Query?
         whatIsPowerQuery: {
             title: "¿Qué es Power Query?",
