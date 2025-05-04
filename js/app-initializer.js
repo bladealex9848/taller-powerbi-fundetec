@@ -951,8 +951,11 @@ function initStepInteractiveElements() {
                     }
                     break;
                 case 'transform':
-                    // Solo agregar videos en el último paso del módulo
-                    if (currentStep === 3) { // Modelado Básico: Creación de Relaciones
+                    // Agregar videos en el primer y último paso del módulo
+                    if (currentStep === 0) { // Conexión a Fuentes de Datos
+                        insertTransformVideos(resourcesContainer.id);
+                        insertWebsiteLinks(resourcesContainer.id);
+                    } else if (currentStep === 3) { // Modelado Básico: Creación de Relaciones
                         insertTransformVideos(resourcesContainer.id);
                         insertWebsiteLinks(resourcesContainer.id);
                     }

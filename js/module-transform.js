@@ -58,6 +58,288 @@ const transformModuleContent = {
         // Descripción general
         description: "Power BI puede conectarse a una amplia variedad de fuentes de datos, desde archivos simples hasta bases de datos complejas y servicios en la nube.",
 
+        // Contenido principal
+        content: `
+            <div class="mb-6">
+                <p class="mb-4">Uno de los puntos fuertes de Power BI es su capacidad para conectarse a prácticamente cualquier fuente de datos. Esta flexibilidad te permite integrar información de múltiples orígenes para crear análisis completos y visualizaciones potentes.</p>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">¿Por qué es importante?</h4>
+                    <p>La conexión a fuentes de datos es el primer paso crítico en cualquier proyecto de Power BI. La forma en que te conectes determinará:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>La frescura de los datos (datos históricos vs. tiempo real)</li>
+                        <li>El rendimiento de tus informes</li>
+                        <li>Las capacidades de transformación disponibles</li>
+                        <li>Los requisitos de infraestructura (como gateways)</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Tipos de Fuentes de Datos</h3>
+
+                <p class="mb-4">Power BI puede conectarse a cientos de fuentes diferentes. Aquí están las categorías principales:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-2">📄</span>
+                            <h4 class="font-bold text-gray-800">Archivos</h4>
+                        </div>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Excel:</strong> Hojas de cálculo (.xlsx, .xlsm)</li>
+                            <li><strong>CSV:</strong> Valores separados por comas</li>
+                            <li><strong>Texto:</strong> Archivos de texto plano</li>
+                            <li><strong>JSON:</strong> Para datos estructurados</li>
+                            <li><strong>PDF:</strong> Extracción de tablas</li>
+                            <li><strong>XML:</strong> Datos en formato extensible</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Ideal para: Conjuntos de datos pequeños a medianos, prototipado rápido, análisis ad-hoc.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-2">🗄️</span>
+                            <h4 class="font-bold text-gray-800">Bases de Datos</h4>
+                        </div>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>SQL Server:</strong> Base de datos Microsoft</li>
+                            <li><strong>MySQL/MariaDB:</strong> BD de código abierto</li>
+                            <li><strong>PostgreSQL:</strong> BD relacional avanzada</li>
+                            <li><strong>Oracle:</strong> BD empresarial</li>
+                            <li><strong>MongoDB:</strong> BD NoSQL orientada a documentos</li>
+                            <li><strong>SAP HANA:</strong> BD en memoria</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Ideal para: Datos empresariales, grandes volúmenes, datos estructurados, entornos multiusuario.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-2">☁️</span>
+                            <h4 class="font-bold text-gray-800">Servicios en la Nube</h4>
+                        </div>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Azure SQL:</strong> SQL Server en la nube</li>
+                            <li><strong>Dynamics 365:</strong> CRM/ERP de Microsoft</li>
+                            <li><strong>SharePoint:</strong> Plataforma colaborativa</li>
+                            <li><strong>Google Analytics:</strong> Análisis web</li>
+                            <li><strong>Salesforce:</strong> Plataforma CRM</li>
+                            <li><strong>Common Data Service:</strong> Power Platform</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Ideal para: Integración con servicios existentes, datos en tiempo real, soluciones empresariales.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Proceso de Conexión a Datos</h3>
+
+                <p class="mb-4">Conectarse a una fuente de datos en Power BI sigue un proceso general similar, independientemente del tipo de fuente:</p>
+
+                <div class="relative mb-6">
+                    <div class="flex flex-wrap justify-between items-start relative">
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">1</div>
+                            <h5 class="font-bold">Iniciar la conexión</h5>
+                            <p class="text-xs">Haz clic en 'Obtener datos' en la pestaña Inicio</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[19%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">2</div>
+                            <h5 class="font-bold">Seleccionar la fuente</h5>
+                            <p class="text-xs">Busca y selecciona el tipo de fuente de datos</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[39%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">3</div>
+                            <h5 class="font-bold">Configurar la conexión</h5>
+                            <p class="text-xs">Proporciona credenciales o ruta de archivo</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[59%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">4</div>
+                            <h5 class="font-bold">Seleccionar datos</h5>
+                            <p class="text-xs">Elige tablas o elementos específicos</p>
+                        </div>
+
+                        <div class="hidden md:block absolute top-12 left-[79%] w-[12%] border-t-2 border-dashed border-gray-400"></div>
+
+                        <div class="z-10 bg-white p-3 rounded-lg shadow-md mb-4 w-full md:w-[18%] text-center">
+                            <div class="text-xl font-bold mb-1">5</div>
+                            <h5 class="font-bold">Transformar o cargar</h5>
+                            <p class="text-xs">Decide si editar primero o cargar directamente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Consejo práctico</h4>
+                    <p class="mb-2">Casi siempre es recomendable seleccionar "Transformar datos" en lugar de "Cargar" directamente. Esto te llevará al Editor de Power Query donde podrás:</p>
+                    <ul class="list-disc pl-5">
+                        <li>Revisar la calidad de los datos</li>
+                        <li>Eliminar columnas innecesarias</li>
+                        <li>Corregir tipos de datos</li>
+                        <li>Aplicar transformaciones básicas</li>
+                    </ul>
+                    <p class="mt-2">Incluso si no necesitas hacer cambios importantes, es buena práctica revisar los datos antes de cargarlos.</p>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Modos de Conexión</h3>
+
+                <p class="mb-4">Power BI ofrece diferentes modos para conectarse a las fuentes de datos. La elección del modo adecuado es crucial para el rendimiento y la funcionalidad de tus informes:</p>
+
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Modo</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Descripción</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ventajas</th>
+                                <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Desventajas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">Importación</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Los datos se copian a Power BI. Este es el modo más común y versátil.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Rendimiento rápido</li>
+                                        <li>Funciona sin conexión</li>
+                                        <li>Acceso a todas las características</li>
+                                    </ul>
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Limitado por el tamaño de memoria</li>
+                                        <li>Requiere actualización manual o programada</li>
+                                        <li>No refleja cambios en tiempo real</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">DirectQuery</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Power BI consulta directamente la fuente de datos original sin importar los datos.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Siempre muestra datos actualizados</li>
+                                        <li>Puede manejar conjuntos de datos muy grandes</li>
+                                        <li>No duplica los datos</li>
+                                    </ul>
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Rendimiento más lento</li>
+                                        <li>Algunas limitaciones en transformaciones</li>
+                                        <li>Requiere conexión constante a la fuente</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-200 font-medium">LiveConnect</td>
+                                <td class="py-2 px-4 border-b border-gray-200">Conexión en vivo a modelos de SQL Server Analysis Services o Power BI Service.</td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Reutiliza modelos existentes</li>
+                                        <li>Consistencia en toda la organización</li>
+                                        <li>Gobernanza centralizada</li>
+                                    </ul>
+                                </td>
+                                <td class="py-2 px-4 border-b border-gray-200">
+                                    <ul class="list-disc pl-5 text-sm">
+                                        <li>Limitado a fuentes específicas</li>
+                                        <li>Menos flexibilidad para modificar el modelo</li>
+                                        <li>Dependencia de la infraestructura existente</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="flex items-center justify-center mb-6">
+                    <img src="assets/img/import-vs-directquery.png" alt="Comparación entre Importación y DirectQuery" class="max-w-full h-auto rounded-lg shadow-md">
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Consideraciones de Seguridad</h3>
+
+                <p class="mb-4">Al conectarte a fuentes de datos, es importante tener en cuenta aspectos de seguridad:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Credenciales</h4>
+                        <p class="text-sm">Power BI puede almacenar de forma segura las credenciales de conexión para actualizaciones automáticas. Estas credenciales se encriptan y no son visibles para otros usuarios.</p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600">Recomendación: Utiliza cuentas de servicio dedicadas con permisos mínimos necesarios para conectarte a fuentes de datos empresariales.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Nivel de Acceso</h4>
+                        <p class="text-sm">Asegúrate de que las credenciales utilizadas tengan solo los permisos necesarios en la fuente de datos, siguiendo el principio de privilegio mínimo.</p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600">Recomendación: Crea vistas o consultas predefinidas en la fuente para limitar el acceso solo a los datos necesarios.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Datos Sensibles</h4>
+                        <p class="text-sm">Ten en cuenta que al importar datos, estos se almacenan en el archivo .pbix. Considera usar DirectQuery para datos muy sensibles o implementar medidas de seguridad adicionales.</p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600">Recomendación: Implementa seguridad a nivel de fila (RLS) para restringir el acceso a datos sensibles según el usuario.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-2">Gateway</h4>
+                        <p class="text-sm">Para fuentes de datos locales (on-premises), necesitarás configurar un gateway para actualizaciones programadas en Power BI Service.</p>
+                        <div class="mt-2 border-t border-gray-200 pt-2">
+                            <p class="text-xs text-gray-600">Recomendación: Instala el gateway en un servidor dedicado con alta disponibilidad y configura cuentas con los permisos adecuados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-lg font-bold text-blue-800 mb-3">Cuándo usar cada modo de conexión</h3>
+
+                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-blue-800 mb-2">Usa Importación cuando:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Necesitas el mejor rendimiento posible</li>
+                        <li>El conjunto de datos es relativamente pequeño (menos de 1GB)</li>
+                        <li>La actualización en tiempo real no es crítica</li>
+                        <li>Necesitas usar todas las funcionalidades de DAX y visualizaciones</li>
+                        <li>Quieres permitir el uso sin conexión</li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-green-800 mb-2">Usa DirectQuery cuando:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Los datos son demasiado grandes para importar (varios GB o TB)</li>
+                        <li>Necesitas datos en tiempo real o casi en tiempo real</li>
+                        <li>Las políticas de seguridad o cumplimiento requieren que los datos permanezcan en la fuente</li>
+                        <li>La fuente de datos ya está optimizada para consultas analíticas</li>
+                        <li>Estás dispuesto a sacrificar algo de rendimiento por la actualidad de los datos</li>
+                    </ul>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-purple-800 mb-2">Usa LiveConnect cuando:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Ya tienes modelos semánticos en SQL Server Analysis Services o Power BI Premium</li>
+                        <li>Necesitas mantener una única versión de la verdad en toda la organización</li>
+                        <li>Quieres aprovechar modelos de datos empresariales existentes</li>
+                        <li>Necesitas implementar gobernanza centralizada de datos</li>
+                        <li>Deseas separar la creación de informes del modelado de datos</li>
+                    </ul>
+                </div>
+
+                <p class="mb-4">En la práctica, muchas soluciones de Power BI utilizan una combinación de estos modos de conexión, aprovechando las ventajas de cada uno según las necesidades específicas de cada fuente de datos.</p>
+            </div>
+        `,
+
         // Tipos de fuentes de datos
         dataSources: [
             {

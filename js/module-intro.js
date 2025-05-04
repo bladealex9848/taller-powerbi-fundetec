@@ -1290,6 +1290,244 @@ const introStep5Content = {
     // Descripción general
     description: "Los asistentes de Inteligencia Artificial pueden complementar significativamente tu trabajo en Power BI, ayudándote a ser más productivo y a superar obstáculos técnicos.",
 
+    // Contenido principal
+    content: `
+        <div class="mb-6">
+            <p class="mb-4">En la era actual de la transformación digital, los asistentes de Inteligencia Artificial (IA) se han convertido en aliados poderosos para los profesionales que trabajan con herramientas de análisis de datos como Power BI. Estos asistentes pueden potenciar significativamente tu productividad y ayudarte a superar obstáculos técnicos.</p>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">¿Qué son los asistentes IA?</h4>
+                <p class="mb-2">Los asistentes IA son herramientas basadas en modelos de lenguaje avanzados que pueden entender y responder a preguntas en lenguaje natural, generar código, explicar conceptos complejos y proporcionar soluciones a problemas específicos.</p>
+                <p>Ejemplos incluyen ChatGPT, Microsoft Copilot, Google Bard, y el Copilot integrado en Power BI, entre otros.</p>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">El rol de los asistentes IA en el análisis de datos</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <h4 class="font-bold text-blue-800 mb-2">Complemento, no reemplazo</h4>
+                    <p class="text-sm">Los asistentes IA son herramientas que potencian tus capacidades, pero no sustituyen el conocimiento fundamental de Power BI y análisis de datos.</p>
+                    <div class="mt-2 text-xs text-gray-600">
+                        <p>✅ Te ayudan a ser más eficiente</p>
+                        <p>✅ Amplían tus capacidades</p>
+                        <p>❌ No reemplazan el pensamiento crítico</p>
+                        <p>❌ No sustituyen la experiencia humana</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-600">
+                    <h4 class="font-bold text-green-800 mb-2">Acelerador de aprendizaje</h4>
+                    <p class="text-sm">Pueden ayudarte a entender conceptos complejos y a aprender más rápido, proporcionando explicaciones claras y ejemplos.</p>
+                    <div class="mt-2 text-xs text-gray-600">
+                        <p>✅ Explican conceptos técnicos</p>
+                        <p>✅ Proporcionan ejemplos prácticos</p>
+                        <p>✅ Responden preguntas específicas</p>
+                        <p>✅ Sugieren recursos adicionales</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <h4 class="font-bold text-purple-800 mb-2">Solucionador de problemas</h4>
+                    <p class="text-sm">Te ayudan a superar obstáculos técnicos, depurar errores y encontrar soluciones alternativas.</p>
+                    <div class="mt-2 text-xs text-gray-600">
+                        <p>✅ Identifican posibles causas de errores</p>
+                        <p>✅ Sugieren soluciones paso a paso</p>
+                        <p>✅ Proponen enfoques alternativos</p>
+                        <p>✅ Ayudan a interpretar mensajes de error</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Casos de uso de asistentes IA con Power BI</h3>
+
+            <p class="mb-4">Los asistentes IA pueden ser útiles en todas las fases del trabajo con Power BI:</p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Fase</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Ejemplos de uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Preparación de Datos</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>Generar código de Power Query para transformaciones específicas</li>
+                                    <li>Sugerir estrategias de limpieza para datos desordenados</li>
+                                    <li>Ayudar a interpretar errores en la conexión o transformación</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Modelado de Datos</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>Sugerir estructuras de modelo basadas en tus datos</li>
+                                    <li>Ayudar a escribir y entender fórmulas DAX</li>
+                                    <li>Explicar conceptos de modelado como relaciones y cardinalidad</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Visualización</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>Recomendar tipos de visualizaciones adecuadas para tus datos</li>
+                                    <li>Sugerir mejoras de diseño y accesibilidad</li>
+                                    <li>Generar ideas para dashboards efectivos</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Análisis e Interpretación</td>
+                            <td class="py-2 px-4 border-b border-gray-200">
+                                <ul class="list-disc pl-5 text-sm">
+                                    <li>Ayudar a identificar patrones y tendencias en los datos</li>
+                                    <li>Sugerir preguntas analíticas relevantes</li>
+                                    <li>Generar narrativas explicativas para acompañar visualizaciones</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Ejemplos prácticos de prompts</h3>
+
+            <p class="mb-4">Aquí hay algunos ejemplos de cómo puedes formular preguntas efectivas a los asistentes IA para tareas relacionadas con Power BI:</p>
+
+            <div class="space-y-4 mb-6">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-2">Para ayuda con DAX</h4>
+                    <div class="bg-blue-50 p-3 rounded-lg mb-2">
+                        <p class="text-sm font-bold text-blue-800">Prompt:</p>
+                        <p class="text-sm">Escribe una fórmula DAX para calcular el promedio de ventas de los últimos 3 meses para cada producto.</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm font-bold text-green-800">Respuesta:</p>
+                        <pre class="text-xs bg-white p-2 rounded overflow-x-auto">Puedes usar esta fórmula DAX:
+
+Promedio Ventas 3 Meses =
+AVERAGEX(
+    DATESINPERIOD(
+        'Calendario'[Fecha],
+        MAX('Calendario'[Fecha]),
+        -3,
+        MONTH
+    ),
+    [Total Ventas]
+)</pre>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-2">Para transformaciones en Power Query</h4>
+                    <div class="bg-blue-50 p-3 rounded-lg mb-2">
+                        <p class="text-sm font-bold text-blue-800">Prompt:</p>
+                        <p class="text-sm">¿Cómo puedo dividir una columna que contiene nombres completos en dos columnas separadas para nombre y apellido?</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm font-bold text-green-800">Respuesta:</p>
+                        <p class="text-sm">En Power Query, selecciona la columna con los nombres completos, ve a Transformar > Dividir columna > Por delimitador. Elige 'Espacio' como delimitador y 'En la primera aparición del delimitador'. Esto creará dos columnas que puedes renombrar como 'Nombre' y 'Apellido'.</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-2">Para ideas de visualización</h4>
+                    <div class="bg-blue-50 p-3 rounded-lg mb-2">
+                        <p class="text-sm font-bold text-blue-800">Prompt:</p>
+                        <p class="text-sm">¿Qué visualizaciones serían más efectivas para mostrar ventas por región a lo largo del tiempo, comparando con el año anterior?</p>
+                    </div>
+                    <div class="bg-green-50 p-3 rounded-lg">
+                        <p class="text-sm font-bold text-green-800">Respuesta:</p>
+                        <p class="text-sm">Para este caso, recomendaría:</p>
+                        <ol class="text-sm list-decimal pl-5">
+                            <li>Un gráfico de líneas para mostrar la tendencia temporal</li>
+                            <li>Un mapa para la dimensión regional</li>
+                            <li>Un gráfico de barras combinado que muestre año actual vs. anterior</li>
+                        </ol>
+                        <p class="text-sm mt-2">Puedes usar un filtro de tiempo como segmentador para permitir exploración interactiva.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Mejores prácticas para usar asistentes IA</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h4 class="font-bold text-gray-800 mb-2">Sé específico en tus preguntas</h4>
+                    <p class="text-sm">Cuanto más específico seas, mejores resultados obtendrás. Incluye detalles sobre tu estructura de datos, objetivo y contexto.</p>
+                    <div class="mt-2 border-t border-gray-200 pt-2">
+                        <p class="text-xs text-gray-600">❌ "Ayúdame con DAX"</p>
+                        <p class="text-xs text-green-600">✅ "Necesito una fórmula DAX para calcular el total acumulado de ventas por mes, teniendo en cuenta solo los productos de la categoría 'Electrónica'"</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h4 class="font-bold text-gray-800 mb-2">Verifica y comprende las respuestas</h4>
+                    <p class="text-sm">No apliques ciegamente las sugerencias. Asegúrate de entender la lógica detrás de ellas y verifica que funcionan correctamente.</p>
+                    <div class="mt-2 border-t border-gray-200 pt-2">
+                        <p class="text-xs text-gray-600">❌ Copiar y pegar código sin entenderlo</p>
+                        <p class="text-xs text-green-600">✅ Pedir explicaciones sobre cómo funciona la solución y por qué es apropiada</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h4 class="font-bold text-gray-800 mb-2">Itera y refina</h4>
+                    <p class="text-sm">Si la primera respuesta no es exactamente lo que necesitas, refina tu pregunta con más detalles o pide aclaraciones específicas.</p>
+                    <div class="mt-2 border-t border-gray-200 pt-2">
+                        <p class="text-xs text-gray-600">❌ Abandonar si la primera respuesta no es perfecta</p>
+                        <p class="text-xs text-green-600">✅ "Gracias, pero necesito que la fórmula también considere solo las ventas a clientes premium"</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <h4 class="font-bold text-gray-800 mb-2">Aprende mientras usas</h4>
+                    <p class="text-sm">Usa los asistentes IA como herramientas de aprendizaje. Pide explicaciones sobre el porqué de las soluciones propuestas.</p>
+                    <div class="mt-2 border-t border-gray-200 pt-2">
+                        <p class="text-xs text-gray-600">❌ Usar la IA solo para obtener soluciones rápidas</p>
+                        <p class="text-xs text-green-600">✅ "¿Puedes explicarme por qué usaste CALCULATE en esta fórmula y cómo funciona exactamente?"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-yellow-800 mb-2">Limitaciones a tener en cuenta</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Los asistentes IA pueden generar información incorrecta o desactualizada.</li>
+                    <li>Pueden no estar familiarizados con las características más recientes de Power BI.</li>
+                    <li>No tienen acceso directo a tus datos o archivos específicos.</li>
+                    <li>Las soluciones generadas pueden requerir adaptación a tu caso específico.</li>
+                    <li>No reemplazan la necesidad de entender los fundamentos del análisis de datos.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Copilot en Power BI</h3>
+
+            <p class="mb-4">Microsoft ha integrado capacidades de IA directamente en Power BI a través de Copilot, que ofrece funcionalidades específicas para el análisis de datos:</p>
+
+            <div class="flex items-center justify-center mb-6">
+                <img src="assets/img/power-bi-copilot.jpg" alt="Copilot en Power BI" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Funcionalidades de Copilot en Power BI</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Creación de visualizaciones:</strong> "Muéstrame un gráfico de barras de ventas por región"</li>
+                    <li><strong>Análisis de datos:</strong> "¿Cuáles son las tendencias principales en mis datos de ventas?"</li>
+                    <li><strong>Generación de narrativas:</strong> "Crea un resumen de los puntos clave de este informe"</li>
+                    <li><strong>Transformación de datos:</strong> "Limpia esta columna de fechas y conviértela al formato estándar"</li>
+                    <li><strong>Creación de medidas DAX:</strong> "Crea una medida para calcular el crecimiento interanual"</li>
+                </ul>
+            </div>
+
+            <p class="mb-4">A medida que avances en tu aprendizaje de Power BI, los asistentes IA pueden convertirse en valiosos aliados que te ayudarán a superar obstáculos, aprender más rápido y aumentar tu productividad. Sin embargo, recuerda que son herramientas complementarias y que el conocimiento fundamental y el pensamiento crítico siguen siendo esenciales para un análisis de datos efectivo.</p>
+        </div>
+    `,
+
     // Rol de los asistentes IA
     aiAssistantsRole: [
         {

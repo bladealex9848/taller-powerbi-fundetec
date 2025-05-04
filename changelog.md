@@ -2,6 +2,28 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.3.7] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 1 del módulo de transformación (Conexión a Fuentes de Datos)
+- Recursos adicionales (videos y enlaces) para el paso 1 del módulo de transformación
+- Videos específicos sobre conexión a fuentes de datos para el paso 1 del módulo de transformación
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 1 del módulo de transformación
+- Falta de recursos adicionales en el paso 1 del módulo de transformación
+
+## [1.3.6] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 5 del módulo de introducción (Asistentes IA en el Flujo de Trabajo)
+- Ejemplos prácticos de prompts para asistentes IA
+- Mejores prácticas para usar asistentes IA
+- Información sobre Copilot en Power BI
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 5 del módulo de introducción
+
 ## [1.3.5] - 2024-07-16
 
 ### Añadido

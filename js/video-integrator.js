@@ -215,20 +215,55 @@ function insertTransformVideos(containerId) {
     videosContainer.className = 'videos-container';
     container.appendChild(videosContainer);
 
-    // Insertar videos de transformación
-    insertYouTubeVideo(
-        'transform-videos-container',
-        'ezc9ZVMxYwU',
-        'Conecta, Transforma y Automatiza tus Datos con Power BI',
-        'Proceso completo de conexión y transformación de datos.'
-    );
+    // Obtener el paso actual para mostrar videos específicos
+    const moduleContentSection = document.getElementById('module-content-section');
+    const currentStep = moduleContentSection ? parseInt(moduleContentSection.getAttribute('data-current-step') || '0') : 0;
 
-    insertYouTubeVideo(
-        'transform-videos-container',
-        'f3nEZo4b-Yg',
-        'Power Query desde Cero: Tutorial Completo para Principiantes',
-        'Interfaz de Power Query y transformaciones básicas.'
-    );
+    if (currentStep === 0) {
+        // Videos específicos para el paso 1: Conexión a Fuentes de Datos
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Wy_QpPu_CZE',
+            'Obtener datos en Power BI: Todas las fuentes de datos',
+            'Explicación detallada de las diferentes fuentes de datos disponibles en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'Ld1MwGK0Ivo',
+            'Importación vs DirectQuery: ¿Cuál elegir?',
+            'Comparación entre los modos de conexión Importación y DirectQuery, ventajas y desventajas.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'ByZrxlBGiIY',
+            'Conectar a Excel y CSV en Power BI',
+            'Tutorial paso a paso para conectar a archivos Excel y CSV en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'GmLVXJdhH9o',
+            'Conectar a bases de datos SQL Server desde Power BI',
+            'Guía completa para conectar Power BI a bases de datos SQL Server.'
+        );
+    } else {
+        // Videos generales para otros pasos del módulo de transformación
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'ezc9ZVMxYwU',
+            'Conecta, Transforma y Automatiza tus Datos con Power BI',
+            'Proceso completo de conexión y transformación de datos.'
+        );
+
+        insertYouTubeVideo(
+            'transform-videos-container',
+            'f3nEZo4b-Yg',
+            'Power Query desde Cero: Tutorial Completo para Principiantes',
+            'Interfaz de Power Query y transformaciones básicas.'
+        );
+    }
 }
 
 /**
