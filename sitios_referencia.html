@@ -132,6 +132,10 @@
                             <i class="fas fa-file-code mr-1"></i>
                             Plantillas Power BI
                         </button>
+                        <button class="category-filter px-3 py-2 rounded-lg text-sm font-medium flex items-center mr-2 mb-2 bg-blue-50 text-blue-700 hover:bg-blue-100" data-category="tutoriales">
+                            <i class="fas fa-video mr-1"></i>
+                            Videos Instructivos
+                        </button>
                     </div>
                 </div>
 
@@ -184,7 +188,8 @@
             'videos': { name: 'Canales de Video', icon: 'fab fa-youtube' },
             'datasets': { name: 'Datasets', icon: 'fas fa-database' },
             'guias': { name: 'Guías y Manuales', icon: 'fas fa-file-pdf' },
-            'plantillas': { name: 'Plantillas Power BI', icon: 'fas fa-file-code' }
+            'plantillas': { name: 'Plantillas Power BI', icon: 'fas fa-file-code' },
+            'tutoriales': { name: 'Videos Instructivos', icon: 'fas fa-video' }
         };
 
         // Clave para almacenar favoritos en localStorage
@@ -572,6 +577,119 @@
             }
         ];
 
+        // Videos instructivos
+        const tutorials = [
+            // Introducción a Power BI
+            {
+                url: 'https://www.youtube.com/watch?v=oQ4q2CSXP4M',
+                title: 'Curso de Microsoft Power BI desde cero | INTRODUCCIÓN',
+                description: 'Explicación de versiones, descarga e instalación de Power BI.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=C8HatpMK9Hw',
+                title: '¿Cómo usar Power BI? Tutorial desde 0',
+                description: 'Tutorial completo para principiantes que cubre los conceptos básicos.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=bKO1wa3UBfk',
+                title: 'Tutorial de Introducción a Power BI',
+                description: 'Demostración de interactividad básica y publicación web.',
+                category: 'tutoriales'
+            },
+
+            // Conexión y Obtención de Datos
+            {
+                url: 'https://www.youtube.com/watch?v=ezc9ZVMxYwU',
+                title: 'Conecta, Transforma y Automatiza tus Datos con Power BI',
+                description: 'Proceso completo de conexión y transformación de datos.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=2fiajqwzVSM',
+                title: '¿Cómo Conectarte a un Conjunto de Datos en Power BI?',
+                description: 'Conexión a un conjunto de datos en la nube en tiempo real.',
+                category: 'tutoriales'
+            },
+
+            // Transformación de Datos (Power Query)
+            {
+                url: 'https://www.youtube.com/watch?v=JTSAnYHbPrc',
+                title: 'Power Query: la herramienta definitiva para consolidar datos de Excel',
+                description: 'Consolidación de datos de múltiples hojas Excel con Power Query.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=sHck2uPqpcg',
+                title: '¿Cómo Utilizar Power Query? Guía Completa',
+                description: 'Transformaciones básicas y avanzadas en Power Query.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=f3nEZo4b-Yg',
+                title: 'Power Query desde Cero: Tutorial Completo para Principiantes',
+                description: 'Interfaz de Power Query y transformaciones para principiantes.',
+                category: 'tutoriales'
+            },
+
+            // Creación de Visualizaciones
+            {
+                url: 'https://www.youtube.com/watch?v=8L2ArDp-IDI',
+                title: 'Creación de Visualizaciones Simples en Power BI',
+                description: 'Gráficos básicos y personalización de visualizaciones.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=KygqLQeZuTc',
+                title: 'Cómo Crear Visualizaciones en Power BI: Múltiplos Pequeños, Mapas y Líneas de Referencia',
+                description: 'Técnicas avanzadas para crear visualizaciones complejas.',
+                category: 'tutoriales'
+            },
+
+            // Creación de Dashboards/Informes
+            {
+                url: 'https://www.youtube.com/watch?v=ZY5uhdKllYk',
+                title: 'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
+                description: 'Tutorial detallado para crear un dashboard completo.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=EARXUaMhqcE',
+                title: 'Aprende a hacer un DASHBOARD en POWER BI',
+                description: 'Creación rápida de dashboard funcional con datos reales.',
+                category: 'tutoriales'
+            },
+
+            // Tutoriales Completos
+            {
+                url: 'https://www.youtube.com/watch?v=hKe7bHPiSPU',
+                title: 'Tutorial Power BI - Creación de Dashboard en 3 horas',
+                description: 'Tutorial detallado para crear un dashboard completo desde cero.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=sjrlIAQnD8M',
+                title: 'Curso Completo de Power BI',
+                description: 'Curso completo que cubre todas las funcionalidades principales.',
+                category: 'tutoriales'
+            },
+
+            // Temas Específicos
+            {
+                url: 'https://www.youtube.com/watch?v=YmYElmzLWgw',
+                title: 'Interacciones entre visualizaciones en Power BI',
+                description: 'Cómo configurar interacciones entre diferentes visualizaciones.',
+                category: 'tutoriales'
+            },
+            {
+                url: 'https://www.youtube.com/watch?v=nPlrQUbEn4s',
+                title: 'Power Query: Consolidar datos de múltiples hojas Excel',
+                description: 'Técnica específica para consolidar datos de múltiples hojas.',
+                category: 'tutoriales'
+            }
+        ];
+
         // Combinar todos los sitios web
         const allSites = [
             ...officialDocumentation,
@@ -580,7 +698,8 @@
             ...videoChannels,
             ...datasets,
             ...guides,
-            ...templates
+            ...templates,
+            ...tutorials
         ];
 
         // Función para cargar los sitios web
