@@ -581,7 +581,35 @@ function insertPracticeVideos(containerId) {
             'Modelo en estrella vs. copo de nieve',
             'Diferencias entre los modelos de datos en estrella y copo de nieve, y cuándo usar cada uno.'
         );
-    } else { // Recursos para Continuar Aprendiendo (paso 3) u otros pasos
+    } else if (currentModule === 'practice' && currentStep === 2) { // Resultado Esperado y Solución de Problemas
+        insertYouTubeVideo(
+            'practice-videos-container',
+            '8L2ArDp-IDI',
+            'Creación de visualizaciones efectivas en Power BI',
+            'Guía completa sobre cómo crear visualizaciones impactantes y efectivas en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'ZY5uhdKllYk',
+            'Solución de problemas comunes en Power BI',
+            'Cómo identificar y resolver los problemas más frecuentes al trabajar con Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'iiNDq2VnZSo',
+            'Optimización de dashboards en Power BI',
+            'Técnicas para mejorar el rendimiento y la usabilidad de tus dashboards.'
+        );
+
+        insertYouTubeVideo(
+            'practice-videos-container',
+            'sjrlIAQnD8M',
+            'Mejores prácticas para el diseño de visualizaciones',
+            'Principios de diseño y mejores prácticas para crear visualizaciones efectivas.'
+        );
+    } else { // Recursos para Continuar Aprendiendo (paso 3)
         insertYouTubeVideo(
             'practice-videos-container',
             'hKe7bHPiSPU',

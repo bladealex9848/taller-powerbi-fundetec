@@ -511,6 +511,50 @@ const practiceModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">Ahora que tenemos nuestro modelo de datos preparado, vamos a crear visualizaciones efectivas y resolver algunos problemas comunes que podrían surgir.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Tipos de visualizaciones</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>KPIs:</strong> Métricas clave</li>
+                            <li><strong>Gráficos de barras:</strong> Comparaciones</li>
+                            <li><strong>Gráficos de líneas:</strong> Tendencias</li>
+                            <li><strong>Mapas:</strong> Distribución geográfica</li>
+                            <li><strong>Tablas:</strong> Detalles específicos</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Elige visualizaciones según el tipo de análisis</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Problemas frecuentes</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Relaciones incorrectas</li>
+                            <li>Tipos de datos inadecuados</li>
+                            <li>Filtros mal configurados</li>
+                            <li>Duplicados en los datos</li>
+                            <li>Formato visual inconsistente</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>La mayoría de problemas tienen solución sencilla</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Criterios de éxito</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Dashboard visualmente atractivo</li>
+                            <li>Datos correctos y precisos</li>
+                            <li>Interactividad entre visualizaciones</li>
+                            <li>Rendimiento adecuado</li>
+                            <li>Insights claros y accionables</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Un buen dashboard comunica información de forma efectiva</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h4 class="font-bold text-blue-800 mb-2">Creación de visualizaciones clave</h4>
                 <ol class="list-decimal pl-5 space-y-2 mb-4">
                     <li>Regresa a la Vista de Informe (primer icono en la barra lateral izquierda)</li>
@@ -543,6 +587,28 @@ const practiceModuleContent = {
                         </ul>
                     </li>
                 </ol>
+
+                <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <h4 class="font-bold text-yellow-800 mb-2">Mejores prácticas para visualizaciones</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Simplicidad:</strong> Evita sobrecargar con demasiada información</li>
+                                <li><strong>Consistencia:</strong> Usa colores y formatos coherentes</li>
+                                <li><strong>Contexto:</strong> Incluye títulos y etiquetas descriptivas</li>
+                                <li><strong>Interactividad:</strong> Configura filtros cruzados entre visuales</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Accesibilidad:</strong> Considera usuarios con daltonismo</li>
+                                <li><strong>Jerarquía:</strong> Destaca la información más importante</li>
+                                <li><strong>Formato:</strong> Ajusta tamaños, colores y fuentes</li>
+                                <li><strong>Rendimiento:</strong> Optimiza para carga rápida</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
                 <h4 class="font-bold text-blue-800 mb-2">Solución de problemas comunes</h4>
                 <div class="space-y-4 mb-4">
@@ -577,6 +643,57 @@ const practiceModuleContent = {
                             <li>Revisa las relaciones para asegurarte de que no haya conteos duplicados</li>
                         </ul>
                     </div>
+
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-red-800 mb-1">Problema: Las visualizaciones no se actualizan al filtrar</h5>
+                        <p class="mb-1">Síntoma: Al hacer clic en un elemento, las demás visualizaciones no se filtran.</p>
+                        <p class="font-bold">Solución:</p>
+                        <ul class="list-disc pl-5">
+                            <li>Verifica que la interacción entre visuales esté habilitada (Formato > Editar interacciones)</li>
+                            <li>Comprueba que las relaciones entre tablas estén correctamente configuradas</li>
+                            <li>Asegúrate de que no haya filtros contradictorios aplicados</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h5 class="font-bold text-red-800 mb-1">Problema: El rendimiento del dashboard es lento</h5>
+                        <p class="mb-1">Síntoma: Las visualizaciones tardan en cargarse o actualizarse.</p>
+                        <p class="font-bold">Solución:</p>
+                        <ul class="list-disc pl-5">
+                            <li>Reduce la cantidad de visualizaciones en una sola página</li>
+                            <li>Simplifica las medidas y cálculos complejos</li>
+                            <li>Filtra los datos innecesarios en la etapa de consulta</li>
+                            <li>Usa la herramienta de Analizador de rendimiento para identificar cuellos de botella</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Formato y diseño</h5>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Selecciona cada visualización y ajusta su formato</li>
+                            <li>Personaliza colores, fuentes y tamaños</li>
+                            <li>Añade títulos descriptivos a cada visual</li>
+                            <li>Organiza las visualizaciones de manera lógica</li>
+                            <li>Usa la cuadrícula para alinear elementos</li>
+                            <li>Considera añadir elementos decorativos como líneas o formas</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Un buen diseño mejora la comprensión y el impacto del dashboard.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Pruebas finales</h5>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Verifica que todos los datos sean correctos</li>
+                            <li>Comprueba que los filtros funcionen adecuadamente</li>
+                            <li>Prueba la interactividad entre visualizaciones</li>
+                            <li>Revisa el rendimiento general del dashboard</li>
+                            <li>Solicita feedback de otros usuarios</li>
+                            <li>Realiza ajustes finales según sea necesario</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Las pruebas exhaustivas garantizan un dashboard de calidad.</p>
+                    </div>
                 </div>
 
                 <div class="flex items-center justify-center mb-4">
@@ -595,7 +712,122 @@ const practiceModuleContent = {
                     <p class="mt-2">Todas las visualizaciones deberían estar interconectadas, de modo que al hacer clic en una categoría o ubicación, las demás visualizaciones se filtren automáticamente.</p>
                 </div>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "practice-quiz-3",
+            question: "¿Cuál es la mejor práctica al diseñar visualizaciones en Power BI?",
+            options: [
+                "Incluir la mayor cantidad posible de datos en cada visualización",
+                "Usar colores brillantes y llamativos para todas las visualizaciones",
+                "Mantener la simplicidad y enfocarse en comunicar claramente los insights más importantes",
+                "Evitar la interactividad entre visualizaciones para no confundir al usuario"
+            ],
+            correctIndex: 2
+        },
+
+        // Diagrama del proceso de solución de problemas
+        diagram: {
+            title: "Proceso de solución de problemas en Power BI",
+            description: "Este diagrama muestra el enfoque recomendado para identificar y resolver problemas comunes en Power BI.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Identificar el problema",
+                    description: "Determinar exactamente qué no funciona como se espera"
+                },
+                {
+                    step: 2,
+                    title: "Verificar los datos",
+                    description: "Comprobar que los datos de origen sean correctos y completos"
+                },
+                {
+                    step: 3,
+                    title: "Revisar el modelo",
+                    description: "Examinar relaciones, tipos de datos y medidas calculadas"
+                },
+                {
+                    step: 4,
+                    title: "Probar visualizaciones",
+                    description: "Verificar configuración y formato de las visualizaciones"
+                },
+                {
+                    step: 5,
+                    title: "Implementar solución",
+                    description: "Aplicar los cambios necesarios para resolver el problema"
+                },
+                {
+                    step: 6,
+                    title: "Validar resultados",
+                    description: "Confirmar que el problema ha sido resuelto correctamente"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, aprenderás a crear visualizaciones efectivas y a resolver problemas comunes que pueden surgir durante el desarrollo de dashboards en Power BI.",
+            exercises: [
+                {
+                    title: "Creación de visualizaciones",
+                    description: "Practica la creación de visualizaciones efectivas:",
+                    steps: [
+                        "Abre el archivo de Power BI con el modelo de datos que creaste en el paso anterior",
+                        "Crea un KPI de ventas totales usando un visual de tarjeta",
+                        "Crea un gráfico de barras para mostrar ventas por categoría de producto",
+                        "Crea un gráfico de líneas para mostrar la tendencia de ventas a lo largo del tiempo",
+                        "Crea un mapa para mostrar la distribución geográfica de las ventas",
+                        "Personaliza el formato de cada visualización (colores, títulos, etiquetas)",
+                        "Organiza las visualizaciones de manera lógica en la página",
+                        "Verifica que las visualizaciones interactúen correctamente entre sí"
+                    ]
+                },
+                {
+                    title: "Solución de problemas",
+                    description: "Identifica y resuelve problemas comunes:",
+                    steps: [
+                        "Verifica que las relaciones entre tablas estén correctamente configuradas",
+                        "Comprueba que los tipos de datos sean adecuados, especialmente para fechas",
+                        "Identifica y elimina posibles duplicados en los datos",
+                        "Asegúrate de que los filtros estén configurados correctamente",
+                        "Verifica que la interactividad entre visualizaciones esté habilitada",
+                        "Optimiza el rendimiento del dashboard si es necesario"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te guiará en el proceso de creación de visualizaciones efectivas y solución de problemas comunes en Power BI, con verificaciones para asegurar tu comprensión.",
+            checkpoints: [
+                "He creado un KPI de ventas totales usando un visual de tarjeta",
+                "He creado un gráfico de barras para mostrar ventas por categoría de producto",
+                "He creado un gráfico de líneas para mostrar la tendencia de ventas a lo largo del tiempo",
+                "He creado un mapa para mostrar la distribución geográfica de las ventas",
+                "He personalizado el formato de cada visualización para mejorar su apariencia",
+                "He verificado que las visualizaciones interactúen correctamente entre sí",
+                "He identificado y resuelto al menos un problema común durante el desarrollo",
+                "He optimizado el dashboard para mejorar su rendimiento y usabilidad"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía de visualizaciones en Power BI",
+                    url: "https://docs.microsoft.com/es-es/power-bi/visuals/power-bi-visualization-types-for-reports-and-q-and-a",
+                    description: "Documentación oficial sobre los diferentes tipos de visualizaciones disponibles en Power BI"
+                },
+                {
+                    title: "Mejores prácticas para el diseño de dashboards",
+                    url: "https://docs.microsoft.com/es-es/power-bi/create-reports/desktop-dashboards-design-tips",
+                    description: "Recomendaciones para crear dashboards efectivos y atractivos"
+                },
+                {
+                    title: "Solución de problemas comunes en Power BI",
+                    url: "https://docs.microsoft.com/es-es/power-bi/troubleshoot/",
+                    description: "Guía para identificar y resolver problemas frecuentes en Power BI"
+                }
+            ]
+        }
     },
 
     step4: {

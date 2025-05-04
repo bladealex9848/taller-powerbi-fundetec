@@ -2,6 +2,23 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.5.0] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 3 del módulo de práctica (Resultado Esperado y Solución de Problemas)
+- Quiz para comprobar comprensión en el paso 3 del módulo de práctica
+- Diagrama del proceso de solución de problemas en Power BI
+- Contenido específico para modos estudiante y autoguiado en el paso 3 del módulo de práctica
+- Recursos adicionales (videos y enlaces) para el paso 3 del módulo de práctica
+- Videos específicos sobre creación de visualizaciones y solución de problemas
+
+### Mejorado
+- Contenido principal del paso 3 del módulo de práctica con secciones adicionales sobre tipos de visualizaciones, problemas frecuentes y criterios de éxito
+- Sección sobre mejores prácticas para visualizaciones
+- Sección sobre formato, diseño y pruebas finales
+- Sección de solución de problemas con dos nuevos problemas comunes y sus soluciones
+- Función insertPracticeVideos para mostrar videos específicos para el paso 3
+
 ## [1.4.9] - 2024-07-16
 
 ### Añadido
