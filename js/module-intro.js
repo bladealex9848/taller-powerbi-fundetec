@@ -584,6 +584,173 @@ const introStep3Content = {
     // Descripción general
     description: "Power BI Desktop tiene una interfaz intuitiva organizada en diferentes áreas funcionales. Vamos a explorar las principales secciones:",
 
+    // Contenido principal
+    content: `
+        <div class="mb-6">
+            <p class="mb-4">Para aprovechar al máximo Power BI Desktop, es fundamental familiarizarse con su interfaz. Conocer dónde se encuentra cada herramienta y función te permitirá trabajar de manera más eficiente y aprovechar todo el potencial de la aplicación.</p>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Antes de empezar</h4>
+                <p>Si aún no has instalado Power BI Desktop, puedes descargarlo gratuitamente desde la <a href="https://powerbi.microsoft.com/es-es/desktop/" target="_blank" class="text-blue-600 hover:underline">página oficial de Microsoft</a>. Es compatible con Windows 10 y versiones posteriores.</p>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Visión general de la interfaz</h3>
+
+            <div class="flex items-center justify-center mb-6">
+                <img src="assets/img/power-bi-interface-overview.jpg" alt="Visión general de la interfaz de Power BI Desktop" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <p class="mb-4">La interfaz de Power BI Desktop se divide en varias áreas principales, cada una con un propósito específico:</p>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">1. Cinta de opciones (Ribbon)</h3>
+
+            <p class="mb-4">Similar a otras aplicaciones de Microsoft, la cinta de opciones contiene todas las acciones y comandos organizados en pestañas temáticas:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Archivo</h4>
+                    <p class="text-sm">Contiene opciones para abrir, guardar y publicar informes, así como configuraciones generales.</p>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Inicio</h4>
+                    <p class="text-sm">Incluye las herramientas más comunes como portapapeles, fuentes, párrafos y herramientas de inserción rápida.</p>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Insertar</h4>
+                    <p class="text-sm">Permite añadir visualizaciones, elementos visuales personalizados, botones y otros objetos al informe.</p>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Modelado</h4>
+                    <p class="text-sm">Contiene herramientas para crear y gestionar relaciones, medidas, columnas calculadas y jerarquías.</p>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Vista</h4>
+                    <p class="text-sm">Permite cambiar entre las tres vistas principales: Informe, Datos y Modelo.</p>
+                </div>
+                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                    <h4 class="font-bold text-gray-800 mb-1">Pestaña Ayuda</h4>
+                    <p class="text-sm">Proporciona acceso a recursos de ayuda, comunidad y actualizaciones.</p>
+                </div>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">2. Vistas principales</h3>
+
+            <p class="mb-4">Power BI Desktop tiene tres vistas principales, accesibles desde la pestaña Vista o mediante los iconos en la barra lateral izquierda:</p>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6 border-l-4 border-blue-600">
+                <h4 class="font-bold text-blue-800 mb-2">Vista Informe</h4>
+                <p class="mb-2">Es donde pasarás la mayor parte del tiempo. Aquí puedes:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Crear y organizar visualizaciones</li>
+                    <li>Diseñar el aspecto visual de tus dashboards</li>
+                    <li>Añadir elementos interactivos como filtros y segmentadores</li>
+                    <li>Organizar tu informe en múltiples páginas</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6 border-l-4 border-green-600">
+                <h4 class="font-bold text-green-800 mb-2">Vista Datos</h4>
+                <p class="mb-2">Permite explorar tus datos en formato tabular. Aquí puedes:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Ver los datos en formato de tabla</li>
+                    <li>Verificar que los datos se han cargado correctamente</li>
+                    <li>Comprobar los resultados de tus transformaciones</li>
+                    <li>Examinar los valores de columnas calculadas y medidas</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6 border-l-4 border-purple-600">
+                <h4 class="font-bold text-purple-800 mb-2">Vista Modelo</h4>
+                <p class="mb-2">Muestra la estructura de tu modelo de datos. Aquí puedes:</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Crear y gestionar relaciones entre tablas</li>
+                    <li>Organizar visualmente tu modelo de datos</li>
+                    <li>Ver la cardinalidad y dirección de las relaciones</li>
+                    <li>Identificar tablas aisladas o problemas en el modelo</li>
+                </ul>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">3. Paneles laterales</h3>
+
+            <p class="mb-4">Los paneles laterales proporcionan acceso a datos y herramientas de visualización:</p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Panel</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Función</th>
+                            <th class="py-2 px-4 border-b border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Uso típico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Panel de Datos</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Muestra todas las tablas y campos disponibles</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Arrastrar campos a visualizaciones, crear jerarquías</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Panel de Visualizaciones</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Contiene tipos de visualizaciones y opciones de formato</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Seleccionar tipo de visual, configurar campos, dar formato</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-4 border-b border-gray-200 font-medium">Panel de Filtros</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Permite aplicar filtros a diferentes niveles</td>
+                            <td class="py-2 px-4 border-b border-gray-200">Filtrar a nivel de visual, página o informe completo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">4. Lienzo (Canvas)</h3>
+
+            <p class="mb-4">El área central donde se crean y organizan las visualizaciones:</p>
+
+            <ul class="list-disc pl-5 space-y-2 mb-6">
+                <li><strong>Área de trabajo principal:</strong> Donde arrastras y colocas visualizaciones.</li>
+                <li><strong>Páginas:</strong> Pestañas en la parte inferior que permiten organizar tu informe en múltiples páginas.</li>
+                <li><strong>Cuadrícula y guías:</strong> Ayudan a alinear y organizar los elementos visuales.</li>
+                <li><strong>Zoom:</strong> Controles en la esquina inferior derecha para acercar o alejar la vista.</li>
+            </ul>
+
+            <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-yellow-800 mb-2">Consejo práctico</h4>
+                <p class="mb-2">Puedes personalizar la interfaz de Power BI Desktop según tus preferencias:</p>
+                <ul class="list-disc pl-5">
+                    <li>Ocultar o mostrar paneles haciendo clic en los iconos de expansión</li>
+                    <li>Ajustar el tamaño de los paneles arrastrando sus bordes</li>
+                    <li>Cambiar el tema de color en Archivo > Opciones > Vista previa de características</li>
+                    <li>Usar atajos de teclado para navegar más rápido (Ctrl+F1 muestra la lista de atajos)</li>
+                </ul>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Atajos de teclado útiles</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div>
+                        <p class="text-sm font-bold">Generales:</p>
+                        <ul class="text-sm list-disc pl-5">
+                            <li>Ctrl+S: Guardar</li>
+                            <li>Ctrl+Z: Deshacer</li>
+                            <li>Ctrl+Y: Rehacer</li>
+                            <li>F1: Ayuda</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold">Navegación:</p>
+                        <ul class="text-sm list-disc pl-5">
+                            <li>Alt+1: Vista Informe</li>
+                            <li>Alt+2: Vista Datos</li>
+                            <li>Alt+3: Vista Modelo</li>
+                            <li>Ctrl+Tab: Cambiar entre páginas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+
     // Áreas principales de la interfaz
     interfaceAreas: [
         {
@@ -686,12 +853,311 @@ const introStep3Content = {
             "Localiza los paneles de Campos, Visualizaciones y Filtros",
             "Cambia entre las diferentes vistas para familiarizarte con ellas"
         ]
+    },
+
+    // Diagrama de la interfaz
+    diagram: {
+        title: "Mapa de la Interfaz de Power BI Desktop",
+        description: "Este diagrama muestra las principales áreas de la interfaz de Power BI Desktop:",
+        imageUrl: "assets/img/power-bi-interface-map.png",
+        elements: [
+            {
+                name: "Cinta de opciones",
+                description: "Contiene todas las acciones y comandos organizados en pestañas"
+            },
+            {
+                name: "Panel de Datos",
+                description: "Muestra todas las tablas y campos disponibles"
+            },
+            {
+                name: "Panel de Visualizaciones",
+                description: "Contiene tipos de visualizaciones y opciones de formato"
+            },
+            {
+                name: "Panel de Filtros",
+                description: "Permite aplicar filtros a diferentes niveles"
+            },
+            {
+                name: "Lienzo (Canvas)",
+                description: "Área central donde se crean y organizan las visualizaciones"
+            },
+            {
+                name: "Selector de Vistas",
+                description: "Permite cambiar entre las vistas Informe, Datos y Modelo"
+            }
+        ]
+    },
+
+    // Atajos de teclado útiles
+    shortcuts: [
+        {
+            key: "Ctrl+N",
+            description: "Crear un nuevo archivo"
+        },
+        {
+            key: "Ctrl+O",
+            description: "Abrir un archivo existente"
+        },
+        {
+            key: "Ctrl+S",
+            description: "Guardar el archivo actual"
+        },
+        {
+            key: "F5",
+            description: "Actualizar visualizaciones"
+        },
+        {
+            key: "Alt+1",
+            description: "Cambiar a Vista Informe"
+        },
+        {
+            key: "Alt+2",
+            description: "Cambiar a Vista Datos"
+        },
+        {
+            key: "Alt+3",
+            description: "Cambiar a Vista Modelo"
+        },
+        {
+            key: "Ctrl+C",
+            description: "Copiar elemento seleccionado"
+        },
+        {
+            key: "Ctrl+V",
+            description: "Pegar elemento copiado"
+        },
+        {
+            key: "Ctrl+Z",
+            description: "Deshacer última acción"
+        }
+    ],
+
+    // Quiz para comprobar comprensión
+    quiz: {
+        questionId: "intro-quiz-interface",
+        question: "¿Cuál de las siguientes vistas de Power BI Desktop se utiliza para crear y gestionar relaciones entre tablas?",
+        options: [
+            "Vista Informe",
+            "Vista Datos",
+            "Vista Modelo",
+            "Vista Relaciones"
+        ],
+        correctIndex: 2
+    },
+
+    // Contenido específico para modo estudiante
+    studentContent: {
+        description: "Familiarizarse con la interfaz de Power BI Desktop es fundamental para tu desarrollo como Auxiliar en Sistemas. Esta habilidad te permitirá crear informes y dashboards de manera eficiente.",
+        exercises: [
+            {
+                title: "Exploración guiada de la interfaz",
+                description: "Realiza los siguientes pasos para familiarizarte con la interfaz:",
+                steps: [
+                    "Abre Power BI Desktop y crea un nuevo archivo",
+                    "Identifica y anota la función de cada una de las pestañas de la cinta de opciones",
+                    "Cambia entre las tres vistas principales y describe la diferencia entre ellas",
+                    "Localiza los paneles de Datos, Visualizaciones y Filtros",
+                    "Practica los atajos de teclado más comunes (Ctrl+S, Alt+1, Alt+2, Alt+3)"
+                ]
+            }
+        ]
+    },
+
+    // Contenido específico para modo autoguiado
+    selfGuidedContent: {
+        description: "La interfaz de Power BI Desktop puede parecer compleja al principio, pero con práctica te resultará intuitiva y eficiente. Esta sección te ayudará a familiarizarte con ella.",
+        checkpoints: [
+            "Puedo identificar las tres vistas principales de Power BI Desktop y su propósito",
+            "Conozco la función de los principales paneles (Datos, Visualizaciones, Filtros)",
+            "Entiendo cómo está organizada la cinta de opciones y sus pestañas principales",
+            "Puedo navegar eficientemente por la interfaz usando tanto el ratón como atajos de teclado",
+            "Sé cómo personalizar la interfaz según mis preferencias de trabajo"
+        ],
+        additionalResources: [
+            {
+                title: "Guía de la interfaz de Power BI Desktop",
+                url: "https://learn.microsoft.com/es-es/power-bi/fundamentals/desktop-what-is-desktop",
+                description: "Documentación oficial de Microsoft sobre la interfaz de Power BI Desktop"
+            },
+            {
+                title: "Atajos de teclado en Power BI Desktop",
+                url: "https://learn.microsoft.com/es-es/power-bi/create-reports/desktop-accessibility-keyboard-shortcuts",
+                description: "Lista completa de atajos de teclado para trabajar más eficientemente"
+            }
+        ]
     }
 };
 
 // Paso 4: Tipos de Datos y Modelos (Conceptos Básicos)
 const introStep4Content = {
     title: "Tipos de Datos y Modelos (Conceptos Básicos)",
+
+    // Contenido principal
+    content: `
+        <div class="mb-6">
+            <p class="mb-4">Para crear informes efectivos en Power BI, es fundamental comprender los tipos de datos y los conceptos básicos de modelado. Estos conocimientos te permitirán organizar tus datos de manera óptima y extraer el máximo valor de ellos.</p>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Tipos de Datos en Power BI</h3>
+
+            <p class="mb-4">Power BI trabaja con diferentes tipos de datos, cada uno con características específicas y usos particulares:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-blue-600">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xl font-bold mr-2">Aa</span>
+                        <h4 class="font-bold text-blue-800">Texto</h4>
+                    </div>
+                    <p class="text-sm mb-2">Cadenas de caracteres alfanuméricos.</p>
+                    <p class="text-xs text-gray-600">Ejemplos: Nombres, direcciones, códigos de producto, categorías.</p>
+                    <p class="text-xs text-gray-600 mt-1">Operaciones: Concatenación, búsqueda, filtrado por coincidencia.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-green-600">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xl font-bold mr-2">123</span>
+                        <h4 class="font-bold text-green-800">Número</h4>
+                    </div>
+                    <p class="text-sm mb-2">Valores numéricos enteros o decimales.</p>
+                    <p class="text-xs text-gray-600">Ejemplos: Precios, cantidades, edades, porcentajes.</p>
+                    <p class="text-xs text-gray-600 mt-1">Operaciones: Suma, promedio, mínimo, máximo, comparaciones.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-purple-600">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xl font-bold mr-2">📅</span>
+                        <h4 class="font-bold text-purple-800">Fecha/Hora</h4>
+                    </div>
+                    <p class="text-sm mb-2">Valores de fecha, hora o combinación de ambos.</p>
+                    <p class="text-xs text-gray-600">Ejemplos: Fecha de venta, fecha de nacimiento, hora de registro.</p>
+                    <p class="text-xs text-gray-600 mt-1">Operaciones: Filtrado por períodos, cálculos de diferencia, agrupación por año/mes/día.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-md border-l-4 border-yellow-600">
+                    <div class="flex items-center mb-2">
+                        <span class="text-xl font-bold mr-2">✓✗</span>
+                        <h4 class="font-bold text-yellow-800">Booleano</h4>
+                    </div>
+                    <p class="text-sm mb-2">Valores verdadero/falso (sí/no).</p>
+                    <p class="text-xs text-gray-600">Ejemplos: Cliente activo, producto disponible, pago completado.</p>
+                    <p class="text-xs text-gray-600 mt-1">Operaciones: Filtrado por condición, lógica condicional.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">¿Por qué son importantes los tipos de datos correctos?</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Cálculos precisos:</strong> Los números deben ser reconocidos como números para poder sumarlos, promediarlos, etc.</li>
+                    <li><strong>Filtrado efectivo:</strong> Las fechas deben ser reconocidas como fechas para filtrar por períodos (mes, trimestre, año).</li>
+                    <li><strong>Ordenamiento correcto:</strong> Los textos se ordenan alfabéticamente, los números por valor.</li>
+                    <li><strong>Visualizaciones adecuadas:</strong> Power BI sugiere visualizaciones según los tipos de datos seleccionados.</li>
+                </ul>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Conceptos Básicos de Modelado de Datos</h3>
+
+            <p class="mb-4">El modelado de datos en Power BI consiste en organizar tablas y establecer relaciones entre ellas para permitir análisis más complejos.</p>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Tablas</h4>
+                <p class="mb-2">Conjuntos de datos organizados en filas (registros) y columnas (campos).</p>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200 text-sm">
+                        <thead>
+                            <tr>
+                                <th class="py-1 px-3 border-b border-gray-200 bg-gray-100 text-left">ID_Cliente</th>
+                                <th class="py-1 px-3 border-b border-gray-200 bg-gray-100 text-left">Nombre</th>
+                                <th class="py-1 px-3 border-b border-gray-200 bg-gray-100 text-left">Ciudad</th>
+                                <th class="py-1 px-3 border-b border-gray-200 bg-gray-100 text-left">Teléfono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-1 px-3 border-b border-gray-200">001</td>
+                                <td class="py-1 px-3 border-b border-gray-200">Ana García</td>
+                                <td class="py-1 px-3 border-b border-gray-200">Madrid</td>
+                                <td class="py-1 px-3 border-b border-gray-200">555-1234</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1 px-3 border-b border-gray-200">002</td>
+                                <td class="py-1 px-3 border-b border-gray-200">Juan López</td>
+                                <td class="py-1 px-3 border-b border-gray-200">Barcelona</td>
+                                <td class="py-1 px-3 border-b border-gray-200">555-5678</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-xs text-gray-600 mt-2">Ejemplo: Tabla de Clientes con campos ID_Cliente, Nombre, Ciudad y Teléfono.</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Relaciones</h4>
+                <p class="mb-2">Conexiones entre tablas basadas en campos comunes que permiten combinar datos de diferentes tablas.</p>
+                <div class="flex items-center justify-center mb-2">
+                    <img src="assets/img/relationship-example.png" alt="Ejemplo de relación entre tablas" class="max-w-full h-auto rounded-lg">
+                </div>
+                <p class="text-sm">La tabla Ventas se relaciona con la tabla Clientes mediante el campo ID_Cliente, y con la tabla Productos mediante el campo ID_Producto.</p>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Cardinalidad</h4>
+                <p class="mb-2">Define cómo se relacionan los registros entre tablas:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-2">
+                    <div class="border border-gray-200 rounded p-3">
+                        <h5 class="font-bold text-sm mb-1">Uno a Muchos (1:N)</h5>
+                        <p class="text-xs">Un registro en la tabla A puede relacionarse con muchos registros en la tabla B.</p>
+                        <p class="text-xs italic mt-1">Ejemplo: Un cliente puede tener muchas ventas.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded p-3">
+                        <h5 class="font-bold text-sm mb-1">Uno a Uno (1:1)</h5>
+                        <p class="text-xs">Un registro en la tabla A se relaciona con exactamente un registro en la tabla B.</p>
+                        <p class="text-xs italic mt-1">Ejemplo: Un empleado tiene un único ID de usuario.</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded p-3">
+                        <h5 class="font-bold text-sm mb-1">Muchos a Muchos (N:N)</h5>
+                        <p class="text-xs">Múltiples registros en la tabla A pueden relacionarse con múltiples registros en la tabla B.</p>
+                        <p class="text-xs italic mt-1">Ejemplo: Estudiantes y cursos: un estudiante puede tomar varios cursos, y un curso puede tener varios estudiantes.</p>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-600">La cardinalidad más común en Power BI es Uno a Muchos (1:N).</p>
+            </div>
+
+            <h3 class="text-lg font-bold text-blue-800 mb-3">Ejemplo de Modelo de Datos</h3>
+
+            <p class="mb-4">Veamos un ejemplo simple de modelo de datos para un sistema de ventas:</p>
+
+            <div class="flex items-center justify-center mb-6">
+                <img src="assets/img/data-model-example.png" alt="Ejemplo de modelo de datos" class="max-w-full h-auto rounded-lg shadow-md">
+            </div>
+
+            <div class="bg-yellow-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-yellow-800 mb-2">Consejos para un buen modelado</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Normalización:</strong> Divide los datos en tablas lógicas para evitar redundancia.</li>
+                    <li><strong>Claves únicas:</strong> Asegúrate de que cada tabla tenga un campo de identificación único.</li>
+                    <li><strong>Dirección de filtro:</strong> Configura correctamente la dirección en que se propagan los filtros entre tablas.</li>
+                    <li><strong>Tablas de fechas:</strong> Crea tablas de calendario para análisis temporales más potentes.</li>
+                    <li><strong>Nombres claros:</strong> Usa nombres descriptivos para tablas y campos.</li>
+                </ul>
+            </div>
+
+            <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                <h4 class="font-bold text-blue-800 mb-2">Ventajas de un buen modelo de datos</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong>Rendimiento:</strong> Un modelo bien diseñado es más eficiente y rápido.</li>
+                    <li><strong>Flexibilidad:</strong> Facilita la creación de diferentes tipos de análisis y visualizaciones.</li>
+                    <li><strong>Mantenibilidad:</strong> Es más fácil de actualizar y expandir con el tiempo.</li>
+                    <li><strong>Precisión:</strong> Reduce errores en cálculos y agregaciones.</li>
+                    <li><strong>Usabilidad:</strong> Hace que los informes sean más intuitivos para los usuarios finales.</li>
+                </ul>
+            </div>
+
+            <p class="mb-4">En las próximas secciones del taller, aprenderás a aplicar estos conceptos en la práctica, creando modelos de datos efectivos para tus análisis en Power BI.</p>
+        </div>
+    `,
 
     // Tipos de datos
     dataTypes: [

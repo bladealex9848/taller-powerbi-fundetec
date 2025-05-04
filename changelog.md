@@ -2,6 +2,33 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.3.5] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 4 del módulo de introducción (Tipos de Datos y Modelos (Conceptos Básicos))
+- Recursos adicionales (videos y enlaces) para el paso 4 del módulo de introducción
+- Videos específicos sobre tipos de datos y modelado en Power BI para el paso 4
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 4 del módulo de introducción
+- Falta de recursos adicionales en el paso 4 del módulo de introducción
+
+## [1.3.4] - 2024-07-16
+
+### Añadido
+- Contenido principal para el paso 3 del módulo de introducción (Recorrido por la Interfaz de Power BI Desktop)
+- Diagrama de la interfaz de Power BI Desktop para el paso 3
+- Lista de atajos de teclado útiles para el paso 3
+- Quiz para comprobar comprensión en el paso 3
+- Contenido específico para modos estudiante y autoguiado en el paso 3
+- Recursos adicionales (videos y enlaces) para el paso 3 del módulo de introducción
+- Videos específicos sobre la interfaz de Power BI Desktop para el paso 3
+
+### Corregido
+- Error "Este paso no tiene contenido principal definido" en el paso 3 del módulo de introducción
+- Falta de recursos adicionales en el paso 3 del módulo de introducción
+- Falta de componentes adicionales (diagrama, atajos, quiz) en el paso 3
+
 ## [1.3.3] - 2024-07-16
 
 ### Añadido

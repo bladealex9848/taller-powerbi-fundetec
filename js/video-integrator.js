@@ -115,6 +115,57 @@ function insertIntroVideos(containerId) {
             'Cómo descargar e instalar Power BI Desktop',
             'Tutorial paso a paso para descargar e instalar Power BI Desktop en tu computadora.'
         );
+    } else if (currentStep === 2) {
+        // Videos específicos para el paso 3: Recorrido por la Interfaz de Power BI Desktop
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'Wy_QpPu_CZE',
+            'Interfaz de Power BI Desktop: Guía completa',
+            'Recorrido detallado por todas las áreas de la interfaz de Power BI Desktop.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'Jbocj79eBXQ',
+            'Las 3 vistas de Power BI Desktop: Informe, Datos y Modelo',
+            'Explicación de las tres vistas principales y cuándo usar cada una.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'Hn9kNzN8H4I',
+            'Atajos de teclado en Power BI Desktop',
+            'Los atajos de teclado más útiles para trabajar de manera eficiente en Power BI Desktop.'
+        );
+    } else if (currentStep === 3) {
+        // Videos específicos para el paso 4: Tipos de Datos y Modelos (Conceptos Básicos)
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'Ld1MwGK0Ivo',
+            'Tipos de datos en Power BI: Guía completa',
+            'Explicación detallada de los diferentes tipos de datos en Power BI y cómo trabajar con ellos.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'FnbLGPmB-Dw',
+            'Modelado de datos en Power BI para principiantes',
+            'Introducción al modelado de datos en Power BI: tablas, relaciones y cardinalidad.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'GmLVXJdhH9o',
+            'Relaciones en Power BI: Cómo crearlas y gestionarlas',
+            'Tutorial paso a paso para crear y gestionar relaciones entre tablas en Power BI.'
+        );
+
+        insertYouTubeVideo(
+            'intro-videos-container',
+            'ePPi1RPuZ6s',
+            'Mejores prácticas de modelado en Power BI',
+            'Consejos y mejores prácticas para crear modelos de datos eficientes y efectivos en Power BI.'
+        );
     } else {
         // Videos generales para otros pasos del módulo de introducción
         insertYouTubeVideo(
