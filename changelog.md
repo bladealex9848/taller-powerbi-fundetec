@@ -2,6 +2,21 @@
 
 Este archivo documenta todos los cambios significativos realizados en el proyecto.
 
+## [1.5.1] - 2024-07-16
+
+### Añadido
+- Componentes adicionales para el paso 4 del módulo de práctica (Recursos para Continuar Aprendiendo)
+- Quiz para comprobar comprensión en el paso 4 del módulo de práctica
+- Diagrama de la ruta de aprendizaje recomendada en Power BI
+- Contenido específico para modos estudiante y autoguiado en el paso 4 del módulo de práctica
+- Sección de recursos avanzados con enlaces a documentación sobre DAX y optimización
+
+### Mejorado
+- Contenido principal del paso 4 del módulo de práctica con secciones adicionales sobre rutas de aprendizaje, formatos de aprendizaje y niveles de experiencia
+- Sección sobre plan de estudio recomendado y tendencias actuales
+- Organización visual del contenido con tarjetas y secciones destacadas
+- Estructura de los recursos para facilitar la navegación por nivel y tema
+
 ## [1.5.0] - 2024-07-16
 
 ### Añadido

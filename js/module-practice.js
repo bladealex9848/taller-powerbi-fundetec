@@ -837,6 +837,49 @@ const practiceModuleContent = {
             <div class="mb-6">
                 <p class="mb-4">¡Felicidades por completar los ejercicios prácticos! Para seguir desarrollando tus habilidades con Power BI, aquí tienes una selección de recursos adicionales organizados por nivel y tema.</p>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Rutas de aprendizaje</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Fundamentos de Power BI</li>
+                            <li>Modelado de datos avanzado</li>
+                            <li>Lenguaje DAX</li>
+                            <li>Visualización de datos</li>
+                            <li>Administración y seguridad</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Elige una ruta según tus objetivos profesionales</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Formatos de aprendizaje</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Documentación oficial</li>
+                            <li>Tutoriales en video</li>
+                            <li>Cursos online</li>
+                            <li>Libros y guías</li>
+                            <li>Comunidades y foros</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Combina diferentes formatos para un aprendizaje efectivo</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-gray-800 mb-3">Niveles de experiencia</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Principiante:</strong> Fundamentos básicos</li>
+                            <li><strong>Intermedio:</strong> Modelado y DAX</li>
+                            <li><strong>Avanzado:</strong> Optimización y patrones</li>
+                            <li><strong>Experto:</strong> Arquitectura empresarial</li>
+                        </ul>
+                        <div class="mt-3 text-xs text-blue-600">
+                            <p>Avanza gradualmente entre los niveles</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="bg-blue-50 p-4 rounded-lg">
                         <h4 class="font-bold text-blue-800 mb-2">Recursos para principiantes</h4>
@@ -856,6 +899,28 @@ const practiceModuleContent = {
                             <li><a href="https://powerbi.microsoft.com/es-es/blog/" target="_blank" class="text-green-600 hover:underline">Blog oficial de Power BI (actualizaciones y consejos)</a></li>
                             <li>Plantillas avanzadas (disponibles en la sección de recursos)</li>
                         </ul>
+                    </div>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-lg mb-6">
+                    <h4 class="font-bold text-purple-800 mb-2">Recursos avanzados</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-bold text-purple-700 mb-1">Lenguaje DAX</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><a href="https://dax.guide/" target="_blank" class="text-purple-600 hover:underline">DAX Guide - Referencia completa</a></li>
+                                <li><a href="https://www.sqlbi.com/articles/filter-context-in-dax/" target="_blank" class="text-purple-600 hover:underline">Contexto de filtro en DAX</a></li>
+                                <li><a href="https://www.sqlbi.com/articles/row-context-in-dax/" target="_blank" class="text-purple-600 hover:underline">Contexto de fila en DAX</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-purple-700 mb-1">Optimización y rendimiento</h5>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><a href="https://docs.microsoft.com/es-es/power-bi/guidance/power-bi-optimization" target="_blank" class="text-purple-600 hover:underline">Guía de optimización de Power BI</a></li>
+                                <li><a href="https://docs.microsoft.com/es-es/power-bi/guidance/import-modeling-data-reduction" target="_blank" class="text-purple-600 hover:underline">Reducción de datos para modelos de importación</a></li>
+                                <li><a href="https://docs.microsoft.com/es-es/power-bi/guidance/directquery-model-guidance" target="_blank" class="text-purple-600 hover:underline">Directrices para modelos DirectQuery</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -900,9 +965,151 @@ const practiceModuleContent = {
                     </ul>
                 </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Plan de estudio recomendado</h5>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>Completar la ruta de aprendizaje oficial de Microsoft</li>
+                            <li>Practicar con los datasets proporcionados</li>
+                            <li>Unirse a la comunidad y participar en foros</li>
+                            <li>Seguir tutoriales específicos según tus intereses</li>
+                            <li>Prepararse para una certificación oficial</li>
+                            <li>Aplicar lo aprendido en proyectos reales</li>
+                        </ol>
+                        <p class="text-xs text-gray-600 mt-2">Un enfoque estructurado facilita el aprendizaje continuo.</p>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <h5 class="font-bold text-gray-800 mb-2">Tendencias actuales</h5>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>IA en Power BI:</strong> Integración con servicios cognitivos</li>
+                            <li><strong>Fabric:</strong> Plataforma unificada de Microsoft</li>
+                            <li><strong>Composite Models:</strong> Combinación de DirectQuery e Import</li>
+                            <li><strong>Dataflows:</strong> Preparación de datos reutilizables</li>
+                            <li><strong>Paginated Reports:</strong> Informes operativos detallados</li>
+                            <li><strong>Power BI Premium:</strong> Capacidades empresariales</li>
+                        </ul>
+                        <p class="text-xs text-gray-600 mt-2">Mantente actualizado con las últimas tendencias y tecnologías.</p>
+                    </div>
+                </div>
+
                 <p class="text-center font-bold text-blue-800 mt-6">¡Continúa tu viaje de aprendizaje con Power BI y lleva tus habilidades de análisis de datos al siguiente nivel!</p>
             </div>
-        `
+        `,
+
+        // Quiz para comprobar comprensión
+        quiz: {
+            questionId: "practice-quiz-4",
+            question: "¿Cuál es el mejor enfoque para continuar aprendiendo Power BI después de este taller?",
+            options: [
+                "Memorizar toda la documentación oficial de Microsoft",
+                "Centrarse exclusivamente en tutoriales en video",
+                "Combinar diferentes recursos y practicar regularmente con datos reales",
+                "Prepararse inmediatamente para la certificación más avanzada"
+            ],
+            correctIndex: 2
+        },
+
+        // Diagrama de la ruta de aprendizaje
+        diagram: {
+            title: "Ruta de aprendizaje recomendada en Power BI",
+            description: "Este diagrama muestra el camino recomendado para desarrollar tus habilidades en Power BI, desde principiante hasta experto.",
+            steps: [
+                {
+                    step: 1,
+                    title: "Fundamentos",
+                    description: "Interfaz, conexión a datos y visualizaciones básicas"
+                },
+                {
+                    step: 2,
+                    title: "Modelado de datos",
+                    description: "Relaciones, jerarquías y estructuras de datos"
+                },
+                {
+                    step: 3,
+                    title: "Lenguaje DAX",
+                    description: "Medidas calculadas, columnas y funciones"
+                },
+                {
+                    step: 4,
+                    title: "Visualización avanzada",
+                    description: "Técnicas de diseño y visualizaciones personalizadas"
+                },
+                {
+                    step: 5,
+                    title: "Administración y seguridad",
+                    description: "Implementación, compartir y seguridad a nivel de fila"
+                },
+                {
+                    step: 6,
+                    title: "Optimización y rendimiento",
+                    description: "Mejora del rendimiento y solución de problemas"
+                }
+            ]
+        },
+
+        // Contenido específico para cada modo
+        studentContent: {
+            description: "En esta sección, encontrarás recursos adicionales para continuar tu aprendizaje de Power BI después del taller, organizados por nivel y tema.",
+            exercises: [
+                {
+                    title: "Plan de estudio post-taller",
+                    description: "Sigue estos pasos para continuar tu aprendizaje de Power BI:",
+                    steps: [
+                        "Completa la ruta de aprendizaje oficial de Microsoft para Power BI",
+                        "Practica regularmente con los datasets proporcionados en la sección de recursos",
+                        "Únete a la comunidad oficial de Power BI y participa en foros de discusión",
+                        "Sigue tutoriales específicos según tus intereses y necesidades",
+                        "Considera prepararte para una certificación oficial de Microsoft",
+                        "Aplica lo aprendido en proyectos reales o personales",
+                        "Mantente actualizado con las últimas características y mejoras de Power BI"
+                    ]
+                },
+                {
+                    title: "Proyecto personal recomendado",
+                    description: "Para consolidar tus conocimientos, te recomendamos crear un proyecto personal:",
+                    steps: [
+                        "Elige un tema que te interese (finanzas personales, seguimiento de hábitos, análisis de datos públicos, etc.)",
+                        "Recopila o crea un conjunto de datos relacionado con ese tema",
+                        "Aplica las técnicas de modelado y transformación aprendidas",
+                        "Crea visualizaciones efectivas que comuniquen insights relevantes",
+                        "Implementa interactividad y filtros para explorar los datos",
+                        "Comparte tu proyecto con otros estudiantes o en la comunidad para recibir feedback",
+                        "Itera y mejora tu proyecto basándote en el feedback recibido"
+                    ]
+                }
+            ]
+        },
+
+        selfGuidedContent: {
+            description: "Esta sección te proporciona una guía para continuar tu aprendizaje de Power BI de forma independiente, con verificaciones para asegurar tu progreso.",
+            checkpoints: [
+                "He identificado mi nivel actual de conocimiento en Power BI",
+                "He seleccionado recursos adecuados para mi nivel y objetivos de aprendizaje",
+                "He creado un plan de estudio personalizado con objetivos claros",
+                "He establecido un horario regular para practicar y aprender",
+                "He identificado proyectos reales donde puedo aplicar mis conocimientos",
+                "He considerado unirme a comunidades para obtener soporte y compartir experiencias",
+                "He evaluado si una certificación oficial sería beneficiosa para mi carrera"
+            ],
+            additionalResources: [
+                {
+                    title: "Guía completa de Power BI",
+                    url: "https://docs.microsoft.com/es-es/power-bi/fundamentals/desktop-what-is-desktop",
+                    description: "Documentación oficial completa de Microsoft sobre Power BI"
+                },
+                {
+                    title: "Comunidad Power BI en español",
+                    url: "https://community.powerbi.com/t5/Comunidad-en-Espa%C3%B1ol/bd-p/pbi-spanish",
+                    description: "Foro en español para resolver dudas y compartir conocimientos"
+                },
+                {
+                    title: "Calendario de actualizaciones de Power BI",
+                    url: "https://powerbi.microsoft.com/es-es/roadmap/",
+                    description: "Información sobre las próximas características y mejoras de Power BI"
+                }
+            ]
+        }
     },
 
     // Contenido específico para modo estudiante
