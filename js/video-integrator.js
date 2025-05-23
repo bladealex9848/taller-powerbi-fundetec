@@ -82,14 +82,14 @@ function insertIntroVideos(containerId) {
         // Videos específicos para el paso 1: Importancia del Análisis de Datos
         insertYouTubeVideo(
             'intro-videos-container',
-            'Yzx7iRJFCxQ',
+            'nEO6sx5oMmM',
             'Análisis de Datos: ¿Qué es y por qué es importante?',
             'Explicación clara sobre la importancia del análisis de datos en el mundo actual.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'ua-X86o6vr0',
+            'C8HatpMK9Hw',
             'Power BI: La herramienta de análisis de datos más potente',
             'Introducción a Power BI como herramienta de análisis de datos.'
         );
@@ -97,21 +97,21 @@ function insertIntroVideos(containerId) {
         // Videos específicos para el paso 2: Microsoft Power BI: Componentes Esenciales
         insertYouTubeVideo(
             'intro-videos-container',
-            'yKTSLuJ9hSY',
+            '_1Fw_gWVQ8c',
             'Power BI: Componentes y Arquitectura',
             'Explicación detallada de los componentes de Power BI y cómo se relacionan entre sí.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'DFWFqLKE3Gs',
+            'xlEDiKxTNzY',
             'Power BI Desktop vs Power BI Service: Diferencias y usos',
             'Comparación entre los dos componentes principales de Power BI y cuándo usar cada uno.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'ByZrxlBGiIY',
+            'O9gy6n-kTgs',
             'Cómo descargar e instalar Power BI Desktop',
             'Tutorial paso a paso para descargar e instalar Power BI Desktop en tu computadora.'
         );
@@ -119,21 +119,21 @@ function insertIntroVideos(containerId) {
         // Videos específicos para el paso 3: Recorrido por la Interfaz de Power BI Desktop
         insertYouTubeVideo(
             'intro-videos-container',
-            'Wy_QpPu_CZE',
+            'RJrUpJqf7kw',
             'Interfaz de Power BI Desktop: Guía completa',
             'Recorrido detallado por todas las áreas de la interfaz de Power BI Desktop.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'Jbocj79eBXQ',
+            'xYh8UsNLCjk',
             'Las 3 vistas de Power BI Desktop: Informe, Datos y Modelo',
             'Explicación de las tres vistas principales y cuándo usar cada una.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'Hn9kNzN8H4I',
+            'Bp62KMpNweA',
             'Atajos de teclado en Power BI Desktop',
             'Los atajos de teclado más útiles para trabajar de manera eficiente en Power BI Desktop.'
         );
@@ -141,28 +141,28 @@ function insertIntroVideos(containerId) {
         // Videos específicos para el paso 4: Tipos de Datos y Modelos (Conceptos Básicos)
         insertYouTubeVideo(
             'intro-videos-container',
-            'Ld1MwGK0Ivo',
+            '31FP8UH6l20',
             'Tipos de datos en Power BI: Guía completa',
             'Explicación detallada de los diferentes tipos de datos en Power BI y cómo trabajar con ellos.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'FnbLGPmB-Dw',
+            '0XJhzPsvhjc',
             'Modelado de datos en Power BI para principiantes',
             'Introducción al modelado de datos en Power BI: tablas, relaciones y cardinalidad.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'GmLVXJdhH9o',
+            'yoGQXpQf-bM',
             'Relaciones en Power BI: Cómo crearlas y gestionarlas',
             'Tutorial paso a paso para crear y gestionar relaciones entre tablas en Power BI.'
         );
 
         insertYouTubeVideo(
             'intro-videos-container',
-            'ePPi1RPuZ6s',
+            '3UUxTfRUyiU',
             'Mejores prácticas de modelado en Power BI',
             'Consejos y mejores prácticas para crear modelos de datos eficientes y efectivos en Power BI.'
         );
@@ -223,28 +223,28 @@ function insertTransformVideos(containerId) {
         // Videos específicos para el paso 1: Conexión a Fuentes de Datos
         insertYouTubeVideo(
             'transform-videos-container',
-            'Wy_QpPu_CZE',
+            '_k4sUhoOFwo',
             'Obtener datos en Power BI: Todas las fuentes de datos',
             'Explicación detallada de las diferentes fuentes de datos disponibles en Power BI.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'Ld1MwGK0Ivo',
+            'AKTlzGRqry8',
             'Importación vs DirectQuery: ¿Cuál elegir?',
             'Comparación entre los modos de conexión Importación y DirectQuery, ventajas y desventajas.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'ByZrxlBGiIY',
+            'p2ewyOKQS7w',
             'Conectar a Excel y CSV en Power BI',
             'Tutorial paso a paso para conectar a archivos Excel y CSV en Power BI.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'GmLVXJdhH9o',
+            '1GlPZ2g2Ef0',
             'Conectar a bases de datos SQL Server desde Power BI',
             'Guía completa para conectar Power BI a bases de datos SQL Server.'
         );
@@ -266,14 +266,14 @@ function insertTransformVideos(containerId) {
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'Jbocj79eBXQ',
+            '5d6f8VG8jXE',
             'Panel de Pasos Aplicados: El Corazón de Power Query',
             'Cómo utilizar el panel de Pasos Aplicados para documentar y editar transformaciones.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'Hn9kNzN8H4I',
+            'O-MYC42F1DE',
             'Tipos de Datos en Power Query: Guía Completa',
             'Explicación de los diferentes tipos de datos y cómo trabajar con ellos en Power Query.'
         );
@@ -281,21 +281,21 @@ function insertTransformVideos(containerId) {
         // Videos específicos para el paso 3: Transformaciones Fundamentales
         insertYouTubeVideo(
             'transform-videos-container',
-            'Hn9kNzN8H4I',
+            'KkM5itUWYek',
             'Transformaciones de Columnas en Power Query',
             'Aprende a modificar, dividir, combinar y crear columnas personalizadas en Power Query.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'Jbocj79eBXQ',
+            'yhqunAPrhSE',
             'Transformaciones de Filas en Power Query',
             'Técnicas para filtrar, ordenar y manipular filas en Power Query.'
         );
 
         insertYouTubeVideo(
             'transform-videos-container',
-            'ezc9ZVMxYwU',
+            'VXEWckpKsfc',
             'Transformaciones de Tabla en Power Query',
             'Aprende a transponer, dinamizar y anular dinamización de tablas en Power Query.'
         );
@@ -355,7 +355,7 @@ function insertDemoVideos(containerId) {
     if (currentStep === 0) { // Introducción a la Demostración
         insertYouTubeVideo(
             'demo-videos-container',
-            'ZY5uhdKllYk',
+            'p639VfOSyaI',
             'Cómo crear un Dashboard en Power BI desde Cero y Paso a Paso',
             'Tutorial completo que muestra el proceso de creación de un dashboard desde el principio.'
         );
@@ -369,7 +369,7 @@ function insertDemoVideos(containerId) {
 
         insertYouTubeVideo(
             'demo-videos-container',
-            'iiNDq2VnZSo',
+            'EARXUaMhqcE',
             'Introducción a Power BI: Primeros pasos para crear dashboards',
             'Conceptos básicos para comenzar a crear dashboards efectivos.'
         );
@@ -397,21 +397,21 @@ function insertDemoVideos(containerId) {
 
         insertYouTubeVideo(
             'demo-videos-container',
-            'Jbocj79eBXQ',
+            '5RrmTaKRYwI',
             'Conexión a Excel y CSV en Power BI',
             'Tutorial específico sobre cómo importar datos desde archivos Excel y CSV.'
         );
 
         insertYouTubeVideo(
             'demo-videos-container',
-            'Hn9kNzN8H4I',
+            'A7Uack6fROo',
             'Conexión a bases de datos SQL en Power BI',
             'Cómo conectar Power BI a bases de datos SQL Server y otras bases de datos relacionales.'
         );
     } else if (currentStep === 2) { // Creación de Visualizaciones
         insertYouTubeVideo(
             'demo-videos-container',
-            '8L2ArDp-IDI',
+            '9QDs3RliyjU',
             'Visualizaciones en Power BI: Guía completa',
             'Tutorial detallado sobre los diferentes tipos de visualizaciones disponibles en Power BI.'
         );
@@ -425,7 +425,7 @@ function insertDemoVideos(containerId) {
 
         insertYouTubeVideo(
             'demo-videos-container',
-            'iiNDq2VnZSo',
+            'UzPfBpwQQCA',
             'Personalización de visualizaciones en Power BI',
             'Cómo dar formato y personalizar tus visualizaciones para hacerlas más efectivas.'
         );
@@ -453,7 +453,7 @@ function insertDemoVideos(containerId) {
 
         insertYouTubeVideo(
             'demo-videos-container',
-            'iiNDq2VnZSo',
+            'EZ4DBa2OomU',
             'Interactividad en Dashboards de Power BI',
             'Cómo configurar la interactividad entre visualizaciones para crear dashboards dinámicos.'
         );
@@ -542,21 +542,21 @@ function insertPracticeVideos(containerId) {
 
         insertYouTubeVideo(
             'practice-videos-container',
-            'Jbocj79eBXQ',
+            'Haj-tiupUJw',
             'Consejos para practicar eficientemente con Power BI',
             'Recomendaciones para aprovechar al máximo tus sesiones de práctica.'
         );
 
         insertYouTubeVideo(
             'practice-videos-container',
-            'Hn9kNzN8H4I',
+            '6LLdN7iuZi0',
             'Errores comunes al comenzar con Power BI',
             'Problemas frecuentes y cómo evitarlos cuando estás aprendiendo Power BI.'
         );
     } else if (currentModule === 'practice' && currentStep === 1) { // Desarrollo Paso a Paso
         insertYouTubeVideo(
             'practice-videos-container',
-            'Jbocj79eBXQ',
+            '_k4sUhoOFwo',
             'Conexión a datos en Power BI',
             'Tutorial detallado sobre cómo conectarse a diferentes fuentes de datos en Power BI.'
         );
@@ -577,7 +577,7 @@ function insertPracticeVideos(containerId) {
 
         insertYouTubeVideo(
             'practice-videos-container',
-            'Hn9kNzN8H4I',
+            'Ra3Q0IyQ2gQ',
             'Modelo en estrella vs. copo de nieve',
             'Diferencias entre los modelos de datos en estrella y copo de nieve, y cuándo usar cada uno.'
         );
@@ -598,7 +598,7 @@ function insertPracticeVideos(containerId) {
 
         insertYouTubeVideo(
             'practice-videos-container',
-            'iiNDq2VnZSo',
+            'WmRdCC6KSpM',
             'Optimización de dashboards en Power BI',
             'Técnicas para mejorar el rendimiento y la usabilidad de tus dashboards.'
         );
