@@ -211,10 +211,17 @@ const workshopResources = {
         {
             icon: '<i class="fas fa-money-bill-wave"></i>',
             title: "Dataset Financiero (Adicional)",
-            description: "Muestra financiera oficial de Microsoft con datos de ventas por segmentos y países.",
+            description: "Muestra financiera con datos de ventas por segmentos y países.",
             type: "Excel",
-            size: "83 KB",
+            size: "8.2 MB",
             url: "assets/datasets/adicionales/financial_sample.xlsx"
+        },
+        {
+            icon: '<i class="fas fa-money-bill-wave"></i>',
+            title: "Datasets de Excel para principiantes",
+            description: "Conjuntos de datos de Excel para principiantes en análisis de datos.",
+            type: "Web",            
+            url: "https://hackernoon.com/lang/es/15-conjuntos-de-datos-de-excel-para-principiantes-en-analisis-de-datos"
         }
     ],
     guides: [
@@ -278,17 +285,15 @@ const workshopResources = {
             icon: '<i class="fas fa-video"></i>',
             title: "Videos Instructivos",
             description: "Colección de enlaces a videos tutoriales en español organizados por temas.",
-            type: "Markdown",
-            size: "4.5 KB",
-            url: "assets/videos_instructivos.md"
+            type: "Web",            
+            url: "sitios_referencia.html"
         },
         {
             icon: '<i class="fas fa-globe"></i>',
             title: "Sitios de Referencia",
             description: "Enlaces a documentación oficial, blogs de expertos y comunidades en español.",
-            type: "Markdown",
-            size: "3.5 KB",
-            url: "assets/sitios_referencia.md"
+            type: "Web",            
+            url: "sitios_referencia.html"
         },
         {
             icon: '<i class="fas fa-chart-pie"></i>',
@@ -369,7 +374,15 @@ const workshopResources = {
             description: "Colección de plantillas oficiales de Microsoft para diversos escenarios de negocio.",
             type: "Web",
             url: "https://templates.office.com/es-es/plantillas-para-power-bi"
-        }
+        },
+        {
+            icon: '<i class="fas fa-chart-line"></i>',
+            title: "Sales & Returns Sample",
+            description: "Plantilla oficial de Microsoft para análisis de ventas y devoluciones. Incluye funciones avanzadas como drill-through, What-if analysis y visuales personalizados.",
+            type: "PBIX",
+            size: "2.1 MB",
+            url: "assets/templates/Sales & Returns Sample - Dec 2019.pbix"
+        },
     ],
     certification: [
         {
@@ -377,7 +390,7 @@ const workshopResources = {
             title: "Certificado de Participación FUNDETEC",
             description: "Certificado digital que acredita tu participación en el taller de Power BI.",
             type: "Digital",
-            url: "https://fundetec.edu.co/certificados/"
+            url: "https://fundetec.edu.co/"
         },
         {
             icon: '<i class="fas fa-award"></i>',

@@ -885,7 +885,7 @@ const practiceModuleContent = {
                         <h4 class="font-bold text-blue-800 mb-2">Recursos para principiantes</h4>
                         <ul class="list-disc pl-5 space-y-1">
                             <li><a href="https://docs.microsoft.com/es-es/learn/paths/create-use-analytics-reports-power-bi/" target="_blank" class="text-blue-600 hover:underline">Ruta de aprendizaje oficial de Microsoft</a></li>
-                            <li><a href="https://www.youtube.com/playlist?list=PLv2BtOtLblH1MbTtFqwXUWRG9UVOeVt0A" target="_blank" class="text-blue-600 hover:underline">Tutoriales en video para principiantes</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=IM2iduG5Klk&list=PL1yslgETgkYEJqew1WR_WeHElNsVGiAQV" target="_blank" class="text-blue-600 hover:underline">Tutoriales en video para principiantes</a></li>
                             <li><a href="https://powerbi.microsoft.com/es-es/diad/" target="_blank" class="text-blue-600 hover:underline">Dashboard en un día (curso gratuito)</a></li>
                             <li>Libro: "Power BI - Análisis de Datos y Business Intelligence" (disponible en PDF en recursos)</li>
                         </ul>
@@ -895,7 +895,7 @@ const practiceModuleContent = {
                         <h4 class="font-bold text-green-800 mb-2">Recursos intermedios</h4>
                         <ul class="list-disc pl-5 space-y-1">
                             <li><a href="https://docs.microsoft.com/es-es/learn/paths/dax-power-bi/" target="_blank" class="text-green-600 hover:underline">Curso de DAX para análisis avanzado</a></li>
-                            <li><a href="https://www.youtube.com/playlist?list=PLv2BtOtLblH3RYFzJrVqGiDLlRJ0Hf_Vd" target="_blank" class="text-green-600 hover:underline">Tutoriales de modelado avanzado</a></li>
+                            <li><a href="https://www.youtube.com/watch?v=oQ4q2CSXP4M&list=PL2Z95CSZ1N4Hhlv70xz0tdr9od6w_PMTX" target="_blank" class="text-green-600 hover:underline">Tutoriales de modelado avanzado</a></li>
                             <li><a href="https://powerbi.microsoft.com/es-es/blog/" target="_blank" class="text-green-600 hover:underline">Blog oficial de Power BI (actualizaciones y consejos)</a></li>
                             <li>Plantillas avanzadas (disponibles en la sección de recursos)</li>
                         </ul>
@@ -951,8 +951,7 @@ const practiceModuleContent = {
                     <ul class="list-disc pl-5">
                         <li><a href="https://community.powerbi.com/" target="_blank" class="text-yellow-600 hover:underline">Comunidad oficial de Power BI</a></li>
                         <li><a href="https://www.reddit.com/r/PowerBI/" target="_blank" class="text-yellow-600 hover:underline">Subreddit de Power BI</a></li>
-                        <li><a href="https://www.linkedin.com/groups/5096169/" target="_blank" class="text-yellow-600 hover:underline">Grupo de LinkedIn de Power BI</a></li>
-                        <li>Grupo de WhatsApp del taller (escanea el código QR en la sección de recursos)</li>
+                        <li><a href="https://www.linkedin.com/groups/5096169/" target="_blank" class="text-yellow-600 hover:underline">Grupo de LinkedIn de Power BI</a></li>                        
                     </ul>
                 </div>
 

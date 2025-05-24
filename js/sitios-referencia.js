@@ -81,7 +81,7 @@ const blogsAndExperts = [
         icon: 'fas fa-user-tie'
     },
     {
-        url: 'https://www.bitigabi.com/',
+        url: 'https://www.biti.es/',
         title: 'Biti (Santiago Tomás Selma)',
         description: 'Blog enfocado en Business Intelligence con Power BI.',
         icon: 'fas fa-user-tie'
@@ -173,8 +173,8 @@ const introModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.sqlbi.com/articles/power-bi-desktop-vs-power-bi-service/',
-                title: 'SQLBI - Desktop vs Service',
+                url: 'https://yourshortlist.com/es/diferencias-power-bi-desktop-y-power-bi-service/',
+                title: 'YourShortlist - Desktop vs Service',
                 description: 'Análisis detallado de las diferencias entre ambos componentes.',
                 icon: 'fas fa-user-tie'
             }
@@ -206,8 +206,8 @@ const introModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://radacad.com/power-bi-desktop-a-comprehensive-guide',
-                title: 'RADACAD - Guía de Power BI Desktop',
+                url: 'https://www.datacamp.com/es/tutorial/tutorial-power-bi-for-beginners',
+                title: 'Datacamp - Guía de Power BI Desktop',
                 description: 'Guía completa sobre la interfaz de Power BI Desktop.',
                 icon: 'fas fa-user-tie'
             }
@@ -231,7 +231,7 @@ const introModuleLinks = {
                 icon: 'fas fa-database'
             },
             {
-                url: 'https://learn.microsoft.com/es-es/power-bi/transform-model/desktop-data-types',
+                url: 'https://learn.microsoft.com/es-es/power-bi/connect-data/desktop-data-types',
                 title: 'Tipos de datos en Power BI',
                 description: 'Descripción de los diferentes tipos de datos disponibles.',
                 icon: 'fas fa-list'
@@ -278,8 +278,8 @@ const transformModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://radacad.com/directquery-or-import-data-the-eternal-question',
-                title: 'RADACAD - DirectQuery vs Import',
+                url: 'https://www.phdata.io/blog/import-vs-direct-query-power-bi/',
+                title: 'phData - DirectQuery vs Import',
                 description: 'Análisis detallado de los modos de conexión.',
                 icon: 'fas fa-user-tie'
             }
@@ -311,7 +311,7 @@ const transformModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.powerquery.training/blog/',
+                url: 'https://www.myonlinetraininghub.com/get-started-with-power-query',
                 title: 'Power Query Training',
                 description: 'Blog especializado en Power Query con tutoriales.',
                 icon: 'fas fa-graduation-cap'
@@ -416,7 +416,7 @@ const demoModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://powerbi.microsoft.com/es-es/blog/category/best-practices/',
+                url: 'https://blog.bismart.com/las-21-mejores-practicas-para-crear-informes-power-bi',
                 title: 'Blog de Power BI - Mejores prácticas',
                 description: 'Artículos sobre mejores prácticas en Power BI.',
                 icon: 'fas fa-check-circle'
@@ -443,9 +443,9 @@ const demoModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.kasperonbi.com/power-bi-best-practices-data-preparation/',
-                title: 'Kasper On BI - Preparación de datos',
-                description: 'Mejores prácticas para la preparación de datos.',
+                url: 'https://learn.microsoft.com/es-es/training/paths/prepare-data-power-bi/',
+                title: 'Curso de Microsoft - Preparación de datos',
+                description: 'Preparación de datos para el análisis con Power BI.',
                 icon: 'fas fa-user-tie'
             }
         ],
@@ -469,8 +469,8 @@ const demoModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.sqlbi.com/articles/best-practices-for-data-visualization/',
-                title: 'SQLBI - Visualización de datos',
+                url: 'https://www.quantec.mx/post/mejores-pr%C3%A1cticas-para-la-visualizaci%C3%B3n-de-datos-en-power-bi',
+                title: 'QuanTec - Visualización de datos',
                 description: 'Mejores prácticas para visualizar datos efectivamente.',
                 icon: 'fas fa-user-tie'
             }
@@ -495,15 +495,15 @@ const demoModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.blue-granite.com/blog/power-bi-best-practices-for-creating-reports-and-dashboards',
-                title: 'Blue Granite - Mejores prácticas',
+                url: 'https://we-educacion.com/blog-mejores-practicas-optimizar-dashboards-en-power-bi',
+                title: 'we-educacion - Mejores prácticas',
                 description: 'Consejos para crear dashboards efectivos.',
                 icon: 'fas fa-user-tie'
             }
         ],
         communities: [
             {
-                url: 'https://community.fabric.microsoft.com/t5/Service/bd-p/power-bi-service',
+                url: 'https://community.fabric.microsoft.com/t5/Power-BI-forums/ct-p/powerbi',
                 title: 'Foro de Power BI Service',
                 description: 'Discusiones sobre publicación y compartición.',
                 icon: 'fas fa-comments'
@@ -581,8 +581,8 @@ const practiceModuleLinks = {
         ],
         blogs: [
             {
-                url: 'https://www.sqlbi.com/articles/common-mistakes-in-dax/',
-                title: 'SQLBI - Errores comunes en DAX',
+                url: 'https://www.businessintelliencelatam.com/post/resolviendo-problemas-comunes-en-dax-en-powerbi-consejos-y-soluciones',
+                title: 'BI Latam - Errores comunes en DAX',
                 description: 'Cómo evitar errores comunes al trabajar con DAX.',
                 icon: 'fas fa-exclamation-triangle'
             }

@@ -22,7 +22,7 @@
 
 ### Blogs y Comunidades
 - [PowerBI SP (Francisco Mullor Cabrera)](https://powerbisp.com/) - Blog de un MVP de Microsoft centrado en Power BI.
-- [Biti (Santiago Tomás Selma)](https://www.bitigabi.com/) - Blog enfocado en Business Intelligence con Power BI.
+- [Biti (Santiago Tomás Selma)](https://www.biti.es/) - Blog enfocado en Business Intelligence con Power BI.
 - [El Futuro de los Datos (Salvador Ramos)](https://elfuturodelosdatos.com/) - Sitio web y blog de un veterano MVP de Microsoft.
 
 ### Comunidades
