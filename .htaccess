@@ -1,63 +1,34 @@
-# Habilitar CORS para permitir la carga de archivos Markdown y otros recursos
-<IfModule mod_headers.c>
-    <FilesMatch "\.(md|json|css|js|jpg|png|gif|svg|ico)$">
-        Header set Access-Control-Allow-Origin "*"
-        Header set Access-Control-Allow-Methods "GET, OPTIONS"
-        Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
-    </FilesMatch>
-</IfModule>
+# Proteger el archivo .htaccess de accesos externos
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
 
-# Configurar tipos MIME para archivos
-<IfModule mod_mime.c>
-    AddType text/markdown .md
-    AddType text/css .css
-    AddType application/javascript .js
-    AddType image/jpeg .jpg .jpeg
-    AddType image/png .png
-    AddType image/gif .gif
-    AddType image/svg+xml .svg
-    AddType image/x-icon .ico
-</IfModule>
+# Proteger archivos sensibles (CORREGIDO - permitir logs internos)
+<FilesMatch "\.(env|bak|backup|old)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
-# Asegurar que los archivos CSS se sirvan correctamente
-<IfModule mod_rewrite.c>
-    RewriteEngine On
+# Proteger error_log específicamente del acceso web externo pero permitir acceso interno PHP
+<Files "error_log">
+    Order allow,deny
+    Deny from all
+</Files>
 
-    # Si el archivo CSS existe, servirlo directamente
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^(.+\.css)$ $1 [L]
+# Permitir acceso a archivos PHP principales
+<FilesMatch "\.(php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
 
-    # Si el archivo CSS no existe, intentar con la ruta relativa
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^css/(.+\.css)$ css/$1 [L]
-</IfModule>
+# Forzar redirección a HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Configurar caché para mejorar el rendimiento
-<IfModule mod_expires.c>
-    ExpiresActive On
+# Deshabilitar listado de directorios
+Options -Indexes
 
-    # Imágenes
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-
-    # CSS, JavaScript
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-
-    # Archivos Markdown (no cachear para desarrollo)
-    ExpiresByType text/markdown "access plus 0 seconds"
-
-    # Archivos HTML
-    ExpiresByType text/html "access plus 0 seconds"
-</IfModule>
-
-# Comprimir archivos para mejorar el rendimiento
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json text/markdown
-</IfModule>
-
-# Redirigir errores 404 a la página principal
-ErrorDocument 404 /index.html
+# Página de inicio por defecto
+DirectoryIndex index.php index.html
